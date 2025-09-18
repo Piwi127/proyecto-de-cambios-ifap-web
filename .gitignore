@@ -1,3 +1,4 @@
 /proc/
 .vscode/
 node_modules/
+/run/user/1000/doc/
