@@ -1,0 +1,52 @@
+{
+  "name": "proyecto-ifap-web",
+  "version": "1.0.0",
+  "description": "Sitio web oficial del Instituto de Formación y Capacitación Popular (IFAP)",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server . -p 3000 -o",
+    "dev": "npx live-server --port=3000 --open=index.html",
+    "build": "echo 'Building project...' && npm run minify-css && npm run minify-js",
+    "minify-css": "npx cleancss-cli styles/main.css -o styles/main.min.css",
+    "minify-js": "npx terser scripts/main.js -o scripts/main.min.js --compress --mangle",
+    "validate": "npx html-validator --file index.html",
+    "lint-css": "npx stylelint styles/*.css",
+    "lint-js": "npx eslint scripts/*.js",
+    "test": "echo 'Running tests...' && npm run validate",
+    "deploy": "echo 'Deploying to production...'",
+    "clean": "rm -f styles/*.min.css scripts/*.min.js"
+  },
+  "keywords": [
+    "ifap",
+    "instituto",
+    "formacion",
+    "capacitacion",
+    "educacion",
+    "web",
+    "responsive"
+  ],
+  "author": "IFAP Development Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Piwi127/proyecto-de-cambios-ifap-web.git"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.2",
+    "eslint": "^8.50.0",
+    "html-validator": "^6.0.1",
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2",
+    "stylelint": "^15.10.3",
+    "terser": "^5.20.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}
