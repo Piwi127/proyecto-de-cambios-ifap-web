@@ -1,0 +1,66 @@
+/* App.css - Estilos globales para la aplicación */
+
+#root {
+  min-height: 100vh;
+  background: inherit;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background-color: #16a34a;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+  background-color: #15803d;
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(22, 163, 74, 0.3);
+}
+
+.btn-secondary {
+  background-color: #ca8a04;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:hover {
+  background-color: #a16207;
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(202, 138, 4, 0.3);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #22c55e, #eab308);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out;
+}

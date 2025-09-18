@@ -1,0 +1,59 @@
+/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/__init__.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/__init__.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+Watching for file changes with StatReloader
+Not Found: /api/users/me/
+[17/Sep/2025 23:03:41] "GET /api/users/me/ HTTP/1.1" 404 27
+Not Found: /api/users/me/
+[17/Sep/2025 23:03:41] "GET /api/users/me/ HTTP/1.1" 404 27
+[17/Sep/2025 23:03:47] "POST /api/users/login/ HTTP/1.1" 200 708
+[17/Sep/2025 23:03:47] "GET /api/courses/my_courses/ HTTP/1.1" 200 2
+[17/Sep/2025 23:03:47] "GET /api/courses/ HTTP/1.1" 200 1507
+[17/Sep/2025 23:03:47] "GET /api/courses/my_courses/ HTTP/1.1" 200 2
+[17/Sep/2025 23:03:47] "GET /api/courses/my_courses/ HTTP/1.1" 200 2
+[17/Sep/2025 23:03:55] "GET /api/courses/my_courses/ HTTP/1.1" 200 2
+[17/Sep/2025 23:03:55] "GET /api/courses/my_courses/ HTTP/1.1" 200 2
+Bad Request: /api/users/logout/
+[17/Sep/2025 23:04:04] "POST /api/users/logout/ HTTP/1.1" 400 33
+[17/Sep/2025 23:42:05] "GET /api/courses/ HTTP/1.1" 200 1507
+Unauthorized: /api/courses/my_courses/
+[17/Sep/2025 23:42:05] "GET /api/courses/my_courses/ HTTP/1.1" 401 65
+Unauthorized: /api/courses/my_courses/
+[17/Sep/2025 23:42:05] "GET /api/courses/my_courses/ HTTP/1.1" 401 65
+Unauthorized: /api/courses/my_courses/
+[17/Sep/2025 23:42:08] "GET /api/courses/my_courses/ HTTP/1.1" 401 65
+Unauthorized: /api/courses/my_courses/
+[17/Sep/2025 23:42:08] "GET /api/courses/my_courses/ HTTP/1.1" 401 65
+Unauthorized: /api/courses/my_courses/
+[17/Sep/2025 23:45:20] "GET /api/courses/my_courses/ HTTP/1.1" 401 65
+Unauthorized: /api/courses/my_courses/
+[17/Sep/2025 23:45:20] "GET /api/courses/my_courses/ HTTP/1.1" 401 65
+Unauthorized: /api/courses/my_courses/
+[17/Sep/2025 23:45:29] "GET /api/courses/my_courses/ HTTP/1.1" 401 65
+Unauthorized: /api/courses/my_courses/
+[17/Sep/2025 23:45:29] "GET /api/courses/my_courses/ HTTP/1.1" 401 65
+Unauthorized: /api/courses/my_courses/
+[17/Sep/2025 23:46:40] "GET /api/courses/my_courses/ HTTP/1.1" 401 65
+Unauthorized: /api/courses/my_courses/
+[17/Sep/2025 23:46:40] "GET /api/courses/my_courses/ HTTP/1.1" 401 65
+Not Found: /api/contact/info/
+[18/Sep/2025 00:25:03] "GET /api/contact/info/ HTTP/1.1" 404 18834
+Not Found: /api/contact/info/
+[18/Sep/2025 00:25:03] "GET /api/contact/info/ HTTP/1.1" 404 18834
+Not Found: /api/contact/info/
+[18/Sep/2025 00:25:15] "GET /api/contact/info/ HTTP/1.1" 404 18834
+Not Found: /api/contact/info/
+[18/Sep/2025 00:25:15] "GET /api/contact/info/ HTTP/1.1" 404 18834
+Not Found: /api/contact/info/
+[18/Sep/2025 00:25:21] "GET /api/contact/info/ HTTP/1.1" 404 18834
+Not Found: /api/contact/info/
+[18/Sep/2025 00:25:21] "GET /api/contact/info/ HTTP/1.1" 404 18834
+Not Found: /api/contact/info/
+[18/Sep/2025 00:30:35] "GET /api/contact/info/ HTTP/1.1" 404 18834
+Not Found: /api/contact/info/
+[18/Sep/2025 00:30:35] "GET /api/contact/info/ HTTP/1.1" 404 18834
+Not Found: /api/contact/info/
+[18/Sep/2025 00:41:39] "GET /api/contact/info/ HTTP/1.1" 404 18834
+Not Found: /api/contact/info/
+[18/Sep/2025 00:41:39] "GET /api/contact/info/ HTTP/1.1" 404 18834

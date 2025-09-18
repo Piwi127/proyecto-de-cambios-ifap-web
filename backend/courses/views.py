@@ -1,0 +1,76 @@
+from rest_framework import viewsets, status
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
+from django.shortcuts import get_object_or_404
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
+from .models import Course
+from .serializers import CourseSerializer
+
+class CourseViewSet(viewsets.ModelViewSet):
+    queryset = Course.objects.filter(is_active=True).select_related('instructor').prefetch_related('students')
+    serializer_class = CourseSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
+    @method_decorator(cache_page(60 * 15))  # Cache for 15 minutes
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
+
+    @method_decorator(cache_page(60 * 15))
+    def retrieve(self, request, *args, **kwargs):
+        return super().retrieve(request, *args, **kwargs)
+
+    def get_queryset(self):
+        queryset = Course.objects.filter(is_active=True).select_related('instructor').prefetch_related('students')
+        # Si el usuario está autenticado, incluir información adicional
+        if self.request.user.is_authenticated:
+            return queryset
+        return queryset
+
+    @action(detail=True, methods=['post'], permission_classes=[IsAuthenticated])
+    def enroll(self, request, pk=None):
+        course = self.get_object()
+        user = request.user
+
+        if course.students.filter(id=user.id).exists():
+            return Response(
+                {'message': 'Ya estás inscrito en este curso'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        course.students.add(user)
+        return Response({'message': 'Inscripción exitosa'})
+
+    @action(detail=True, methods=['post'], permission_classes=[IsAuthenticated])
+    def unenroll(self, request, pk=None):
+        course = self.get_object()
+        user = request.user
+
+        if not course.students.filter(id=user.id).exists():
+            return Response(
+                {'message': 'No estás inscrito en este curso'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        course.students.remove(user)
+        return Response({'message': 'Te has dado de baja del curso'})
+
+    @action(detail=False, methods=['get'], permission_classes=[IsAuthenticated])
+    def my_courses(self, request):
+        user = request.user
+        enrolled_courses = user.courses_enrolled.filter(is_active=True)
+        serializer = self.get_serializer(enrolled_courses, many=True)
+        return Response(serializer.data)
+
+    @action(detail=False, methods=['get'], permission_classes=[IsAuthenticated])
+    def taught_courses(self, request):
+        user = request.user
+        if not user.is_instructor:
+            return Response(
+                {'error': 'No tienes permisos para ver cursos impartidos'},
+                status=status.HTTP_403_FORBIDDEN
+            )
+        taught_courses = user.courses_taught.filter(is_active=True)
+        serializer = self.get_serializer(taught_courses, many=True)
+        return Response(serializer.data)
