@@ -29,7 +29,7 @@ function App() {
     <Routes>
       {/* Rutas públicas */}
       <Route path="/" element={<Layout><HomeModern /></Layout>} />
-      <Route path="/about" element={<Layout><About /></Layout>} />
+      <Route path="/nosotros" element={<Layout><About /></Layout>} />
       <Route path="/contacto" element={<Layout><Contacto /></Layout>} />
       <Route path="/blog" element={<Layout><Blog /></Layout>} />
       <Route path="/login" element={<Layout><Login /></Layout>} />
