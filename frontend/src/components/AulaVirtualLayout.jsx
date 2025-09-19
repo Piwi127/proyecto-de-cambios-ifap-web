@@ -84,7 +84,35 @@ const AulaVirtualLayout = ({ children }) => {
       icon: '⚙️',
       color: 'text-gray-600',
       bgColor: 'bg-gray-50'
-    }
+    },
+    {
+      path: "/aula-virtual/videoconferencia",
+      icon: "🎥",
+      name: "Videoconferencia",
+      color: "blue-500",
+      bgColor: "blue-100",
+    },
+    {
+      path: "/aula-virtual/colaboracion",
+      icon: "🤝",
+      name: "Colaboración",
+      color: "green-500",
+      bgColor: "green-100",
+    },
+    {
+      path: "/aula-virtual/dashboard-profesor",
+      icon: "📊",
+      name: "Dashboard Profesor",
+      color: "purple-500",
+      bgColor: "purple-100",
+    },
+    {
+      path: "/aula-virtual/user-management",
+      icon: "👥",
+      name: "Gestión de Usuarios",
+      color: "red-500",
+      bgColor: "red-100",
+    },
   ];
 
   const isActive = (path, exact = false) => {
