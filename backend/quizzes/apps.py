@@ -4,3 +4,6 @@ class QuizzesConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'quizzes'
     verbose_name = 'Quizzes'
+
+    def ready(self):
+        import quizzes.signals  # noqa

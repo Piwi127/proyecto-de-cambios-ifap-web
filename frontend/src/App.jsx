@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import useWebSocket from './hooks/useWebSocket';
 import Layout from './components/Layout';
 import AulaVirtualLayout from './components/AulaVirtualLayout';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -25,6 +26,16 @@ import ArchivosHistoricos from './pages/ArchivosHistoricos';
 import PreservacionDocumentos from './pages/PreservacionDocumentos';
 
 function App() {
+  const notifications = useWebSocket();
+
+  useEffect(() => {
+    if (notifications.length > 0) {
+      // Handle new notifications, e.g., display a toast or update a notification count
+      console.log('New notification received:', notifications[0]);
+      // You might want to add more sophisticated handling here, like a global state update
+    }
+  }, [notifications]);
+
   return (
     <Routes>
       {/* Rutas públicas */}

@@ -146,7 +146,7 @@ const UniversityMenu = () => {
             </div>
             <div className="hidden md:block">
               <h1 className="text-xl font-bold text-gradient">
-                IFAP Universidad
+                Instituto IFAP
               </h1>
               <p className="text-xs text-gray-600 -mt-1">Instituto de Formación Académica Profesional</p>
             </div>
