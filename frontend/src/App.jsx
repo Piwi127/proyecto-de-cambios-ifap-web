@@ -27,6 +27,7 @@ import VideoConferencePage from './pages/VideoConferencePage';
 import ColaboracionPage from './pages/ColaboracionPage';
 import PreservacionDocumentos from './pages/PreservacionDocumentos';
 import DashboardProfesor from './pages/DashboardProfesor';
+import UserManagement from './pages/UserManagement';
 
 function App() {
   const notifications = useWebSocket();
@@ -138,6 +139,13 @@ function App() {
         <ProtectedRoute>
           <AulaVirtualLayout>
             <DashboardProfesor />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/aula-virtual/user-management" element={
+        <ProtectedRoute requiredRole="superuser">
+          <AulaVirtualLayout>
+            <UserManagement />
           </AulaVirtualLayout>
         </ProtectedRoute>
       } />

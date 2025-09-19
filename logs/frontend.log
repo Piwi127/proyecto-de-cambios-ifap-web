@@ -2,495 +2,310 @@
 > frontend@0.0.0 dev
 > vite --port 5174
 
-10:37:13 a. m. [vite] (client) Re-optimizing dependencies because lockfile has changed
 
-  VITE v7.1.6  ready in 2080 ms
+  VITE v7.1.6  ready in 1354 ms
 
   ➜  Local:   http://localhost:5174/
   ➜  Network: use --host to expose
-11:17:51 a. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-11:17:52 a. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-12:15:11 p. m. [vite] (client) hmr update /src/components/UniversityMenu.jsx, /src/index.css, /src/components/UniversityMenu.css
-12:15:12 p. m. [vite] (client) hmr update /src/components/UniversityMenu.jsx, /src/index.css, /src/components/UniversityMenu.css
-12:44:05 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-12:44:05 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-12:44:05 p. m. [vite] Internal server error: Failed to resolve import "./context/AuthContext" from "src/hooks/useWebSocket.js". Does the file exist?
+3:48:46 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+3:48:46 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+3:48:49 p. m. [vite] Internal server error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
   Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/hooks/useWebSocket.js:2:25
-  1  |  import { useEffect, useState, useRef } from 'react';
-  2  |  import { useAuth } from './context/AuthContext'; // Assuming you have an AuthContext
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import axios from "axios";
+  5  |  import { useAuth } from "../../context/AuthContext";
      |                           ^
-  3  |  
-  4  |  const useWebSocket = () => {
+  6  |  const UserManagement = () => {
+  7  |    _s();
       at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
       at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
       at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
       at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
-      at async Promise.all (index 1)
+      at async Promise.all (index 3)
       at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
       at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
       at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
-12:44:05 p. m. [vite] (client) Pre-transform error: Failed to resolve import "./context/AuthContext" from "src/hooks/useWebSocket.js". Does the file exist?
+3:48:49 p. m. [vite] Internal server error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
   Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/hooks/useWebSocket.js:2:25
-  1  |  import { useEffect, useState, useRef } from 'react';
-  2  |  import { useAuth } from './context/AuthContext'; // Assuming you have an AuthContext
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import axios from "axios";
+  5  |  import { useAuth } from "../../context/AuthContext";
      |                           ^
-  3  |  
-  4  |  const useWebSocket = () => {
-12:44:06 p. m. [vite] (client) Pre-transform error: Failed to resolve import "./context/AuthContext" from "src/hooks/useWebSocket.js". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/hooks/useWebSocket.js:2:25
-  1  |  import { useEffect, useState, useRef } from 'react';
-  2  |  import { useAuth } from './context/AuthContext'; // Assuming you have an AuthContext
-     |                           ^
-  3  |  
-  4  |  const useWebSocket = () => {
-12:44:08 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-12:44:08 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-12:44:08 p. m. [vite] (client) Pre-transform error: Failed to resolve import "./context/AuthContext" from "src/hooks/useWebSocket.js". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/hooks/useWebSocket.js:2:25
-  1  |  import { useEffect, useState, useRef } from 'react';
-  2  |  import { useAuth } from './context/AuthContext'; // Assuming you have an AuthContext
-     |                           ^
-  3  |  
-  4  |  const useWebSocket = () => {
-12:44:09 p. m. [vite] (client) Pre-transform error: Failed to resolve import "./context/AuthContext" from "src/hooks/useWebSocket.js". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/hooks/useWebSocket.js:2:25
-  1  |  import { useEffect, useState, useRef } from 'react';
-  2  |  import { useAuth } from './context/AuthContext'; // Assuming you have an AuthContext
-     |                           ^
-  3  |  
-  4  |  const useWebSocket = () => {
-12:44:13 p. m. [vite] (client) hmr update /src/App.jsx
-12:44:13 p. m. [vite] (client) Pre-transform error: Failed to resolve import "./context/AuthContext" from "src/hooks/useWebSocket.js". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/hooks/useWebSocket.js:2:25
-  1  |  import { useEffect, useState, useRef } from 'react';
-  2  |  import { useAuth } from './context/AuthContext'; // Assuming you have an AuthContext
-     |                           ^
-  3  |  
-  4  |  const useWebSocket = () => {
-12:44:13 p. m. [vite] Internal server error: Failed to resolve import "./context/AuthContext" from "src/hooks/useWebSocket.js". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/hooks/useWebSocket.js:2:25
-  1  |  import { useEffect, useState, useRef } from 'react';
-  2  |  import { useAuth } from './context/AuthContext'; // Assuming you have an AuthContext
-     |                           ^
-  3  |  
-  4  |  const useWebSocket = () => {
+  6  |  const UserManagement = () => {
+  7  |    _s();
       at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
       at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
       at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
       at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
-      at async Promise.all (index 1)
+      at async Promise.all (index 3)
       at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
       at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
       at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
-      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
-12:44:16 p. m. [vite] (client) hmr update /src/App.jsx
-12:44:16 p. m. [vite] (client) Pre-transform error: Failed to resolve import "./context/AuthContext" from "src/hooks/useWebSocket.js". Does the file exist?
+3:48:49 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
   Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/hooks/useWebSocket.js:2:25
-  1  |  import { useEffect, useState, useRef } from 'react';
-  2  |  import { useAuth } from './context/AuthContext'; // Assuming you have an AuthContext
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import axios from "axios";
+  5  |  import { useAuth } from "../../context/AuthContext";
      |                           ^
-  3  |  
-  4  |  const useWebSocket = () => {
-12:44:16 p. m. [vite] Internal server error: Failed to resolve import "./context/AuthContext" from "src/hooks/useWebSocket.js". Does the file exist?
+  6  |  const UserManagement = () => {
+  7  |    _s();
+3:48:49 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+3:48:50 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+3:48:50 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
   Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/hooks/useWebSocket.js:2:25
-  1  |  import { useEffect, useState, useRef } from 'react';
-  2  |  import { useAuth } from './context/AuthContext'; // Assuming you have an AuthContext
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import axios from "axios";
+  5  |  import { useAuth } from "../../context/AuthContext";
      |                           ^
-  3  |  
-  4  |  const useWebSocket = () => {
+  6  |  const UserManagement = () => {
+  7  |    _s();
+3:48:51 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import axios from "axios";
+  5  |  import { useAuth } from "../../context/AuthContext";
+     |                           ^
+  6  |  const UserManagement = () => {
+  7  |    _s();
+3:49:15 p. m. [vite] (client) hmr update /src/components/ProtectedRoute.jsx, /src/index.css, /src/components/UniversityMenu.css
+3:49:16 p. m. [vite] (client) hmr update /src/components/ProtectedRoute.jsx, /src/index.css, /src/components/UniversityMenu.css
+3:49:19 p. m. [vite] (client) hmr update /src/components/ProtectedRoute.jsx, /src/index.css, /src/components/UniversityMenu.css
+3:49:19 p. m. [vite] (client) hmr update /src/components/ProtectedRoute.jsx, /src/index.css, /src/components/UniversityMenu.css
+3:52:39 p. m. [vite] vite.config.js changed, restarting server...
+3:52:40 p. m. [vite] server restarted.
+3:52:48 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import axios from "axios";
+  5  |  import { useAuth } from "../../context/AuthContext";
+     |                           ^
+  6  |  const UserManagement = () => {
+  7  |    _s();
+3:52:49 p. m. [vite] Internal server error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import axios from "axios";
+  5  |  import { useAuth } from "../../context/AuthContext";
+     |                           ^
+  6  |  const UserManagement = () => {
+  7  |    _s();
       at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
       at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
       at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
       at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
-      at async Promise.all (index 1)
+      at async Promise.all (index 3)
       at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
       at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
       at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
       at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
-12:44:22 p. m. [vite] (client) hmr update /src/pages/NotificacionesAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
-12:44:22 p. m. [vite] (client) hmr update /src/pages/NotificacionesAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
-12:44:22 p. m. [vite] (client) Pre-transform error: Failed to resolve import "./context/AuthContext" from "src/hooks/useWebSocket.js". Does the file exist?
+3:53:52 p. m. [vite] Internal server error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
   Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/hooks/useWebSocket.js:2:25
-  1  |  import { useEffect, useState, useRef } from 'react';
-  2  |  import { useAuth } from './context/AuthContext'; // Assuming you have an AuthContext
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import axios from "axios";
+  5  |  import { useAuth } from "../../context/AuthContext";
      |                           ^
-  3  |  
-  4  |  const useWebSocket = () => {
-12:44:23 p. m. [vite] (client) Pre-transform error: Failed to resolve import "./context/AuthContext" from "src/hooks/useWebSocket.js". Does the file exist?
+  6  |  const UserManagement = () => {
+  7  |    _s();
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+3:53:55 p. m. [vite] Internal server error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
   Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/hooks/useWebSocket.js:2:25
-  1  |  import { useEffect, useState, useRef } from 'react';
-  2  |  import { useAuth } from './context/AuthContext'; // Assuming you have an AuthContext
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import axios from "axios";
+  5  |  import { useAuth } from "../../context/AuthContext";
      |                           ^
-  3  |  
-  4  |  const useWebSocket = () => {
-12:44:29 p. m. [vite] (client) hmr update /src/pages/NotificacionesAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
-12:44:29 p. m. [vite] (client) Pre-transform error: Failed to resolve import "./context/AuthContext" from "src/hooks/useWebSocket.js". Does the file exist?
+  6  |  const UserManagement = () => {
+  7  |    _s();
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+3:53:57 p. m. [vite] vite.config.js changed, restarting server...
+3:53:57 p. m. [vite] server restarted.
+3:53:57 p. m. [vite] vite.config.js changed, restarting server...
+3:53:57 p. m. [vite] server restarted.
+3:54:01 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
   Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/hooks/useWebSocket.js:2:25
-  1  |  import { useEffect, useState, useRef } from 'react';
-  2  |  import { useAuth } from './context/AuthContext'; // Assuming you have an AuthContext
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import axios from "axios";
+  5  |  import { useAuth } from "../../context/AuthContext";
      |                           ^
-  3  |  
-  4  |  const useWebSocket = () => {
-12:44:30 p. m. [vite] (client) hmr update /src/pages/NotificacionesAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
-12:44:30 p. m. [vite] (client) Pre-transform error: Failed to resolve import "./context/AuthContext" from "src/hooks/useWebSocket.js". Does the file exist?
+  6  |  const UserManagement = () => {
+  7  |    _s();
+3:54:02 p. m. [vite] Internal server error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
   Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/hooks/useWebSocket.js:2:25
-  1  |  import { useEffect, useState, useRef } from 'react';
-  2  |  import { useAuth } from './context/AuthContext'; // Assuming you have an AuthContext
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import axios from "axios";
+  5  |  import { useAuth } from "../../context/AuthContext";
      |                           ^
-  3  |  
-  4  |  const useWebSocket = () => {
-12:44:33 p. m. [vite] (client) hmr update /src/pages/NotificacionesAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
-12:44:33 p. m. [vite] (client) hmr update /src/pages/NotificacionesAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
-12:44:33 p. m. [vite] (client) Pre-transform error: Failed to resolve import "./context/AuthContext" from "src/hooks/useWebSocket.js". Does the file exist?
+  6  |  const UserManagement = () => {
+  7  |    _s();
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+3:54:29 p. m. [vite] vite.config.js changed, restarting server...
+3:54:29 p. m. [vite] server restarted.
+3:54:33 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
   Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/hooks/useWebSocket.js:2:25
-  1  |  import { useEffect, useState, useRef } from 'react';
-  2  |  import { useAuth } from './context/AuthContext'; // Assuming you have an AuthContext
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import axios from "axios";
+  5  |  import { useAuth } from "../../context/AuthContext";
      |                           ^
-  3  |  
-  4  |  const useWebSocket = () => {
-12:44:34 p. m. [vite] (client) Pre-transform error: Failed to resolve import "./context/AuthContext" from "src/hooks/useWebSocket.js". Does the file exist?
+  6  |  const UserManagement = () => {
+  7  |    _s();
+3:54:35 p. m. [vite] Internal server error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
   Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/hooks/useWebSocket.js:2:25
-  1  |  import { useEffect, useState, useRef } from 'react';
-  2  |  import { useAuth } from './context/AuthContext'; // Assuming you have an AuthContext
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import axios from "axios";
+  5  |  import { useAuth } from "../../context/AuthContext";
      |                           ^
-  3  |  
-  4  |  const useWebSocket = () => {
-12:44:39 p. m. [vite] (client) hmr update /src/pages/NotificacionesAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
-12:44:40 p. m. [vite] (client) hmr update /src/pages/NotificacionesAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
-12:44:40 p. m. [vite] (client) Pre-transform error: Failed to resolve import "./context/AuthContext" from "src/hooks/useWebSocket.js". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/hooks/useWebSocket.js:2:25
-  1  |  import { useEffect, useState, useRef } from 'react';
-  2  |  import { useAuth } from './context/AuthContext'; // Assuming you have an AuthContext
-     |                           ^
-  3  |  
-  4  |  const useWebSocket = () => {
-12:44:40 p. m. [vite] (client) Pre-transform error: Failed to resolve import "./context/AuthContext" from "src/hooks/useWebSocket.js". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/hooks/useWebSocket.js:2:25
-  1  |  import { useEffect, useState, useRef } from 'react';
-  2  |  import { useAuth } from './context/AuthContext'; // Assuming you have an AuthContext
-     |                           ^
-  3  |  
-  4  |  const useWebSocket = () => {
-12:46:25 p. m. [vite] (client) Pre-transform error: Failed to resolve import "./context/AuthContext" from "src/hooks/useWebSocket.js". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/hooks/useWebSocket.js:2:25
-  1  |  import { useEffect, useState, useRef } from 'react';
-  2  |  import { useAuth } from './context/AuthContext'; // Assuming you have an AuthContext
-     |                           ^
-  3  |  
-  4  |  const useWebSocket = () => {
-12:46:53 p. m. [vite] (client) hmr update /src/App.jsx, /src/pages/NotificacionesAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
-12:46:53 p. m. [vite] (client) hmr update /src/App.jsx, /src/pages/NotificacionesAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
-1:13:34 p. m. [vite] (client) hmr update /src/App.jsx, /src/pages/NotificacionesAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
-1:13:34 p. m. [vite] (client) hmr update /src/App.jsx, /src/pages/NotificacionesAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
-1:41:10 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-1:41:10 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-1:42:30 p. m. [vite] (client) ✨ new dependencies optimized: @jitsi/react-sdk
-1:42:30 p. m. [vite] (client) ✨ optimized dependencies changed. reloading
-1:42:58 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-1:42:59 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-1:43:07 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-1:43:07 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-1:45:01 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css, /src/components/VideoConference.jsx
-1:45:01 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css, /src/components/VideoConference.jsx
-1:50:01 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-1:50:01 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-1:51:29 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-1:51:29 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-1:59:53 p. m. [vite] (client) hmr update /src/context/CourseContext.jsx, /src/pages/DashboardAulaVirtual.jsx, /src/pages/CursosAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
-1:59:53 p. m. [vite] (client) hmr update /src/context/CourseContext.jsx, /src/pages/DashboardAulaVirtual.jsx, /src/pages/CursosAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
-2:00:50 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-2:00:50 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-2:01:00 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-2:01:00 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-2:02:55 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-2:02:55 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-2:10:56 p. m. [vite] (client) hmr update /src/pages/DashboardProfesor.jsx, /src/index.css, /src/components/UniversityMenu.css
-2:10:56 p. m. [vite] (client) hmr update /src/pages/DashboardProfesor.jsx, /src/index.css, /src/components/UniversityMenu.css
-2:10:56 p. m. [vite] Internal server error: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/DashboardProfesor.jsx: Expecting Unicode escape sequence \uXXXX. (144:68)
+  6  |  const UserManagement = () => {
+  7  |    _s();
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+3:54:40 p. m. [vite] vite.config.js changed, restarting server...
+3:54:40 p. m. [vite] vite.config.js changed, restarting server...
+3:54:40 p. m. [vite] server restarted.
+3:54:40 p. m. [vite] server restarted.
 
-  142 |         </div>
-  143 |       </Card>
-> 144 |       {/* Notificaciones */}\n      <Card>\n        <div className=\"flex items-center justify-between mb-6\">\n          <h2 className=\"text-2xl font-bold text-gray-900 flex items-center\">\n            <span className=\"text-2xl mr-3\">🔔</span>\n            Notificaciones Recientes\n          </h2>\n        </div>\n\n        <div className=\"space-y-4\">\n          {notifications.length > 0 ? (\n            notifications.map((notif) => (\n              <div key={notif.id} className={`p-4 rounded-lg ${notif.read ? 'bg-gray-50' : 'bg-blue-50'}`}>\n                <p className=\"text-gray-800\">{notif.message}</p>\n                <p className=\"text-sm text-gray-500 mt-1\">{new Date(notif.id).toLocaleString()}</p>\n              </div>\n            ))\n          ) : (\n            <p className=\"text-center text-gray-500 py-4\">No hay notificaciones nuevas.</p>\n          )}\n        </div>\n      </Card>
-      |                                                                     ^
-  145 |     </div>
-  146 |   );
-  147 | };
-  Plugin: vite:react-babel
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/DashboardProfesor.jsx:144:68
-  142 |          </div>
-  143 |        </Card>
-  144 |  ...* Notificaciones */}\n      <Card>\n        <div className=\"flex items-center justify-between mb-6\">\n          ...
-      |                                                                 ^
-  145 |      </div>
-  146 |    );
-      at constructor (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:367:19)
-      at JSXParserMixin.raise (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:6630:19)
-      at JSXParserMixin.readWord1 (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:6590:16)
-      at JSXParserMixin.readWord (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:6610:23)
-      at JSXParserMixin.getTokenFromCode (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:6329:14)
-      at JSXParserMixin.getTokenFromCode (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4830:11)
-      at JSXParserMixin.nextToken (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:5813:10)
-      at JSXParserMixin.next (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:5723:10)
-      at JSXParserMixin.eat (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:5727:12)
-      at JSXParserMixin.jsxParseAttribute (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4686:23)
-      at JSXParserMixin.jsxParseOpeningElementAfterName (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4700:28)
-      at JSXParserMixin.jsxParseOpeningElementAt (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4695:17)
-      at JSXParserMixin.jsxParseElementAt (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4719:33)
-      at JSXParserMixin.jsxParseElementAt (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4731:32)
-      at JSXParserMixin.jsxParseElementAt (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4731:32)
-      at JSXParserMixin.jsxParseElement (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4782:17)
-      at JSXParserMixin.parseExprAtom (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4792:19)
-      at JSXParserMixin.parseExprSubscripts (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11085:23)
-      at JSXParserMixin.parseUpdate (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11070:21)
-      at JSXParserMixin.parseMaybeUnary (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11050:23)
-      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10903:61)
-      at JSXParserMixin.parseExprOps (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10908:23)
-      at JSXParserMixin.parseMaybeConditional (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10885:23)
-      at JSXParserMixin.parseMaybeAssign (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10835:21)
-      at /home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10804:39
-      at JSXParserMixin.allowInAnd (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12436:12)
-      at JSXParserMixin.parseMaybeAssignAllowIn (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10804:17)
-      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12503:17)
-      at JSXParserMixin.parseParenAndDistinguishExpression (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11683:28)
-      at JSXParserMixin.parseExprAtom (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11335:23)
-      at JSXParserMixin.parseExprAtom (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4797:20)
-      at JSXParserMixin.parseExprSubscripts (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11085:23)
-      at JSXParserMixin.parseUpdate (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11070:21)
-      at JSXParserMixin.parseMaybeUnary (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11050:23)
-      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10903:61)
-      at JSXParserMixin.parseExprOps (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10908:23)
-      at JSXParserMixin.parseMaybeConditional (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10885:23)
-      at JSXParserMixin.parseMaybeAssign (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10835:21)
-      at JSXParserMixin.parseExpressionBase (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10788:23)
-      at /home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10784:39
-      at JSXParserMixin.allowInAnd (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12431:16)
-      at JSXParserMixin.parseExpression (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10784:17)
-      at JSXParserMixin.parseReturnStatement (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13151:28)
-      at JSXParserMixin.parseStatementContent (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12807:21)
-      at JSXParserMixin.parseStatementLike (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12776:17)
-      at JSXParserMixin.parseStatementListItem (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12756:17)
-      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13325:61)
-      at JSXParserMixin.parseBlockBody (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13318:10)
-      at JSXParserMixin.parseBlock (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13306:10)
-      at JSXParserMixin.parseFunctionBody (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12110:24)
-2:10:57 p. m. [vite] Internal server error: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/DashboardProfesor.jsx: Expecting Unicode escape sequence \uXXXX. (144:68)
+  ➜  Local:   http://localhost:5174/
+  ➜  Network: use --host to expose
+3:54:43 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import axios from "axios";
+  5  |  import { useAuth } from "../../context/AuthContext";
+     |                           ^
+  6  |  const UserManagement = () => {
+  7  |    _s();
+3:54:43 p. m. [vite] Internal server error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import axios from "axios";
+  5  |  import { useAuth } from "../../context/AuthContext";
+     |                           ^
+  6  |  const UserManagement = () => {
+  7  |    _s();
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+3:58:25 p. m. [vite] (client) hmr update /src/App.jsx
+3:58:27 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import axios from "axios";
+  5  |  import { useAuth } from "../../context/AuthContext";
+     |                           ^
+  6  |  const UserManagement = () => {
+  7  |    _s();
+3:58:27 p. m. [vite] Internal server error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import axios from "axios";
+  5  |  import { useAuth } from "../../context/AuthContext";
+     |                           ^
+  6  |  const UserManagement = () => {
+  7  |    _s();
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+3:58:31 p. m. [vite] vite.config.js changed, restarting server...
+3:58:32 p. m. [vite] server restarted.
 
-  142 |         </div>
-  143 |       </Card>
-> 144 |       {/* Notificaciones */}\n      <Card>\n        <div className=\"flex items-center justify-between mb-6\">\n          <h2 className=\"text-2xl font-bold text-gray-900 flex items-center\">\n            <span className=\"text-2xl mr-3\">🔔</span>\n            Notificaciones Recientes\n          </h2>\n        </div>\n\n        <div className=\"space-y-4\">\n          {notifications.length > 0 ? (\n            notifications.map((notif) => (\n              <div key={notif.id} className={`p-4 rounded-lg ${notif.read ? 'bg-gray-50' : 'bg-blue-50'}`}>\n                <p className=\"text-gray-800\">{notif.message}</p>\n                <p className=\"text-sm text-gray-500 mt-1\">{new Date(notif.id).toLocaleString()}</p>\n              </div>\n            ))\n          ) : (\n            <p className=\"text-center text-gray-500 py-4\">No hay notificaciones nuevas.</p>\n          )}\n        </div>\n      </Card>
-      |                                                                     ^
-  145 |     </div>
-  146 |   );
-  147 | };
-  Plugin: vite:react-babel
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/DashboardProfesor.jsx:144:68
-  142 |          </div>
-  143 |        </Card>
-  144 |  ...* Notificaciones */}\n      <Card>\n        <div className=\"flex items-center justify-between mb-6\">\n          ...
-      |                                                                 ^
-  145 |      </div>
-  146 |    );
-      at constructor (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:367:19)
-      at JSXParserMixin.raise (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:6630:19)
-      at JSXParserMixin.readWord1 (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:6590:16)
-      at JSXParserMixin.readWord (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:6610:23)
-      at JSXParserMixin.getTokenFromCode (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:6329:14)
-      at JSXParserMixin.getTokenFromCode (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4830:11)
-      at JSXParserMixin.nextToken (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:5813:10)
-      at JSXParserMixin.next (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:5723:10)
-      at JSXParserMixin.eat (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:5727:12)
-      at JSXParserMixin.jsxParseAttribute (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4686:23)
-      at JSXParserMixin.jsxParseOpeningElementAfterName (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4700:28)
-      at JSXParserMixin.jsxParseOpeningElementAt (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4695:17)
-      at JSXParserMixin.jsxParseElementAt (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4719:33)
-      at JSXParserMixin.jsxParseElementAt (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4731:32)
-      at JSXParserMixin.jsxParseElementAt (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4731:32)
-      at JSXParserMixin.jsxParseElement (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4782:17)
-      at JSXParserMixin.parseExprAtom (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4792:19)
-      at JSXParserMixin.parseExprSubscripts (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11085:23)
-      at JSXParserMixin.parseUpdate (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11070:21)
-      at JSXParserMixin.parseMaybeUnary (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11050:23)
-      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10903:61)
-      at JSXParserMixin.parseExprOps (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10908:23)
-      at JSXParserMixin.parseMaybeConditional (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10885:23)
-      at JSXParserMixin.parseMaybeAssign (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10835:21)
-      at /home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10804:39
-      at JSXParserMixin.allowInAnd (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12436:12)
-      at JSXParserMixin.parseMaybeAssignAllowIn (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10804:17)
-      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12503:17)
-      at JSXParserMixin.parseParenAndDistinguishExpression (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11683:28)
-      at JSXParserMixin.parseExprAtom (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11335:23)
-      at JSXParserMixin.parseExprAtom (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4797:20)
-      at JSXParserMixin.parseExprSubscripts (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11085:23)
-      at JSXParserMixin.parseUpdate (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11070:21)
-      at JSXParserMixin.parseMaybeUnary (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11050:23)
-      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10903:61)
-      at JSXParserMixin.parseExprOps (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10908:23)
-      at JSXParserMixin.parseMaybeConditional (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10885:23)
-      at JSXParserMixin.parseMaybeAssign (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10835:21)
-      at JSXParserMixin.parseExpressionBase (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10788:23)
-      at /home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10784:39
-      at JSXParserMixin.allowInAnd (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12431:16)
-      at JSXParserMixin.parseExpression (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10784:17)
-      at JSXParserMixin.parseReturnStatement (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13151:28)
-      at JSXParserMixin.parseStatementContent (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12807:21)
-      at JSXParserMixin.parseStatementLike (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12776:17)
-      at JSXParserMixin.parseStatementListItem (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12756:17)
-      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13325:61)
-      at JSXParserMixin.parseBlockBody (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13318:10)
-      at JSXParserMixin.parseBlock (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13306:10)
-      at JSXParserMixin.parseFunctionBody (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12110:24)
-2:26:16 p. m. [vite] (client) hmr update /src/pages/DashboardProfesor.jsx, /src/index.css, /src/components/UniversityMenu.css
-2:26:16 p. m. [vite] (client) hmr update /src/pages/DashboardProfesor.jsx, /src/index.css, /src/components/UniversityMenu.css
-2:26:17 p. m. [vite] Internal server error: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/DashboardProfesor.jsx: Expecting Unicode escape sequence \uXXXX. (154:68)
-
-  152 |         </div>
-  153 |       </Card>
-> 154 |       {/* Notificaciones */}\n      <Card>\n        <div className=\"flex items-center justify-between mb-6\">\n          <h2 className=\"text-2xl font-bold text-gray-900 flex items-center\">\n            <span className=\"text-2xl mr-3\">🔔</span>\n            Notificaciones Recientes\n          </h2>\n        </div>\n\n        <div className=\"space-y-4\">\n          {notifications.length > 0 ? (\n            notifications.map((notif) => (\n              <div key={notif.id} className={`p-4 rounded-lg ${notif.read ? 'bg-gray-50' : 'bg-blue-50'}`}>\n                <p className=\"text-gray-800\">{notif.message}</p>\n                <p className=\"text-sm text-gray-500 mt-1\">{new Date(notif.id).toLocaleString()}</p>\n              </div>\n            ))\n          ) : (\n            <p className=\"text-center text-gray-500 py-4\">No hay notificaciones nuevas.</p>\n          )}\n        </div>\n      </Card>
-      |                                                                     ^
-  155 |     </div>
-  156 |   );
-  157 | };
-  Plugin: vite:react-babel
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/DashboardProfesor.jsx:154:68
-  152 |          </div>
-  153 |        </Card>
-  154 |  ...* Notificaciones */}\n      <Card>\n        <div className=\"flex items-center justify-between mb-6\">\n          ...
-      |                                                                 ^
-  155 |      </div>
-  156 |    );
-      at constructor (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:367:19)
-      at JSXParserMixin.raise (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:6630:19)
-      at JSXParserMixin.readWord1 (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:6590:16)
-      at JSXParserMixin.readWord (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:6610:23)
-      at JSXParserMixin.getTokenFromCode (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:6329:14)
-      at JSXParserMixin.getTokenFromCode (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4830:11)
-      at JSXParserMixin.nextToken (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:5813:10)
-      at JSXParserMixin.next (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:5723:10)
-      at JSXParserMixin.eat (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:5727:12)
-      at JSXParserMixin.jsxParseAttribute (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4686:23)
-      at JSXParserMixin.jsxParseOpeningElementAfterName (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4700:28)
-      at JSXParserMixin.jsxParseOpeningElementAt (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4695:17)
-      at JSXParserMixin.jsxParseElementAt (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4719:33)
-      at JSXParserMixin.jsxParseElementAt (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4731:32)
-      at JSXParserMixin.jsxParseElementAt (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4731:32)
-      at JSXParserMixin.jsxParseElement (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4782:17)
-      at JSXParserMixin.parseExprAtom (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4792:19)
-      at JSXParserMixin.parseExprSubscripts (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11085:23)
-      at JSXParserMixin.parseUpdate (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11070:21)
-      at JSXParserMixin.parseMaybeUnary (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11050:23)
-      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10903:61)
-      at JSXParserMixin.parseExprOps (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10908:23)
-      at JSXParserMixin.parseMaybeConditional (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10885:23)
-      at JSXParserMixin.parseMaybeAssign (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10835:21)
-      at /home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10804:39
-      at JSXParserMixin.allowInAnd (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12436:12)
-      at JSXParserMixin.parseMaybeAssignAllowIn (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10804:17)
-      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12503:17)
-      at JSXParserMixin.parseParenAndDistinguishExpression (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11683:28)
-      at JSXParserMixin.parseExprAtom (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11335:23)
-      at JSXParserMixin.parseExprAtom (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4797:20)
-      at JSXParserMixin.parseExprSubscripts (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11085:23)
-      at JSXParserMixin.parseUpdate (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11070:21)
-      at JSXParserMixin.parseMaybeUnary (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11050:23)
-      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10903:61)
-      at JSXParserMixin.parseExprOps (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10908:23)
-      at JSXParserMixin.parseMaybeConditional (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10885:23)
-      at JSXParserMixin.parseMaybeAssign (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10835:21)
-      at JSXParserMixin.parseExpressionBase (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10788:23)
-      at /home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10784:39
-      at JSXParserMixin.allowInAnd (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12431:16)
-      at JSXParserMixin.parseExpression (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10784:17)
-      at JSXParserMixin.parseReturnStatement (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13151:28)
-      at JSXParserMixin.parseStatementContent (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12807:21)
-      at JSXParserMixin.parseStatementLike (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12776:17)
-      at JSXParserMixin.parseStatementListItem (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12756:17)
-      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13325:61)
-      at JSXParserMixin.parseBlockBody (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13318:10)
-      at JSXParserMixin.parseBlock (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13306:10)
-      at JSXParserMixin.parseFunctionBody (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12110:24)
-2:26:17 p. m. [vite] Internal server error: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/DashboardProfesor.jsx: Expecting Unicode escape sequence \uXXXX. (154:68)
-
-  152 |         </div>
-  153 |       </Card>
-> 154 |       {/* Notificaciones */}\n      <Card>\n        <div className=\"flex items-center justify-between mb-6\">\n          <h2 className=\"text-2xl font-bold text-gray-900 flex items-center\">\n            <span className=\"text-2xl mr-3\">🔔</span>\n            Notificaciones Recientes\n          </h2>\n        </div>\n\n        <div className=\"space-y-4\">\n          {notifications.length > 0 ? (\n            notifications.map((notif) => (\n              <div key={notif.id} className={`p-4 rounded-lg ${notif.read ? 'bg-gray-50' : 'bg-blue-50'}`}>\n                <p className=\"text-gray-800\">{notif.message}</p>\n                <p className=\"text-sm text-gray-500 mt-1\">{new Date(notif.id).toLocaleString()}</p>\n              </div>\n            ))\n          ) : (\n            <p className=\"text-center text-gray-500 py-4\">No hay notificaciones nuevas.</p>\n          )}\n        </div>\n      </Card>
-      |                                                                     ^
-  155 |     </div>
-  156 |   );
-  157 | };
-  Plugin: vite:react-babel
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/DashboardProfesor.jsx:154:68
-  152 |          </div>
-  153 |        </Card>
-  154 |  ...* Notificaciones */}\n      <Card>\n        <div className=\"flex items-center justify-between mb-6\">\n          ...
-      |                                                                 ^
-  155 |      </div>
-  156 |    );
-      at constructor (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:367:19)
-      at JSXParserMixin.raise (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:6630:19)
-      at JSXParserMixin.readWord1 (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:6590:16)
-      at JSXParserMixin.readWord (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:6610:23)
-      at JSXParserMixin.getTokenFromCode (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:6329:14)
-      at JSXParserMixin.getTokenFromCode (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4830:11)
-      at JSXParserMixin.nextToken (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:5813:10)
-      at JSXParserMixin.next (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:5723:10)
-      at JSXParserMixin.eat (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:5727:12)
-      at JSXParserMixin.jsxParseAttribute (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4686:23)
-      at JSXParserMixin.jsxParseOpeningElementAfterName (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4700:28)
-      at JSXParserMixin.jsxParseOpeningElementAt (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4695:17)
-      at JSXParserMixin.jsxParseElementAt (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4719:33)
-      at JSXParserMixin.jsxParseElementAt (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4731:32)
-      at JSXParserMixin.jsxParseElementAt (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4731:32)
-      at JSXParserMixin.jsxParseElement (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4782:17)
-      at JSXParserMixin.parseExprAtom (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4792:19)
-      at JSXParserMixin.parseExprSubscripts (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11085:23)
-      at JSXParserMixin.parseUpdate (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11070:21)
-      at JSXParserMixin.parseMaybeUnary (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11050:23)
-      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10903:61)
-      at JSXParserMixin.parseExprOps (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10908:23)
-      at JSXParserMixin.parseMaybeConditional (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10885:23)
-      at JSXParserMixin.parseMaybeAssign (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10835:21)
-      at /home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10804:39
-      at JSXParserMixin.allowInAnd (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12436:12)
-      at JSXParserMixin.parseMaybeAssignAllowIn (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10804:17)
-      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12503:17)
-      at JSXParserMixin.parseParenAndDistinguishExpression (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11683:28)
-      at JSXParserMixin.parseExprAtom (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11335:23)
-      at JSXParserMixin.parseExprAtom (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4797:20)
-      at JSXParserMixin.parseExprSubscripts (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11085:23)
-      at JSXParserMixin.parseUpdate (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11070:21)
-      at JSXParserMixin.parseMaybeUnary (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11050:23)
-      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10903:61)
-      at JSXParserMixin.parseExprOps (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10908:23)
-      at JSXParserMixin.parseMaybeConditional (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10885:23)
-      at JSXParserMixin.parseMaybeAssign (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10835:21)
-      at JSXParserMixin.parseExpressionBase (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10788:23)
-      at /home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10784:39
-      at JSXParserMixin.allowInAnd (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12431:16)
-      at JSXParserMixin.parseExpression (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10784:17)
-      at JSXParserMixin.parseReturnStatement (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13151:28)
-      at JSXParserMixin.parseStatementContent (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12807:21)
-      at JSXParserMixin.parseStatementLike (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12776:17)
-      at JSXParserMixin.parseStatementListItem (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12756:17)
-      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13325:61)
-      at JSXParserMixin.parseBlockBody (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13318:10)
-      at JSXParserMixin.parseBlock (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13306:10)
-      at JSXParserMixin.parseFunctionBody (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12110:24)
+  ➜  Local:   http://localhost:5174/
+  ➜  Network: http://192.168.123.35:5174/
+3:58:37 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import axios from "axios";
+  5  |  import { useAuth } from "../../context/AuthContext";
+     |                           ^
+  6  |  const UserManagement = () => {
+  7  |    _s();
+3:58:40 p. m. [vite] Internal server error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import axios from "axios";
+  5  |  import { useAuth } from "../../context/AuthContext";
+     |                           ^
+  6  |  const UserManagement = () => {
+  7  |    _s();
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+3:59:23 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css, /src/App.jsx
+3:59:23 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css, /src/App.jsx
+4:00:56 p. m. [vite] vite.config.js changed, restarting server...
+4:00:56 p. m. [vite] server restarted.

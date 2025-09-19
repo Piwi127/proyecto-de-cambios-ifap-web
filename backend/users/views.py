@@ -1,3 +1,4 @@
+import logging
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -10,6 +11,8 @@ from .models import User
 from .serializers import UserSerializer, UserRegistrationSerializer
 from rest_framework.views import APIView
 from rest_framework.generics import CreateAPIView
+
+audit_logger = logging.getLogger('audit')
 
 # Vista para el registro de usuarios
 @method_decorator(csrf_exempt, name='dispatch')
@@ -59,6 +62,37 @@ class UserViewSet(viewsets.ModelViewSet):
                 {'error': 'Credenciales inválidas'},
                 status=status.HTTP_401_UNAUTHORIZED
             )
+
+    @action(detail=True, methods=['post'], permission_classes=[IsAuthenticated])
+    def update_role(self, request, pk=None):
+        user_to_update = self.get_object()
+        if not request.user.is_superuser:
+            return Response({'error': 'No tienes permisos para realizar esta acción.'}, status=status.HTTP_403_FORBIDDEN)
+
+        new_role = request.data.get('role')
+        if new_role not in ['student', 'instructor', 'superuser']:
+            return Response({'error': 'Rol inválido.'}, status=status.HTTP_400_BAD_REQUEST)
+
+        if new_role == 'superuser':
+            user_to_update.is_superuser = True
+            user_to_update.is_staff = True
+            user_to_update.is_student = False
+            user_to_update.is_instructor = False
+        elif new_role == 'instructor':
+            user_to_update.is_superuser = False
+            user_to_update.is_staff = False
+            user_to_update.is_student = False
+            user_to_update.is_instructor = True
+        elif new_role == 'student':
+            user_to_update.is_superuser = False
+            user_to_update.is_staff = False
+            user_to_update.is_student = True
+            user_to_update.is_instructor = False
+        
+        user_to_update.save()
+        audit_logger.info(f"Role change: User {request.user.id} ({request.user.username}) changed role of user {user_to_update.id} ({user_to_update.username}) to {new_role}")
+        serializer = self.get_serializer(user_to_update)
+        return Response(serializer.data)
 
     @action(detail=False, methods=['post'], permission_classes=[IsAuthenticated])
     def logout(self, request):
