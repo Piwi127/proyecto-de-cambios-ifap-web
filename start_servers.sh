@@ -48,29 +48,13 @@ check_backend_dependencies() {
         return 1
     fi
     
-    # Verificar si las dependencias están instaladas
-    echo "Verificando instalación de dependencias..."
-    MISSING_DEPS=""
-    
-    # Lista de dependencias críticas
-    CRITICAL_DEPS=("django" "djangorestframework" "djangorestframework-simplejwt" "django-cors-headers" "pillow")
-    
-    for dep in "${CRITICAL_DEPS[@]}"; do
-        if ! python -c "import $dep" 2>/dev/null; then
-            MISSING_DEPS="$MISSING_DEPS $dep"
-        fi
-    done
-    
-    if [ -n "$MISSING_DEPS" ]; then
-        echo -e "${YELLOW}⚠️  Instalando dependencias faltantes:$MISSING_DEPS${NC}"
-        if ! pip install $MISSING_DEPS; then
-            echo -e "${RED}❌ Error al instalar dependencias del backend${NC}"
-            return 1
-        fi
-        echo -e "${GREEN}✅ Dependencias del backend instaladas${NC}"
-    else
-        echo -e "${GREEN}✅ Todas las dependencias del backend están instaladas${NC}"
+    # Instalar dependencias desde requirements.txt
+    echo "Instalando/actualizando dependencias desde requirements.txt..."
+    if ! pip install -r requirements.txt; then
+        echo -e "${RED}❌ Error al instalar dependencias del backend${NC}"
+        return 1
     fi
+    echo -e "${GREEN}✅ Dependencias del backend instaladas/actualizadas${NC}"
     
     return 0
 }
@@ -190,16 +174,13 @@ if [ ! -f "manage.py" ]; then
     exit 1
 fi
 
-# Verificar que la base de datos esté configurada
-echo "Verificando configuración de la base de datos..."
-if ! python manage.py check --deploy 2>/dev/null; then
-    echo -e "${YELLOW}⚠️  Ejecutando migraciones de la base de datos...${NC}"
-    if ! python manage.py migrate; then
+echo "Aplicando migraciones de la base de datos..."
+    python manage.py makemigrations --noinput
+    if ! python manage.py migrate --noinput; then
         echo -e "${RED}❌ Error al ejecutar migraciones${NC}"
         exit 1
     fi
-    echo -e "${GREEN}✅ Migraciones ejecutadas${NC}"
-fi
+    echo -e "${GREEN}✅ Migraciones aplicadas${NC}"
 
 # Iniciar servidor Django en background
 echo "Iniciando servidor Django en puerto 8000..."
