@@ -100,5 +100,15 @@ export const courseService = {
     } catch (error) {
       throw handleApiError(error);
     }
+  },
+
+  // Get course metrics (instructor only)
+  async getCourseMetrics(courseId) {
+    try {
+      const response = await api.get(`/courses/${courseId}/metrics/`);
+      return response.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
   }
 };

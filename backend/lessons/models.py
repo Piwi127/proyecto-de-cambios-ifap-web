@@ -19,3 +19,16 @@ class Lesson(models.Model):
 
     def __str__(self):
         return f"{self.course.title} - {self.title}"
+
+class LessonCompletion(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='lesson_completions')
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, related_name='completions')
+    completed_at = models.DateTimeField(auto_now_add=True)
+    is_completed = models.BooleanField(default=True)
+
+    class Meta:
+        unique_together = ['user', 'lesson']
+        ordering = ['-completed_at']
+
+    def __str__(self):
+        return f"{self.user.username} completed {self.lesson.title}"

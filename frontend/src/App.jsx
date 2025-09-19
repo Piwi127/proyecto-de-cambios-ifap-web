@@ -23,7 +23,10 @@ import ConfiguracionAulaVirtual from './pages/ConfiguracionAulaVirtual';
 import ArchivisticaBasica from './pages/ArchivisticaBasica';
 import GestionDigital from './pages/GestionDigital';
 import ArchivosHistoricos from './pages/ArchivosHistoricos';
+import VideoConferencePage from './pages/VideoConferencePage';
+import ColaboracionPage from './pages/ColaboracionPage';
 import PreservacionDocumentos from './pages/PreservacionDocumentos';
+import DashboardProfesor from './pages/DashboardProfesor';
 
 function App() {
   const notifications = useWebSocket();
@@ -114,6 +117,27 @@ function App() {
         <ProtectedRoute>
           <AulaVirtualLayout>
             <ConfiguracionAulaVirtual />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/aula-virtual/videoconferencia" element={
+        <ProtectedRoute>
+          <AulaVirtualLayout>
+            <VideoConferencePage />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/aula-virtual/colaboracion" element={
+        <ProtectedRoute>
+          <AulaVirtualLayout>
+            <ColaboracionPage />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/aula-virtual/dashboard-profesor" element={
+        <ProtectedRoute>
+          <AulaVirtualLayout>
+            <DashboardProfesor />
           </AulaVirtualLayout>
         </ProtectedRoute>
       } />

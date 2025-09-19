@@ -5,6 +5,9 @@ from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnl
 from django.shortcuts import get_object_or_404
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
+from django.db.models import Avg, Count
+from lessons.models import LessonCompletion
+from quizzes.models import Quiz, QuizAttempt
 from .models import Course
 from .serializers import CourseSerializer
 
@@ -74,3 +77,27 @@ class CourseViewSet(viewsets.ModelViewSet):
         taught_courses = user.courses_taught.filter(is_active=True)
         serializer = self.get_serializer(taught_courses, many=True)
         return Response(serializer.data)
+
+    @action(detail=True, methods=['get'], permission_classes=[IsAuthenticated])
+    def metrics(self, request, pk=None):
+        course = self.get_object()
+        if not request.user.is_instructor or request.user != course.instructor:
+            return Response({'error': 'Solo el instructor puede ver las métricas'}, status=status.HTTP_403_FORBIDDEN)
+        total_students = course.students.count()
+        total_lessons = course.lessons.count()
+        if total_lessons > 0:
+            completions = LessonCompletion.objects.filter(lesson__course=course).values('user').annotate(count=Count('id')).aggregate(avg=Avg('count'))
+            avg_progress = ((completions['avg'] or 0) / total_lessons) * 100
+        else:
+            avg_progress = 0
+        quizzes = Quiz.objects.filter(course=course)
+        if quizzes.exists():
+            avg_score = QuizAttempt.objects.filter(quiz__in=quizzes).aggregate(avg=Avg('percentage'))['avg'] or 0
+        else:
+            avg_score = 0
+        data = {
+            'total_students': total_students,
+            'average_progress': round(avg_progress, 2),
+            'average_score': round(avg_score, 2),
+        }
+        return Response(data)
