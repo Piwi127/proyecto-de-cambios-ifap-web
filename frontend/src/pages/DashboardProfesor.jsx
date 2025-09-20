@@ -33,7 +33,7 @@ const DashboardProfesor = () => {
       }
     };
 
-    if (user?.is_instructor) {
+    if (user?.is_instructor || user?.is_superuser) {
       fetchDashboardData();
     }
   }, [user]);
@@ -48,8 +48,9 @@ const DashboardProfesor = () => {
     return () => disconnectWebSocket();
   }, []);
 
-  if (!user?.is_instructor) {
-    return <div className="text-center py-8">Acceso denegado. Solo para instructores.</div>;
+  // Verificar si el usuario tiene permisos para acceder (instructor o superuser/admin)
+  if (!user?.is_instructor && !user?.is_superuser) {
+    return <div className="text-center py-8">Acceso denegado. Solo para instructores y administradores.</div>;
   }
 
   if (loading) {
