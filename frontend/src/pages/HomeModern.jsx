@@ -1,8 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Carousel from '../components/Carousel';
 import Testimonials from '../components/Testimonials';
 
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen">
       {/* Hero Carousel Moderno */}
@@ -252,7 +254,10 @@ const Home = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <button className="bg-white text-primary-600 px-8 py-4 rounded-2xl font-semibold hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl inline-flex items-center space-x-2">
+              <button 
+                onClick={() => navigate('/login', { state: { showRegister: true } })}
+                className="bg-white text-primary-600 px-8 py-4 rounded-2xl font-semibold hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl inline-flex items-center space-x-2"
+              >
                 <span>🚀 Inscribirme Ahora</span>
               </button>
               <button className="border-2 border-white text-white px-8 py-4 rounded-2xl font-semibold hover:bg-white hover:text-primary-600 transition-all duration-300 transform hover:scale-105 inline-flex items-center space-x-2">

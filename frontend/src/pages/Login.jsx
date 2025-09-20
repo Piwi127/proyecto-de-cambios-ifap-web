@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Login = () => {
   const [credentials, setCredentials] = useState({ username: '', password: '' });
@@ -19,6 +19,14 @@ const Login = () => {
   const [loginError, setLoginError] = useState('');
   const { login, register, loading } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Verificar si debe mostrar el formulario de registro
+  useEffect(() => {
+    if (location.state?.showRegister) {
+      setShowRegister(true);
+    }
+  }, [location.state]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

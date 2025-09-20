@@ -1,8 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import MiniCarousel from '../components/MiniCarousel';
 import VideoPlayer from '../components/VideoPlayer';
 
 const GestionDigital = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-gray-50">
       {/* Hero Section */}
@@ -16,7 +18,10 @@ const GestionDigital = () => {
               Tecnologías modernas para la digitalización y preservación digital de documentos históricos
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
+              <button 
+                onClick={() => navigate('/login', { state: { showRegister: true } })}
+                className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+              >
                 💻 Inscribirme Ahora
               </button>
               <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-secondary-600 transition-all transform hover:scale-105">
@@ -215,7 +220,10 @@ const GestionDigital = () => {
               <h2 className="text-3xl font-bold mb-4">Conviértete en un experto en gestión digital</h2>
               <p className="text-xl mb-6 text-secondary-100">Domina las tecnologías del futuro y lidera la transformación digital de los archivos en el Perú</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
+                <button 
+                  onClick={() => navigate('/login', { state: { showRegister: true } })}
+                  className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+                >
                   🚀 Inscribirme Ahora
                 </button>
                 <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-secondary-600 transition-all transform hover:scale-105">

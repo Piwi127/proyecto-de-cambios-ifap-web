@@ -8,3 +8,25 @@
   ➜  Local:   http://localhost:5174/
   ➜  Network: http://192.168.123.35:5174/
   ➜  Network: http://172.18.0.1:5174/
+10:20:24 p. m. [vite] (client) hmr update /src/pages/HomeModern.jsx, /src/index.css, /src/components/UniversityMenu.css
+10:20:32 p. m. [vite] (client) hmr update /src/pages/HomeModern.jsx, /src/index.css, /src/components/UniversityMenu.css
+10:20:39 p. m. [vite] (client) hmr update /src/pages/Login.jsx, /src/index.css, /src/components/UniversityMenu.css
+10:20:46 p. m. [vite] (client) hmr update /src/pages/Login.jsx, /src/index.css, /src/components/UniversityMenu.css
+10:22:24 p. m. [vite] (client) hmr update /src/pages/HomeModern.jsx, /src/index.css, /src/components/UniversityMenu.css
+10:22:24 p. m. [vite] (client) hmr update /src/pages/Login.jsx, /src/index.css, /src/components/UniversityMenu.css
+10:24:34 p. m. [vite] (client) hmr update /src/pages/PreservacionDocumentos.jsx, /src/index.css, /src/components/UniversityMenu.css
+10:24:39 p. m. [vite] (client) hmr update /src/pages/PreservacionDocumentos.jsx, /src/index.css, /src/components/UniversityMenu.css
+10:24:45 p. m. [vite] (client) hmr update /src/pages/PreservacionDocumentos.jsx, /src/index.css, /src/components/UniversityMenu.css
+10:24:59 p. m. [vite] (client) hmr update /src/pages/GestionDigital.jsx, /src/index.css, /src/components/UniversityMenu.css
+10:25:04 p. m. [vite] (client) hmr update /src/pages/GestionDigital.jsx, /src/index.css, /src/components/UniversityMenu.css
+10:25:09 p. m. [vite] (client) hmr update /src/pages/GestionDigital.jsx, /src/index.css, /src/components/UniversityMenu.css
+10:25:24 p. m. [vite] (client) hmr update /src/pages/ArchivisticaBasica.jsx, /src/index.css, /src/components/UniversityMenu.css
+10:25:32 p. m. [vite] (client) hmr update /src/pages/ArchivisticaBasica.jsx, /src/index.css, /src/components/UniversityMenu.css
+10:25:38 p. m. [vite] (client) hmr update /src/pages/ArchivisticaBasica.jsx, /src/index.css, /src/components/UniversityMenu.css
+10:25:57 p. m. [vite] (client) hmr update /src/pages/ArchivosHistoricos.jsx, /src/index.css, /src/components/UniversityMenu.css
+10:26:02 p. m. [vite] (client) hmr update /src/pages/ArchivosHistoricos.jsx, /src/index.css, /src/components/UniversityMenu.css
+10:26:08 p. m. [vite] (client) hmr update /src/pages/ArchivosHistoricos.jsx, /src/index.css, /src/components/UniversityMenu.css
+10:28:25 p. m. [vite] (client) hmr update /src/pages/ArchivisticaBasica.jsx, /src/index.css, /src/components/UniversityMenu.css
+10:28:25 p. m. [vite] (client) hmr update /src/pages/GestionDigital.jsx, /src/index.css, /src/components/UniversityMenu.css
+10:28:25 p. m. [vite] (client) hmr update /src/pages/ArchivosHistoricos.jsx, /src/index.css, /src/components/UniversityMenu.css
+10:28:25 p. m. [vite] (client) hmr update /src/pages/PreservacionDocumentos.jsx, /src/index.css, /src/components/UniversityMenu.css

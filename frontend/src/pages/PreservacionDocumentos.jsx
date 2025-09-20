@@ -1,8 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import MiniCarousel from '../components/MiniCarousel';
 import VideoPlayer from '../components/VideoPlayer';
 
 const PreservacionDocumentos = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-gray-50">
       {/* Hero Section */}
@@ -16,7 +18,10 @@ const PreservacionDocumentos = () => {
               Técnicas avanzadas para la conservación y restauración de documentos históricos y contemporáneos
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
+              <button 
+                onClick={() => navigate('/login', { state: { showRegister: true } })}
+                className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+              >
                 🛡️ Inscribirme Ahora
               </button>
               <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-neutral-600 transition-all transform hover:scale-105">
@@ -237,7 +242,10 @@ const PreservacionDocumentos = () => {
               <h2 className="text-3xl font-bold mb-4">Protege el patrimonio documental del Perú</h2>
               <p className="text-xl mb-6 text-neutral-100">Conviértete en un especialista en preservación y garantiza que nuestros documentos históricos perduren para las futuras generaciones</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
+                <button 
+                  onClick={() => navigate('/login', { state: { showRegister: true } })}
+                  className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+                >
                   🚀 Inscribirme Ahora
                 </button>
                 <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-neutral-600 transition-all transform hover:scale-105">

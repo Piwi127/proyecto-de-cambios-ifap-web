@@ -1,8 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import MiniCarousel from '../components/MiniCarousel';
 import VideoPlayer from '../components/VideoPlayer';
 
 const ArchivisticaBasica = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-gray-50">
       {/* Hero Section */}
@@ -16,7 +18,10 @@ const ArchivisticaBasica = () => {
               Fundamentos esenciales para la gestión y organización de archivos documentales
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
+              <button 
+                onClick={() => navigate('/login', { state: { showRegister: true } })}
+                className="bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+              >
                 📚 Inscribirme Ahora
               </button>
               <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary-600 transition-all transform hover:scale-105">
@@ -188,7 +193,10 @@ const ArchivisticaBasica = () => {
               <h2 className="text-3xl font-bold mb-4">¿Listo para comenzar tu carrera en archivística?</h2>
               <p className="text-xl mb-6 text-primary-100">Únete a nuestros estudiantes y forma parte del futuro de la gestión documental en el Perú</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
+                <button 
+                  onClick={() => navigate('/login', { state: { showRegister: true } })}
+                  className="bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+                >
                   🚀 Inscribirme Ahora
                 </button>
                 <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary-600 transition-all transform hover:scale-105">
