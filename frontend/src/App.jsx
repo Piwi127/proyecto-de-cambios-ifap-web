@@ -164,6 +164,13 @@ function App() {
           </AulaVirtualLayout>
         </ProtectedRoute>
       } />
+      <Route path="/aula-virtual/biblioteca" element={
+        <ProtectedRoute>
+          <AulaVirtualLayout>
+            <BibliotecaAulaVirtual />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
       <Route path="/aula-virtual/biblioteca/archivos" element={
         <ProtectedRoute>
           <AulaVirtualLayout>
