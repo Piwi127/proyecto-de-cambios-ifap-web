@@ -44,9 +44,8 @@ const RoleBasedStats = () => {
     try {
       const [roleSummary, courses] = await Promise.all([
         userService.getRoleSummary(),
-        courseService.getCourses()
+        courseService.getAllCourses()
       ]);
-
       setStats({
         totalUsers: roleSummary.total_users || 0,
         totalInstructors: roleSummary.instructors || 0,
@@ -61,28 +60,28 @@ const RoleBasedStats = () => {
   };
 
   const fetchInstructorStats = async () => {
-    try {
-      const courses = await courseService.getCourses();
-      const myCourses = courses.filter(course => 
-        course.instructor === user.id || 
-        course.instructor_name === user.username
-      );
+  try {
+    const courses = await courseService.getAllCourses();
+    const myCourses = courses.filter(course => 
+      course.instructor === user.id || 
+      course.instructor_name === user.username
+    );
 
-      setStats({
-        totalCourses: myCourses.length,
-        activeCourses: myCourses.filter(c => c.is_active).length,
-        totalStudents: myCourses.reduce((sum, course) => sum + (course.enrolled_count || 0), 0),
-        pendingAssignments: 0 // Esto se puede implementar cuando tengamos el endpoint
-      });
-    } catch (error) {
-      console.error('Error fetching instructor stats:', error);
-      setStats({});
-    }
-  };
+    setStats({
+      totalCourses: myCourses.length,
+      activeCourses: myCourses.filter(c => c.is_active).length,
+      totalStudents: myCourses.reduce((sum, course) => sum + (course.enrolled_count || 0), 0),
+      pendingAssignments: 0 // Esto se puede implementar cuando tengamos el endpoint
+    });
+  } catch (error) {
+    console.error('Error fetching instructor stats:', error);
+    setStats({});
+  }
+};
 
   const fetchStudentStats = async () => {
     try {
-      const courses = await courseService.getCourses();
+      const courses = await courseService.getAllCourses();
       const enrolledCourses = courses.filter(course => 
         course.is_enrolled || course.students?.includes(user.id)
       );

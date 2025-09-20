@@ -1,0 +1,4 @@
+Título: Guía de Preservación Digital para Archivos Históricos Peruanos
+Autor: Instituto Nacional de Archivos del Perú
+Fecha: 2023
+Contenido: Este documento aborda las mejores prácticas y desafíos en la preservación digital de documentos históricos en el contexto peruano, incluyendo normativas, estándares y tecnologías aplicables. Se enfoca en la importancia de la digitalización, metadatos y acceso a largo plazo para el patrimonio documental del Perú.
