@@ -9,3 +9,22 @@
   ➜  Network: http://192.168.123.35:5174/
 8:05:51 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
 8:09:10 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+8:11:32 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+8:11:45 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+8:11:56 p. m. [vite] (client) hmr update /src/components/AulaVirtualLayout.jsx, /src/index.css, /src/components/UniversityMenu.css
+8:12:34 p. m. [vite] (client) hmr update /src/components/AulaVirtualLayout.jsx, /src/index.css, /src/components/UniversityMenu.css
+8:12:34 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+8:14:09 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+8:14:26 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+8:14:48 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+8:14:48 p. m. [vite] (client) hmr update /src/components/UniversityMenu.css, /src/index.css, /src/pages/CalificacionesAulaVirtual.jsx
+8:16:09 p. m. [vite] (client) hmr update /src/pages/NotificacionesAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
+8:16:43 p. m. [vite] (client) hmr update /src/pages/NotificacionesAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
+8:16:54 p. m. [vite] (client) hmr update /src/pages/NotificacionesAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
+8:17:00 p. m. [vite] (client) hmr update /src/pages/NotificacionesAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
+8:17:07 p. m. [vite] (client) hmr update /src/pages/NotificacionesAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
+8:17:38 p. m. [vite] (client) hmr update /src/components/NotificationList.jsx, /src/index.css, /src/components/UniversityMenu.css
+8:17:46 p. m. [vite] (client) hmr update /src/components/NotificationItem.jsx, /src/index.css, /src/components/UniversityMenu.css
+8:18:19 p. m. [vite] (client) hmr update /src/pages/NotificacionesAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
+8:18:19 p. m. [vite] (client) hmr update /src/components/NotificationList.jsx, /src/index.css, /src/components/UniversityMenu.css
+8:18:19 p. m. [vite] (client) hmr update /src/components/NotificationItem.jsx, /src/index.css, /src/components/UniversityMenu.css

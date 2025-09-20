@@ -50,6 +50,14 @@ const AulaVirtualLayout = ({ children }) => {
       roles: ['student', 'instructor', 'admin']
     },
     {
+      name: 'Quizzes',
+      path: '/aula-virtual/quizzes',
+      icon: '🧠',
+      color: 'text-yellow-600',
+      bgColor: 'bg-yellow-50',
+      roles: ['student', 'instructor', 'admin']
+    },
+    {
       name: 'Foro',
       path: '/aula-virtual/foro',
       icon: '💬',

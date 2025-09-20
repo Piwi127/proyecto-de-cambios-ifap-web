@@ -15,6 +15,8 @@ import PerfilEstudiante from './pages/PerfilEstudiante';
 import CursosAulaVirtual from './pages/CursosAulaVirtual';
 import CalendarioAulaVirtual from './pages/CalendarioAulaVirtual';
 import BibliotecaAulaVirtual from './pages/BibliotecaAulaVirtual';
+import QuizzesAulaVirtual from './pages/QuizzesAulaVirtual';
+import CalificacionesAulaVirtual from './pages/CalificacionesAulaVirtual';
 import Foro from './pages/Foro';
 import ForoTema from './pages/ForoTema';
 import MensajesAulaVirtual from './pages/MensajesAulaVirtual';
@@ -189,6 +191,20 @@ function App() {
         <ProtectedRoute>
           <AulaVirtualLayout>
             <EstadisticasBiblioteca />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/aula-virtual/quizzes" element={
+        <ProtectedRoute>
+          <AulaVirtualLayout>
+            <QuizzesAulaVirtual />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/aula-virtual/calificaciones" element={
+        <ProtectedRoute>
+          <AulaVirtualLayout>
+            <CalificacionesAulaVirtual />
           </AulaVirtualLayout>
         </ProtectedRoute>
       } />

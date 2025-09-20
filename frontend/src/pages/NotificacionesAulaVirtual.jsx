@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Card from '../components/Card';
 import useWebSocket from '../hooks/useWebSocket';
 import NotificationList from '../components/NotificationList';
-import { useAuth } from '../context/AuthContext'; // Assuming you have an AuthContext
-import axios from 'axios';
+import { useAuth } from '../context/AuthContext';
+import { api } from '../services/api';
 
 const NotificacionesAulaVirtual = () => {
   const [notifications, setNotifications] = useState([]);
+  const [filter, setFilter] = useState('todas');
   const { user } = useAuth();
   const newWsNotifications = useWebSocket(); // Notifications coming from WebSocket
 
@@ -15,11 +16,7 @@ const NotificacionesAulaVirtual = () => {
       // Fetch existing notifications from the backend
       const fetchNotifications = async () => {
         try {
-          const response = await axios.get('http://localhost:8000/api/notifications/', {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-            },
-          });
+          const response = await api.get('/notifications/');
           setNotifications(response.data);
         } catch (error) {
           console.error('Error fetching notifications:', error);
@@ -44,11 +41,7 @@ const NotificacionesAulaVirtual = () => {
 
   const markAsRead = async (id) => {
     try {
-      await axios.post(`http://localhost:8000/api/notifications/${id}/mark_as_read/`, null, {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
+      await api.post(`/notifications/${id}/mark_as_read/`);
       setNotifications((prev) =>
         prev.map((n) => (n.id === id ? { ...n, read: true } : n))
       );
@@ -59,11 +52,7 @@ const NotificacionesAulaVirtual = () => {
 
   const markAllAsRead = async () => {
     try {
-      await axios.post('http://localhost:8000/api/notifications/mark_all_as_read/', null, {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
+      await api.post('/notifications/mark_all_as_read/');
       setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
     } catch (error) {
       console.error('Error marking all notifications as read:', error);
