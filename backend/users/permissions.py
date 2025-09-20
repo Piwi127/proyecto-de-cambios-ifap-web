@@ -129,6 +129,10 @@ class CanManageUsers(BasePermission):
     def has_permission(self, request, view):
         return request.user.is_authenticated and request.user.can_manage_users()
 
+    def has_object_permission(self, request, view, obj):
+        # Administradores pueden gestionar cualquier usuario
+        return request.user.can_manage_users()
+
 
 class CanManageCourses(BasePermission):
     """

@@ -76,7 +76,13 @@ const UserManagement = () => {
 
     // Filtro por rol
     if (roleFilter !== 'all') {
-      filtered = filtered.filter(user => user.role === roleFilter);
+      if (roleFilter === 'admin') {
+        filtered = filtered.filter(user => user.is_superuser === true);
+      } else if (roleFilter === 'instructor') {
+        filtered = filtered.filter(user => user.is_instructor === true);
+      } else if (roleFilter === 'student') {
+        filtered = filtered.filter(user => user.is_student === true);
+      }
     }
 
     // Filtro por estado
@@ -96,12 +102,23 @@ const UserManagement = () => {
 
   const handleEditUser = (user) => {
     setSelectedUser(user);
+    
+    // Mapear los campos booleanos del backend a un campo 'role' para el frontend
+    let userRole = 'student'; // default
+    if (user.is_superuser) {
+      userRole = 'admin';
+    } else if (user.is_instructor) {
+      userRole = 'instructor';
+    } else if (user.is_student) {
+      userRole = 'student';
+    }
+    
     setEditForm({
       first_name: user.first_name || '',
       last_name: user.last_name || '',
       email: user.email || '',
-      role: user.role || '',
-      is_active: user.is_active
+      role: userRole,
+      is_active: user.is_active !== undefined ? user.is_active : true
     });
     setModalType('edit');
     setShowEditModal(true);
@@ -109,9 +126,20 @@ const UserManagement = () => {
 
   const handleRoleChange = (user) => {
     setSelectedUser(user);
+    
+    // Mapear los campos booleanos del backend a un campo 'role' para el frontend
+    let userRole = 'student'; // default
+    if (user.is_superuser) {
+      userRole = 'admin';
+    } else if (user.is_instructor) {
+      userRole = 'instructor';
+    } else if (user.is_student) {
+      userRole = 'student';
+    }
+    
     setEditForm({
       ...editForm,
-      role: user.role || ''
+      role: userRole
     });
     setModalType('role');
     setShowEditModal(true);
@@ -128,34 +156,75 @@ const UserManagement = () => {
 
   const handleSaveUser = async () => {
     try {
+      let updateData = {};
+
       if (modalType === 'edit') {
-        await userService.updateUser(selectedUser.id, editForm);
+        // Para edición completa, enviar todos los campos
+        updateData = {
+          first_name: editForm.first_name,
+          last_name: editForm.last_name,
+          email: editForm.email,
+          is_active: editForm.is_active
+        };
+
+        // Si se cambió el rol, incluir los campos booleanos correspondientes
+        if (editForm.role !== selectedUser.role_name) {
+          if (editForm.role === 'student') {
+            updateData.is_student = true;
+            updateData.is_instructor = false;
+            updateData.is_superuser = false;
+          } else if (editForm.role === 'instructor') {
+            updateData.is_student = false;
+            updateData.is_instructor = true;
+            updateData.is_superuser = false;
+          } else if (editForm.role === 'admin') {
+            updateData.is_student = false;
+            updateData.is_instructor = false;
+            updateData.is_superuser = true;
+          }
+        }
       } else if (modalType === 'role') {
+        // Para cambio de rol específico, usar el endpoint dedicado
         await userService.updateUserRole(selectedUser.id, editForm.role);
+        setShowEditModal(false);
+        loadUsers();
+        return;
       }
+
+      console.log('Enviando datos de actualización:', updateData);
+      const response = await userService.updateUser(selectedUser.id, updateData);
+      console.log('Respuesta del servidor:', response);
+
       setShowEditModal(false);
       loadUsers();
+      
+      // Mostrar mensaje de éxito
+      alert('Usuario actualizado exitosamente');
     } catch (error) {
       console.error('Error saving user:', error);
+      alert(`Error al guardar los cambios: ${error.message || 'Error desconocido'}`);
     }
   };
 
-  const getRoleColor = (role) => {
-    switch (role) {
-      case 'admin': return 'bg-red-100 text-red-800';
-      case 'instructor': return 'bg-blue-100 text-blue-800';
-      case 'student': return 'bg-green-100 text-green-800';
-      default: return 'bg-gray-100 text-gray-800';
-    }
+  const getRoleColor = (user) => {
+    if (user.is_superuser) return 'bg-red-100 text-red-800';
+    if (user.is_instructor) return 'bg-blue-100 text-blue-800';
+    if (user.is_student) return 'bg-green-100 text-green-800';
+    return 'bg-gray-100 text-gray-800';
   };
 
-  const getRoleIcon = (role) => {
-    switch (role) {
-      case 'admin': return <Shield className="w-4 h-4" />;
-      case 'instructor': return <UserCheck className="w-4 h-4" />;
-      case 'student': return <Users className="w-4 h-4" />;
-      default: return <Users className="w-4 h-4" />;
-    }
+  const getRoleIcon = (user) => {
+    if (user.is_superuser) return <Shield className="w-4 h-4" />;
+    if (user.is_instructor) return <UserCheck className="w-4 h-4" />;
+    if (user.is_student) return <Users className="w-4 h-4" />;
+    return <Users className="w-4 h-4" />;
+  };
+
+  const getRoleDisplay = (user) => {
+    if (user.is_superuser) return 'Administrador';
+    if (user.is_instructor) return 'Instructor';
+    if (user.is_student) return 'Estudiante';
+    return user.role_display || 'Sin Rol';
   };
 
   const formatDate = (dateString) => {
@@ -311,11 +380,9 @@ const UserManagement = () => {
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium ${getRoleColor(user.role)}`}>
-                          {getRoleIcon(user.role)}
-                          {user.role === 'admin' ? 'Administrador' : 
-                           user.role === 'instructor' ? 'Instructor' : 
-                           user.role === 'student' ? 'Estudiante' : user.role}
+                        <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium ${getRoleColor(user)}`}>
+                          {getRoleIcon(user)}
+                          {getRoleDisplay(user)}
                         </span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
@@ -429,11 +496,9 @@ const UserManagement = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700">Rol</label>
-                    <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium ${getRoleColor(selectedUser.role)} mt-1`}>
-                      {getRoleIcon(selectedUser.role)}
-                      {selectedUser.role === 'admin' ? 'Administrador' : 
-                       selectedUser.role === 'instructor' ? 'Instructor' : 
-                       selectedUser.role === 'student' ? 'Estudiante' : selectedUser.role}
+                    <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium ${getRoleColor(selectedUser)} mt-1`}>
+                      {getRoleIcon(selectedUser)}
+                      {getRoleDisplay(selectedUser)}
                     </span>
                   </div>
                   <div>

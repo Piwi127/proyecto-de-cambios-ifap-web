@@ -87,13 +87,13 @@ export const userService = {
     
     switch (permission) {
       case 'manage_users':
-        return user.is_superuser;
+        return user.is_superuser === true;
       case 'manage_courses':
-        return user.is_instructor || user.is_superuser;
+        return user.is_instructor === true || user.is_superuser === true;
       case 'view_reports':
-        return user.is_instructor || user.is_superuser;
+        return user.is_instructor === true || user.is_superuser === true;
       case 'system_config':
-        return user.is_superuser;
+        return user.is_superuser === true;
       default:
         return false;
     }

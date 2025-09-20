@@ -1,6 +1,24 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Carousel = () => {
+  const navigate = useNavigate();
+
+  // Función para determinar la ruta del curso según el slide actual
+  const getCourseRoute = (index) => {
+    const routes = [
+      '/archivistica-basica',        // Formación Profesional en Archivística
+      '/preservacion-documentos',    // Preservación del Patrimonio Documental
+      '/gestion-digital',           // Investigación y Gestión Documental
+      '/gestion-digital'            // Innovación Tecnológica en Archivos
+    ];
+    return routes[index] || '/archivistica-basica';
+  };
+
+  const handleExploreMore = () => {
+    const courseRoute = getCourseRoute(currentIndex);
+    navigate(courseRoute);
+  };
   const images = [
     {
       src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
@@ -95,7 +113,10 @@ const Carousel = () => {
           <p className="text-lg md:text-xl mb-8 animate-slideUp">
             {images[currentIndex].description}
           </p>
-          <button className="bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
+          <button 
+            onClick={handleExploreMore}
+            className="bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+          >
             Explorar Más
           </button>
         </div>

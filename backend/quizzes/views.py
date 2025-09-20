@@ -13,10 +13,21 @@ from .serializers import (
 )
 from courses.models import Course
 from lessons.models import Lesson
+from users.permissions import IsInstructorOrAdmin
 
 class QuizViewSet(viewsets.ModelViewSet):
     serializer_class = QuizSerializer
     permission_classes = [IsAuthenticated]
+
+    def get_permissions(self):
+        """
+        Permisos dinámicos basados en la acción:
+        - Lectura (list, retrieve): cualquier usuario autenticado
+        - Escritura (create, update, delete): solo instructores y administradores
+        """
+        if self.action in ['create', 'update', 'partial_update', 'destroy']:
+            return [IsAuthenticated(), IsInstructorOrAdmin()]
+        return [IsAuthenticated()]
 
     def get_queryset(self):
         user = self.request.user
@@ -44,6 +55,13 @@ class QuizViewSet(viewsets.ModelViewSet):
     @action(detail=True, methods=['get'], permission_classes=[IsAuthenticated])
     def questions(self, request, pk=None):
         quiz = self.get_object()
+        # Verificar que el estudiante esté inscrito en el curso si no es instructor
+        if not request.user.is_instructor and not request.user.is_superuser:
+            if not quiz.course.students.filter(id=request.user.id).exists():
+                return Response(
+                    {'error': 'No tienes acceso a las preguntas de este quiz'},
+                    status=status.HTTP_403_FORBIDDEN
+                )
         questions = quiz.questions.all().order_by('order')
         serializer = QuestionSerializer(questions, many=True)
         return Response(serializer.data)
@@ -159,13 +177,34 @@ class QuizViewSet(viewsets.ModelViewSet):
         quiz = self.get_object()
         user = request.user
         
-        attempts = QuizAttempt.objects.filter(user=user, quiz=quiz).order_by('-attempt_number')
+        # Si es instructor o admin, puede ver todos los resultados del quiz
+        if user.is_instructor or user.is_superuser:
+            if quiz.created_by != user and not user.is_superuser:
+                return Response(
+                    {'error': 'No tienes permisos para ver los resultados de este quiz'},
+                    status=status.HTTP_403_FORBIDDEN
+                )
+            attempts = QuizAttempt.objects.filter(quiz=quiz).order_by('-attempt_number')
+        else:
+            # Estudiantes solo pueden ver sus propios resultados
+            attempts = QuizAttempt.objects.filter(user=user, quiz=quiz).order_by('-attempt_number')
+        
         serializer = QuizAttemptSerializer(attempts, many=True)
         return Response(serializer.data)
 
 class QuestionViewSet(viewsets.ModelViewSet):
     serializer_class = QuestionSerializer
     permission_classes = [IsAuthenticated]
+
+    def get_permissions(self):
+        """
+        Permisos dinámicos basados en la acción:
+        - Lectura (list, retrieve): cualquier usuario autenticado (pero get_queryset filtra por instructor)
+        - Escritura (create, update, delete): solo instructores y administradores
+        """
+        if self.action in ['create', 'update', 'partial_update', 'destroy']:
+            return [IsAuthenticated(), IsInstructorOrAdmin()]
+        return [IsAuthenticated()]
 
     def get_queryset(self):
         user = self.request.user
@@ -200,8 +239,8 @@ class QuizAttemptViewSet(viewsets.ReadOnlyModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
-        if user.is_instructor:
-            # Instructors can see all attempts for their quizzes
+        if user.is_instructor or user.is_superuser:
+            # Instructors and admins can see all attempts for quizzes they created
             return QuizAttempt.objects.filter(quiz__created_by=user).select_related('user', 'quiz')
         else:
             # Students can only see their own attempts
@@ -212,9 +251,16 @@ class QuizAttemptViewSet(viewsets.ReadOnlyModelViewSet):
         attempt = self.get_object()
         
         # Verify access
-        if not request.user.is_instructor and attempt.user != request.user:
+        if not (request.user.is_instructor or request.user.is_superuser) and attempt.user != request.user:
             return Response(
-                {'error': 'No tienes acceso a estos resultados'},
+                {'error': 'No tienes acceso a estas respuestas'},
+                status=status.HTTP_403_FORBIDDEN
+            )
+        
+        # Additional check for instructors: only their own quizzes
+        if (request.user.is_instructor or request.user.is_superuser) and attempt.quiz.created_by != request.user and not request.user.is_superuser:
+            return Response(
+                {'error': 'No tienes permisos para ver las respuestas de este quiz'},
                 status=status.HTTP_403_FORBIDDEN
             )
         

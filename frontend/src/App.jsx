@@ -16,6 +16,11 @@ import CursosAulaVirtual from './pages/CursosAulaVirtual';
 import CalendarioAulaVirtual from './pages/CalendarioAulaVirtual';
 import BibliotecaAulaVirtual from './pages/BibliotecaAulaVirtual';
 import QuizzesAulaVirtual from './pages/QuizzesAulaVirtual';
+import QuizCreate from './pages/QuizCreate';
+import QuizManage from './pages/QuizManage';
+import QuizEdit from './pages/QuizEdit';
+import QuizTemplates from './pages/QuizTemplates';
+import QuizImportExport from './pages/QuizImportExport';
 import CalificacionesAulaVirtual from './pages/CalificacionesAulaVirtual';
 import Foro from './pages/Foro';
 import ForoTema from './pages/ForoTema';
@@ -42,6 +47,11 @@ import ProgramaArchivosHistoricos from './pages/ProgramaArchivosHistoricos';
 import ProgramaPreservacionDocumentos from './pages/ProgramaPreservacionDocumentos';
 import DashboardProfesor from './pages/DashboardProfesor';
 import UserManagement from './pages/UserManagement';
+import AdminDashboard from './pages/AdminDashboard';
+import AdminCourses from './pages/AdminCourses';
+import AdminPermissions from './pages/AdminPermissions';
+import AdminSystemSettings from './pages/AdminSystemSettings';
+import AdminReports from './pages/AdminReports';
 
 function App() {
   const notifications = useWebSocket();
@@ -211,6 +221,41 @@ function App() {
           </AulaVirtualLayout>
         </ProtectedRoute>
       } />
+      <Route path="/aula-virtual/quizzes/create" element={
+        <ProtectedRoute>
+          <AulaVirtualLayout>
+            <QuizCreate />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/aula-virtual/quizzes/manage/:id" element={
+        <ProtectedRoute>
+          <AulaVirtualLayout>
+            <QuizManage />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/aula-virtual/quizzes/edit/:id" element={
+        <ProtectedRoute>
+          <AulaVirtualLayout>
+            <QuizEdit />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/aula-virtual/quizzes/templates" element={
+        <ProtectedRoute>
+          <AulaVirtualLayout>
+            <QuizTemplates />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/aula-virtual/quizzes/import-export" element={
+        <ProtectedRoute>
+          <AulaVirtualLayout>
+            <QuizImportExport />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
       <Route path="/aula-virtual/calificaciones" element={
         <ProtectedRoute>
           <AulaVirtualLayout>
@@ -250,6 +295,41 @@ function App() {
         <ProtectedRoute requiredRole="superuser">
           <AulaVirtualLayout>
             <UserManagement />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/admin" element={
+        <ProtectedRoute requiredRole="superuser">
+          <AulaVirtualLayout>
+            <AdminDashboard />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/admin/courses" element={
+        <ProtectedRoute requiredRole="superuser">
+          <AulaVirtualLayout>
+            <AdminCourses />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/admin/permissions" element={
+        <ProtectedRoute requiredRole="superuser">
+          <AulaVirtualLayout>
+            <AdminPermissions />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/admin/settings" element={
+        <ProtectedRoute requiredRole="superuser">
+          <AulaVirtualLayout>
+            <AdminSystemSettings />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/admin/reports" element={
+        <ProtectedRoute requiredRole="superuser">
+          <AulaVirtualLayout>
+            <AdminReports />
           </AulaVirtualLayout>
         </ProtectedRoute>
       } />

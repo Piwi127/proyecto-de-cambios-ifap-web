@@ -152,5 +152,157 @@ export const quizService = {
     } catch (error) {
       throw handleApiError(error);
     }
+  },
+
+  // Update question order (drag & drop)
+  async updateQuestionOrder(quizId, questionOrders) {
+    try {
+      const response = await api.patch(`/quizzes/${quizId}/update_question_order/`, {
+        question_orders: questionOrders
+      });
+      return response.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+
+  // Get quiz templates
+  async getQuizTemplates(params = {}) {
+    try {
+      const response = await api.get('/quizzes/templates/', { params });
+      return response.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+
+  // Create quiz from template
+  async createQuizFromTemplate(templateId, customizations = {}) {
+    try {
+      const response = await api.post(`/quizzes/templates/${templateId}/create/`, customizations);
+      return response.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+
+  // Save quiz as template
+  async saveQuizAsTemplate(quizId, templateData) {
+    try {
+      const response = await api.post(`/quizzes/${quizId}/save_as_template/`, templateData);
+      return response.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+
+  // Import quiz from file
+  async importQuiz(importData) {
+    try {
+      const response = await api.post('/quizzes/import/', importData);
+      return response.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+
+  // Export quiz to file
+  async exportQuiz(quizId, format = 'json') {
+    try {
+      const response = await api.get(`/quizzes/${quizId}/export/`, {
+        params: { format },
+        responseType: 'blob'
+      });
+      return response.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+
+  // Bulk export quizzes
+  async bulkExportQuizzes(quizIds, format = 'json') {
+    try {
+      const response = await api.post('/quizzes/bulk_export/', {
+        quiz_ids: quizIds,
+        format: format
+      }, {
+        responseType: 'blob'
+      });
+      return response.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+
+  // Validate import data
+  async validateImportData(importData) {
+    try {
+      const response = await api.post('/quizzes/validate_import/', importData);
+      return response.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+
+  // Get quiz statistics
+  async getQuizStatistics(quizId) {
+    try {
+      const response = await api.get(`/quizzes/${quizId}/statistics/`);
+      return response.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+
+  // Get global quiz statistics
+  async getGlobalStatistics() {
+    try {
+      const response = await api.get('/quizzes/global_statistics/');
+      return response.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+
+  // Duplicate quiz
+  async duplicateQuiz(quizId, newTitle = null) {
+    try {
+      const response = await api.post(`/quizzes/${quizId}/duplicate/`, {
+        title: newTitle
+      });
+      return response.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+
+  // Archive quiz
+  async archiveQuiz(quizId) {
+    try {
+      const response = await api.patch(`/quizzes/${quizId}/archive/`);
+      return response.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+
+  // Unarchive quiz
+  async unarchiveQuiz(quizId) {
+    try {
+      const response = await api.patch(`/quizzes/${quizId}/unarchive/`);
+      return response.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+
+  // Get archived quizzes
+  async getArchivedQuizzes() {
+    try {
+      const response = await api.get('/quizzes/archived/');
+      return response.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
   }
 };

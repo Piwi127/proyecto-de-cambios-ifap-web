@@ -3,48 +3,170 @@
 > vite --port 5174
 
 
-  VITE v7.1.6  ready in 1225 ms
+  VITE v7.1.6  ready in 1268 ms
 
   ➜  Local:   http://localhost:5174/
   ➜  Network: http://192.168.123.35:5174/
   ➜  Network: http://172.18.0.1:5174/
-10:20:24 p. m. [vite] (client) hmr update /src/pages/HomeModern.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:20:32 p. m. [vite] (client) hmr update /src/pages/HomeModern.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:20:39 p. m. [vite] (client) hmr update /src/pages/Login.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:20:46 p. m. [vite] (client) hmr update /src/pages/Login.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:22:24 p. m. [vite] (client) hmr update /src/pages/HomeModern.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:22:24 p. m. [vite] (client) hmr update /src/pages/Login.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:24:34 p. m. [vite] (client) hmr update /src/pages/PreservacionDocumentos.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:24:39 p. m. [vite] (client) hmr update /src/pages/PreservacionDocumentos.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:24:45 p. m. [vite] (client) hmr update /src/pages/PreservacionDocumentos.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:24:59 p. m. [vite] (client) hmr update /src/pages/GestionDigital.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:25:04 p. m. [vite] (client) hmr update /src/pages/GestionDigital.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:25:09 p. m. [vite] (client) hmr update /src/pages/GestionDigital.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:25:24 p. m. [vite] (client) hmr update /src/pages/ArchivisticaBasica.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:25:32 p. m. [vite] (client) hmr update /src/pages/ArchivisticaBasica.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:25:38 p. m. [vite] (client) hmr update /src/pages/ArchivisticaBasica.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:25:57 p. m. [vite] (client) hmr update /src/pages/ArchivosHistoricos.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:26:02 p. m. [vite] (client) hmr update /src/pages/ArchivosHistoricos.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:26:08 p. m. [vite] (client) hmr update /src/pages/ArchivosHistoricos.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:28:25 p. m. [vite] (client) hmr update /src/pages/ArchivisticaBasica.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:28:25 p. m. [vite] (client) hmr update /src/pages/GestionDigital.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:28:25 p. m. [vite] (client) hmr update /src/pages/ArchivosHistoricos.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:28:25 p. m. [vite] (client) hmr update /src/pages/PreservacionDocumentos.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:32:19 p. m. [vite] (client) hmr update /src/pages/HomeModern.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:32:26 p. m. [vite] (client) hmr update /src/pages/HomeModern.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:34:28 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:34:36 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:35:43 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:35:43 p. m. [vite] (client) hmr update /src/pages/ProgramaGestionDigital.jsx, /src/components/UniversityMenu.css, /src/index.css
-10:35:43 p. m. [vite] (client) hmr update /src/pages/HomeModern.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:35:43 p. m. [vite] (client) hmr update /src/pages/ProgramaArchivisticaBasica.jsx, /src/components/UniversityMenu.css, /src/index.css
-10:35:43 p. m. [vite] (client) hmr update /src/pages/ProgramaPreservacionDocumentos.jsx, /src/components/UniversityMenu.css, /src/index.css
-10:35:43 p. m. [vite] (client) hmr update /src/pages/ProgramaArchivosHistoricos.jsx, /src/components/UniversityMenu.css, /src/index.css
-10:36:34 p. m. [vite] (client) hmr update /src/pages/ArchivisticaBasica.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:36:51 p. m. [vite] (client) hmr update /src/pages/GestionDigital.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:37:03 p. m. [vite] (client) hmr update /src/pages/ArchivosHistoricos.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:37:13 p. m. [vite] (client) hmr update /src/pages/PreservacionDocumentos.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:41:19 p. m. [vite] (client) hmr update /src/pages/PreservacionDocumentos.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:41:19 p. m. [vite] (client) hmr update /src/pages/ArchivosHistoricos.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:41:19 p. m. [vite] (client) hmr update /src/pages/ArchivisticaBasica.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:41:19 p. m. [vite] (client) hmr update /src/pages/GestionDigital.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:40:34 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:40:40 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:40:56 p. m. [vite] (client) hmr update /src/pages/AdminDashboard.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:41:08 p. m. [vite] (client) hmr update /src/pages/AdminDashboard.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:41:57 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:41:57 p. m. [vite] (client) hmr update /src/pages/AdminDashboard.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:41:57 p. m. [vite] (client) hmr update /src/pages/AdminCourses.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:41:57 p. m. [vite] (client) hmr update /src/pages/AdminPermissions.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:41:57 p. m. [vite] (client) hmr update /src/pages/AdminReports.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:41:57 p. m. [vite] (client) hmr update /src/pages/AdminSystemSettings.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:52:45 p. m. [vite] (client) hmr update /src/pages/PerfilEstudiante.jsx, /src/pages/UserManagement.jsx, /src/components/RoleBasedStats.jsx, /src/components/RoleBasedActions.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:52:53 p. m. [vite] (client) hmr update /src/pages/UserManagement.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:53:00 p. m. [vite] (client) hmr update /src/pages/UserManagement.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:53:06 p. m. [vite] (client) hmr update /src/pages/UserManagement.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:53:16 p. m. [vite] (client) hmr update /src/pages/UserManagement.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:53:24 p. m. [vite] (client) hmr update /src/pages/UserManagement.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:53:31 p. m. [vite] (client) hmr update /src/pages/UserManagement.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:53:38 p. m. [vite] (client) hmr update /src/pages/UserManagement.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:53:39 p. m. [vite] Internal server error: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx: Unexpected token, expected "," (25:28)
+
+  23 |   const { user } = useAuth();
+  24 |   const [users, setUsers] = useState([]);
+> 25 |   const [f                  <div>
+     |                             ^
+  26 |                     <label className="block text-sm font-medium text-gray-700">Rol</label>
+  27 |                     <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium mt-1 ${getRoleColor(selectedUser)}`}>
+  28 |                       {getRoleIcon(selectedUser)}
+  Plugin: vite:react-babel
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:25:28
+  23 |    const { user } = useAuth();
+  24 |    const [users, setUsers] = useState([]);
+  25 |    const [f                  <div>
+     |                              ^
+  26 |                      <label className="block text-sm font-medium text-gray-700">Rol</label>
+  27 |                      <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium m...
+      at constructor (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:6630:19)
+      at JSXParserMixin.unexpected (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:6650:16)
+      at JSXParserMixin.expect (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:6930:12)
+      at JSXParserMixin.parseBindingList (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:7399:14)
+      at JSXParserMixin.parseBindingAtom (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:7381:32)
+      at JSXParserMixin.parseVarId (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13411:21)
+      at JSXParserMixin.parseVar (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13392:12)
+      at JSXParserMixin.parseVarStatement (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13239:10)
+      at JSXParserMixin.parseStatementContent (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12860:23)
+      at JSXParserMixin.parseStatementLike (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12776:17)
+      at JSXParserMixin.parseStatementListItem (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12756:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13325:61)
+      at JSXParserMixin.parseBlockBody (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13318:10)
+      at JSXParserMixin.parseBlock (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13306:10)
+      at JSXParserMixin.parseFunctionBody (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12110:24)
+      at JSXParserMixin.parseArrowExpression (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12085:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11695:12)
+      at JSXParserMixin.parseExprAtom (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11335:23)
+      at JSXParserMixin.parseExprAtom (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4797:20)
+      at JSXParserMixin.parseExprSubscripts (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11085:23)
+      at JSXParserMixin.parseUpdate (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11070:21)
+      at JSXParserMixin.parseMaybeUnary (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11050:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10903:61)
+      at JSXParserMixin.parseExprOps (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10908:23)
+      at JSXParserMixin.parseMaybeConditional (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10885:23)
+      at JSXParserMixin.parseMaybeAssign (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10835:21)
+      at /home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10804:39
+      at JSXParserMixin.allowInAnd (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12431:16)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10804:17)
+      at JSXParserMixin.parseVar (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13393:91)
+      at JSXParserMixin.parseVarStatement (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13239:10)
+      at JSXParserMixin.parseStatementContent (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12860:23)
+      at JSXParserMixin.parseStatementLike (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12776:17)
+      at JSXParserMixin.parseModuleItem (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12753:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13325:36)
+      at JSXParserMixin.parseBlockBody (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13318:10)
+      at JSXParserMixin.parseProgram (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12634:10)
+      at JSXParserMixin.parseTopLevel (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12624:25)
+      at JSXParserMixin.parse (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:14501:10)
+      at parse (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:14535:38)
+      at parser (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/gensync/index.js:261:32)
+2:53:39 p. m. [vite] Internal server error: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx: Unexpected token, expected "," (25:28)
+
+  23 |   const { user } = useAuth();
+  24 |   const [users, setUsers] = useState([]);
+> 25 |   const [f                  <div>
+     |                             ^
+  26 |                     <label className="block text-sm font-medium text-gray-700">Rol</label>
+  27 |                     <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium mt-1 ${getRoleColor(selectedUser)}`}>
+  28 |                       {getRoleIcon(selectedUser)}
+  Plugin: vite:react-babel
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:25:28
+  23 |    const { user } = useAuth();
+  24 |    const [users, setUsers] = useState([]);
+  25 |    const [f                  <div>
+     |                              ^
+  26 |                      <label className="block text-sm font-medium text-gray-700">Rol</label>
+  27 |                      <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium m...
+      at constructor (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+      at JSXParserMixin.raise (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:6630:19)
+      at JSXParserMixin.unexpected (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:6650:16)
+      at JSXParserMixin.expect (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:6930:12)
+      at JSXParserMixin.parseBindingList (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:7399:14)
+      at JSXParserMixin.parseBindingAtom (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:7381:32)
+      at JSXParserMixin.parseVarId (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13411:21)
+      at JSXParserMixin.parseVar (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13392:12)
+      at JSXParserMixin.parseVarStatement (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13239:10)
+      at JSXParserMixin.parseStatementContent (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12860:23)
+      at JSXParserMixin.parseStatementLike (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12776:17)
+      at JSXParserMixin.parseStatementListItem (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12756:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13325:61)
+      at JSXParserMixin.parseBlockBody (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13318:10)
+      at JSXParserMixin.parseBlock (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13306:10)
+      at JSXParserMixin.parseFunctionBody (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12110:24)
+      at JSXParserMixin.parseArrowExpression (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12085:10)
+      at JSXParserMixin.parseParenAndDistinguishExpression (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11695:12)
+      at JSXParserMixin.parseExprAtom (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11335:23)
+      at JSXParserMixin.parseExprAtom (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:4797:20)
+      at JSXParserMixin.parseExprSubscripts (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11085:23)
+      at JSXParserMixin.parseUpdate (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11070:21)
+      at JSXParserMixin.parseMaybeUnary (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:11050:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10903:61)
+      at JSXParserMixin.parseExprOps (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10908:23)
+      at JSXParserMixin.parseMaybeConditional (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10885:23)
+      at JSXParserMixin.parseMaybeAssign (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10835:21)
+      at /home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10804:39
+      at JSXParserMixin.allowInAnd (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12431:16)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:10804:17)
+      at JSXParserMixin.parseVar (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13393:91)
+      at JSXParserMixin.parseVarStatement (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13239:10)
+      at JSXParserMixin.parseStatementContent (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12860:23)
+      at JSXParserMixin.parseStatementLike (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12776:17)
+      at JSXParserMixin.parseModuleItem (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12753:17)
+      at JSXParserMixin.parseBlockOrModuleBlockBody (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13325:36)
+      at JSXParserMixin.parseBlockBody (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:13318:10)
+      at JSXParserMixin.parseProgram (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12634:10)
+      at JSXParserMixin.parseTopLevel (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:12624:25)
+      at JSXParserMixin.parse (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:14501:10)
+      at parse (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/parser/lib/index.js:14535:38)
+      at parser (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/home/jorge/pagina web nueva ifap dos/frontend/node_modules/gensync/index.js:261:32)
+2:54:02 p. m. [vite] (client) hmr update /src/pages/UserManagement.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:54:08 p. m. [vite] (client) hmr update /src/pages/UserManagement.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:54:14 p. m. [vite] (client) hmr update /src/pages/UserManagement.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:54:23 p. m. [vite] (client) hmr update /src/pages/UserManagement.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:54:30 p. m. [vite] (client) hmr update /src/pages/UserManagement.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:54:38 p. m. [vite] (client) hmr update /src/pages/UserManagement.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:55:02 p. m. [vite] (client) hmr update /src/pages/UserManagement.jsx, /src/index.css, /src/components/UniversityMenu.css
+2:55:17 p. m. [vite] (client) hmr update /src/pages/UserManagement.jsx, /src/index.css, /src/components/UniversityMenu.css
+3:32:57 p. m. [vite] (client) hmr update /src/pages/PerfilEstudiante.jsx, /src/pages/UserManagement.jsx, /src/components/RoleBasedStats.jsx, /src/components/RoleBasedActions.jsx, /src/index.css, /src/components/UniversityMenu.css
+3:32:57 p. m. [vite] (client) hmr update /src/pages/UserManagement.jsx, /src/index.css, /src/components/UniversityMenu.css

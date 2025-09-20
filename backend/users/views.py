@@ -36,9 +36,9 @@ class UserViewSet(viewsets.ModelViewSet):
         """Define permisos específicos para cada acción"""
         if self.action in ['create', 'login']:
             return [AllowAny()]
-        elif self.action in ['list', 'destroy']:
+        elif self.action in ['list', 'destroy', 'update', 'partial_update']:
             return [CanManageUsers()]
-        elif self.action in ['retrieve', 'update', 'partial_update']:
+        elif self.action == 'retrieve':
             return [IsOwnerOrInstructorOrAdmin()]
         elif self.action == 'update_role':
             return [IsAdminUser()]
