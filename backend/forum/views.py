@@ -3,11 +3,19 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
-from .models import ForumCategory, ForumTopic, ForumReply, ForumLike
+from .models import (
+    ForumCategory, ForumTopic, ForumReply, ForumLike,
+    LessonComment, LessonCommentLike, Conversation, Message,
+    MessageRead, MessageReaction, TypingIndicator
+)
 from .serializers import (
     ForumCategorySerializer, ForumTopicListSerializer, 
     ForumTopicDetailSerializer, ForumTopicCreateSerializer,
-    ForumReplySerializer, ForumLikeSerializer
+    ForumReplySerializer, ForumLikeSerializer,
+    LessonCommentSerializer, LessonCommentCreateSerializer,
+    LessonCommentLikeSerializer, ConversationSerializer,
+    MessageSerializer, MessageCreateSerializer,
+    MessageReactionSerializer, TypingIndicatorSerializer
 )
 
 
@@ -236,3 +244,304 @@ class ForumStatsView(viewsets.ViewSet):
             'user_replies_count': user_replies,
             'my_recent_topics': my_topics_data
         })
+
+
+# Vistas para comentarios en lecciones
+class LessonCommentViewSet(viewsets.ModelViewSet):
+    """ViewSet para comentarios en lecciones"""
+    queryset = LessonComment.objects.filter(is_active=True)
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_serializer_class(self):
+        if self.action == 'create':
+            return LessonCommentCreateSerializer
+        return LessonCommentSerializer
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        lesson_id = self.request.query_params.get('lesson', None)
+        parent_id = self.request.query_params.get('parent', None)
+
+        if lesson_id:
+            queryset = queryset.filter(lesson_id=lesson_id)
+
+        if parent_id:
+            queryset = queryset.filter(parent_comment_id=parent_id)
+        else:
+            # Solo comentarios principales si no se especifica parent
+            queryset = queryset.filter(parent_comment__isnull=True)
+
+        return queryset.order_by('created_at')
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
+
+    def perform_update(self, serializer):
+        # Solo el autor puede editar su comentario
+        comment = self.get_object()
+        if comment.author != self.request.user:
+            return Response(
+                {'error': 'No tienes permisos para editar este comentario'},
+                status=status.HTTP_403_FORBIDDEN
+            )
+        serializer.save()
+
+    @action(detail=True, methods=['post'])
+    def toggle_like(self, request, pk=None):
+        """Alternar like en un comentario"""
+        comment = self.get_object()
+        like, created = LessonCommentLike.objects.get_or_create(
+            user=request.user,
+            comment=comment
+        )
+
+        if not created:
+            like.delete()
+            return Response({'liked': False, 'likes_count': comment.likes.count()})
+
+        return Response({'liked': True, 'likes_count': comment.likes.count()})
+
+    @action(detail=True, methods=['delete'])
+    def soft_delete(self, request, pk=None):
+        """Eliminación suave de comentario (solo autor)"""
+        comment = self.get_object()
+        if comment.author != request.user:
+            return Response(
+                {'error': 'No tienes permisos para eliminar este comentario'},
+                status=status.HTTP_403_FORBIDDEN
+            )
+
+        comment.is_active = False
+        comment.save()
+        return Response({'message': 'Comentario eliminado exitosamente'})
+
+
+# Vistas para mensajería privada
+class ConversationViewSet(viewsets.ModelViewSet):
+    """ViewSet para conversaciones privadas"""
+    queryset = Conversation.objects.all()
+    serializer_class = ConversationSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return self.queryset.filter(participants=self.request.user).order_by('-updated_at')
+
+    def perform_create(self, serializer):
+        serializer.save(created_by=self.request.user)
+
+    @action(detail=True, methods=['get'])
+    def messages(self, request, pk=None):
+        """Obtener mensajes de una conversación"""
+        conversation = self.get_object()
+
+        # Verificar que el usuario sea participante
+        if request.user not in conversation.participants.all():
+            return Response(
+                {'error': 'No tienes acceso a esta conversación'},
+                status=status.HTTP_403_FORBIDDEN
+            )
+
+        # Marcar mensajes como leídos
+        conversation.mark_messages_as_read_for_user(request.user)
+
+        messages = conversation.messages.order_by('created_at')
+        serializer = MessageSerializer(messages, many=True, context={'request': request})
+        return Response(serializer.data)
+
+    @action(detail=True, methods=['post'])
+    def add_participants(self, request, pk=None):
+        """Agregar participantes a una conversación grupal"""
+        conversation = self.get_object()
+        user_ids = request.data.get('user_ids', [])
+
+        if not conversation.is_group:
+            return Response(
+                {'error': 'Solo se pueden agregar participantes a conversaciones grupales'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        # Verificar permisos (solo creador puede agregar participantes)
+        if conversation.created_by != request.user:
+            return Response(
+                {'error': 'Solo el creador puede agregar participantes'},
+                status=status.HTTP_403_FORBIDDEN
+            )
+
+        for user_id in user_ids:
+            conversation.participants.add(user_id)
+
+        return Response({'message': 'Participantes agregados exitosamente'})
+
+    @action(detail=True, methods=['post'])
+    def remove_participants(self, request, pk=None):
+        """Remover participantes de una conversación grupal"""
+        conversation = self.get_object()
+        user_ids = request.data.get('user_ids', [])
+
+        if not conversation.is_group:
+            return Response(
+                {'error': 'Solo se pueden remover participantes de conversaciones grupales'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        # Verificar permisos
+        if conversation.created_by != request.user and request.user.id not in user_ids:
+            return Response(
+                {'error': 'No tienes permisos para remover participantes'},
+                status=status.HTTP_403_FORBIDDEN
+            )
+
+        for user_id in user_ids:
+            if user_id != conversation.created_by.id:  # No se puede remover al creador
+                conversation.participants.remove(user_id)
+
+        return Response({'message': 'Participantes removidos exitosamente'})
+
+
+class MessageViewSet(viewsets.ModelViewSet):
+    """ViewSet para mensajes"""
+    queryset = Message.objects.all()
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_serializer_class(self):
+        if self.action == 'create':
+            return MessageCreateSerializer
+        return MessageSerializer
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        conversation_id = self.request.query_params.get('conversation', None)
+
+        if conversation_id:
+            queryset = queryset.filter(conversation_id=conversation_id)
+
+        return queryset.order_by('created_at')
+
+    def perform_create(self, serializer):
+        message = serializer.save(sender=self.request.user)
+
+        # Marcar como leído para el remitente
+        message.mark_as_read_for_user(self.request.user)
+
+        # Actualizar timestamp de la conversación
+        message.conversation.save()
+
+    def perform_update(self, serializer):
+        # Solo el remitente puede editar su mensaje
+        message = self.get_object()
+        if message.sender != self.request.user:
+            return Response(
+                {'error': 'No tienes permisos para editar este mensaje'},
+                status=status.HTTP_403_FORBIDDEN
+            )
+
+        message.is_edited = True
+        serializer.save()
+
+    @action(detail=True, methods=['post'])
+    def mark_as_read(self, request, pk=None):
+        """Marcar mensaje como leído"""
+        message = self.get_object()
+        message.mark_as_read_for_user(request.user)
+        return Response({'message': 'Mensaje marcado como leído'})
+
+    @action(detail=True, methods=['post'])
+    def add_reaction(self, request, pk=None):
+        """Agregar reacción a un mensaje"""
+        message = self.get_object()
+        reaction = request.data.get('reaction')
+
+        if not reaction:
+            return Response(
+                {'error': 'Debe especificar una reacción'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        # Crear o actualizar reacción
+        reaction_obj, created = MessageReaction.objects.get_or_create(
+            user=request.user,
+            message=message,
+            defaults={'reaction': reaction}
+        )
+
+        if not created:
+            reaction_obj.reaction = reaction
+            reaction_obj.save()
+
+        return Response({'message': 'Reacción agregada exitosamente'})
+
+    @action(detail=True, methods=['delete'])
+    def remove_reaction(self, request, pk=None):
+        """Remover reacción de un mensaje"""
+        message = self.get_object()
+
+        try:
+            reaction = MessageReaction.objects.get(
+                user=request.user,
+                message=message
+            )
+            reaction.delete()
+            return Response({'message': 'Reacción removida exitosamente'})
+        except MessageReaction.DoesNotExist:
+            return Response(
+                {'error': 'No tienes una reacción en este mensaje'},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+
+class TypingIndicatorViewSet(viewsets.ModelViewSet):
+    """ViewSet para indicadores de escritura"""
+    queryset = TypingIndicator.objects.all()
+    serializer_class = TypingIndicatorSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        conversation_id = self.request.query_params.get('conversation', None)
+
+        if conversation_id:
+            queryset = queryset.filter(conversation_id=conversation_id)
+
+        return queryset.order_by('-timestamp')
+
+    @action(detail=False, methods=['post'])
+    def start_typing(self, request):
+        """Iniciar indicador de escritura"""
+        conversation_id = request.data.get('conversation_id')
+
+        if not conversation_id:
+            return Response(
+                {'error': 'Debe especificar el ID de la conversación'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        # Crear o actualizar indicador
+        indicator, created = TypingIndicator.objects.get_or_create(
+            user=request.user,
+            conversation_id=conversation_id,
+            defaults={'conversation_id': conversation_id}
+        )
+
+        if not created:
+            indicator.save()  # Actualizar timestamp
+
+        return Response({'message': 'Indicador de escritura iniciado'})
+
+    @action(detail=False, methods=['post'])
+    def stop_typing(self, request):
+        """Detener indicador de escritura"""
+        conversation_id = request.data.get('conversation_id')
+
+        if not conversation_id:
+            return Response(
+                {'error': 'Debe especificar el ID de la conversación'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        # Eliminar indicador
+        TypingIndicator.objects.filter(
+            user=request.user,
+            conversation_id=conversation_id
+        ).delete()
+
+        return Response({'message': 'Indicador de escritura detenido'})

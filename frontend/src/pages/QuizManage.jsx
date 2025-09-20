@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import { quizService } from '../services/quizService';
+import { useAuth } from '../context/AuthContext.jsx';
+import { quizService } from '../services/quizService.js';
 import Card from '../components/Card';
 
 const QuizManage = () => {

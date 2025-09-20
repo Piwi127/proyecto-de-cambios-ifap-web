@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import { quizService } from '../services/quizService';
-import { courseService } from '../services/courseService';
+import { useAuth } from '../context/AuthContext.jsx';
+import { quizService } from '../services/quizService.js';
+import { courseService } from '../services/courseService.js';
 import Card from '../components/Card';
 import QuizQuestionsManager from '../components/QuizQuestionsManager';
 import QuizResultsViewer from '../components/QuizResultsViewer';

@@ -1,4 +1,4 @@
-import { api, handleApiError } from './api';
+import { api, handleApiError } from './api.js';
 
 export const bibliotecaAPI = {
   // Categorías

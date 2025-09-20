@@ -1,4 +1,4 @@
-import { api } from './api';
+import { api } from './api.js';
 
 // Categorías de tareas
 export const getTaskCategories = async () => {

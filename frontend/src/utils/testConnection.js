@@ -1,4 +1,4 @@
-import { api } from '../services/api';
+import { api } from '../services/api.js';
 
 /**
  * Utilidad para probar la conexión entre frontend y backend

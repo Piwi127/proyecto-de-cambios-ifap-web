@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useAuth } from '../context/AuthContext';
-import { quizService } from '../services/quizService';
-import { courseService } from '../services/courseService';
+import { useAuth } from '../context/AuthContext.jsx';
+import { quizService } from '../services/quizService.js';
+import { courseService } from '../services/courseService.js';
 import Card from '../components/Card';
 
 const QuizForm = ({ quiz, onSave, onCancel }) => {

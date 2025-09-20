@@ -1,4 +1,4 @@
-import { api, handleApiError } from './api';
+import { api, handleApiError } from './api.js';
 
 export const lessonService = {
   // Get all lessons (optionally filtered by course)

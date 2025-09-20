@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useAuth } from '../context/AuthContext';
-import { courseService } from '../services/courseService';
+import { useAuth } from '../context/AuthContext.jsx';
+import { courseService } from '../services/courseService.js';
 import Card from '../components/Card';
 
 const CursosAulaVirtual = () => {

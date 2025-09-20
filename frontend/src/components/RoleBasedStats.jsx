@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useAuth } from '../context/AuthContext';
-import { userService } from '../services/userService';
-import { courseService } from '../services/courseService';
+import { useAuth } from '../context/AuthContext.jsx';
+import { userService } from '../services/userService.js';
+import { courseService } from '../services/courseService.js';
 import Card from './Card';
 
 const RoleBasedStats = () => {
