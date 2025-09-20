@@ -36,6 +36,10 @@ import ArchivosHistoricos from './pages/ArchivosHistoricos';
 import VideoConferencePage from './pages/VideoConferencePage';
 import ColaboracionPage from './pages/ColaboracionPage';
 import PreservacionDocumentos from './pages/PreservacionDocumentos';
+import ProgramaArchivisticaBasica from './pages/ProgramaArchivisticaBasica';
+import ProgramaGestionDigital from './pages/ProgramaGestionDigital';
+import ProgramaArchivosHistoricos from './pages/ProgramaArchivosHistoricos';
+import ProgramaPreservacionDocumentos from './pages/ProgramaPreservacionDocumentos';
 import DashboardProfesor from './pages/DashboardProfesor';
 import UserManagement from './pages/UserManagement';
 
@@ -66,6 +70,12 @@ function App() {
       <Route path="/gestion-digital" element={<Layout><GestionDigital /></Layout>} />
       <Route path="/archivos-historicos" element={<Layout><ArchivosHistoricos /></Layout>} />
       <Route path="/preservacion-documentos" element={<Layout><PreservacionDocumentos /></Layout>} />
+
+      {/* Rutas de programas detallados */}
+      <Route path="/programa/archivistica-basica" element={<Layout><ProgramaArchivisticaBasica /></Layout>} />
+      <Route path="/programa/gestion-digital" element={<Layout><ProgramaGestionDigital /></Layout>} />
+      <Route path="/programa/archivos-historicos" element={<Layout><ProgramaArchivosHistoricos /></Layout>} />
+      <Route path="/programa/preservacion-documentos" element={<Layout><ProgramaPreservacionDocumentos /></Layout>} />
 
       {/* Rutas del aula virtual (protegidas) */}
       <Route path="/aula-virtual" element={

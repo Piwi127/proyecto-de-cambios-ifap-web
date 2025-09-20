@@ -149,7 +149,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {[
               {
                 icon: '📚',
@@ -177,6 +177,15 @@ const Home = () => {
                 mode: 'Presencial',
                 gradient: 'from-purple-500 to-purple-600',
                 features: ['Historia archivística', 'Análisis documental', 'Investigación histórica']
+              },
+              {
+                icon: '🛡️',
+                title: 'Preservación de Documentos',
+                desc: 'Técnicas avanzadas para la conservación y restauración de documentos históricos.',
+                duration: '100 horas',
+                mode: 'Presencial/Virtual',
+                gradient: 'from-red-500 to-red-600',
+                features: ['Conservación preventiva', 'Restauración documental', 'Control ambiental']
               }
             ].map((course, index) => (
               <div key={index} className="group">
@@ -212,9 +221,28 @@ const Home = () => {
                       ))}
                     </div>
 
-                    <button className="w-full bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white py-3 px-6 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                      Más Información
-                    </button>
+                    <div className="flex flex-col gap-3">
+                      <button 
+                        onClick={() => navigate('/login', { state: { showRegister: true } })}
+                        className="w-full bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white py-3 px-6 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                      >
+                        📚 Inscribirme Ahora
+                      </button>
+                      <button 
+                        onClick={() => {
+                          const programRoutes = {
+                            'Archivística Básica': '/programa/archivistica-basica',
+                            'Gestión Digital': '/programa/gestion-digital',
+                            'Archivos Históricos': '/programa/archivos-historicos',
+                            'Preservación de Documentos': '/programa/preservacion-documentos'
+                          };
+                          navigate(programRoutes[course.title]);
+                        }}
+                        className="w-full border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white py-3 px-6 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105"
+                      >
+                        📋 Ver Programa
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
