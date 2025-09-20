@@ -3,298 +3,109 @@
 > vite --port 5174
 
 
-  VITE v7.1.6  ready in 1354 ms
-
-  ➜  Local:   http://localhost:5174/
-  ➜  Network: use --host to expose
-3:48:46 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-3:48:46 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-3:48:49 p. m. [vite] Internal server error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
-  3  |  import React, { useState, useEffect } from "react";
-  4  |  import axios from "axios";
-  5  |  import { useAuth } from "../../context/AuthContext";
-     |                           ^
-  6  |  const UserManagement = () => {
-  7  |    _s();
-      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
-      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
-      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
-      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
-      at async Promise.all (index 3)
-      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
-      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
-      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
-3:48:49 p. m. [vite] Internal server error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
-  3  |  import React, { useState, useEffect } from "react";
-  4  |  import axios from "axios";
-  5  |  import { useAuth } from "../../context/AuthContext";
-     |                           ^
-  6  |  const UserManagement = () => {
-  7  |    _s();
-      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
-      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
-      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
-      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
-      at async Promise.all (index 3)
-      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
-      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
-      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
-3:48:49 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
-  3  |  import React, { useState, useEffect } from "react";
-  4  |  import axios from "axios";
-  5  |  import { useAuth } from "../../context/AuthContext";
-     |                           ^
-  6  |  const UserManagement = () => {
-  7  |    _s();
-3:48:49 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-3:48:50 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
-3:48:50 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
-  3  |  import React, { useState, useEffect } from "react";
-  4  |  import axios from "axios";
-  5  |  import { useAuth } from "../../context/AuthContext";
-     |                           ^
-  6  |  const UserManagement = () => {
-  7  |    _s();
-3:48:51 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
-  3  |  import React, { useState, useEffect } from "react";
-  4  |  import axios from "axios";
-  5  |  import { useAuth } from "../../context/AuthContext";
-     |                           ^
-  6  |  const UserManagement = () => {
-  7  |    _s();
-3:49:15 p. m. [vite] (client) hmr update /src/components/ProtectedRoute.jsx, /src/index.css, /src/components/UniversityMenu.css
-3:49:16 p. m. [vite] (client) hmr update /src/components/ProtectedRoute.jsx, /src/index.css, /src/components/UniversityMenu.css
-3:49:19 p. m. [vite] (client) hmr update /src/components/ProtectedRoute.jsx, /src/index.css, /src/components/UniversityMenu.css
-3:49:19 p. m. [vite] (client) hmr update /src/components/ProtectedRoute.jsx, /src/index.css, /src/components/UniversityMenu.css
-3:52:39 p. m. [vite] vite.config.js changed, restarting server...
-3:52:40 p. m. [vite] server restarted.
-3:52:48 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
-  3  |  import React, { useState, useEffect } from "react";
-  4  |  import axios from "axios";
-  5  |  import { useAuth } from "../../context/AuthContext";
-     |                           ^
-  6  |  const UserManagement = () => {
-  7  |    _s();
-3:52:49 p. m. [vite] Internal server error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
-  3  |  import React, { useState, useEffect } from "react";
-  4  |  import axios from "axios";
-  5  |  import { useAuth } from "../../context/AuthContext";
-     |                           ^
-  6  |  const UserManagement = () => {
-  7  |    _s();
-      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
-      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
-      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
-      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
-      at async Promise.all (index 3)
-      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
-      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
-      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
-      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
-3:53:52 p. m. [vite] Internal server error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
-  3  |  import React, { useState, useEffect } from "react";
-  4  |  import axios from "axios";
-  5  |  import { useAuth } from "../../context/AuthContext";
-     |                           ^
-  6  |  const UserManagement = () => {
-  7  |    _s();
-      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
-      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
-      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
-      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
-      at async Promise.all (index 3)
-      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
-      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
-      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
-      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
-3:53:55 p. m. [vite] Internal server error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
-  3  |  import React, { useState, useEffect } from "react";
-  4  |  import axios from "axios";
-  5  |  import { useAuth } from "../../context/AuthContext";
-     |                           ^
-  6  |  const UserManagement = () => {
-  7  |    _s();
-      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
-      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
-      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
-      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
-      at async Promise.all (index 3)
-      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
-      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
-      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
-      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
-3:53:57 p. m. [vite] vite.config.js changed, restarting server...
-3:53:57 p. m. [vite] server restarted.
-3:53:57 p. m. [vite] vite.config.js changed, restarting server...
-3:53:57 p. m. [vite] server restarted.
-3:54:01 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
-  3  |  import React, { useState, useEffect } from "react";
-  4  |  import axios from "axios";
-  5  |  import { useAuth } from "../../context/AuthContext";
-     |                           ^
-  6  |  const UserManagement = () => {
-  7  |    _s();
-3:54:02 p. m. [vite] Internal server error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
-  3  |  import React, { useState, useEffect } from "react";
-  4  |  import axios from "axios";
-  5  |  import { useAuth } from "../../context/AuthContext";
-     |                           ^
-  6  |  const UserManagement = () => {
-  7  |    _s();
-      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
-      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
-      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
-      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
-      at async Promise.all (index 3)
-      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
-      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
-      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
-      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
-3:54:29 p. m. [vite] vite.config.js changed, restarting server...
-3:54:29 p. m. [vite] server restarted.
-3:54:33 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
-  3  |  import React, { useState, useEffect } from "react";
-  4  |  import axios from "axios";
-  5  |  import { useAuth } from "../../context/AuthContext";
-     |                           ^
-  6  |  const UserManagement = () => {
-  7  |    _s();
-3:54:35 p. m. [vite] Internal server error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
-  3  |  import React, { useState, useEffect } from "react";
-  4  |  import axios from "axios";
-  5  |  import { useAuth } from "../../context/AuthContext";
-     |                           ^
-  6  |  const UserManagement = () => {
-  7  |    _s();
-      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
-      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
-      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
-      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
-      at async Promise.all (index 3)
-      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
-      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
-      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
-      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
-3:54:40 p. m. [vite] vite.config.js changed, restarting server...
-3:54:40 p. m. [vite] vite.config.js changed, restarting server...
-3:54:40 p. m. [vite] server restarted.
-3:54:40 p. m. [vite] server restarted.
-
-  ➜  Local:   http://localhost:5174/
-  ➜  Network: use --host to expose
-3:54:43 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
-  3  |  import React, { useState, useEffect } from "react";
-  4  |  import axios from "axios";
-  5  |  import { useAuth } from "../../context/AuthContext";
-     |                           ^
-  6  |  const UserManagement = () => {
-  7  |    _s();
-3:54:43 p. m. [vite] Internal server error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
-  3  |  import React, { useState, useEffect } from "react";
-  4  |  import axios from "axios";
-  5  |  import { useAuth } from "../../context/AuthContext";
-     |                           ^
-  6  |  const UserManagement = () => {
-  7  |    _s();
-      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
-      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
-      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
-      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
-      at async Promise.all (index 3)
-      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
-      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
-      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
-      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
-3:58:25 p. m. [vite] (client) hmr update /src/App.jsx
-3:58:27 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
-  3  |  import React, { useState, useEffect } from "react";
-  4  |  import axios from "axios";
-  5  |  import { useAuth } from "../../context/AuthContext";
-     |                           ^
-  6  |  const UserManagement = () => {
-  7  |    _s();
-3:58:27 p. m. [vite] Internal server error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
-  Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
-  3  |  import React, { useState, useEffect } from "react";
-  4  |  import axios from "axios";
-  5  |  import { useAuth } from "../../context/AuthContext";
-     |                           ^
-  6  |  const UserManagement = () => {
-  7  |    _s();
-      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
-      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
-      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
-      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
-      at async Promise.all (index 3)
-      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
-      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
-      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
-      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
-3:58:31 p. m. [vite] vite.config.js changed, restarting server...
-3:58:32 p. m. [vite] server restarted.
+  VITE v7.1.6  ready in 1304 ms
 
   ➜  Local:   http://localhost:5174/
   ➜  Network: http://192.168.123.35:5174/
-3:58:37 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
+6:53:23 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../contexts/AuthContext" from "src/pages/Tareas.jsx". Does the file exist?
   Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/Tareas.jsx:3:24
   3  |  import React, { useState, useEffect } from "react";
-  4  |  import axios from "axios";
-  5  |  import { useAuth } from "../../context/AuthContext";
+  4  |  import { useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
      |                           ^
-  6  |  const UserManagement = () => {
-  7  |    _s();
-3:58:40 p. m. [vite] Internal server error: Failed to resolve import "../../context/AuthContext" from "src/pages/UserManagement.jsx". Does the file exist?
+  6  |  import {
+  7  |    getTasks,
+6:53:23 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaDetalle.jsx". Does the file exist?
   Plugin: vite:import-analysis
-  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/UserManagement.jsx:3:24
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaDetalle.jsx:3:24
   3  |  import React, { useState, useEffect } from "react";
-  4  |  import axios from "axios";
-  5  |  import { useAuth } from "../../context/AuthContext";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
      |                           ^
-  6  |  const UserManagement = () => {
-  7  |    _s();
+  6  |  import {
+  7  |    getTask,
+6:53:23 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaForm.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaForm.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+6:53:23 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/AsignacionDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/AsignacionDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getAssignment,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+6:53:23 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../contexts/AuthContext" from "src/pages/AsignacionDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/AsignacionDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getAssignment,
+6:53:24 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../../../contexts/AuthContext" from "src/components/aula-virtual/biblioteca/Biblioteca.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/components/aula-virtual/biblioteca/Biblioteca.jsx:40:24
+  40 |    InsertDriveFile as FileIcon
+  41 |  } from "@mui/icons-material";
+  42 |  import { useAuth } from "../../../contexts/AuthContext";
+     |                           ^
+  43 |  import { bibliotecaAPI } from "../../../services/bibliotecaService";
+  44 |  const Biblioteca = () => {
+6:53:24 p. m. [vite] Internal server error: Failed to resolve import "../../../contexts/AuthContext" from "src/components/aula-virtual/biblioteca/Biblioteca.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/components/aula-virtual/biblioteca/Biblioteca.jsx:40:24
+  40 |    InsertDriveFile as FileIcon
+  41 |  } from "@mui/icons-material";
+  42 |  import { useAuth } from "../../../contexts/AuthContext";
+     |                           ^
+  43 |  import { bibliotecaAPI } from "../../../services/bibliotecaService";
+  44 |  const Biblioteca = () => {
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 4)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+6:53:24 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../../../contexts/AuthContext" from "src/components/aula-virtual/biblioteca/Biblioteca.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/components/aula-virtual/biblioteca/Biblioteca.jsx:40:24
+  40 |    InsertDriveFile as FileIcon
+  41 |  } from "@mui/icons-material";
+  42 |  import { useAuth } from "../../../contexts/AuthContext";
+     |                           ^
+  43 |  import { bibliotecaAPI } from "../../../services/bibliotecaService";
+  44 |  const Biblioteca = () => {
+6:53:26 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/Tareas.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/Tareas.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTasks,
       at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
       at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
       at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
@@ -305,12 +116,778 @@
       at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
       at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
       at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
-3:59:23 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css, /src/App.jsx
-3:59:23 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css, /src/App.jsx
-4:00:56 p. m. [vite] vite.config.js changed, restarting server...
-4:00:56 p. m. [vite] server restarted.
-4:30:14 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css, /src/components/AulaVirtualLayout.jsx
-4:30:15 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css, /src/components/AulaVirtualLayout.jsx
-4:30:15 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css, /src/components/AulaVirtualLayout.jsx
-4:39:53 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css, /src/components/AulaVirtualLayout.jsx
-4:39:53 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css, /src/components/AulaVirtualLayout.jsx
+6:53:26 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaForm.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaForm.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:53:26 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:54:28 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/Tareas.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/Tareas.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTasks,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:54:28 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:54:28 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaForm.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaForm.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:54:28 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/AsignacionDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/AsignacionDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getAssignment,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:54:28 p. m. [vite] Internal server error: Failed to resolve import "../../../contexts/AuthContext" from "src/components/aula-virtual/biblioteca/Biblioteca.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/components/aula-virtual/biblioteca/Biblioteca.jsx:40:24
+  40 |    InsertDriveFile as FileIcon
+  41 |  } from "@mui/icons-material";
+  42 |  import { useAuth } from "../../../contexts/AuthContext";
+     |                           ^
+  43 |  import { bibliotecaAPI } from "../../../services/bibliotecaService";
+  44 |  const Biblioteca = () => {
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 4)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:55:58 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/Tareas.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/Tareas.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTasks,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:55:58 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:55:58 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaForm.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaForm.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:55:59 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/AsignacionDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/AsignacionDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getAssignment,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:55:59 p. m. [vite] Internal server error: Failed to resolve import "../../../contexts/AuthContext" from "src/components/aula-virtual/biblioteca/Biblioteca.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/components/aula-virtual/biblioteca/Biblioteca.jsx:40:24
+  40 |    InsertDriveFile as FileIcon
+  41 |  } from "@mui/icons-material";
+  42 |  import { useAuth } from "../../../contexts/AuthContext";
+     |                           ^
+  43 |  import { bibliotecaAPI } from "../../../services/bibliotecaService";
+  44 |  const Biblioteca = () => {
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 4)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:56:09 p. m. [vite] (client) hmr update /src/App.jsx, /src/pages/BibliotecaAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
+6:56:09 p. m. [vite] (client) hmr update /src/App.jsx, /src/pages/BibliotecaAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
+6:56:10 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../contexts/AuthContext" from "src/pages/Tareas.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/Tareas.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTasks,
+6:56:10 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+6:56:10 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaForm.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaForm.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+6:56:10 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../contexts/AuthContext" from "src/pages/AsignacionDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/AsignacionDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getAssignment,
+6:56:11 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaForm.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaForm.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:56:11 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:56:11 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/Tareas.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/Tareas.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTasks,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:56:11 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/AsignacionDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/AsignacionDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getAssignment,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:56:21 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/Tareas.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/Tareas.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTasks,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:56:21 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:56:21 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaForm.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaForm.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:56:21 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/AsignacionDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/AsignacionDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getAssignment,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:56:28 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+6:56:28 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../contexts/AuthContext" from "src/pages/AsignacionDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/AsignacionDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getAssignment,
+6:56:28 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaForm.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaForm.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+6:56:28 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+6:56:28 p. m. [vite] (client) hmr update /src/pages/Tareas.jsx, /src/index.css, /src/components/UniversityMenu.css
+6:56:30 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+6:56:30 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+6:56:30 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaForm.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaForm.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+6:56:30 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../contexts/AuthContext" from "src/pages/AsignacionDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/AsignacionDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getAssignment,
+6:56:30 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaForm.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaForm.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:56:30 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/AsignacionDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/AsignacionDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getAssignment,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:56:31 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:56:31 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaForm.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaForm.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:56:31 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/AsignacionDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/AsignacionDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getAssignment,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:56:39 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+6:56:40 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaForm.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaForm.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+6:56:40 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../contexts/AuthContext" from "src/pages/AsignacionDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/AsignacionDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getAssignment,
+6:56:40 p. m. [vite] (client) hmr update /src/pages/TareaDetalle.jsx, /src/index.css, /src/components/UniversityMenu.css
+6:56:42 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaForm.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaForm.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+6:56:42 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../contexts/AuthContext" from "src/pages/AsignacionDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/AsignacionDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getAssignment,
+6:56:42 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaForm.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaForm.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:56:42 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/AsignacionDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/AsignacionDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getAssignment,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:56:42 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/TareaForm.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/TareaForm.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getTask,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:56:43 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/AsignacionDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/AsignacionDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getAssignment,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:56:51 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+6:56:51 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../contexts/AuthContext" from "src/pages/AsignacionDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/AsignacionDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getAssignment,
+6:56:51 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+6:56:53 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../contexts/AuthContext" from "src/pages/AsignacionDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/AsignacionDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getAssignment,
+6:56:53 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/AsignacionDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/AsignacionDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getAssignment,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:56:53 p. m. [vite] Internal server error: Failed to resolve import "../contexts/AuthContext" from "src/pages/AsignacionDetalle.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/AsignacionDetalle.jsx:3:24
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import { useParams, useNavigate } from "react-router-dom";
+  5  |  import { useAuth } from "../contexts/AuthContext";
+     |                           ^
+  6  |  import {
+  7  |    getAssignment,
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+6:57:01 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+6:57:02 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+6:58:07 p. m. [vite] (client) hmr update /src/pages/TareaDetalle.jsx, /src/index.css, /src/components/UniversityMenu.css
+6:58:07 p. m. [vite] (client) hmr update /src/pages/TareaDetalle.jsx, /src/index.css, /src/components/UniversityMenu.css
+6:58:24 p. m. [vite] (client) hmr update /src/pages/TareaDetalle.jsx, /src/index.css, /src/components/UniversityMenu.css
+6:58:25 p. m. [vite] (client) hmr update /src/pages/TareaDetalle.jsx, /src/index.css, /src/components/UniversityMenu.css
+6:58:36 p. m. [vite] (client) hmr update /src/pages/TareaForm.jsx, /src/index.css, /src/components/UniversityMenu.css
+6:58:36 p. m. [vite] (client) hmr update /src/pages/TareaForm.jsx, /src/index.css, /src/components/UniversityMenu.css
+6:58:51 p. m. [vite] (client) hmr update /src/pages/TareaForm.jsx, /src/index.css, /src/components/UniversityMenu.css
+6:58:51 p. m. [vite] (client) hmr update /src/pages/TareaForm.jsx, /src/index.css, /src/components/UniversityMenu.css
+6:59:14 p. m. [vite] (client) hmr update /src/pages/AsignacionDetalle.jsx, /src/index.css, /src/components/UniversityMenu.css
+6:59:14 p. m. [vite] (client) hmr update /src/pages/AsignacionDetalle.jsx, /src/index.css, /src/components/UniversityMenu.css
+6:59:26 p. m. [vite] (client) hmr update /src/pages/AsignacionDetalle.jsx, /src/index.css, /src/components/UniversityMenu.css
+6:59:27 p. m. [vite] (client) hmr update /src/pages/AsignacionDetalle.jsx, /src/index.css, /src/components/UniversityMenu.css
+7:00:13 p. m. [vite] (client) hmr update /src/pages/AsignacionDetalle.jsx, /src/index.css, /src/components/UniversityMenu.css
+7:00:13 p. m. [vite] (client) hmr update /src/pages/AsignacionDetalle.jsx, /src/index.css, /src/components/UniversityMenu.css

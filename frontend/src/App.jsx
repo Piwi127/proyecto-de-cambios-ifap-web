@@ -15,10 +15,18 @@ import PerfilEstudiante from './pages/PerfilEstudiante';
 import CursosAulaVirtual from './pages/CursosAulaVirtual';
 import CalendarioAulaVirtual from './pages/CalendarioAulaVirtual';
 import BibliotecaAulaVirtual from './pages/BibliotecaAulaVirtual';
-import ForoAulaVirtual from './pages/ForoAulaVirtual';
+import Foro from './pages/Foro';
+import ForoTema from './pages/ForoTema';
 import MensajesAulaVirtual from './pages/MensajesAulaVirtual';
 import NotificacionesAulaVirtual from './pages/NotificacionesAulaVirtual';
 import TareasAulaVirtual from './pages/TareasAulaVirtual';
+import Tareas from './pages/Tareas';
+import TareaDetalle from './pages/TareaDetalle';
+import TareaForm from './pages/TareaForm';
+import AsignacionDetalle from './pages/AsignacionDetalle';
+import Biblioteca from './components/aula-virtual/biblioteca/Biblioteca';
+import CategoriasGestion from './components/aula-virtual/biblioteca/CategoriasGestion';
+import EstadisticasBiblioteca from './components/aula-virtual/biblioteca/EstadisticasBiblioteca';
 import ConfiguracionAulaVirtual from './pages/ConfiguracionAulaVirtual';
 import ArchivisticaBasica from './pages/ArchivisticaBasica';
 import GestionDigital from './pages/GestionDigital';
@@ -89,7 +97,14 @@ function App() {
       <Route path="/aula-virtual/foro" element={
         <ProtectedRoute>
           <AulaVirtualLayout>
-            <ForoAulaVirtual />
+            <Foro />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/aula-virtual/foro/tema/:topicId" element={
+        <ProtectedRoute>
+          <AulaVirtualLayout>
+            <ForoTema />
           </AulaVirtualLayout>
         </ProtectedRoute>
       } />
@@ -111,6 +126,62 @@ function App() {
         <ProtectedRoute>
           <AulaVirtualLayout>
             <TareasAulaVirtual />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/aula-virtual/tareas/lista" element={
+        <ProtectedRoute>
+          <AulaVirtualLayout>
+            <Tareas />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/aula-virtual/tareas/crear" element={
+        <ProtectedRoute>
+          <AulaVirtualLayout>
+            <TareaForm />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/aula-virtual/tareas/editar/:id" element={
+        <ProtectedRoute>
+          <AulaVirtualLayout>
+            <TareaForm />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/aula-virtual/tareas/:id" element={
+        <ProtectedRoute>
+          <AulaVirtualLayout>
+            <TareaDetalle />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/aula-virtual/asignaciones/:id" element={
+        <ProtectedRoute>
+          <AulaVirtualLayout>
+            <AsignacionDetalle />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/aula-virtual/biblioteca/archivos" element={
+        <ProtectedRoute>
+          <AulaVirtualLayout>
+            <Biblioteca />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/aula-virtual/biblioteca/categorias" element={
+        <ProtectedRoute>
+          <AulaVirtualLayout>
+            <CategoriasGestion />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/aula-virtual/biblioteca/estadisticas" element={
+        <ProtectedRoute>
+          <AulaVirtualLayout>
+            <EstadisticasBiblioteca />
           </AulaVirtualLayout>
         </ProtectedRoute>
       } />

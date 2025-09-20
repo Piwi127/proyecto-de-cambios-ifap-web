@@ -2,226 +2,268 @@
   from pkg_resources import DistributionNotFound, get_distribution
 /home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/__init__.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import DistributionNotFound, get_distribution
-Watching for file changes with StatReloader
-[19/Sep/2025 15:41:42] "POST /api/users/login/ HTTP/1.1" 200 708
-[19/Sep/2025 15:41:42] "GET /api/courses/my_courses/ HTTP/1.1" 200 388
-[19/Sep/2025 15:41:42] "GET /api/courses/my_courses/ HTTP/1.1" 200 388
-[19/Sep/2025 15:41:42] "GET /api/courses/my_courses/ HTTP/1.1" 200 388
-Not Found: /ws/notifications/
-[19/Sep/2025 15:41:42] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:41:46] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:41:49] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:41:52] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:41:56] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:42:00] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:42:04] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:42:08] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:42:12] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:42:16] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:42:20] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:42:24] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:42:28] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:42:32] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:42:36] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:42:40] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:42:44] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:42:48] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:42:52] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:42:56] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:43:00] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:43:04] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:43:08] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:43:12] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:43:16] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:43:20] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:43:24] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:43:28] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:43:32] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:43:36] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:43:40] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:43:44] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:43:48] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:43:52] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:43:57] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:44:06] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:44:12] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:44:17] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:44:24] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:44:33] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:44:39] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:44:46] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:44:54] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:44:58] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:45:02] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:45:06] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:45:10] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:45:14] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:45:18] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:45:22] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:45:26] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:45:30] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-/home/jorge/pagina web nueva ifap dos/backend/users/serializers.py changed, reloading.
-Performing system checks...
-
-System check identified no issues (0 silenced).
-September 19, 2025 - 15:39:46
-Django version 4.2.7, using settings 'ifap_backend.settings'
-Starting development server at http://127.0.0.1:8000/
-Quit the server with CONTROL-C.
-
-/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/__init__.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import DistributionNotFound, get_distribution
-Watching for file changes with StatReloader
-/home/jorge/pagina web nueva ifap dos/backend/users/views.py changed, reloading.
-Performing system checks...
-
-System check identified no issues (0 silenced).
-September 19, 2025 - 15:45:35
-Django version 4.2.7, using settings 'ifap_backend.settings'
-Starting development server at http://127.0.0.1:8000/
-Quit the server with CONTROL-C.
-
-/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/__init__.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  from pkg_resources import DistributionNotFound, get_distribution
-Watching for file changes with StatReloader
-Not Found: /ws/notifications/
-[19/Sep/2025 15:45:52] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:45:56] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:46:00] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:46:05] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:46:10] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:46:17] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:46:24] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:46:33] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-Not Found: /ws/notifications/
-[19/Sep/2025 15:46:42] "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzE4MTAyLCJpYXQiOjE3NTgzMTQ1MDIsImp0aSI6ImQxYmVmMTM3Zjk5ZDQwNGZiZmM0M2YxZmE5MTBhMjE2IiwidXNlcl9pZCI6Nn0.LzzKo98RCVEAjWcXNhfq-CcgzykutpLcne7Jdd1dApk HTTP/1.1" 404 2889
-/home/jorge/pagina web nueva ifap dos/backend/ifap_backend/settings.py changed, reloading.
-Performing system checks...
-
-System check identified no issues (0 silenced).
-September 19, 2025 - 15:45:41
-Django version 4.2.7, using settings 'ifap_backend.settings'
-Starting development server at http://127.0.0.1:8000/
-Quit the server with CONTROL-C.
-
-Watching for file changes with StatReloader
-Exception in thread django-main-thread:
-Traceback (most recent call last):
-  File "/usr/lib/python3.13/logging/config.py", line 604, in configure
-    handler = self.configure_handler(handlers[name])
-  File "/usr/lib/python3.13/logging/config.py", line 869, in configure_handler
-    result = factory(**kwargs)
-  File "/usr/lib/python3.13/logging/handlers.py", line 161, in __init__
-    BaseRotatingHandler.__init__(self, filename, mode, encoding=encoding,
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                                 delay=delay, errors=errors)
-                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.13/logging/handlers.py", line 64, in __init__
-    logging.FileHandler.__init__(self, filename, mode=mode,
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                                 encoding=encoding, delay=delay,
-                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                                 errors=errors)
-                                 ^^^^^^^^^^^^^^
-  File "/usr/lib/python3.13/logging/__init__.py", line 1219, in __init__
-    StreamHandler.__init__(self, self._open())
-                                 ~~~~~~~~~~^^
-  File "/usr/lib/python3.13/logging/__init__.py", line 1248, in _open
-    return open_func(self.baseFilename, self.mode,
-                     encoding=self.encoding, errors=self.errors)
-FileNotFoundError: [Errno 2] No such file or directory: '/home/jorge/pagina web nueva ifap dos/backend/logs/audit.log'
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/usr/lib/python3.13/threading.py", line 1043, in _bootstrap_inner
-    self.run()
-    ~~~~~~~~^^
-  File "/usr/lib/python3.13/threading.py", line 994, in run
-    self._target(*self._args, **self._kwargs)
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/utils/autoreload.py", line 64, in wrapper
-    fn(*args, **kwargs)
-    ~~^^^^^^^^^^^^^^^^^
-  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/core/management/commands/runserver.py", line 125, in inner_run
-    autoreload.raise_last_exception()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/utils/autoreload.py", line 87, in raise_last_exception
-    raise _exception[1]
-  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/core/management/__init__.py", line 394, in execute
-    autoreload.check_errors(django.setup)()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/utils/autoreload.py", line 64, in wrapper
-    fn(*args, **kwargs)
-    ~~^^^^^^^^^^^^^^^^^
-  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/__init__.py", line 19, in setup
-    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
-    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/utils/log.py", line 76, in configure_logging
-    logging_config_func(logging_settings)
-    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.13/logging/config.py", line 935, in dictConfig
-    dictConfigClass(config).configure()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "/usr/lib/python3.13/logging/config.py", line 611, in configure
-    raise ValueError('Unable to configure handler '
-                     '%r' % name) from e
-ValueError: Unable to configure handler 'file'
+INFO Watching for file changes with StatReloader
+INFO "GET /api/users/me/ HTTP/1.1" 200 292
+INFO "GET /api/users/me/ HTTP/1.1" 200 292
+INFO "GET /api/courses/ HTTP/1.1" 200 1508
+INFO "GET /api/courses/my_courses/ HTTP/1.1" 200 2
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+INFO "GET /api/users/me/ HTTP/1.1" 200 292
+INFO "GET /api/users/me/ HTTP/1.1" 200 292
+INFO "OPTIONS /api/courses/ HTTP/1.1" 200 0
+INFO "OPTIONS /api/courses/my_courses/ HTTP/1.1" 200 0
+INFO "GET /api/courses/ HTTP/1.1" 200 1508
+INFO "GET /api/courses/my_courses/ HTTP/1.1" 200 2
+INFO "OPTIONS /api/users/login/ HTTP/1.1" 200 0
+INFO "POST /api/users/login/ HTTP/1.1" 200 797
+INFO "GET /api/courses/my_courses/ HTTP/1.1" 200 2
+INFO "GET /api/courses/my_courses/ HTTP/1.1" 200 2
+INFO "GET /api/users/role_summary/ HTTP/1.1" 200 82
+INFO "GET /api/users/role_summary/ HTTP/1.1" 200 82
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDYwLCJpYXQiOjE3NTgzMjY0NjAsImp0aSI6IjE4YjM0YmE3Y2FmNzQwMGI4NmMyNThmMGY1YTFhMTJhIiwidXNlcl9pZCI6MTB9.BbqMzxdxm8DVWHedlU5tgyvSUx9wCfzh75BxquJrxS8 HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDYwLCJpYXQiOjE3NTgzMjY0NjAsImp0aSI6IjE4YjM0YmE3Y2FmNzQwMGI4NmMyNThmMGY1YTFhMTJhIiwidXNlcl9pZCI6MTB9.BbqMzxdxm8DVWHedlU5tgyvSUx9wCfzh75BxquJrxS8 HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDYwLCJpYXQiOjE3NTgzMjY0NjAsImp0aSI6IjE4YjM0YmE3Y2FmNzQwMGI4NmMyNThmMGY1YTFhMTJhIiwidXNlcl9pZCI6MTB9.BbqMzxdxm8DVWHedlU5tgyvSUx9wCfzh75BxquJrxS8 HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDYwLCJpYXQiOjE3NTgzMjY0NjAsImp0aSI6IjE4YjM0YmE3Y2FmNzQwMGI4NmMyNThmMGY1YTFhMTJhIiwidXNlcl9pZCI6MTB9.BbqMzxdxm8DVWHedlU5tgyvSUx9wCfzh75BxquJrxS8 HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDYwLCJpYXQiOjE3NTgzMjY0NjAsImp0aSI6IjE4YjM0YmE3Y2FmNzQwMGI4NmMyNThmMGY1YTFhMTJhIiwidXNlcl9pZCI6MTB9.BbqMzxdxm8DVWHedlU5tgyvSUx9wCfzh75BxquJrxS8 HTTP/1.1" 404 3222
+INFO "GET /api/courses/my_courses/ HTTP/1.1" 200 2
+INFO "GET /api/courses/my_courses/ HTTP/1.1" 200 2
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDYwLCJpYXQiOjE3NTgzMjY0NjAsImp0aSI6IjE4YjM0YmE3Y2FmNzQwMGI4NmMyNThmMGY1YTFhMTJhIiwidXNlcl9pZCI6MTB9.BbqMzxdxm8DVWHedlU5tgyvSUx9wCfzh75BxquJrxS8 HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDYwLCJpYXQiOjE3NTgzMjY0NjAsImp0aSI6IjE4YjM0YmE3Y2FmNzQwMGI4NmMyNThmMGY1YTFhMTJhIiwidXNlcl9pZCI6MTB9.BbqMzxdxm8DVWHedlU5tgyvSUx9wCfzh75BxquJrxS8 HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDYwLCJpYXQiOjE3NTgzMjY0NjAsImp0aSI6IjE4YjM0YmE3Y2FmNzQwMGI4NmMyNThmMGY1YTFhMTJhIiwidXNlcl9pZCI6MTB9.BbqMzxdxm8DVWHedlU5tgyvSUx9wCfzh75BxquJrxS8 HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDYwLCJpYXQiOjE3NTgzMjY0NjAsImp0aSI6IjE4YjM0YmE3Y2FmNzQwMGI4NmMyNThmMGY1YTFhMTJhIiwidXNlcl9pZCI6MTB9.BbqMzxdxm8DVWHedlU5tgyvSUx9wCfzh75BxquJrxS8 HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDYwLCJpYXQiOjE3NTgzMjY0NjAsImp0aSI6IjE4YjM0YmE3Y2FmNzQwMGI4NmMyNThmMGY1YTFhMTJhIiwidXNlcl9pZCI6MTB9.BbqMzxdxm8DVWHedlU5tgyvSUx9wCfzh75BxquJrxS8 HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDYwLCJpYXQiOjE3NTgzMjY0NjAsImp0aSI6IjE4YjM0YmE3Y2FmNzQwMGI4NmMyNThmMGY1YTFhMTJhIiwidXNlcl9pZCI6MTB9.BbqMzxdxm8DVWHedlU5tgyvSUx9wCfzh75BxquJrxS8 HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDYwLCJpYXQiOjE3NTgzMjY0NjAsImp0aSI6IjE4YjM0YmE3Y2FmNzQwMGI4NmMyNThmMGY1YTFhMTJhIiwidXNlcl9pZCI6MTB9.BbqMzxdxm8DVWHedlU5tgyvSUx9wCfzh75BxquJrxS8 HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+INFO "OPTIONS /api/forum/stats/overview/ HTTP/1.1" 200 0
+INFO "OPTIONS /api/forum/topics/ HTTP/1.1" 200 0
+INFO "OPTIONS /api/forum/topics/ HTTP/1.1" 200 0
+INFO "OPTIONS /api/forum/categories/ HTTP/1.1" 200 0
+INFO "OPTIONS /api/forum/categories/ HTTP/1.1" 200 0
+INFO "OPTIONS /api/forum/stats/overview/ HTTP/1.1" 200 0
+INFO "GET /api/forum/categories/ HTTP/1.1" 200 1890
+INFO "GET /api/forum/topics/ HTTP/1.1" 200 2558
+INFO "GET /api/forum/categories/ HTTP/1.1" 200 1890
+INFO "GET /api/forum/stats/overview/ HTTP/1.1" 200 5208
+INFO "GET /api/forum/topics/ HTTP/1.1" 200 2558
+INFO "GET /api/forum/stats/overview/ HTTP/1.1" 200 5208
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDYwLCJpYXQiOjE3NTgzMjY0NjAsImp0aSI6IjE4YjM0YmE3Y2FmNzQwMGI4NmMyNThmMGY1YTFhMTJhIiwidXNlcl9pZCI6MTB9.BbqMzxdxm8DVWHedlU5tgyvSUx9wCfzh75BxquJrxS8 HTTP/1.1" 404 3222
+INFO "OPTIONS /api/forum/topics/?category=1 HTTP/1.1" 200 0
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDYwLCJpYXQiOjE3NTgzMjY0NjAsImp0aSI6IjE4YjM0YmE3Y2FmNzQwMGI4NmMyNThmMGY1YTFhMTJhIiwidXNlcl9pZCI6MTB9.BbqMzxdxm8DVWHedlU5tgyvSUx9wCfzh75BxquJrxS8 HTTP/1.1" 404 3222
+INFO "GET /api/forum/topics/?category=1 HTTP/1.1" 200 637
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDYwLCJpYXQiOjE3NTgzMjY0NjAsImp0aSI6IjE4YjM0YmE3Y2FmNzQwMGI4NmMyNThmMGY1YTFhMTJhIiwidXNlcl9pZCI6MTB9.BbqMzxdxm8DVWHedlU5tgyvSUx9wCfzh75BxquJrxS8 HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDYwLCJpYXQiOjE3NTgzMjY0NjAsImp0aSI6IjE4YjM0YmE3Y2FmNzQwMGI4NmMyNThmMGY1YTFhMTJhIiwidXNlcl9pZCI6MTB9.BbqMzxdxm8DVWHedlU5tgyvSUx9wCfzh75BxquJrxS8 HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDYwLCJpYXQiOjE3NTgzMjY0NjAsImp0aSI6IjE4YjM0YmE3Y2FmNzQwMGI4NmMyNThmMGY1YTFhMTJhIiwidXNlcl9pZCI6MTB9.BbqMzxdxm8DVWHedlU5tgyvSUx9wCfzh75BxquJrxS8 HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDYwLCJpYXQiOjE3NTgzMjY0NjAsImp0aSI6IjE4YjM0YmE3Y2FmNzQwMGI4NmMyNThmMGY1YTFhMTJhIiwidXNlcl9pZCI6MTB9.BbqMzxdxm8DVWHedlU5tgyvSUx9wCfzh75BxquJrxS8 HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDYwLCJpYXQiOjE3NTgzMjY0NjAsImp0aSI6IjE4YjM0YmE3Y2FmNzQwMGI4NmMyNThmMGY1YTFhMTJhIiwidXNlcl9pZCI6MTB9.BbqMzxdxm8DVWHedlU5tgyvSUx9wCfzh75BxquJrxS8 HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDYwLCJpYXQiOjE3NTgzMjY0NjAsImp0aSI6IjE4YjM0YmE3Y2FmNzQwMGI4NmMyNThmMGY1YTFhMTJhIiwidXNlcl9pZCI6MTB9.BbqMzxdxm8DVWHedlU5tgyvSUx9wCfzh75BxquJrxS8 HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+INFO "GET /api/users/me/ HTTP/1.1" 200 292
+INFO "GET /api/users/me/ HTTP/1.1" 200 292
+INFO "GET /api/courses/my_courses/ HTTP/1.1" 200 2
+INFO "POST /api/users/login/ HTTP/1.1" 200 797
+INFO "GET /api/courses/my_courses/ HTTP/1.1" 200 2
+INFO "GET /api/courses/my_courses/ HTTP/1.1" 200 2
+INFO "GET /api/users/role_summary/ HTTP/1.1" 200 82
+INFO "GET /api/users/role_summary/ HTTP/1.1" 200 82
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+INFO "GET /api/users/ HTTP/1.1" 200 3431
+INFO "GET /api/users/ HTTP/1.1" 200 3431
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+INFO "GET /api/users/ HTTP/1.1" 200 3431
+INFO "GET /api/users/ HTTP/1.1" 200 3431
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzMwMDk0LCJpYXQiOjE3NTgzMjY0OTQsImp0aSI6ImIzYmFhOGJjNDdjNDRiMmI5ZTE5MDljNzUyOWEyZjY2IiwidXNlcl9pZCI6MTB9.mSo9_1K5lcIk2Qz7DAvQmWRenRTbz3dO1vAh5p2QgoI HTTP/1.1" 404 3222
+WARNING Not Found: /ws/notifications/
+WARNING "GET /ws/notifications/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MzI2NjA5LCJpYXQiOjE3NTgzMjMwMDksImp0aSI6IjdlYjY2NDhhMzMyOTQ2YjdhMzZiYTcxMTA3YzIyODI5IiwidXNlcl9pZCI6MTB9.1HECnziFIDn1sjwaIVGTHh6xs2p1MddhXa3anoafVUo HTTP/1.1" 404 3222

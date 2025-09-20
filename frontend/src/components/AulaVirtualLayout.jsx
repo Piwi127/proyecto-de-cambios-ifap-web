@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import UserRoleDisplay from './UserRoleDisplay';
 
 const AulaVirtualLayout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -13,107 +14,168 @@ const AulaVirtualLayout = ({ children }) => {
     navigate('/');
   };
 
-  const menuItems = [
+  // Menú base para todos los usuarios
+  const baseMenuItems = [
     {
       name: 'Dashboard',
       path: '/aula-virtual',
       icon: '🏠',
       exact: true,
       color: 'text-blue-600',
-      bgColor: 'bg-blue-50'
+      bgColor: 'bg-blue-50',
+      roles: ['student', 'instructor', 'admin']
     },
     {
       name: 'Mis Cursos',
       path: '/aula-virtual/cursos',
       icon: '🎓',
       color: 'text-green-600',
-      bgColor: 'bg-green-50'
+      bgColor: 'bg-green-50',
+      roles: ['student', 'instructor', 'admin']
     },
     {
       name: 'Calendario',
       path: '/aula-virtual/calendario',
       icon: '📅',
       color: 'text-purple-600',
-      bgColor: 'bg-purple-50'
+      bgColor: 'bg-purple-50',
+      roles: ['student', 'instructor', 'admin']
     },
     {
       name: 'Biblioteca',
       path: '/aula-virtual/biblioteca',
-      icon: '�',
+      icon: '📚',
       color: 'text-indigo-600',
-      bgColor: 'bg-indigo-50'
+      bgColor: 'bg-indigo-50',
+      roles: ['student', 'instructor', 'admin']
     },
     {
       name: 'Foro',
       path: '/aula-virtual/foro',
       icon: '💬',
       color: 'text-pink-600',
-      bgColor: 'bg-pink-50'
+      bgColor: 'bg-pink-50',
+      roles: ['student', 'instructor', 'admin']
     },
     {
       name: 'Mensajes',
       path: '/aula-virtual/mensajes',
       icon: '💌',
       color: 'text-red-600',
-      bgColor: 'bg-red-50'
+      bgColor: 'bg-red-50',
+      roles: ['student', 'instructor', 'admin']
     },
     {
       name: 'Notificaciones',
       path: '/aula-virtual/notificaciones',
       icon: '🔔',
       color: 'text-orange-600',
-      bgColor: 'bg-orange-50'
+      bgColor: 'bg-orange-50',
+      roles: ['student', 'instructor', 'admin']
     },
     {
       name: 'Tareas',
       path: '/aula-virtual/tareas',
       icon: '✅',
       color: 'text-teal-600',
-      bgColor: 'bg-teal-50'
+      bgColor: 'bg-teal-50',
+      roles: ['student', 'instructor', 'admin']
     },
+    {
+      path: "/aula-virtual/videoconferencia",
+      icon: "🎥",
+      name: "Videoconferencia",
+      color: "text-blue-500",
+      bgColor: "bg-blue-100",
+      roles: ['student', 'instructor', 'admin']
+    },
+    {
+      path: "/aula-virtual/colaboracion",
+      icon: "🤝",
+      name: "Colaboración",
+      color: "text-green-500",
+      bgColor: "bg-green-100",
+      roles: ['student', 'instructor', 'admin']
+    },
+    // Opciones específicas para docentes
+    {
+      path: "/aula-virtual/dashboard-profesor",
+      icon: "📊",
+      name: "Dashboard Profesor",
+      color: "text-purple-500",
+      bgColor: "bg-purple-100",
+      roles: ['instructor', 'admin']
+    },
+    {
+      path: "/aula-virtual/gestionar-cursos",
+      icon: "🎯",
+      name: "Gestionar Cursos",
+      color: "text-emerald-500",
+      bgColor: "bg-emerald-100",
+      roles: ['instructor', 'admin']
+    },
+    {
+      path: "/aula-virtual/calificaciones",
+      icon: "📝",
+      name: "Calificaciones",
+      color: "text-amber-500",
+      bgColor: "bg-amber-100",
+      roles: ['instructor', 'admin']
+    },
+    // Opciones específicas para administradores
+    {
+      path: "/aula-virtual/user-management",
+      icon: "👥",
+      name: "Gestión de Usuarios",
+      color: "text-red-500",
+      bgColor: "bg-red-100",
+      roles: ['admin']
+    },
+    {
+      path: "/aula-virtual/reportes",
+      icon: "📈",
+      name: "Reportes",
+      color: "text-violet-500",
+      bgColor: "bg-violet-100",
+      roles: ['admin']
+    },
+    {
+      path: "/aula-virtual/configuracion-sistema",
+      icon: "🔧",
+      name: "Config. Sistema",
+      color: "text-slate-500",
+      bgColor: "bg-slate-100",
+      roles: ['admin']
+    },
+    // Opciones comunes al final
     {
       name: 'Perfil',
       path: '/aula-virtual/perfil',
       icon: '👤',
       color: 'text-cyan-600',
-      bgColor: 'bg-cyan-50'
+      bgColor: 'bg-cyan-50',
+      roles: ['student', 'instructor', 'admin']
     },
     {
       name: 'Configuración',
       path: '/aula-virtual/configuracion',
       icon: '⚙️',
       color: 'text-gray-600',
-      bgColor: 'bg-gray-50'
-    },
-    {
-      path: "/aula-virtual/videoconferencia",
-      icon: "🎥",
-      name: "Videoconferencia",
-      color: "blue-500",
-      bgColor: "blue-100",
-    },
-    {
-      path: "/aula-virtual/colaboracion",
-      icon: "🤝",
-      name: "Colaboración",
-      color: "green-500",
-      bgColor: "green-100",
-    },
-    {
-      path: "/aula-virtual/dashboard-profesor",
-      icon: "📊",
-      name: "Dashboard Profesor",
-      color: "purple-500",
-      bgColor: "purple-100",
-    },
-    {
-      path: "/aula-virtual/user-management",
-      icon: "👥",
-      name: "Gestión de Usuarios",
-      color: "red-500",
-      bgColor: "red-100",
-    },
+      bgColor: 'bg-gray-50',
+      roles: ['student', 'instructor', 'admin']
+    }
   ];
+
+  // Filtrar menú según el rol del usuario
+  const getUserRole = () => {
+    if (user?.is_superuser) return 'admin';
+    if (user?.is_instructor) return 'instructor';
+    if (user?.is_student) return 'student';
+    return 'student'; // Por defecto
+  };
+
+  const userRole = getUserRole();
+  const menuItems = baseMenuItems.filter(item => item.roles.includes(userRole));
 
   const isActive = (path, exact = false) => {
     if (exact) {
@@ -262,15 +324,18 @@ const AulaVirtualLayout = ({ children }) => {
               </button>
 
               {/* Usuario */}
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-3">
                 <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-700 rounded-full flex items-center justify-center shadow-md">
                   <span className="text-white font-bold text-sm">
                     {user?.first_name?.[0]}{user?.last_name?.[0]}
                   </span>
                 </div>
-                <span className="hidden md:block text-sm font-medium text-gray-900">
-                  {user?.first_name}
-                </span>
+                <div className="hidden md:block">
+                  <div className="text-sm font-medium text-gray-900">
+                    {user?.first_name}
+                  </div>
+                  <UserRoleDisplay className="mt-1" />
+                </div>
               </div>
             </div>
           </div>

@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { userService } from '../services/userService';
 import Card from '../components/Card';
 
 const PerfilEstudiante = () => {
-  const { user } = useAuth();
+  const { user, updateProfile } = useAuth();
   const [isEditing, setIsEditing] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
   const [formData, setFormData] = useState({
     first_name: user?.first_name || '',
     last_name: user?.last_name || '',
     email: user?.email || '',
     username: user?.username || '',
-    bio: 'Estudiante de archivística apasionado por la preservación documental.',
-    phone: '',
-    address: '',
-    date_of_birth: '',
-    institution: 'Instituto de Formación Archivística del Perú'
+    bio: user?.bio || 'Estudiante de archivística apasionado por la preservación documental.',
+    phone: user?.phone || '',
+    address: user?.address || '',
+    date_of_birth: user?.date_of_birth || '',
+    institution: user?.institution || 'Instituto de Formación Archivística del Perú'
   });
 
   const handleInputChange = (e) => {
@@ -25,11 +29,52 @@ const PerfilEstudiante = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí iría la lógica para actualizar el perfil
-    console.log('Actualizando perfil:', formData);
-    setIsEditing(false);
+    setIsLoading(true);
+    setError('');
+    setSuccessMessage('');
+
+    try {
+      // Validaciones básicas
+      if (!formData.first_name.trim() || !formData.last_name.trim()) {
+        throw new Error('Los nombres y apellidos son obligatorios');
+      }
+
+      if (!formData.email.trim()) {
+        throw new Error('El correo electrónico es obligatorio');
+      }
+
+      // Preparar datos para enviar (solo campos que pueden ser actualizados)
+      const updateData = {
+        first_name: formData.first_name.trim(),
+        last_name: formData.last_name.trim(),
+        email: formData.email.trim(),
+        username: formData.username.trim(),
+        bio: formData.bio.trim(),
+        phone: formData.phone.trim(),
+        address: formData.address.trim(),
+        date_of_birth: formData.date_of_birth || null,
+        institution: formData.institution.trim()
+      };
+
+      // Actualizar perfil usando el contexto de autenticación
+      const updatedUser = await updateProfile(updateData);
+
+      setSuccessMessage('Perfil actualizado exitosamente');
+      setIsEditing(false);
+      
+      // Limpiar mensaje de éxito después de 3 segundos
+      setTimeout(() => {
+        setSuccessMessage('');
+      }, 3000);
+
+    } catch (error) {
+      console.error('Error al actualizar perfil:', error);
+      setError(error.message || 'Error al actualizar el perfil. Inténtalo de nuevo.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const achievements = [
@@ -68,23 +113,85 @@ const PerfilEstudiante = () => {
 
             {isEditing ? (
               <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Mensajes de estado */}
+                {error && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+                    {error}
+                  </div>
+                )}
+                
+                {successMessage && (
+                  <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg">
+                    {successMessage}
+                  </div>
+                )}
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Nombres</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Nombres *</label>
                     <input
                       type="text"
                       name="first_name"
                       value={formData.first_name}
                       onChange={handleInputChange}
+                      required
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Apellidos</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Apellidos *</label>
                     <input
                       type="text"
                       name="last_name"
                       value={formData.last_name}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico *</label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Usuario</label>
+                    <input
+                      type="text"
+                      name="username"
+                      value={formData.username}
+                      onChange={handleInputChange}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Teléfono</label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Fecha de Nacimiento</label>
+                    <input
+                      type="date"
+                      name="date_of_birth"
+                      value={formData.date_of_birth}
                       onChange={handleInputChange}
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                     />
@@ -92,22 +199,22 @@ const PerfilEstudiante = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Dirección</label>
                   <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
+                    type="text"
+                    name="address"
+                    value={formData.address}
                     onChange={handleInputChange}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Usuario</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Institución</label>
                   <input
                     type="text"
-                    name="username"
-                    value={formData.username}
+                    name="institution"
+                    value={formData.institution}
                     onChange={handleInputChange}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   />
@@ -127,16 +234,28 @@ const PerfilEstudiante = () => {
                 <div className="flex justify-end space-x-3">
                   <button
                     type="button"
-                    onClick={() => setIsEditing(false)}
-                    className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50"
+                    onClick={() => {
+                      setIsEditing(false);
+                      setError('');
+                      setSuccessMessage('');
+                    }}
+                    disabled={isLoading}
+                    className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Cancelar
                   </button>
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700"
+                    disabled={isLoading}
+                    className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2"
                   >
-                    Guardar Cambios
+                    {isLoading && (
+                      <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                    )}
+                    <span>{isLoading ? 'Guardando...' : 'Guardar Cambios'}</span>
                   </button>
                 </div>
               </form>
@@ -167,8 +286,18 @@ const PerfilEstudiante = () => {
                     <p className="text-gray-900">{user?.date_joined ? new Date(user.date_joined).toLocaleDateString('es-ES') : 'N/A'}</p>
                   </div>
                   <div>
+                    <label className="block text-sm font-medium text-gray-500">Teléfono</label>
+                    <p className="text-gray-900">{formData.phone || 'No especificado'}</p>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-500">Fecha de Nacimiento</label>
+                    <p className="text-gray-900">
+                      {formData.date_of_birth ? new Date(formData.date_of_birth).toLocaleDateString('es-ES') : 'No especificada'}
+                    </p>
+                  </div>
+                  <div>
                     <label className="block text-sm font-medium text-gray-500">Institución</label>
-                    <p className="text-gray-900">{formData.institution}</p>
+                    <p className="text-gray-900">{formData.institution || 'No especificada'}</p>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-500">Estado</label>
@@ -177,6 +306,13 @@ const PerfilEstudiante = () => {
                     </span>
                   </div>
                 </div>
+
+                {formData.address && (
+                  <div className="pt-4 border-t border-gray-200">
+                    <label className="block text-sm font-medium text-gray-500 mb-2">Dirección</label>
+                    <p className="text-gray-700">{formData.address}</p>
+                  </div>
+                )}
 
                 <div className="pt-4 border-t border-gray-200">
                   <label className="block text-sm font-medium text-gray-500 mb-2">Biografía</label>

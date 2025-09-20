@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { courseService } from '../services/courseService';
 import Card from '../components/Card';
+import UserRoleDisplay from '../components/UserRoleDisplay';
+import RoleBasedStats from '../components/RoleBasedStats';
+import RoleBasedActions from '../components/RoleBasedActions';
 import { useNavigate } from 'react-router-dom';
 
 const DashboardAulaVirtual = () => {
@@ -140,11 +143,19 @@ const DashboardAulaVirtual = () => {
       <div className="bg-gradient-to-r from-primary-600 via-primary-700 to-primary-800 rounded-2xl p-8 text-white shadow-2xl">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold mb-2">
-              ¡Hola, {user?.first_name || user?.username}! 👋
-            </h1>
+            <div className="flex items-center gap-3 mb-2">
+              <h1 className="text-3xl font-bold">
+                ¡Hola, {user?.first_name || user?.username}! 👋
+              </h1>
+              <UserRoleDisplay showFullInfo={true} className="bg-white/20 text-white border-white/30" />
+            </div>
             <p className="text-primary-100 text-lg">
-              Bienvenido de vuelta a tu aula virtual. ¿Qué vamos a aprender hoy?
+              {user?.is_superuser 
+                ? "Panel de administración del sistema. Gestiona usuarios y configuraciones."
+                : user?.is_instructor 
+                ? "Panel de docente. Gestiona tus cursos y estudiantes."
+                : "Bienvenido de vuelta a tu aula virtual. ¿Qué vamos a aprender hoy?"
+              }
             </p>
           </div>
           <div className="hidden md:block">
@@ -158,72 +169,8 @@ const DashboardAulaVirtual = () => {
         </div>
       </div>
 
-      {/* Estadísticas principales */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card variant="primary" className="relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-16 h-16 bg-blue-500/20 rounded-full -mr-8 -mt-8"></div>
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-blue-600 text-sm font-medium mb-1">Cursos Inscritos</p>
-              <p className="text-3xl font-bold text-gray-900">{stats.cursosInscritos}</p>
-            </div>
-            <div className="text-4xl">📚</div>
-          </div>
-          <div className="mt-4">
-            <div className="w-full bg-blue-100 rounded-full h-2">
-              <div className="bg-blue-600 h-2 rounded-full" style={{ width: '75%' }}></div>
-            </div>
-          </div>
-        </Card>
-
-        <Card variant="success" className="relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-16 h-16 bg-green-500/20 rounded-full -mr-8 -mt-8"></div>
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-green-600 text-sm font-medium mb-1">Cursos Completados</p>
-              <p className="text-3xl font-bold text-gray-900">{stats.cursosCompletados}</p>
-            </div>
-            <div className="text-4xl">✅</div>
-          </div>
-          <div className="mt-4">
-            <div className="w-full bg-green-100 rounded-full h-2">
-              <div className="bg-green-600 h-2 rounded-full" style={{ width: '25%' }}></div>
-            </div>
-          </div>
-        </Card>
-
-        <Card variant="warning" className="relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-16 h-16 bg-yellow-500/20 rounded-full -mr-8 -mt-8"></div>
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-yellow-600 text-sm font-medium mb-1">Horas Estudiadas</p>
-              <p className="text-3xl font-bold text-gray-900">{stats.horasEstudiadas}</p>
-            </div>
-            <div className="text-4xl">⏰</div>
-          </div>
-          <div className="mt-4">
-            <div className="w-full bg-yellow-100 rounded-full h-2">
-              <div className="bg-yellow-600 h-2 rounded-full" style={{ width: '60%' }}></div>
-            </div>
-          </div>
-        </Card>
-
-        <Card variant="gradient" className="relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-16 h-16 bg-purple-500/20 rounded-full -mr-8 -mt-8"></div>
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-purple-600 text-sm font-medium mb-1">Promedio General</p>
-              <p className="text-3xl font-bold text-gray-900">{stats.promedioGeneral}</p>
-            </div>
-            <div className="text-4xl">📊</div>
-          </div>
-          <div className="mt-4">
-            <div className="w-full bg-purple-100 rounded-full h-2">
-              <div className="bg-purple-600 h-2 rounded-full" style={{ width: '85%' }}></div>
-            </div>
-          </div>
-        </Card>
-      </div>
+      {/* Estadísticas principales basadas en rol */}
+      <RoleBasedStats />
 
       {/* Contenido principal en dos columnas */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -374,35 +321,8 @@ const DashboardAulaVirtual = () => {
             </div>
           </Card>
 
-          {/* Acciones rápidas */}
-          <Card variant="gradient">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-              <span className="text-2xl mr-3">⚡</span>
-              Acciones Rápidas
-            </h2>
-
-            <div className="grid grid-cols-2 gap-3">
-              <button className="flex flex-col items-center p-4 bg-white/60 hover:bg-white/80 rounded-xl transition-all duration-200 hover:shadow-md group">
-                <span className="text-2xl mb-2 group-hover:scale-110 transition-transform">📝</span>
-                <span className="text-sm font-medium text-gray-700">Nueva Tarea</span>
-              </button>
-
-              <button className="flex flex-col items-center p-4 bg-white/60 hover:bg-white/80 rounded-xl transition-all duration-200 hover:shadow-md group">
-                <span className="text-2xl mb-2 group-hover:scale-110 transition-transform">💬</span>
-                <span className="text-sm font-medium text-gray-700">Nuevo Tema</span>
-              </button>
-
-              <button className="flex flex-col items-center p-4 bg-white/60 hover:bg-white/80 rounded-xl transition-all duration-200 hover:shadow-md group">
-                <span className="text-2xl mb-2 group-hover:scale-110 transition-transform">📚</span>
-                <span className="text-sm font-medium text-gray-700">Biblioteca</span>
-              </button>
-
-              <button className="flex flex-col items-center p-4 bg-white/60 hover:bg-white/80 rounded-xl transition-all duration-200 hover:shadow-md group">
-                <span className="text-2xl mb-2 group-hover:scale-110 transition-transform">📊</span>
-                <span className="text-sm font-medium text-gray-700">Progreso</span>
-              </button>
-            </div>
-          </Card>
+          {/* Acciones rápidas basadas en rol */}
+          <RoleBasedActions />
 
           {/* Motivación del día */}
           <Card variant="primary" className="text-center">

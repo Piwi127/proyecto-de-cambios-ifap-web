@@ -2,10 +2,17 @@ from rest_framework import serializers
 from .models import User
 
 class UserSerializer(serializers.ModelSerializer):
+    role_name = serializers.ReadOnlyField()
+    role_display = serializers.ReadOnlyField()
+    
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'is_student', 'is_instructor', 'is_staff', 'is_superuser', 'date_joined']
-        read_only_fields = ['id', 'date_joined']
+        fields = [
+            'id', 'username', 'email', 'first_name', 'last_name', 
+            'is_student', 'is_instructor', 'is_staff', 'is_superuser', 
+            'date_joined', 'role_name', 'role_display'
+        ]
+        read_only_fields = ['id', 'date_joined', 'role_name', 'role_display']
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, min_length=8)

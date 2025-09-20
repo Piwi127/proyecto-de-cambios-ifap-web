@@ -17,8 +17,32 @@ const ProtectedRoute = ({ children, requiredRole }) => {
     return <Navigate to="/login" replace />;
   }
 
-  if (requiredRole === "superuser" && (!user || !user.is_superuser)) {
-    return <Navigate to="/aula-virtual/dashboard" replace />;
+  // Verificar roles específicos
+  if (requiredRole) {
+    switch (requiredRole) {
+      case 'admin':
+        if (!user || !user.is_superuser) {
+          return <Navigate to="/aula-virtual/dashboard" replace />;
+        }
+        break;
+      case 'instructor':
+        if (!user || (!user.is_instructor && !user.is_superuser)) {
+          return <Navigate to="/aula-virtual/dashboard" replace />;
+        }
+        break;
+      case 'student':
+        if (!user || (!user.is_student && !user.is_instructor && !user.is_superuser)) {
+          return <Navigate to="/aula-virtual/dashboard" replace />;
+        }
+        break;
+      case 'superuser':
+        if (!user || !user.is_superuser) {
+          return <Navigate to="/aula-virtual/dashboard" replace />;
+        }
+        break;
+      default:
+        break;
+    }
   }
 
   return children;
