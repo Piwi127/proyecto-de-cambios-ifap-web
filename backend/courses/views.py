@@ -69,20 +69,29 @@ class CourseViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['get'], permission_classes=[IsAuthenticated])
     def taught_courses(self, request):
         user = request.user
-        if not user.is_instructor:
+        # Permitir acceso a instructores y superusers/administradores
+        if not user.is_instructor and not user.is_superuser:
             return Response(
                 {'error': 'No tienes permisos para ver cursos impartidos'},
                 status=status.HTTP_403_FORBIDDEN
             )
-        taught_courses = user.courses_taught.filter(is_active=True)
+        
+        if user.is_superuser:
+            # Si es superuser, mostrar todos los cursos activos
+            taught_courses = Course.objects.filter(is_active=True)
+        else:
+            # Si es instructor, mostrar solo sus cursos
+            taught_courses = user.courses_taught.filter(is_active=True)
+        
         serializer = self.get_serializer(taught_courses, many=True)
         return Response(serializer.data)
 
     @action(detail=True, methods=['get'], permission_classes=[IsAuthenticated])
     def metrics(self, request, pk=None):
         course = self.get_object()
-        if not request.user.is_instructor or request.user != course.instructor:
-            return Response({'error': 'Solo el instructor puede ver las métricas'}, status=status.HTTP_403_FORBIDDEN)
+        # Permitir acceso al instructor del curso o a superusers/administradores
+        if not request.user.is_superuser and (not request.user.is_instructor or request.user != course.instructor):
+            return Response({'error': 'Solo el instructor o administradores pueden ver las métricas'}, status=status.HTTP_403_FORBIDDEN)
         total_students = course.students.count()
         total_lessons = course.lessons.count()
         if total_lessons > 0:

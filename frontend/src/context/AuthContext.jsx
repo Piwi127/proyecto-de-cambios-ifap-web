@@ -19,6 +19,7 @@ const AuthProvider = ({ children }) => {
       const userData = localStorage.getItem('user_data');
 
       if (token && userData) {
+        setLoading(true);
         try {
           // Verificar token con el servidor obteniendo el usuario actual
           const currentUser = await authService.getCurrentUser();
@@ -34,7 +35,11 @@ const AuthProvider = ({ children }) => {
           localStorage.removeItem('user_data');
           setUser(null);
           setIsAuthenticated(false);
+        } finally {
+          setLoading(false);
         }
+      } else {
+        setLoading(false);
       }
     };
 
