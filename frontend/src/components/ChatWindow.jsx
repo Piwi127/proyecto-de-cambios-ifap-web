@@ -127,30 +127,12 @@ const MessageItem = ({ message, onReaction }) => {
 
 const MessageInput = ({ onSendMessage, onTypingStart, onTypingStop, disabled }) => {
   const [message, setMessage] = useState('');
-  const [isTyping, setIsTyping] = useState(false);
   const textareaRef = useRef(null);
-  const typingTimeoutRef = useRef(null);
 
   const handleInputChange = (e) => {
     const value = e.target.value;
     setMessage(value);
-
-    // Manejar indicador de escritura
-    if (value && !isTyping) {
-      setIsTyping(true);
-      onTypingStart();
-    }
-
-    // Limpiar timeout anterior
-    if (typingTimeoutRef.current) {
-      clearTimeout(typingTimeoutRef.current);
-    }
-
-    // Detener typing después de 2 segundos sin escribir
-    typingTimeoutRef.current = setTimeout(() => {
-      setIsTyping(false);
-      onTypingStop();
-    }, 2000);
+    // Funcionalidad de typing deshabilitada sin WebSocket
   };
 
   const handleSubmit = (e) => {
@@ -158,13 +140,7 @@ const MessageInput = ({ onSendMessage, onTypingStart, onTypingStop, disabled }) 
     if (message.trim() && !disabled) {
       onSendMessage(message.trim());
       setMessage('');
-
-      // Detener indicador de escritura
-      setIsTyping(false);
-      onTypingStop();
-      if (typingTimeoutRef.current) {
-        clearTimeout(typingTimeoutRef.current);
-      }
+      // Funcionalidad de typing deshabilitada sin WebSocket
     }
   };
 
@@ -319,8 +295,8 @@ const ChatWindow = ({ conversation, messages, loading, error, onSendMessage, onL
           />
         ))}
 
-        {/* Indicador de escritura */}
-        {typingUsers.length > 0 && (
+        {/* Indicador de escritura - Deshabilitado sin WebSocket */}
+        {/* typingUsers.length > 0 && (
           <div className="flex items-center space-x-2 text-gray-500 text-sm">
             <div className="flex space-x-1">
               <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
@@ -334,7 +310,7 @@ const ChatWindow = ({ conversation, messages, loading, error, onSendMessage, onL
               }
             </span>
           </div>
-        )}
+        ) */}
 
         <div ref={messagesEndRef} />
       </div>

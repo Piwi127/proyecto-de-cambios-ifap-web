@@ -29,15 +29,11 @@ export const useConversations = () => {
       setCachedConversations(data);
     } catch (err) {
       setError(err.message || 'Error al cargar conversaciones');
-      // Si hay error, usar datos cacheados si existen
-      if (cachedConversations.length > 0) {
-        setConversations(cachedConversations);
-      }
       console.error('Error fetching conversations:', err);
     } finally {
       setLoading(false);
     }
-  }, [user, cachedConversations, setCachedConversations]);
+  }, [user?.id, setCachedConversations]); // Simplified dependencies
 
   const createConversation = useCallback(async (conversationData) => {
     try {
@@ -62,7 +58,7 @@ export const useConversations = () => {
   // Cargar desde API
   useEffect(() => {
     fetchConversations();
-  }, [fetchConversations]);
+  }, [user]); // Only depend on user instead of fetchConversations
 
   return {
     conversations,
@@ -82,6 +78,7 @@ export const useConversationMessages = (conversationId) => {
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
   const { user } = useAuth();
+  const pollingRef = useRef(null); // Control del polling
 
   // Cache para mensajes por conversación
   const cacheKey = `messages_${conversationId}`;
@@ -112,15 +109,11 @@ export const useConversationMessages = (conversationId) => {
       }
     } catch (err) {
       setError(err.message || 'Error al cargar mensajes');
-      // Usar cache si existe
-      if (!append && cachedMessages.length > 0) {
-        setMessages(cachedMessages);
-      }
       console.error('Error fetching messages:', err);
     } finally {
       setLoading(false);
     }
-  }, [conversationId, user, cachedMessages, setCachedMessages]);
+  }, [conversationId, user?.id, setCachedMessages]); // Simplified dependencies
 
   const sendMessage = useCallback(async (messageData) => {
     try {
@@ -153,7 +146,32 @@ export const useConversationMessages = (conversationId) => {
     if (conversationId) {
       fetchMessages(1, false);
     }
-  }, [conversationId, fetchMessages]);
+  }, [conversationId]); // Removed fetchMessages dependency
+
+  // Polling cada 5 segundos para nuevos mensajes
+  useEffect(() => {
+    // Limpiar polling anterior
+    if (pollingRef.current) {
+      clearInterval(pollingRef.current);
+      pollingRef.current = null;
+    }
+
+    if (!conversationId) return;
+    
+    pollingRef.current = setInterval(() => {
+      // Solo hacer polling si no estamos cargando
+      if (!loading) {
+        fetchMessages(1, false);
+      }
+    }, 5000); // Poll cada 5 segundos
+
+    return () => {
+      if (pollingRef.current) {
+        clearInterval(pollingRef.current);
+        pollingRef.current = null;
+      }
+    };
+  }, [conversationId]); // Solo depende de conversationId
 
   return {
     messages,
@@ -174,69 +192,33 @@ export const useMessagingWebSocket = (conversationId) => {
   const { user } = useAuth();
 
   useEffect(() => {
-    if (!conversationId || !user) return;
-
-    const token = localStorage.getItem('access_token');
-    if (!token) return;
-
-    wsRef.current = new MessagingWebSocket(conversationId, token);
-
-    wsRef.current.on('connected', () => {
-      setIsConnected(true);
-    });
-
-    wsRef.current.on('disconnected', () => {
-      setIsConnected(false);
-    });
-
-    wsRef.current.on('message', (message) => {
-      // El mensaje será manejado por el hook de mensajes
-      console.log('Nuevo mensaje recibido:', message);
-    });
-
-    wsRef.current.on('typing', (user, action) => {
-      setTypingUsers(prev => {
-        const newSet = new Set(prev);
-        if (action === 'start') {
-          newSet.add(user.username);
-        } else {
-          newSet.delete(user.username);
-        }
-        return newSet;
-      });
-    });
-
-    wsRef.current.connect();
+    // TEMPORALMENTE DESHABILITADO PARA PREVENIR BUCLES
+    console.log('MessagingWebSocket temporalmente deshabilitado para prevenir bucles');
+    
+    // Set as disconnected state only once
+    setIsConnected(false);
+    setTypingUsers(new Set());
 
     return () => {
-      if (wsRef.current) {
-        wsRef.current.disconnect();
-      }
+      // Cleanup if needed
     };
-  }, [conversationId, user]);
+  }, []); // Empty dependency array to run only once
 
   const sendMessage = useCallback((content, messageType = 'text', fileUrl = null, fileName = null, fileSize = null) => {
-    if (wsRef.current) {
-      wsRef.current.sendMessage(content, messageType, fileUrl, fileName, fileSize);
-    }
+    // WebSocket deshabilitado, usar solo API REST
+    console.log('WebSocket deshabilitado, usar sendMessage del hook de mensajes');
   }, []);
 
   const startTyping = useCallback(() => {
-    if (wsRef.current) {
-      wsRef.current.startTyping();
-    }
+    // WebSocket deshabilitado
   }, []);
 
   const stopTyping = useCallback(() => {
-    if (wsRef.current) {
-      wsRef.current.stopTyping();
-    }
+    // WebSocket deshabilitado
   }, []);
 
   const addReaction = useCallback((messageId, reaction) => {
-    if (wsRef.current) {
-      wsRef.current.addReaction(messageId, reaction);
-    }
+    // WebSocket deshabilitado, usar solo API REST
   }, []);
 
   return {

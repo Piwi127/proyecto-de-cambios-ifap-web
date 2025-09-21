@@ -224,13 +224,9 @@ const MessagingInterface = () => {
         content
       };
 
-      // Enviar por API REST
+      // Enviar solo por API REST (WebSocket deshabilitado)
       await sendMessage(messageData);
 
-      // También enviar por WebSocket si está conectado
-      if (isConnected) {
-        wsSendMessage(content);
-      }
     } catch (error) {
       console.error('Error sending message:', error);
     }
@@ -248,9 +244,7 @@ const MessagingInterface = () => {
   const handleReaction = async (messageId, reaction) => {
     try {
       await messagingService.addReaction(messageId, reaction);
-      if (isConnected) {
-        addReaction(messageId, reaction);
-      }
+      // WebSocket deshabilitado - la reacción se actualizará en el próximo polling
     } catch (error) {
       console.error('Error adding reaction:', error);
     }
@@ -336,9 +330,9 @@ const MessagingInterface = () => {
             <span className="text-2xl">📱</span>
           </div>
           <h3 className="text-2xl font-bold text-gray-900">
-            {isConnected ? '🟢' : '🔴'}
+            🟢
           </h3>
-          <p className="text-gray-600">Estado Conexión</p>
+          <p className="text-gray-600">HTTP Polling</p>
         </Card>
       </div>
 

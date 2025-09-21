@@ -57,7 +57,8 @@ function App() {
   const notifications = useWebSocket();
 
   useEffect(() => {
-    if (notifications.length > 0) {
+    // Validación defensiva para evitar errores
+    if (notifications && notifications.length > 0) {
       // Handle new notifications, e.g., display a toast or update a notification count
       console.log('New notification received:', notifications[0]);
       // You might want to add more sophisticated handling here, like a global state update
