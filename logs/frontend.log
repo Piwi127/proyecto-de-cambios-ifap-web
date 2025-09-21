@@ -3,8 +3,12 @@
 > vite --port 5174
 
 
-  VITE v7.1.6  ready in 1235 ms
+  VITE v7.1.6  ready in 1265 ms
 
   ➜  Local:   http://localhost:5174/
   ➜  Network: http://192.168.123.35:5174/
   ➜  Network: http://172.18.0.1:5174/
+10:50:17 p. m. [vite] (client) hmr update /src/components/MessagingInterface.jsx, /src/index.css, /src/components/UniversityMenu.css
+10:50:18 p. m. [vite] (client) hmr update /src/components/MessagingInterface.jsx, /src/index.css, /src/components/UniversityMenu.css
+11:36:10 p. m. [vite] (client) hmr update /src/components/MessagingInterface.jsx, /src/index.css, /src/components/UniversityMenu.css
+11:36:10 p. m. [vite] (client) hmr update /src/components/MessagingInterface.jsx, /src/index.css, /src/components/UniversityMenu.css

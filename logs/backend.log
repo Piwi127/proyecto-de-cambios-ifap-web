@@ -1,7 +1,378 @@
 /home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/__init__.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import DistributionNotFound, get_distribution
-2025-09-20 22:39:35,322 INFO     Starting server at tcp:port=8000:interface=127.0.0.1
-2025-09-20 22:39:35,323 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
-2025-09-20 22:39:35,324 INFO     Configuring endpoint tcp:port=8000:interface=127.0.0.1
-2025-09-20 22:39:35,325 INFO     Listening on TCP address 127.0.0.1:8000
-2025-09-20 22:40:59,400 INFO     Killed 0 pending application instances
+2025-09-20 22:41:26,502 INFO     Starting server at tcp:port=8000:interface=127.0.0.1
+2025-09-20 22:41:26,504 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2025-09-20 22:41:26,504 INFO     Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2025-09-20 22:41:26,506 INFO     Listening on TCP address 127.0.0.1:8000
+INFO Request: POST /api/users/login/
+INFO Response: 200 for POST /api/users/login/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Request: GET /api/users/role_summary/
+INFO Response: 200 for GET /api/users/role_summary/
+INFO Request: GET /api/users/role_summary/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/users/role_summary/
+INFO Request: GET /api/forum/conversations/
+INFO Response: 200 for GET /api/forum/conversations/
+INFO Request: GET /api/forum/conversations/
+INFO Response: 200 for GET /api/forum/conversations/
+INFO Request: GET /api/users/me/
+INFO User 10 accessed profile
+INFO Response: 200 for GET /api/users/me/
+INFO Request: GET /api/users/me/
+INFO User 10 accessed profile
+INFO Response: 200 for GET /api/users/me/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: POST /api/users/login/
+INFO Response: 200 for POST /api/users/login/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Request: GET /api/users/role_summary/
+INFO Response: 200 for GET /api/users/role_summary/
+INFO Request: GET /api/users/role_summary/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/users/role_summary/
+INFO Request: POST /api/users/login/
+INFO Response: 200 for POST /api/users/login/
+INFO Request: GET /api/courses/my_courses/
+INFO Request: GET /api/courses/
+ERROR Exception in CourseViewSet: TypeError: AbstractConnection.__init__() got an unexpected keyword argument 'CLIENT_CLASS'
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/connection.py", line 1079, in get_connection
+    connection = self._available_connections.pop()
+IndexError: pop from empty list
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 126, in _wrapper_view
+    result = middleware.process_request(request)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/utils/cache.py", line 391, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/core/cache/backends/redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/core/cache/backends/redis.py", line 99, in get
+    value = client.get(key)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/commands/core.py", line 1829, in get
+    return self.execute_command("GET", name)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/client.py", line 533, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/connection.py", line 1081, in get_connection
+    connection = self.make_connection()
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/connection.py", line 1121, in make_connection
+    return self.connection_class(**self.connection_kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/connection.py", line 581, in __init__
+    super().__init__(**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: AbstractConnection.__init__() got an unexpected keyword argument 'CLIENT_CLASS'
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Response: 500 for GET /api/courses/
+ERROR Internal Server Error: /api/courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Request: GET /api/courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+ERROR Exception in CourseViewSet: TypeError: AbstractConnection.__init__() got an unexpected keyword argument 'CLIENT_CLASS'
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/connection.py", line 1079, in get_connection
+    connection = self._available_connections.pop()
+IndexError: pop from empty list
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 126, in _wrapper_view
+    result = middleware.process_request(request)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/utils/cache.py", line 391, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/core/cache/backends/redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/core/cache/backends/redis.py", line 99, in get
+    value = client.get(key)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/commands/core.py", line 1829, in get
+    return self.execute_command("GET", name)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/client.py", line 533, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/connection.py", line 1081, in get_connection
+    connection = self.make_connection()
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/connection.py", line 1121, in make_connection
+    return self.connection_class(**self.connection_kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/connection.py", line 581, in __init__
+    super().__init__(**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: AbstractConnection.__init__() got an unexpected keyword argument 'CLIENT_CLASS'
+INFO Response: 500 for GET /api/courses/
+ERROR Internal Server Error: /api/courses/
+INFO Request: GET /api/users/role_summary/
+INFO Request: GET /api/courses/
+ERROR Exception in CourseViewSet: TypeError: AbstractConnection.__init__() got an unexpected keyword argument 'CLIENT_CLASS'
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/connection.py", line 1079, in get_connection
+    connection = self._available_connections.pop()
+IndexError: pop from empty list
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 126, in _wrapper_view
+    result = middleware.process_request(request)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/utils/cache.py", line 391, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/core/cache/backends/redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/core/cache/backends/redis.py", line 99, in get
+    value = client.get(key)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/commands/core.py", line 1829, in get
+    return self.execute_command("GET", name)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/client.py", line 533, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/connection.py", line 1081, in get_connection
+    connection = self.make_connection()
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/connection.py", line 1121, in make_connection
+    return self.connection_class(**self.connection_kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/connection.py", line 581, in __init__
+    super().__init__(**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: AbstractConnection.__init__() got an unexpected keyword argument 'CLIENT_CLASS'
+INFO Response: 500 for GET /api/courses/
+ERROR Internal Server Error: /api/courses/
+INFO Response: 200 for GET /api/users/role_summary/
+INFO Request: GET /api/users/role_summary/
+INFO Response: 200 for GET /api/users/role_summary/
+INFO Request: GET /api/forum/conversations/
+INFO Response: 200 for GET /api/forum/conversations/
+INFO Request: GET /api/forum/conversations/
+INFO Response: 200 for GET /api/forum/conversations/
+INFO Request: GET /api/users/me/
+INFO User 10 accessed profile
+INFO Response: 200 for GET /api/users/me/
+INFO Request: GET /api/users/me/
+INFO User 10 accessed profile
+INFO Response: 200 for GET /api/users/me/
+INFO Request: GET /api/courses/
+INFO Request: GET /api/courses/my_courses/
+ERROR Exception in CourseViewSet: TypeError: AbstractConnection.__init__() got an unexpected keyword argument 'CLIENT_CLASS'
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/connection.py", line 1079, in get_connection
+    connection = self._available_connections.pop()
+IndexError: pop from empty list
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 126, in _wrapper_view
+    result = middleware.process_request(request)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/utils/cache.py", line 391, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/core/cache/backends/redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/core/cache/backends/redis.py", line 99, in get
+    value = client.get(key)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/commands/core.py", line 1829, in get
+    return self.execute_command("GET", name)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/client.py", line 533, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/connection.py", line 1081, in get_connection
+    connection = self.make_connection()
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/connection.py", line 1121, in make_connection
+    return self.connection_class(**self.connection_kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/connection.py", line 581, in __init__
+    super().__init__(**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: AbstractConnection.__init__() got an unexpected keyword argument 'CLIENT_CLASS'
+INFO Response: 500 for GET /api/courses/
+ERROR Internal Server Error: /api/courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/users/me/
+INFO User 10 accessed profile
+INFO Response: 200 for GET /api/users/me/
+INFO Request: GET /api/users/me/
+INFO User 10 accessed profile
+INFO Response: 200 for GET /api/users/me/
+INFO Request: GET /api/courses/
+ERROR Exception in CourseViewSet: TypeError: AbstractConnection.__init__() got an unexpected keyword argument 'CLIENT_CLASS'
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/connection.py", line 1079, in get_connection
+    connection = self._available_connections.pop()
+IndexError: pop from empty list
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/utils/decorators.py", line 126, in _wrapper_view
+    result = middleware.process_request(request)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/middleware/cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/utils/cache.py", line 391, in get_cache_key
+    headerlist = cache.get(cache_key)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/core/cache/backends/redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/core/cache/backends/redis.py", line 99, in get
+    value = client.get(key)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/commands/core.py", line 1829, in get
+    return self.execute_command("GET", name)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/client.py", line 533, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/connection.py", line 1081, in get_connection
+    connection = self.make_connection()
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/connection.py", line 1121, in make_connection
+    return self.connection_class(**self.connection_kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/redis/connection.py", line 581, in __init__
+    super().__init__(**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: AbstractConnection.__init__() got an unexpected keyword argument 'CLIENT_CLASS'
+INFO Response: 500 for GET /api/courses/
+ERROR Internal Server Error: /api/courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/users/me/
+ERROR Exception in UserViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+    ...<4 lines>...
+    )
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+INFO Response: 401 for GET /api/users/me/
+INFO Request: GET /api/users/me/
+ERROR Exception in UserViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+    ...<4 lines>...
+    )
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+INFO Response: 401 for GET /api/users/me/
+INFO Request: POST /api/users/refresh/
+ERROR Exception in UserViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+INFO Request: POST /api/users/refresh/
+INFO Response: 401 for POST /api/users/refresh/
+ERROR Exception in UserViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+INFO Response: 401 for POST /api/users/refresh/

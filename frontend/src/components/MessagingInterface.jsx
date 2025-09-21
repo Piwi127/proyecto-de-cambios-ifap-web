@@ -301,7 +301,7 @@ const MessagingInterface = () => {
           <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mx-auto mb-4">
             <span className="text-2xl">💬</span>
           </div>
-          <h3 className="text-2xl font-bold text-gray-900">{conversations.length}</h3>
+          <h3 className="text-2xl font-bold text-gray-900">{Array.isArray(conversations) ? conversations.length : 0}</h3>
           <p className="text-gray-600">Conversaciones</p>
         </Card>
 
@@ -310,8 +310,8 @@ const MessagingInterface = () => {
             <span className="text-2xl">📨</span>
           </div>
           <h3 className="text-2xl font-bold text-gray-900">
-            {conversations.reduce((acc, conv) => acc + (conv.unread_count || 0), 0)}
-          </h3>
+              {conversations && Array.isArray(conversations) ? conversations.reduce((acc, conv) => acc + (conv.unread_count || 0), 0) : 0}
+            </h3>
           <p className="text-gray-600">Mensajes Sin Leer</p>
         </Card>
 
@@ -320,8 +320,8 @@ const MessagingInterface = () => {
             <span className="text-2xl">👥</span>
           </div>
           <h3 className="text-2xl font-bold text-gray-900">
-            {conversations.filter(conv => conv.is_group).length}
-          </h3>
+              {Array.isArray(conversations) ? conversations.filter(conv => conv.is_group).length : 0}
+            </h3>
           <p className="text-gray-600">Conversaciones Grupales</p>
         </Card>
 
