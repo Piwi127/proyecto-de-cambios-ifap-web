@@ -4,7 +4,7 @@
 # Fecha: 16 de setiembre de 2025
 
 echo "🚀 Iniciando servidores del proyecto IFAP..."
-echo "=============================================="
+echo "====================    setsid daphne -b 127.0.0.1 -p 8000 ifap_backend.asgi:application > ../logs/backend.log 2>&1 &========================="
 
 # Colores para output
 RED='\033[0;31m'
@@ -184,8 +184,9 @@ echo "Aplicando migraciones de la base de datos..."
 
 # Iniciar servidor Django en background
 echo "Iniciando servidor Django en puerto 8000..."
-setsid python manage.py runserver 127.0.0.1:8000 > ../logs/backend.log 2>&1 &
+PYTHONPATH=/home/jorge/pagina\ web\ nueva\ ifap\ dos/backend DJANGO_SETTINGS_MODULE=ifap_backend.settings setsid daphne -b 127.0.0.1 -p 8000 ifap_backend.asgi:application > ../logs/backend.log 2>&1 &
 BACKEND_PID=$!
+cd ..
 
 # Esperar un momento para que el servidor inicie
 sleep 3
@@ -197,9 +198,6 @@ else
     echo -e "${RED}❌ Error al iniciar el backend. Revise los logs en logs/backend.log${NC}"
     exit 1
 fi
-
-# Regresar al directorio raíz
-cd ..
 
 # Iniciar frontend React
 echo -e "\n${BLUE}⚛️  Iniciando servidor frontend (React)...${NC}"

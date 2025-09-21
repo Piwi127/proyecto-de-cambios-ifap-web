@@ -5,6 +5,9 @@ const useWebSocket = () => {
     const [notifications, setNotifications] = useState([]);
     const { user } = useAuth(); // Get user from AuthContext
     const ws = useRef(null);
+    const reconnectAttempts = useRef(0);
+    const maxReconnectAttempts = 5;
+    const reconnectDelay = useRef(3000);
 
     useEffect(() => {
         if (!user) {
@@ -15,6 +18,10 @@ const useWebSocket = () => {
             }
             return;
         }
+
+        // Reset attempts when user changes
+        reconnectAttempts.current = 0;
+        reconnectDelay.current = 3000;
 
         // Establish WebSocket connection
         const connectWebSocket = () => {
@@ -27,6 +34,8 @@ const useWebSocket = () => {
 
             ws.current.onopen = () => {
                 console.log('WebSocket Connected');
+                reconnectAttempts.current = 0; // Reset on successful connection
+                reconnectDelay.current = 3000;
             };
 
             ws.current.onmessage = (event) => {
@@ -36,17 +45,22 @@ const useWebSocket = () => {
 
             ws.current.onclose = (event) => {
                 console.log('WebSocket Disconnected', event);
-                // Attempt to reconnect after a short delay
-                setTimeout(() => {
-                    if (user) { // Only try to reconnect if user is still logged in
+                // Attempt to reconnect if not exceeded max attempts
+                if (reconnectAttempts.current < maxReconnectAttempts && user) {
+                    reconnectAttempts.current += 1;
+                    console.log(`Attempting to reconnect... (${reconnectAttempts.current}/${maxReconnectAttempts})`);
+                    setTimeout(() => {
                         connectWebSocket();
-                    }
-                }, 3000);
+                    }, reconnectDelay.current);
+                    reconnectDelay.current = Math.min(reconnectDelay.current * 2, 30000); // Exponential backoff, max 30s
+                } else {
+                    console.error('Max reconnection attempts reached or user logged out.');
+                }
             };
 
             ws.current.onerror = (error) => {
                 console.error('WebSocket Error:', error);
-                ws.current.close();
+                // Don't close here, let onclose handle it
             };
         };
 

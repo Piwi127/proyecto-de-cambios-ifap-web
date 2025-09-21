@@ -1,15 +1,18 @@
 import json
 from channels.generic.websocket import AsyncWebsocketConsumer
 from channels.db import database_sync_to_async
+from django.contrib.auth.models import AnonymousUser, User
 
 @database_sync_to_async
 def get_user_from_token(token_key):
-    from rest_framework.authtoken.models import Token
-    from django.contrib.auth.models import AnonymousUser
+    from rest_framework_simplejwt.tokens import AccessToken
     try:
-        token = Token.objects.get(key=token_key)
-        return token.user
-    except Token.DoesNotExist:
+        token = AccessToken(token_key)
+        user_id = token['user_id']
+        user = User.objects.get(id=user_id)
+        return user
+    except Exception as e:
+        print(f"Error decoding JWT: {e}")
         return AnonymousUser()
 
 class NotificationConsumer(AsyncWebsocketConsumer):
