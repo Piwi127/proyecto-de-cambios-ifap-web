@@ -319,7 +319,7 @@ LOGGING = {
             'style': '{',
         },
         'json': {
-            'format': '{"timestamp": "{asctime}", "level": "{levelname}", "logger": "{name}", "message": "{message}"}',
+            'format': '{{"timestamp": "{asctime}", "level": "{levelname}", "logger": "{name}", "message": "{message}"}}',
             'style': '{',
         },
     },

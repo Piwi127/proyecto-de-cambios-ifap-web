@@ -16,7 +16,7 @@ class CacheService:
     
     def __init__(self):
         self.default_cache = caches['default']
-        self.api_cache = caches.get('api', self.default_cache)
+        self.api_cache = caches['api']
         self.default_timeout = getattr(settings, 'CACHE_TIMEOUT', 300)
     
     def get(self, key, default=None, cache_alias='default'):
