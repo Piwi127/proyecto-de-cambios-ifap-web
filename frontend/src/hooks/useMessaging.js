@@ -25,8 +25,8 @@ export const useConversations = () => {
 
     try {
       const data = await messagingService.getConversations();
-      setConversations(data);
-      setCachedConversations(data);
+      setConversations(data.results || []);
+      setCachedConversations(data.results || []);
     } catch (err) {
       setError(err.message || 'Error al cargar conversaciones');
       console.error('Error fetching conversations:', err);

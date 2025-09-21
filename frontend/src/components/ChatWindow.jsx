@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { messagingService } from '../services/messagingService.js';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useScrollTrigger } from '../hooks/useInfiniteScroll.js';
+import { w3cwebsocket as W3CWebSocket } from 'websocket';
 
 const MessageItem = ({ message, onReaction }) => {
   const { user } = useAuth();
@@ -192,6 +193,55 @@ const ChatWindow = ({ conversation, messages, loading, error, onSendMessage, onL
   const messagesEndRef = useRef(null);
   const messagesContainerRef = useRef(null);
   const { user } = useAuth();
+  const [wsClient, setWsClient] = useState(null);
+  const [currentTypingUsers, setCurrentTypingUsers] = useState([]);
+
+  const WS_URL = import.meta.env.VITE_API_WS_URL;
+
+  const setupWebSocket = useCallback(() => {
+    if (!conversation || !user || !WS_URL) return;
+
+    const client = new W3CWebSocket(`${WS_URL}/ws/chat/${conversation.id}/?token=${localStorage.getItem('access_token')}`);
+
+    client.onopen = () => {
+      console.log('WebSocket Client Connected');
+    };
+
+    client.onmessage = (message) => {
+      const data = JSON.parse(message.data);
+      console.log('WebSocket message received:', data);
+
+      if (data.type === 'chat_message') {
+        // Aquí se debería actualizar el estado de los mensajes en el componente padre
+        // Para simplificar, asumimos que el padre tiene una función para añadir mensajes
+        // onNewMessage(data.message);
+        console.log('New message received:', data.message);
+      } else if (data.type === 'typing_status') {
+        setCurrentTypingUsers(data.users);
+      }
+    };
+
+    client.onclose = () => {
+      console.log('WebSocket Client Disconnected');
+    };
+
+    client.onerror = (error) => {
+      console.error('WebSocket Error:', error);
+    };
+
+    setWsClient(client);
+
+    return () => {
+      client.close();
+    };
+  }, [conversation, user, WS_URL]);
+
+  useEffect(() => {
+    const cleanup = setupWebSocket();
+    return () => {
+      if (cleanup) cleanup();
+    };
+  }, [setupWebSocket]);
 
   // Usar scroll trigger para paginación infinita
   const scrollTriggerRef = useScrollTrigger(() => {
@@ -211,11 +261,41 @@ const ChatWindow = ({ conversation, messages, loading, error, onSendMessage, onL
   const handleReaction = async (messageId, reaction) => {
     try {
       await messagingService.addReaction(messageId, reaction);
-      onReaction(messageId, reaction);
+      // onReaction(messageId, reaction); // Esto debería venir del WebSocket
     } catch (error) {
       console.error('Error adding reaction:', error);
     }
   };
+
+  const handleSendMessage = useCallback((messageContent) => {
+    if (wsClient && wsClient.readyState === wsClient.OPEN) {
+      wsClient.send(JSON.stringify({
+        type: 'message',
+        message: messageContent,
+        conversation_id: conversation.id,
+      }));
+    }
+  }, [wsClient, conversation]);
+
+  const handleTypingStart = useCallback(() => {
+    if (wsClient && wsClient.readyState === wsClient.OPEN) {
+      wsClient.send(JSON.stringify({
+        type: 'typing',
+        is_typing: true,
+        conversation_id: conversation.id,
+      }));
+    }
+  }, [wsClient, conversation]);
+
+  const handleTypingStop = useCallback(() => {
+    if (wsClient && wsClient.readyState === wsClient.OPEN) {
+      wsClient.send(JSON.stringify({
+        type: 'typing',
+        is_typing: false,
+        conversation_id: conversation.id,
+      }));
+    }
+  }, [wsClient, conversation]);
 
   const getConversationName = () => {
     if (!conversation) return '';
@@ -295,8 +375,8 @@ const ChatWindow = ({ conversation, messages, loading, error, onSendMessage, onL
           />
         ))}
 
-        {/* Indicador de escritura - Deshabilitado sin WebSocket */}
-        {/* typingUsers.length > 0 && (
+        {/* Indicador de escritura */}
+        {currentTypingUsers.length > 0 && (
           <div className="flex items-center space-x-2 text-gray-500 text-sm">
             <div className="flex space-x-1">
               <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
@@ -304,22 +384,22 @@ const ChatWindow = ({ conversation, messages, loading, error, onSendMessage, onL
               <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
             </div>
             <span>
-              {typingUsers.length === 1
-                ? `${typingUsers[0]} está escribiendo...`
-                : `${typingUsers.length} personas están escribiendo...`
+              {currentTypingUsers.length === 1
+                ? `${currentTypingUsers[0].first_name} está escribiendo...`
+                : `${currentTypingUsers.map(u => u.first_name).join(', ')} están escribiendo...`
               }
             </span>
           </div>
-        ) */}
+        )}
 
         <div ref={messagesEndRef} />
       </div>
 
       {/* Input de mensaje */}
       <MessageInput
-        onSendMessage={onSendMessage}
-        onTypingStart={() => {}} // Implementar con WebSocket
-        onTypingStop={() => {}} // Implementar con WebSocket
+        onSendMessage={handleSendMessage}
+        onTypingStart={handleTypingStart}
+        onTypingStop={handleTypingStop}
         disabled={false}
       />
     </div>

@@ -27,6 +27,7 @@ import ForoTema from './pages/ForoTema';
 import MensajesAulaVirtual from './pages/MensajesAulaVirtual';
 import NotificacionesAulaVirtual from './pages/NotificacionesAulaVirtual';
 import TareasAulaVirtual from './pages/TareasAulaVirtual';
+import ChatPage from './pages/ChatPage';
 import Tareas from './pages/Tareas';
 import TareaDetalle from './pages/TareaDetalle';
 import TareaForm from './pages/TareaForm';
@@ -134,7 +135,7 @@ function App() {
       <Route path="/aula-virtual/mensajes" element={
         <ProtectedRoute>
           <AulaVirtualLayout>
-            <MensajesAulaVirtual />
+            <ChatPage />
           </AulaVirtualLayout>
         </ProtectedRoute>
       } />

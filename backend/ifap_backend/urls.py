@@ -83,6 +83,7 @@ urlpatterns = [
     path('api/forum/', include('forum.urls')),
     path('api/tasks/', include('tasks.urls')),
     path('api/library/', include('library.urls')),
+    path('api/messaging/', include('messaging.urls')),
     
     # URLs de documentación de la API
     path('api/docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),

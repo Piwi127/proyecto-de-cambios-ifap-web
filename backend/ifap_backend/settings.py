@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'forum',
     'tasks',
     'library',
+    'messaging',
 ]
 
 MIDDLEWARE = [

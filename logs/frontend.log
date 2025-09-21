@@ -3,12 +3,214 @@
 > vite --port 5174
 
 
-  VITE v7.1.6  ready in 1265 ms
+  VITE v7.1.6  ready in 1225 ms
 
   ➜  Local:   http://localhost:5174/
   ➜  Network: http://192.168.123.35:5174/
   ➜  Network: http://172.18.0.1:5174/
-10:50:17 p. m. [vite] (client) hmr update /src/components/MessagingInterface.jsx, /src/index.css, /src/components/UniversityMenu.css
-10:50:18 p. m. [vite] (client) hmr update /src/components/MessagingInterface.jsx, /src/index.css, /src/components/UniversityMenu.css
-11:36:10 p. m. [vite] (client) hmr update /src/components/MessagingInterface.jsx, /src/index.css, /src/components/UniversityMenu.css
-11:36:10 p. m. [vite] (client) hmr update /src/components/MessagingInterface.jsx, /src/index.css, /src/components/UniversityMenu.css
+4:11:36 p. m. [vite] (client) hmr update /src/components/MessagingInterface.jsx, /src/index.css, /src/components/UniversityMenu.css
+4:11:36 p. m. [vite] (client) hmr update /src/components/MessagingInterface.jsx, /src/index.css, /src/components/UniversityMenu.css
+4:12:56 p. m. [vite] (client) hmr update /src/components/MessagingInterface.jsx, /src/index.css, /src/components/UniversityMenu.css
+4:12:56 p. m. [vite] (client) hmr update /src/components/MessagingInterface.jsx, /src/index.css, /src/components/UniversityMenu.css
+4:13:21 p. m. [vite] (client) hmr update /src/components/MessagingInterface.jsx, /src/index.css, /src/components/UniversityMenu.css
+4:13:22 p. m. [vite] (client) hmr update /src/components/MessagingInterface.jsx, /src/index.css, /src/components/UniversityMenu.css
+4:20:36 p. m. [vite] (client) hmr update /src/components/MessagingInterface.jsx, /src/index.css, /src/components/UniversityMenu.css
+4:20:36 p. m. [vite] (client) hmr update /src/components/MessagingInterface.jsx, /src/index.css, /src/components/UniversityMenu.css
+4:31:07 p. m. [vite] (client) hmr update /src/components/ChatWindow.jsx, /src/index.css, /src/components/UniversityMenu.css
+4:31:07 p. m. [vite] (client) hmr update /src/components/ChatWindow.jsx, /src/index.css, /src/components/UniversityMenu.css
+4:31:08 p. m. [vite] Internal server error: Failed to resolve import "websocket" from "src/components/ChatWindow.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/components/ChatWindow.jsx:5:45
+  5  |  import { useAuth } from "../context/AuthContext.jsx";
+  6  |  import { useScrollTrigger } from "../hooks/useInfiniteScroll.js";
+  7  |  import { w3cwebsocket as W3CWebSocket } from "websocket";
+     |                                                ^
+  8  |  const MessageItem = ({ message, onReaction }) => {
+  9  |    _s();
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 5)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+4:31:09 p. m. [vite] Internal server error: Failed to resolve import "websocket" from "src/components/ChatWindow.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/components/ChatWindow.jsx:5:45
+  5  |  import { useAuth } from "../context/AuthContext.jsx";
+  6  |  import { useScrollTrigger } from "../hooks/useInfiniteScroll.js";
+  7  |  import { w3cwebsocket as W3CWebSocket } from "websocket";
+     |                                                ^
+  8  |  const MessageItem = ({ message, onReaction }) => {
+  9  |    _s();
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 5)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+4:32:19 p. m. [vite] (client) hmr update /src/components/MessagingInterface.jsx
+4:32:20 p. m. [vite] Internal server error: Failed to resolve import "websocket" from "src/components/ChatWindow.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/components/ChatWindow.jsx:5:45
+  5  |  import { useAuth } from "../context/AuthContext.jsx";
+  6  |  import { useScrollTrigger } from "../hooks/useInfiniteScroll.js";
+  7  |  import { w3cwebsocket as W3CWebSocket } from "websocket";
+     |                                                ^
+  8  |  const MessageItem = ({ message, onReaction }) => {
+  9  |    _s();
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 5)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+4:32:20 p. m. [vite] (client) Pre-transform error: Failed to resolve import "websocket" from "src/components/ChatWindow.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/components/ChatWindow.jsx:5:45
+  5  |  import { useAuth } from "../context/AuthContext.jsx";
+  6  |  import { useScrollTrigger } from "../hooks/useInfiniteScroll.js";
+  7  |  import { w3cwebsocket as W3CWebSocket } from "websocket";
+     |                                                ^
+  8  |  const MessageItem = ({ message, onReaction }) => {
+  9  |    _s();
+4:32:29 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+4:32:29 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+4:32:30 p. m. [vite] (client) Pre-transform error: Failed to resolve import "websocket" from "src/components/ChatWindow.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/components/ChatWindow.jsx:5:45
+  5  |  import { useAuth } from "../context/AuthContext.jsx";
+  6  |  import { useScrollTrigger } from "../hooks/useInfiniteScroll.js";
+  7  |  import { w3cwebsocket as W3CWebSocket } from "websocket";
+     |                                                ^
+  8  |  const MessageItem = ({ message, onReaction }) => {
+  9  |    _s();
+4:33:39 p. m. [vite] (client) hmr update /src/components/MessagingInterface.jsx, /src/pages/ChatPage.jsx, /src/components/ConversationList.jsx, /src/index.css, /src/components/UniversityMenu.css
+4:33:39 p. m. [vite] (client) hmr update /src/components/MessagingInterface.jsx, /src/pages/ChatPage.jsx, /src/components/ConversationList.jsx, /src/index.css, /src/components/UniversityMenu.css
+4:33:39 p. m. [vite] (client) Pre-transform error: Failed to resolve import "websocket" from "src/components/ChatWindow.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/components/ChatWindow.jsx:5:45
+  5  |  import { useAuth } from "../context/AuthContext.jsx";
+  6  |  import { useScrollTrigger } from "../hooks/useInfiniteScroll.js";
+  7  |  import { w3cwebsocket as W3CWebSocket } from "websocket";
+     |                                                ^
+  8  |  const MessageItem = ({ message, onReaction }) => {
+  9  |    _s();
+4:33:40 p. m. [vite] Internal server error: Failed to resolve import "websocket" from "src/components/ChatWindow.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/components/ChatWindow.jsx:5:45
+  5  |  import { useAuth } from "../context/AuthContext.jsx";
+  6  |  import { useScrollTrigger } from "../hooks/useInfiniteScroll.js";
+  7  |  import { w3cwebsocket as W3CWebSocket } from "websocket";
+     |                                                ^
+  8  |  const MessageItem = ({ message, onReaction }) => {
+  9  |    _s();
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 5)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+4:34:42 p. m. [vite] (client) hmr update /src/pages/ChatPage.jsx, /src/components/UniversityMenu.css, /src/index.css
+4:34:42 p. m. [vite] (client) hmr update /src/pages/ChatPage.jsx, /src/components/UniversityMenu.css, /src/index.css
+4:35:19 p. m. [vite] (client) hmr update /src/pages/ChatPage.jsx, /src/components/UniversityMenu.css, /src/index.css
+4:35:19 p. m. [vite] (client) hmr update /src/pages/ChatPage.jsx, /src/components/UniversityMenu.css, /src/index.css
+4:36:22 p. m. [vite] (client) Pre-transform error: Failed to resolve import "websocket" from "src/pages/ChatPage.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/ChatPage.jsx:6:45
+  6  |  import messagingService from "../services/messagingService";
+  7  |  import { useAuth } from "../context/AuthContext";
+  8  |  import { w3cwebsocket as W3CWebSocket } from "websocket";
+     |                                                ^
+  9  |  const ChatPage = () => {
+  10 |    _s();
+4:36:22 p. m. [vite] (client) Pre-transform error: Failed to resolve import "websocket" from "src/components/ChatWindow.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/components/ChatWindow.jsx:5:45
+  5  |  import { useAuth } from "../context/AuthContext.jsx";
+  6  |  import { useScrollTrigger } from "../hooks/useInfiniteScroll.js";
+  7  |  import { w3cwebsocket as W3CWebSocket } from "websocket";
+     |                                                ^
+  8  |  const MessageItem = ({ message, onReaction }) => {
+  9  |    _s();
+4:36:22 p. m. [vite] Internal server error: Failed to resolve import "websocket" from "src/pages/ChatPage.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/ChatPage.jsx:6:45
+  6  |  import messagingService from "../services/messagingService";
+  7  |  import { useAuth } from "../context/AuthContext";
+  8  |  import { w3cwebsocket as W3CWebSocket } from "websocket";
+     |                                                ^
+  9  |  const ChatPage = () => {
+  10 |    _s();
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 6)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+4:36:22 p. m. [vite] (client) Pre-transform error: Failed to resolve import "websocket" from "src/components/ChatWindow.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/components/ChatWindow.jsx:5:45
+  5  |  import { useAuth } from "../context/AuthContext.jsx";
+  6  |  import { useScrollTrigger } from "../hooks/useInfiniteScroll.js";
+  7  |  import { w3cwebsocket as W3CWebSocket } from "websocket";
+     |                                                ^
+  8  |  const MessageItem = ({ message, onReaction }) => {
+  9  |    _s();
+4:37:13 p. m. [vite] Internal server error: Failed to resolve import "websocket" from "src/pages/ChatPage.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/ChatPage.jsx:6:45
+  6  |  import messagingService from "../services/messagingService";
+  7  |  import { useAuth } from "../context/AuthContext";
+  8  |  import { w3cwebsocket as W3CWebSocket } from "websocket";
+     |                                                ^
+  9  |  const ChatPage = () => {
+  10 |    _s();
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29723:32
+      at async Promise.all (index 6)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-D5b0Zz6C.js:27187:20)
+4:37:14 p. m. [vite] (client) Pre-transform error: Failed to resolve import "websocket" from "src/components/ChatWindow.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/components/ChatWindow.jsx:5:45
+  5  |  import { useAuth } from "../context/AuthContext.jsx";
+  6  |  import { useScrollTrigger } from "../hooks/useInfiniteScroll.js";
+  7  |  import { w3cwebsocket as W3CWebSocket } from "websocket";
+     |                                                ^
+  8  |  const MessageItem = ({ message, onReaction }) => {
+  9  |    _s();
+4:39:17 p. m. [vite] (client) ✨ new dependencies optimized: websocket
+4:39:17 p. m. [vite] (client) ✨ optimized dependencies changed. reloading
+4:41:04 p. m. [vite] (client) hmr update /src/pages/ChatPage.jsx, /src/components/UniversityMenu.css, /src/index.css
+4:41:04 p. m. [vite] (client) hmr update /src/pages/ChatPage.jsx, /src/components/UniversityMenu.css, /src/index.css
+4:41:32 p. m. [vite] (client) hmr update /src/pages/ChatPage.jsx, /src/components/UniversityMenu.css, /src/index.css
+4:41:32 p. m. [vite] (client) hmr update /src/pages/ChatPage.jsx, /src/components/UniversityMenu.css, /src/index.css
+4:41:45 p. m. [vite] .env changed, restarting server...
+4:41:45 p. m. [vite] .env changed, restarting server...
+4:41:45 p. m. [vite] server restarted.
+4:45:18 p. m. [vite] .env changed, restarting server...
+4:45:18 p. m. [vite] server restarted.

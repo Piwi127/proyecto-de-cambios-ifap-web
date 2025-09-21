@@ -5,7 +5,7 @@ export const messagingService = {
   // Obtener conversaciones del usuario
   async getConversations(params = {}) {
     try {
-      const response = await api.get('/forum/conversations/', { params });
+      const response = await api.get('/api/messaging/conversations/', { params });
       return response.data;
     } catch (error) {
       console.error('Error al obtener conversaciones:', error);
@@ -16,7 +16,7 @@ export const messagingService = {
   // Crear nueva conversación
   async createConversation(conversationData) {
     try {
-      const response = await api.post('/forum/conversations/', conversationData);
+      const response = await api.post('/api/messaging/conversations/', conversationData);
       return response.data;
     } catch (error) {
       console.error('Error al crear conversación:', error);
@@ -27,7 +27,7 @@ export const messagingService = {
   // Obtener conversación específica
   async getConversation(conversationId) {
     try {
-      const response = await api.get(`/forum/conversations/${conversationId}/`);
+      const response = await api.get(`/api/messaging/conversations/${conversationId}/`);
       return response.data;
     } catch (error) {
       console.error('Error al obtener conversación:', error);
@@ -38,7 +38,7 @@ export const messagingService = {
   // Obtener mensajes de una conversación
   async getConversationMessages(conversationId, params = {}) {
     try {
-      const response = await api.get(`/forum/conversations/${conversationId}/messages/`, { params });
+      const response = await api.get(`/api/messaging/conversations/${conversationId}/messages/`, { params });
       return response.data;
     } catch (error) {
       console.error('Error al obtener mensajes:', error);
@@ -49,7 +49,7 @@ export const messagingService = {
   // Enviar mensaje
   async sendMessage(messageData) {
     try {
-      const response = await api.post('/forum/messages/', messageData);
+      const response = await api.post('/api/messaging/messages/', messageData);
       return response.data;
     } catch (error) {
       console.error('Error al enviar mensaje:', error);
@@ -60,7 +60,7 @@ export const messagingService = {
   // Marcar mensaje como leído
   async markMessageAsRead(messageId) {
     try {
-      const response = await api.post(`/forum/messages/${messageId}/mark_as_read/`);
+      const response = await api.post(`/api/messaging/messages/${messageId}/mark_as_read/`);
       return response.data;
     } catch (error) {
       console.error('Error al marcar mensaje como leído:', error);
@@ -71,7 +71,7 @@ export const messagingService = {
   // Agregar reacción a mensaje
   async addReaction(messageId, reaction) {
     try {
-      const response = await api.post(`/forum/messages/${messageId}/add_reaction/`, { reaction });
+      const response = await api.post(`/api/messaging/messages/${messageId}/add_reaction/`, { reaction });
       return response.data;
     } catch (error) {
       console.error('Error al agregar reacción:', error);
@@ -82,7 +82,7 @@ export const messagingService = {
   // Remover reacción de mensaje
   async removeReaction(messageId) {
     try {
-      const response = await api.delete(`/forum/messages/${messageId}/remove_reaction/`);
+      const response = await api.delete(`/api/messaging/messages/${messageId}/remove_reaction/`);
       return response.data;
     } catch (error) {
       console.error('Error al remover reacción:', error);
@@ -93,7 +93,7 @@ export const messagingService = {
   // Agregar participantes a conversación grupal
   async addParticipants(conversationId, userIds) {
     try {
-      const response = await api.post(`/forum/conversations/${conversationId}/add_participants/`, {
+      const response = await api.post(`/api/messaging/conversations/${conversationId}/add_participants/`, {
         user_ids: userIds
       });
       return response.data;
@@ -106,7 +106,7 @@ export const messagingService = {
   // Remover participantes de conversación grupal
   async removeParticipants(conversationId, userIds) {
     try {
-      const response = await api.post(`/forum/conversations/${conversationId}/remove_participants/`, {
+      const response = await api.post(`/api/messaging/conversations/${conversationId}/remove_participants/`, {
         user_ids: userIds
       });
       return response.data;

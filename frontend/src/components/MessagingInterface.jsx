@@ -22,7 +22,7 @@ const NewConversationModal = ({ isOpen, onClose, onCreateConversation }) => {
 
     try {
       const results = await messagingService.searchUsers(term);
-      setSearchResults(results);
+      setSearchResults(results.results || []);
     } catch (error) {
       console.error('Error searching users:', error);
     }
@@ -192,9 +192,10 @@ const MessagingInterface = () => {
 
   const {
     conversations,
-    loading: conversationsLoading,
-    error: conversationsError,
-    createConversation
+    conversationsLoading,
+    conversationsError,
+    fetchConversations,
+    createConversation,
   } = useConversations();
 
   const {
