@@ -18,6 +18,10 @@ from .permissions import (
 )
 from rest_framework.views import APIView
 from rest_framework.generics import CreateAPIView
+from ifap_backend.pagination import StandardResultsPagination
+from ifap_backend.query_optimizations import OptimizedQueryMixin, UserQueryOptimizer
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
 
 audit_logger = logging.getLogger('audit')
 
@@ -28,9 +32,25 @@ class UserRegisterView(CreateAPIView):
     permission_classes = [AllowAny]
     authentication_classes = []
 
-class UserViewSet(viewsets.ModelViewSet):
+class UserViewSet(OptimizedQueryMixin, viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    pagination_class = StandardResultsPagination
+
+    def optimize_queryset(self, queryset):
+        """Aplicar optimizaciones específicas según la acción"""
+        if self.action == 'list':
+            return UserQueryOptimizer.get_users_with_roles()
+        elif self.action in ['retrieve', 'me']:
+            return queryset.select_related().prefetch_related('groups', 'user_permissions')
+        elif self.action == 'list_by_role':
+            role = self.request.query_params.get('role')
+            if role == 'student':
+                return UserQueryOptimizer.get_students_with_courses()
+            elif role == 'instructor':
+                return UserQueryOptimizer.get_instructors_with_courses()
+        
+        return queryset
 
     def get_permissions(self):
         """Define permisos específicos para cada acción"""
@@ -48,11 +68,52 @@ class UserViewSet(viewsets.ModelViewSet):
             return [IsInstructorOrAdmin()]
         return [IsAuthenticated()]
 
+    @swagger_auto_schema(
+        operation_description="Obtener información del usuario autenticado",
+        responses={
+            200: openapi.Response(
+                description="Información del usuario",
+                schema=UserSerializer
+            ),
+            401: "No autenticado"
+        }
+    )
     @action(detail=False, methods=['get'], permission_classes=[IsAuthenticated])
     def me(self, request):
+        """Obtener información del usuario autenticado"""
         serializer = self.get_serializer(request.user)
+        audit_logger.info(f"User {request.user.id} accessed profile")
         return Response(serializer.data)
 
+    @swagger_auto_schema(
+        operation_description="Iniciar sesión en el sistema",
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            required=['username', 'password'],
+            properties={
+                'username': openapi.Schema(type=openapi.TYPE_STRING, description="Nombre de usuario"),
+                'password': openapi.Schema(type=openapi.TYPE_STRING, format=openapi.FORMAT_PASSWORD, description="Contraseña"),
+            }
+        ),
+        responses={
+            200: openapi.Response(
+                description="Login exitoso",
+                examples={
+                    "application/json": {
+                        "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...",
+                        "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...",
+                        "user": {
+                            "id": 1,
+                            "username": "student",
+                            "role": "estudiante"
+                        }
+                    }
+                }
+            ),
+            400: "Credenciales inválidas",
+            401: "Usuario o contraseña incorrectos"
+        }
+    )
     @action(detail=False, methods=['post'])
     def login(self, request):
         username = request.data.get('username')

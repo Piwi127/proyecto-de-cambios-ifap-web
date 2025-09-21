@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'corsheaders',
+    'drf_yasg',
     'users',
     'courses',
     'lessons',
@@ -65,13 +66,16 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'ifap_backend.middleware.SecurityHeadersMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'ifap_backend.middleware.RequestLoggingMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'ifap_backend.middleware.ErrorHandlingMiddleware',
 ]
 
 ROOT_URLCONF = 'ifap_backend.urls'
@@ -169,6 +173,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
+    'EXCEPTION_HANDLER': 'ifap_backend.exceptions.custom_exception_handler',
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 20,
 }
 
 # JWT Settings
@@ -203,19 +210,65 @@ SIMPLE_JWT = {
 }
 
 # Cache configuration
+import os
+
+# Configuración de Redis para cache
+REDIS_URL = os.environ.get('REDIS_URL', 'redis://127.0.0.1:6379/1')
+
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        'LOCATION': 'unique-snowflake',
+        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        'LOCATION': REDIS_URL,
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        },
+        'KEY_PREFIX': 'ifap_cache',
+        'TIMEOUT': 300,  # 5 minutos por defecto
+    },
+    'sessions': {
+        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        'LOCATION': REDIS_URL,
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        },
+        'KEY_PREFIX': 'ifap_sessions',
+        'TIMEOUT': 86400,  # 24 horas
+    },
+    'api': {
+        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        'LOCATION': REDIS_URL,
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        },
+        'KEY_PREFIX': 'ifap_api',
+        'TIMEOUT': 600,  # 10 minutos
     }
 }
 
-# For production, use Redis:
-# CACHES = {
-#     'default': {
-#         'BACKEND': 'django.core.cache.backends.redis.RedisCache',
-#         'LOCATION': 'redis://127.0.0.1:6379/1',
-#     }
+# Fallback a LocMem si Redis no está disponible
+try:
+    import redis
+    redis_client = redis.from_url(REDIS_URL)
+    redis_client.ping()
+except:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+            'LOCATION': 'ifap-default',
+        },
+        'sessions': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+            'LOCATION': 'ifap-sessions',
+        },
+        'api': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+            'LOCATION': 'ifap-api',
+        }
+    }
+
+# Configuración de sesiones con cache
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+SESSION_CACHE_ALIAS = 'sessions'
 
 # CORS configuration
 CORS_ALLOWED_ORIGINS = [
@@ -261,30 +314,115 @@ LOGGING = {
             'format': '{levelname} {message}',
             'style': '{',
         },
+        'detailed': {
+            'format': '[{asctime}] {levelname} {name} {module}:{lineno} {message}',
+            'style': '{',
+        },
+        'json': {
+            'format': '{"timestamp": "{asctime}", "level": "{levelname}", "logger": "{name}", "message": "{message}"}',
+            'style': '{',
+        },
+    },
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        },
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
     },
     'handlers': {
         'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+            'filters': ['require_debug_true'],
+        },
+        'console_prod': {
             'level': 'INFO',
             'class': 'logging.StreamHandler',
-            'formatter': 'simple'
+            'formatter': 'detailed',
+            'filters': ['require_debug_false'],
         },
-        'file': {
+        'file_audit': {
             'level': 'INFO',
             'class': 'logging.handlers.RotatingFileHandler',
             'filename': BASE_DIR / 'logs/audit.log',
-            'maxBytes': 1024*1024*5, # 5 MB
+            'maxBytes': 1024*1024*10,  # 10 MB
+            'backupCount': 10,
+            'formatter': 'verbose',
+        },
+        'file_error': {
+            'level': 'ERROR',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': BASE_DIR / 'logs/error.log',
+            'maxBytes': 1024*1024*10,  # 10 MB
+            'backupCount': 10,
+            'formatter': 'detailed',
+        },
+        'file_api': {
+            'level': 'INFO',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': BASE_DIR / 'logs/api.log',
+            'maxBytes': 1024*1024*5,  # 5 MB
             'backupCount': 5,
+            'formatter': 'json',
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+            'filters': ['require_debug_false'],
             'formatter': 'verbose',
         },
     },
     'loggers': {
         'audit': {
-            'handlers': ['console', 'file'],
+            'handlers': ['console', 'console_prod', 'file_audit'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'error_handler': {
+            'handlers': ['console', 'console_prod', 'file_error', 'mail_admins'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'middleware': {
+            'handlers': ['console', 'console_prod', 'file_api'],
             'level': 'INFO',
             'propagate': False,
         },
         'django': {
-            'handlers': ['console'],
+            'handlers': ['console', 'console_prod'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'django.request': {
+            'handlers': ['file_error', 'mail_admins'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+        'django.security': {
+            'handlers': ['file_error', 'mail_admins'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+        'users': {
+            'handlers': ['console', 'console_prod', 'file_api'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'courses': {
+            'handlers': ['console', 'console_prod', 'file_api'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'forum': {
+            'handlers': ['console', 'console_prod', 'file_api'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'notifications': {
+            'handlers': ['console', 'console_prod', 'file_api'],
             'level': 'INFO',
             'propagate': False,
         },

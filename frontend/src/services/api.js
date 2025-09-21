@@ -1,4 +1,5 @@
 import axios from 'axios';
+import errorHandler from './errorHandler';
 
 // Base URL configuration
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
@@ -31,6 +32,13 @@ api.interceptors.response.use(
   (response) => response,
   async (error) => {
     const originalRequest = error.config;
+
+    // Manejar error con nuestro sistema centralizado
+    errorHandler.handleAPIError(error, {
+      url: originalRequest?.url,
+      method: originalRequest?.method,
+      endpoint: 'api_interceptor'
+    });
 
     // If error is 401 and we haven't tried to refresh yet
     if (error.response?.status === 401 && !originalRequest._retry) {
@@ -69,24 +77,9 @@ api.interceptors.response.use(
   }
 );
 
-// Generic error handler
+// Función para obtener información del error (mantenida por compatibilidad)
 const handleApiError = (error) => {
-  if (error.response) {
-    // Server responded with error status
-    const message = error.response.data?.detail || 
-                   error.response.data?.error || 
-                   error.response.data?.message || 
-                   'Error del servidor';
-    const status = error.response.status;
-    
-    return { error: true, message, status };
-  } else if (error.request) {
-    // Network error
-    return { error: true, message: 'Error de conexión. Verifique su internet.', status: 0 };
-  } else {
-    // Other errors
-    return { error: true, message: error.message, status: 0 };
-  }
+  return errorHandler.handleAPIError(error);
 };
 
 export { api, handleApiError };

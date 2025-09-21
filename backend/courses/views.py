@@ -10,26 +10,52 @@ from lessons.models import LessonCompletion
 from quizzes.models import Quiz, QuizAttempt
 from .models import Course
 from .serializers import CourseSerializer
+from ifap_backend.pagination import StandardResultsPagination
+from ifap_backend.query_optimizations import OptimizedQueryMixin, CourseQueryOptimizer
+from ifap_backend.cache_service import cache_service, CacheKeys
+import logging
 
-class CourseViewSet(viewsets.ModelViewSet):
-    queryset = Course.objects.filter(is_active=True).select_related('instructor').prefetch_related('students')
+logger = logging.getLogger('courses')
+
+class CourseViewSet(OptimizedQueryMixin, viewsets.ModelViewSet):
+    queryset = Course.objects.filter(is_active=True)
     serializer_class = CourseSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
+    pagination_class = StandardResultsPagination
+
+    def optimize_queryset(self, queryset):
+        """Aplicar optimizaciones específicas según la acción"""
+        if self.action == 'list':
+            return CourseQueryOptimizer.get_courses_with_details().filter(is_active=True)
+        elif self.action == 'retrieve':
+            return queryset.select_related('instructor').prefetch_related(
+                'students', 'lessons', 'categories'
+            )
+        elif self.action == 'my_courses':
+            return CourseQueryOptimizer.get_user_courses(self.request.user)
+        
+        return queryset.select_related('instructor').prefetch_related('students')
 
     @method_decorator(cache_page(60 * 15))  # Cache for 15 minutes
     def list(self, request, *args, **kwargs):
+        logger.info(f"User {request.user.id if request.user.is_authenticated else 'anonymous'} requested course list")
         return super().list(request, *args, **kwargs)
 
-    @method_decorator(cache_page(60 * 15))
     def retrieve(self, request, *args, **kwargs):
-        return super().retrieve(request, *args, **kwargs)
-
-    def get_queryset(self):
-        queryset = Course.objects.filter(is_active=True).select_related('instructor').prefetch_related('students')
-        # Si el usuario está autenticado, incluir información adicional
-        if self.request.user.is_authenticated:
-            return queryset
-        return queryset
+        course_id = kwargs.get('pk')
+        cache_key = cache_service.make_key(CacheKeys.COURSE_DETAIL, course_id, request.user.id if request.user.is_authenticated else 'anonymous')
+        
+        cached_response = cache_service.get(cache_key, cache_alias='api')
+        if cached_response:
+            logger.info(f"Course {course_id} detail served from cache")
+            return Response(cached_response)
+        
+        response = super().retrieve(request, *args, **kwargs)
+        if response.status_code == 200:
+            cache_service.set(cache_key, response.data, 900, 'api')  # 15 minutos
+            logger.info(f"Course {course_id} detail cached")
+        
+        return response
 
     @action(detail=True, methods=['post'], permission_classes=[IsAuthenticated])
     def enroll(self, request, pk=None):

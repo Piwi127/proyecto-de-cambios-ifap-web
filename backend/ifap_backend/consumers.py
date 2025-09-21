@@ -1,7 +1,10 @@
 import json
+import logging
 from channels.generic.websocket import AsyncWebsocketConsumer
 from channels.db import database_sync_to_async
 from django.contrib.auth.models import AnonymousUser, User
+
+logger = logging.getLogger('middleware')
 
 @database_sync_to_async
 def get_user_from_token(token_key):
@@ -10,9 +13,10 @@ def get_user_from_token(token_key):
         token = AccessToken(token_key)
         user_id = token['user_id']
         user = User.objects.get(id=user_id)
+        logger.info(f"WebSocket authentication successful for user {user_id}")
         return user
     except Exception as e:
-        print(f"Error decoding JWT: {e}")
+        logger.error(f"Error decoding JWT: {e}")
         return AnonymousUser()
 
 class NotificationConsumer(AsyncWebsocketConsumer):

@@ -1,0 +1,33 @@
+# Configuración de flake8 para linting de Python
+[flake8]
+max-line-length = 127
+exclude = 
+    migrations,
+    __pycache__,
+    manage.py,
+    settings.py,
+    env,
+    venv,
+    .venv,
+    .git,
+    .tox,
+    dist,
+    build,
+    *.egg-info
+
+ignore = 
+    E203,  # whitespace before ':'
+    E501,  # line too long (handled by max-line-length)
+    W503,  # line break before binary operator
+
+per-file-ignores =
+    __init__.py:F401
+    settings/*.py:E402,F403,F405
+
+max-complexity = 10
+
+# Configuraciones específicas
+select = E,W,F,C
+statistics = True
+count = True
+show-source = True
