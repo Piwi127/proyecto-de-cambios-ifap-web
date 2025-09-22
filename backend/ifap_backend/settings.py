@@ -36,7 +36,19 @@ SECRET_KEY = 'django-insecure-%-ug0@s9fjs9o=oz#d0*p%w91z_&x3dsz-rq6ir(i7+l0-=vu(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
+
+# Channels configuration
+ASGI_APPLICATION = 'backend.asgi.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+    },
+}
+
+# CORS settings
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
 
 
 # Application definition
@@ -61,7 +73,6 @@ INSTALLED_APPS = [
     'forum',
     'tasks',
     'library',
-    'messaging',
 ]
 
 MIDDLEWARE = [

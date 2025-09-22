@@ -65,14 +65,7 @@ const AulaVirtualLayout = ({ children }) => {
       bgColor: 'bg-pink-50',
       roles: ['student', 'instructor', 'admin']
     },
-    {
-      name: 'Mensajes',
-      path: '/aula-virtual/mensajes',
-      icon: '💌',
-      color: 'text-red-600',
-      bgColor: 'bg-red-50',
-      roles: ['student', 'instructor', 'admin']
-    },
+
     {
       name: 'Notificaciones',
       path: '/aula-virtual/notificaciones',

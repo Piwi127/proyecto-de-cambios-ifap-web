@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Card from '../components/Card';
-import useWebSocket from '../hooks/useWebSocket';
 import NotificationList from '../components/NotificationList';
 import { useAuth } from '../context/AuthContext';
 import { api } from '../services/api';
@@ -9,7 +8,6 @@ const NotificacionesAulaVirtual = () => {
   const [notifications, setNotifications] = useState([]);
   const [filter, setFilter] = useState('todas');
   const { user } = useAuth();
-  const newWsNotifications = useWebSocket(); // Notifications coming from WebSocket
 
   useEffect(() => {
     if (user) {

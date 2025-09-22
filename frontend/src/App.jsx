@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import useWebSocket from './hooks/useWebSocket';
 import Layout from './components/Layout';
 import AulaVirtualLayout from './components/AulaVirtualLayout';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -24,10 +23,8 @@ import QuizImportExport from './pages/QuizImportExport';
 import CalificacionesAulaVirtual from './pages/CalificacionesAulaVirtual';
 import Foro from './pages/Foro';
 import ForoTema from './pages/ForoTema';
-import MensajesAulaVirtual from './pages/MensajesAulaVirtual';
 import NotificacionesAulaVirtual from './pages/NotificacionesAulaVirtual';
 import TareasAulaVirtual from './pages/TareasAulaVirtual';
-import ChatPage from './pages/ChatPage';
 import Tareas from './pages/Tareas';
 import TareaDetalle from './pages/TareaDetalle';
 import TareaForm from './pages/TareaForm';
@@ -55,17 +52,6 @@ import AdminSystemSettings from './pages/AdminSystemSettings';
 import AdminReports from './pages/AdminReports';
 
 function App() {
-  const notifications = useWebSocket();
-
-  useEffect(() => {
-    // Validación defensiva para evitar errores
-    if (notifications && notifications.length > 0) {
-      // Handle new notifications, e.g., display a toast or update a notification count
-      console.log('New notification received:', notifications[0]);
-      // You might want to add more sophisticated handling here, like a global state update
-    }
-  }, [notifications]);
-
   return (
     <Routes>
       {/* Rutas públicas */}
@@ -132,13 +118,7 @@ function App() {
           </AulaVirtualLayout>
         </ProtectedRoute>
       } />
-      <Route path="/aula-virtual/mensajes" element={
-        <ProtectedRoute>
-          <AulaVirtualLayout>
-            <ChatPage />
-          </AulaVirtualLayout>
-        </ProtectedRoute>
-      } />
+
       <Route path="/aula-virtual/notificaciones" element={
         <ProtectedRoute>
           <AulaVirtualLayout>

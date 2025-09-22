@@ -258,7 +258,7 @@ class Conversation(models.Model):
         User,
         on_delete=models.SET_NULL,
         null=True,
-        related_name='created_conversations',
+        related_name='forum_created_conversations',
         verbose_name="Creado por"
     )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
@@ -349,7 +349,7 @@ class MessageRead(models.Model):
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name='read_messages',
+        related_name='forum_read_messages',
         verbose_name="Usuario"
     )
     read_at = models.DateTimeField(auto_now_add=True, verbose_name="Leído en")
@@ -374,7 +374,7 @@ class MessageReaction(models.Model):
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name='message_reactions',
+        related_name='forum_message_reactions',
         verbose_name="Usuario"
     )
     reaction = models.CharField(max_length=50, verbose_name="Reacción")  # emoji

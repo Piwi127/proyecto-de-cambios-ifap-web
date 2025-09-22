@@ -38,7 +38,6 @@ schema_view = get_schema_view(
         - Sistema de tareas y asignaciones
         - Biblioteca digital
         - Notificaciones en tiempo real
-        - Sistema de mensajería
         
         ## Autenticación
         La API utiliza JWT (JSON Web Tokens) para autenticación.
@@ -83,7 +82,7 @@ urlpatterns = [
     path('api/forum/', include('forum.urls')),
     path('api/tasks/', include('tasks.urls')),
     path('api/library/', include('library.urls')),
-    path('api/messaging/', include('messaging.urls')),
+
     
     # URLs de documentación de la API
     path('api/docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
