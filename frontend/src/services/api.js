@@ -3,6 +3,8 @@ import errorHandler from './errorHandler';
 
 // Base URL configuration
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
+const API_BASE_URL_ALT = import.meta.env.VITE_API_URL_ALT || 'http://localhost:8001/api';
+const API_BASE_URL_ALT2 = import.meta.env.VITE_API_URL_ALT2 || 'http://localhost:8003/api';
 
 // Create axios instance
 const api = axios.create({

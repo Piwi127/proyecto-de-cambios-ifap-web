@@ -210,71 +210,73 @@ const CursosAulaVirtual = () => {
       {/* Lista de cursos */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredCourses.map((course) => (
-          <Card key={course.id} className="hover:shadow-lg transition-shadow h-full flex flex-col">
-            <div className="relative flex-1">
-              <div className="w-full h-48 bg-gradient-to-br from-blue-500 to-blue-600 rounded-t-lg flex items-center justify-center">
-                <span className="text-6xl text-white opacity-90">
-                  {getCategoryIcon(course.modality || 'básico')}
-                </span>
-              </div>
-              <div className={`absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(course.status)}`}>
-                {getStatusText(course.status)}
-              </div>
-              {course.enrolled && course.progress > 0 && (
-                <div className="absolute bottom-3 left-3 right-3">
-                  <div className="w-full bg-white bg-opacity-90 rounded-full h-2">
-                    <div
-                      className="bg-primary-600 h-2 rounded-full transition-all duration-300"
-                      style={{ width: `${course.progress}%` }}
-                    ></div>
+          course && (
+            <Card key={course.id} className="hover:shadow-lg transition-shadow h-full flex flex-col">
+              <div className="relative flex-1">
+                <div className="w-full h-48 bg-gradient-to-br from-blue-500 to-blue-600 rounded-t-lg flex items-center justify-center">
+                  <span className="text-6xl text-white opacity-90">
+                    {getCategoryIcon(course.modality || 'básico')}
+                  </span>
+                </div>
+                <div className={`absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(course.status)}`}>
+                  {getStatusText(course.status)}
+                </div>
+                {course.enrolled && course.progress > 0 && (
+                  <div className="absolute bottom-3 left-3 right-3">
+                    <div className="w-full bg-white bg-opacity-90 rounded-full h-2">
+                      <div
+                        className="bg-primary-600 h-2 rounded-full transition-all duration-300"
+                        style={{ width: `${course.progress}%` }}
+                      ></div>
+                    </div>
+                    <p className="text-xs text-white font-medium mt-1 text-center">
+                      {course.progress}% completado
+                    </p>
                   </div>
-                  <p className="text-xs text-white font-medium mt-1 text-center">
-                    {course.progress}% completado
-                  </p>
-                </div>
-              )}
-            </div>
-
-            <div className="p-6 flex-1 flex flex-col">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">{course.title}</h3>
-              <p className="text-gray-600 text-sm mb-4 flex-1 line-clamp-3">{course.description}</p>
-
-              <div className="space-y-2 mb-4">
-                <div className="flex items-center text-sm text-gray-600">
-                  <span className="mr-2">👨‍🏫</span>
-                  {course.instructor_name || 'Instructor por asignar'}
-                </div>
-                <div className="flex items-center text-sm text-gray-600">
-                  <span className="mr-2">⏰</span>
-                  {course.duration_hours || 0} horas
-                </div>
-                <div className="flex items-center text-sm text-gray-600">
-                  <span className="mr-2">🎯</span>
-                  {course.modality ? course.modality.charAt(0).toUpperCase() + course.modality.slice(1) : 'Virtual'}
-                </div>
-                <div className="flex items-center text-sm text-gray-600">
-                  <span className="mr-2">👥</span>
-                  {course.enrolled_students_count || 0} estudiantes
-                </div>
-              </div>
-
-              <div className="mt-auto">
-                {course.enrolled ? (
-                  <button className="w-full bg-primary-600 text-white py-2 px-4 rounded-lg hover:bg-primary-700 transition-colors text-sm font-medium">
-                    {course.status === 'completado' ? 'Ver Certificado' : 'Continuar Curso'}
-                  </button>
-                ) : (
-                  <button 
-                    onClick={() => handleEnroll(course.id)}
-                    disabled={enrolling[course.id]}
-                    className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors text-sm font-medium"
-                  >
-                    {enrolling[course.id] ? 'Inscribiendo...' : 'Inscribirme'}
-                  </button>
                 )}
               </div>
-            </div>
-          </Card>
+
+              <div className="p-6 flex-1 flex flex-col">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{course.title}</h3>
+                <p className="text-gray-600 text-sm mb-4 flex-1 line-clamp-3">{course.description}</p>
+
+                <div className="space-y-2 mb-4">
+                  <div className="flex items-center text-sm text-gray-600">
+                    <span className="mr-2">👨‍🏫</span>
+                    {course.instructor_name || 'Instructor por asignar'}
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <span className="mr-2">⏰</span>
+                    {course.duration_hours || 0} horas
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <span className="mr-2">🎯</span>
+                    {course.modality ? course.modality.charAt(0).toUpperCase() + course.modality.slice(1) : 'Virtual'}
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <span className="mr-2">👥</span>
+                    {course.enrolled_students_count || 0} estudiantes
+                  </div>
+                </div>
+
+                <div className="mt-auto">
+                  {course.enrolled ? (
+                    <button className="w-full bg-primary-600 text-white py-2 px-4 rounded-lg hover:bg-primary-700 transition-colors text-sm font-medium">
+                      {course.status === 'completado' ? 'Ver Certificado' : 'Continuar Curso'}
+                    </button>
+                  ) : (
+                    <button 
+                      onClick={() => handleEnroll(course.id)}
+                      disabled={enrolling[course.id]}
+                      className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors text-sm font-medium"
+                    >
+                      {enrolling[course.id] ? 'Inscribiendo...' : 'Inscribirme'}
+                    </button>
+                  )}
+                </div>
+              </div>
+            </Card>
+          )
         ))}
       </div>
 

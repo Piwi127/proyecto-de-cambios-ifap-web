@@ -78,11 +78,9 @@ class CourseQueryOptimizer:
         return Course.objects.select_related(
             'instructor'
         ).prefetch_related(
-            'students',
-            'categories'
+            'students'
         ).annotate(
-            student_count=Count('students'),
-            lesson_count=Count('lessons')
+            student_count=Count('students')
         )
     
     @staticmethod

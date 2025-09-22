@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
 import UserRoleDisplay from './UserRoleDisplay';
+import ChatList from './ChatList';
+import ChatNotifications from './ChatNotifications';
 
 const AulaVirtualLayout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [chatOpen, setChatOpen] = useState(false);
+  const [unreadCount, setUnreadCount] = useState(0);
   const { user, logout } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
@@ -12,6 +16,11 @@ const AulaVirtualLayout = ({ children }) => {
   const handleLogout = () => {
     logout();
     navigate('/');
+  };
+
+  const handleNotificationClick = (chatInfo) => {
+    setChatOpen(true);
+    // Aquí podrías pasar información específica del chat a abrir
   };
 
   // Menú base para todos los usuarios
@@ -317,11 +326,16 @@ const AulaVirtualLayout = ({ children }) => {
               </button>
 
               {/* Mensajes */}
-              <button className="relative p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all duration-200">
+              <button 
+                onClick={() => setChatOpen(true)}
+                className="relative p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all duration-200"
+              >
                 <span className="text-xl">💬</span>
-                <span className="absolute -top-1 -right-1 w-5 h-5 bg-blue-500 text-white text-xs rounded-full flex items-center justify-center font-bold">
-                  2
-                </span>
+                {unreadCount > 0 && (
+                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center font-bold">
+                    {unreadCount > 9 ? '9+' : unreadCount}
+                  </span>
+                )}
               </button>
 
               {/* Usuario */}
@@ -349,6 +363,17 @@ const AulaVirtualLayout = ({ children }) => {
           </div>
         </main>
       </div>
+
+      {/* Chat Component */}
+      <ChatList 
+        isOpen={chatOpen} 
+        onClose={() => setChatOpen(false)} 
+      />
+
+      {/* Chat Notifications */}
+      <ChatNotifications 
+        onNotificationClick={handleNotificationClick}
+      />
     </div>
   );
 };

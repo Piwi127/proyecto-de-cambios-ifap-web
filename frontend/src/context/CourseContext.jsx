@@ -86,7 +86,7 @@ const courseReducer = (state, action) => {
         myCourses: [...state.myCourses, state.courses.find(c => c.id === action.payload)]
       };
 
-    case actionTypes.UNENROLL_FROM_COURSE:
+    case actionTypes.UNENROLL_FROM_COURSE: {
       const newEnrolled = new Set(state.enrolledCourses);
       newEnrolled.delete(action.payload);
       return {
@@ -94,6 +94,7 @@ const courseReducer = (state, action) => {
         enrolledCourses: newEnrolled,
         myCourses: state.myCourses.filter(course => course.id !== action.payload)
       };
+    }
 
     case actionTypes.MARK_LESSON_COMPLETED:
       return {

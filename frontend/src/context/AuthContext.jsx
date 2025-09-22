@@ -80,7 +80,7 @@ const AuthProvider = ({ children }) => {
   const register = async (userData) => {
     setLoading(true);
     try {
-      const responseData = await authService.register(userData);
+      await authService.register(userData);
 
       return {
         success: true,

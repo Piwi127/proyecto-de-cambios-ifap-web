@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '../context/AuthContext.jsx';
 import { userService } from '../services/userService.js';
 import { courseService } from '../services/courseService.js';
@@ -8,6 +8,65 @@ const RoleBasedStats = () => {
   const { user } = useAuth();
   const [stats, setStats] = useState({});
   const [loading, setLoading] = useState(true);
+
+  const fetchAdminStats = useCallback(async () => {
+    try {
+      const [roleSummary, coursesData] = await Promise.all([
+        userService.getRoleSummary(),
+        courseService.getAllCourses()
+      ]);
+      const courses = coursesData.results || coursesData || [];
+      setStats({
+        totalUsers: roleSummary.total_users || 0,
+        totalInstructors: roleSummary.instructors || 0,
+        totalStudents: roleSummary.students || 0,
+        totalCourses: courses.length,
+        activeCourses: courses.filter(c => c.is_active).length
+      });
+    } catch (error) {
+      console.error('Error fetching admin stats:', error);
+      setStats({});
+    }
+  }, []);
+
+  const fetchInstructorStats = useCallback(async () => {
+    try {
+      const coursesData = await courseService.getAllCourses();
+      const courses = coursesData.results || coursesData || [];
+      const myCourses = courses.filter(course =>
+        course.instructor === user.id ||
+        course.instructor_name === user.username
+      );
+      setStats({
+        totalCourses: myCourses.length,
+        activeCourses: myCourses.filter(c => c.is_active).length,
+        totalStudents: myCourses.reduce((sum, course) => sum + (course.enrolled_count || 0), 0),
+        pendingAssignments: 0 // Esto se puede implementar cuando tengamos el endpoint
+      });
+    } catch (error) {
+      console.error('Error fetching instructor stats:', error);
+      setStats({});
+    }
+  }, [user]);
+
+  const fetchStudentStats = useCallback(async () => {
+    try {
+      const coursesData = await courseService.getAllCourses();
+      const courses = coursesData.results || coursesData || [];
+      const enrolledCourses = courses.filter(course =>
+        course.is_enrolled || course.students?.includes(user.id)
+      );
+      setStats({
+        enrolledCourses: enrolledCourses.length,
+        activeCourses: enrolledCourses.filter(c => c.is_active).length,
+        completedAssignments: 0, // Implementar cuando tengamos el endpoint
+        pendingAssignments: 0 // Implementar cuando tengamos el endpoint
+      });
+    } catch (error) {
+      console.error('Error fetching student stats:', error);
+      setStats({});
+    }
+  }, [user]);
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -38,65 +97,7 @@ const RoleBasedStats = () => {
     if (user) {
       fetchStats();
     }
-  }, [user]);
-
-  const fetchAdminStats = async () => {
-    try {
-      const [roleSummary, courses] = await Promise.all([
-        userService.getRoleSummary(),
-        courseService.getAllCourses()
-      ]);
-      setStats({
-        totalUsers: roleSummary.total_users || 0,
-        totalInstructors: roleSummary.instructors || 0,
-        totalStudents: roleSummary.students || 0,
-        totalCourses: courses.length || 0,
-        activeCourses: courses.filter(c => c.is_active).length || 0
-      });
-    } catch (error) {
-      console.error('Error fetching admin stats:', error);
-      setStats({});
-    }
-  };
-
-  const fetchInstructorStats = async () => {
-  try {
-    const courses = await courseService.getAllCourses();
-    const myCourses = courses.filter(course => 
-      course.instructor === user.id || 
-      course.instructor_name === user.username
-    );
-
-    setStats({
-      totalCourses: myCourses.length,
-      activeCourses: myCourses.filter(c => c.is_active).length,
-      totalStudents: myCourses.reduce((sum, course) => sum + (course.enrolled_count || 0), 0),
-      pendingAssignments: 0 // Esto se puede implementar cuando tengamos el endpoint
-    });
-  } catch (error) {
-    console.error('Error fetching instructor stats:', error);
-    setStats({});
-  }
-};
-
-  const fetchStudentStats = async () => {
-    try {
-      const courses = await courseService.getAllCourses();
-      const enrolledCourses = courses.filter(course => 
-        course.is_enrolled || course.students?.includes(user.id)
-      );
-
-      setStats({
-        enrolledCourses: enrolledCourses.length,
-        activeCourses: enrolledCourses.filter(c => c.is_active).length,
-        completedAssignments: 0, // Implementar cuando tengamos el endpoint
-        pendingAssignments: 0 // Implementar cuando tengamos el endpoint
-      });
-    } catch (error) {
-      console.error('Error fetching student stats:', error);
-      setStats({});
-    }
-  };
+  }, [user, fetchAdminStats, fetchInstructorStats, fetchStudentStats]);
 
   if (loading) {
     return (
@@ -292,16 +293,25 @@ const RoleBasedStats = () => {
     </div>
   );
 
-  switch (role) {
-    case 'admin':
-      return renderAdminStats();
-    case 'instructor':
-      return renderInstructorStats();
-    case 'student':
-      return renderStudentStats();
-    default:
-      return null;
-  }
+  const renderStats = () => {
+    switch (user?.role) {
+      case 'admin':
+        return renderAdminStats();
+      case 'instructor':
+        return renderInstructorStats();
+      case 'student':
+        return renderStudentStats();
+      default:
+        return <p>Selecciona un rol para ver las estadísticas.</p>;
+    }
+  };
+
+  return (
+    <div className="p-6 bg-gray-100 min-h-screen">
+      <h2 className="text-3xl font-bold text-gray-800 mb-8">Estadísticas Basadas en Rol</h2>
+      {renderStats()}
+    </div>
+  );
 };
 
 export default RoleBasedStats;

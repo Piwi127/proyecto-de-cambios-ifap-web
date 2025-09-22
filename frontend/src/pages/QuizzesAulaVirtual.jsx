@@ -22,26 +22,37 @@ const QuizzesAulaVirtual = () => {
   const [showQuestionsManager, setShowQuestionsManager] = useState(null);
   const [showResultsViewer, setShowResultsViewer] = useState(null);
   const [showQuizForm, setShowQuizForm] = useState(null);
-  const { user } = useAuth();
+  const { user, isAuthenticated, loading: authLoading } = useAuth();
+
+  console.log('QuizzesAulaVirtual: Estado de autenticación:', { user, isAuthenticated, authLoading });
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    console.log('QuizzesAulaVirtual: useEffect ejecutado, authLoading:', authLoading);
+    if (!authLoading) {
+      fetchData();
+    }
+  }, [authLoading]);
 
   const fetchData = async () => {
     try {
+      console.log('QuizzesAulaVirtual: Iniciando fetchData');
+      console.log('QuizzesAulaVirtual: Usuario actual:', user);
       setLoading(true);
       setError(null);
 
+      console.log('QuizzesAulaVirtual: Llamando a APIs...');
       const [quizzesData, coursesData] = await Promise.all([
         quizService.getAllQuizzes(),
         courseService.getMyCourses()
       ]);
 
-      setQuizzes(quizzesData);
-      setCourses(coursesData);
+      console.log('QuizzesAulaVirtual: Datos recibidos - Quizzes:', quizzesData);
+      console.log('QuizzesAulaVirtual: Datos recibidos - Cursos:', coursesData);
+      
+      setQuizzes(quizzesData.results || quizzesData || []);
+      setCourses(coursesData.results || coursesData || []);
     } catch (err) {
-      console.error('Error fetching data:', err);
+      console.error('QuizzesAulaVirtual: Error fetching data:', err);
       setError('Error al cargar los quizzes. Por favor, intenta nuevamente.');
     } finally {
       setLoading(false);
@@ -115,7 +126,8 @@ const QuizzesAulaVirtual = () => {
     try {
       const attempt = await quizService.startQuizAttempt(quizId);
       console.log('Attempt started:', attempt);
-      // TODO: Navegar a página de realización del quiz
+      // Navegar a página de realización del quiz
+      navigate(`/aula-virtual/quizzes/take/${attempt.id}`);
       alert('Quiz iniciado. ¡Buena suerte!');
     } catch (error) {
       console.error('Error starting quiz:', error);
@@ -148,6 +160,10 @@ const QuizzesAulaVirtual = () => {
 
   const handleViewQuestions = (quizId) => {
     setShowQuestionsManager(quizId);
+  };
+
+  const handleViewResults = (quizId) => {
+    setShowResultsViewer(quizId);
   };
 
   // Verificar si el usuario puede gestionar un quiz específico
@@ -192,6 +208,38 @@ const QuizzesAulaVirtual = () => {
     }
     return <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium">Publicado</span>;
   };
+
+  if (authLoading) {
+    return (
+      <div className="p-6 max-w-7xl mx-auto">
+        <div className="flex items-center justify-center min-h-96">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto mb-4"></div>
+            <p className="text-gray-600">Verificando autenticación...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <div className="p-6 max-w-7xl mx-auto">
+        <div className="flex items-center justify-center min-h-96">
+          <div className="text-center">
+            <div className="text-red-500 text-4xl mb-4">🔒</div>
+            <p className="text-gray-600 mb-4">Debes iniciar sesión para acceder a esta página</p>
+            <button
+              onClick={() => navigate('/login')}
+              className="bg-primary-600 text-white px-4 py-2 rounded-md hover:bg-primary-700"
+            >
+              Iniciar Sesión
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (loading) {
     return (
@@ -554,14 +602,14 @@ const QuizzesAulaVirtual = () => {
               </button>
 
               <button
-                onClick={() => console.log('Ver estadísticas generales')}
+                onClick={() => navigate('/aula-virtual/quizzes/stats')}
                 className="bg-indigo-600 text-white px-8 py-3 rounded-lg hover:bg-indigo-700 transition-colors font-medium shadow-lg hover:shadow-xl"
               >
                 📈 Ver Estadísticas
               </button>
 
               <button
-                onClick={() => console.log('Ver quizzes archivados')}
+                onClick={() => navigate('/aula-virtual/quizzes/archived')}
                 className="bg-gray-600 text-white px-8 py-3 rounded-lg hover:bg-gray-700 transition-colors font-medium shadow-lg hover:shadow-xl"
               >
                 📁 Quizzes Archivados
