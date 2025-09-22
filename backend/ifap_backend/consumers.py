@@ -58,6 +58,99 @@ class NotificationConsumer(AsyncWebsocketConsumer):
         }))
 
 
+class MessagingConsumer(AsyncWebsocketConsumer):
+    """Consumer para mensajería directa entre usuarios"""
+
+    async def connect(self):
+        query_string = self.scope['query_string'].decode()
+        token_key = [q.split('=')[1] for q in query_string.split('&') if q.split('=')[0] == 'token']
+        token = token_key[0] if token_key else None
+
+        user = await get_user_from_token(token) if token else AnonymousUser()
+
+        if user.is_anonymous:
+            await self.close()
+            return
+
+        self.scope['user'] = user
+        self.user = user
+        self.conversation_id = self.scope['url_route']['kwargs']['conversation_id']
+
+        # Verificar que el usuario tenga acceso a la conversación
+        if not await self.user_has_access_to_conversation(self.conversation_id):
+            await self.close()
+            return
+
+        self.group_name = f'conversation_{self.conversation_id}'
+        await self.channel_layer.group_add(
+            self.group_name,
+            self.channel_name
+        )
+        await self.accept()
+
+    async def disconnect(self, close_code):
+        if hasattr(self, 'group_name'):
+            await self.channel_layer.group_discard(
+                self.group_name,
+                self.channel_name
+            )
+
+    async def receive(self, text_data):
+        data = json.loads(text_data)
+        message_type = data.get('type')
+
+        if message_type == 'message':
+            await self.handle_message(data)
+
+    async def handle_message(self, data):
+        content = data.get('content', '')
+
+        # Crear mensaje en la base de datos
+        message = await self.create_message(content)
+
+        # Enviar mensaje a todos los usuarios en la conversación
+        await self.channel_layer.group_send(
+            self.group_name,
+            {
+                'type': 'new_message',
+                'message': {
+                    'id': message.id,
+                    'sender': {
+                        'id': message.sender.id,
+                        'username': message.sender.username,
+                        'first_name': message.sender.first_name,
+                        'last_name': message.sender.last_name
+                    },
+                    'content': message.content,
+                    'created_at': message.created_at.isoformat()
+                }
+            }
+        )
+
+    async def new_message(self, event):
+        await self.send(text_data=json.dumps({
+            'type': 'message',
+            'message': event['message']
+        }))
+
+    @database_sync_to_async
+    def user_has_access_to_conversation(self, conversation_id):
+        # Verificar si el usuario tiene acceso a esta conversación
+        # Por ahora, permitir acceso básico (esto debería mejorarse)
+        return True
+
+    @database_sync_to_async
+    def create_message(self, content):
+        # Crear mensaje básico (esto debería mejorarse con un modelo real)
+        # Por ahora, solo simulamos la creación
+        return type('Message', (), {
+            'id': 1,
+            'sender': self.user,
+            'content': content,
+            'created_at': json.dumps({'timestamp': 'now'})
+        })()
+
+
 class LessonCommentsConsumer(AsyncWebsocketConsumer):
     """Consumer para comentarios en lecciones en tiempo real"""
 

@@ -34,10 +34,10 @@ class MessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Message
         fields = [
-            'id', 'content', 'sender', 'timestamp', 'message_type',
+            'id', 'content', 'sender', 'created_at', 'message_type',
             'edited_at', 'is_edited', 'read_by', 'is_read_by_user'
         ]
-        read_only_fields = ['id', 'sender', 'timestamp', 'edited_at', 'is_edited']
+        read_only_fields = ['id', 'sender', 'created_at', 'edited_at', 'is_edited']
     
     def get_is_read_by_user(self, obj):
         request = self.context.get('request')
@@ -72,13 +72,13 @@ class ChatRoomSerializer(serializers.ModelSerializer):
         read_only_fields = ['id', 'created_by', 'created_at', 'updated_at']
     
     def get_last_message(self, obj):
-        last_message = obj.messages.order_by('-timestamp').first()
+        last_message = obj.messages.order_by('-created_at').first()
         if last_message:
             return {
                 'id': last_message.id,
                 'content': last_message.content,
                 'sender': last_message.sender.username,
-                'timestamp': last_message.timestamp,
+                'timestamp': last_message.created_at,
                 'message_type': last_message.message_type
             }
         return None

@@ -1,6 +1,28 @@
 /home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/__init__.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import DistributionNotFound, get_distribution
-2025-09-22 10:03:33,039 INFO     Starting server at tcp:port=8000:interface=127.0.0.1
-2025-09-22 10:03:33,040 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
-2025-09-22 10:03:33,041 INFO     Configuring endpoint tcp:port=8000:interface=127.0.0.1
-2025-09-22 10:03:33,042 INFO     Listening on TCP address 127.0.0.1:8000
+2025-09-22 11:09:15,642 INFO     Starting server at tcp:port=8000:interface=127.0.0.1
+2025-09-22 11:09:15,643 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2025-09-22 11:09:15,644 INFO     Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2025-09-22 11:09:15,646 INFO     Listening on TCP address 127.0.0.1:8000
+INFO Request: GET /api/users/me/
+INFO User 10 accessed profile
+INFO Response: 200 for GET /api/users/me/
+INFO Request: GET /api/users/me/
+INFO User 10 accessed profile
+INFO Response: 200 for GET /api/users/me/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: POST /api/users/login/
+INFO Response: 200 for POST /api/users/login/
+INFO Request: GET /api/courses/my_courses/
+INFO Request: GET /api/chat/notifications/
+INFO Response: 200 for GET /api/chat/notifications/
+INFO Request: GET /api/chat/notifications/
+INFO Response: 200 for GET /api/chat/notifications/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Request: GET /api/users/role_summary/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/users/role_summary/
+INFO Request: GET /api/users/role_summary/
+INFO Response: 200 for GET /api/users/role_summary/

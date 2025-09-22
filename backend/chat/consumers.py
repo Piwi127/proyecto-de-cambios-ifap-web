@@ -110,7 +110,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 'sender_id': message.sender.id,
                 'sender_username': message.sender.username,
                 'sender_full_name': message.sender.get_full_name() or message.sender.username,
-                'timestamp': message.timestamp.isoformat(),
+                'timestamp': message.created_at.isoformat(),
                 'message_type': message.message_type
             }
         )

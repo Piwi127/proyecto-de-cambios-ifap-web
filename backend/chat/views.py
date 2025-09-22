@@ -34,7 +34,7 @@ class ChatRoomViewSet(viewsets.ModelViewSet):
         return ChatRoom.objects.filter(
             participants=user
         ).annotate(
-            last_message_time=Max('messages__timestamp')
+            last_message_time=Max('messages__created_at')
         ).order_by('-last_message_time', '-updated_at')
     
     def get_serializer_class(self):

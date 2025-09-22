@@ -294,7 +294,8 @@ const RoleBasedStats = () => {
   );
 
   const renderStats = () => {
-    switch (user?.role) {
+    const role = userService.getUserRole(user);
+    switch (role) {
       case 'admin':
         return renderAdminStats();
       case 'instructor':
@@ -302,7 +303,16 @@ const RoleBasedStats = () => {
       case 'student':
         return renderStudentStats();
       default:
-        return <p>Selecciona un rol para ver las estadísticas.</p>;
+        return (
+          <div className="text-center py-8">
+            <div className="text-4xl mb-4">⚠️</div>
+            <p className="text-gray-600 mb-4">No se pudo determinar el rol del usuario</p>
+            <p className="text-sm text-gray-500">
+              Usuario: {user?.username || 'No identificado'}<br/>
+              Rol detectado: {role}
+            </p>
+          </div>
+        );
     }
   };
 
