@@ -158,6 +158,140 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+  // ========== ROLE AND PERMISSION HELPERS ==========
+
+  // Check if user has a specific role
+  const hasRole = (role) => {
+    if (!user) return false;
+
+    switch (role) {
+      case 'admin':
+      case 'superuser':
+        return user.is_superuser === true;
+      case 'instructor':
+        return user.is_instructor === true;
+      case 'student':
+        return user.is_student === true;
+      default:
+        return false;
+    }
+  };
+
+  // Check if user can manage courses (admin or instructor)
+  const canManageCourses = () => {
+    return hasRole('admin') || hasRole('instructor');
+  };
+
+  // Check if user is admin
+  const isAdmin = () => {
+    return hasRole('admin');
+  };
+
+  // Check if user can perform admin operations
+  const canPerformAdminOperations = () => {
+    return hasRole('admin');
+  };
+
+  // Check if user can access course management features
+  const canAccessCourseManagement = () => {
+    return hasRole('admin') || hasRole('instructor');
+  };
+
+  // Check if user can access admin panel
+  const canAccessAdminPanel = () => {
+    return hasRole('admin');
+  };
+
+  // Get user roles as array
+  const getUserRoles = () => {
+    if (!user) return [];
+
+    const roles = [];
+    if (user.is_superuser) roles.push('admin', 'superuser');
+    if (user.is_instructor) roles.push('instructor');
+    if (user.is_student) roles.push('student');
+
+    return roles;
+  };
+
+  // Check multiple roles at once
+  const hasAnyRole = (roles) => {
+    return roles.some(role => hasRole(role));
+  };
+
+  // Check if user has all specified roles
+  const hasAllRoles = (roles) => {
+    return roles.every(role => hasRole(role));
+  };
+
+  // Get user permissions based on roles
+  const getUserPermissions = () => {
+    const permissions = [];
+
+    if (hasRole('admin')) {
+      permissions.push(
+        'manage_courses',
+        'manage_users',
+        'view_admin_panel',
+        'manage_system_settings',
+        'view_reports',
+        'activate_courses',
+        'deactivate_courses',
+        'delete_courses',
+        'transfer_courses',
+        'bulk_operations'
+      );
+    }
+
+    if (hasRole('instructor')) {
+      permissions.push(
+        'create_courses',
+        'edit_own_courses',
+        'view_course_metrics',
+        'manage_course_students'
+      );
+    }
+
+    if (hasRole('student')) {
+      permissions.push(
+        'enroll_courses',
+        'view_courses',
+        'take_quizzes',
+        'view_grades'
+      );
+    }
+
+    return permissions;
+  };
+
+  // Check if user has specific permission
+  const hasPermission = (permission) => {
+    const permissions = getUserPermissions();
+    return permissions.includes(permission);
+  };
+
+  // Validate permissions for specific operations
+  const validatePermission = (permission, operation = '') => {
+    if (!hasPermission(permission)) {
+      throw new Error(`No tienes permisos para realizar esta operación: ${operation || permission}`);
+    }
+  };
+
+  // Get user display info
+  const getUserDisplayInfo = () => {
+    if (!user) return null;
+
+    return {
+      name: user.get_full_name || user.username || 'Usuario',
+      email: user.email || '',
+      roles: getUserRoles(),
+      permissions: getUserPermissions(),
+      isAdmin: hasRole('admin'),
+      isInstructor: hasRole('instructor'),
+      isStudent: hasRole('student')
+    };
+  };
+
   const value = {
     user,
     login,
@@ -169,6 +303,20 @@ const AuthProvider = ({ children }) => {
     refreshUser,
     updateProfile,
     changePassword,
+    // Role and permission helpers
+    hasRole,
+    canManageCourses,
+    isAdmin,
+    canPerformAdminOperations,
+    canAccessCourseManagement,
+    canAccessAdminPanel,
+    getUserRoles,
+    hasAnyRole,
+    hasAllRoles,
+    getUserPermissions,
+    hasPermission,
+    validatePermission,
+    getUserDisplayInfo,
   };
 
   return (

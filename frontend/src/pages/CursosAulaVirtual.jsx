@@ -20,16 +20,30 @@ const CursosAulaVirtual = () => {
     try {
       setLoading(true);
       setError(null);
-      
+
       // Obtener todos los cursos disponibles
       const allCourses = await courseService.getAllCourses();
-      
+
+      // Validar que allCourses sea un array
+      if (!Array.isArray(allCourses)) {
+        console.error('API did not return an array for courses:', allCourses);
+        setError('Error en el formato de respuesta de la API. Por favor, contacta al administrador.');
+        setCourses([]);
+        return;
+      }
+
       // Obtener cursos en los que el usuario está inscrito
       let enrolledCourses = [];
       try {
         enrolledCourses = await courseService.getMyCourses();
-      } catch {
-        console.log('User not enrolled in any courses or not authenticated');
+        // Validar que enrolledCourses también sea un array
+        if (!Array.isArray(enrolledCourses)) {
+          console.warn('API did not return an array for enrolled courses, using empty array');
+          enrolledCourses = [];
+        }
+      } catch (enrollError) {
+        console.log('User not enrolled in any courses or not authenticated:', enrollError.message);
+        enrolledCourses = [];
       }
 
       // Combinar información: marcar cursos en los que el usuario está inscrito
@@ -37,9 +51,9 @@ const CursosAulaVirtual = () => {
         ...course,
         enrolled: enrolledCourses.some(ec => ec.id === course.id),
         progress: enrolledCourses.find(ec => ec.id === course.id)?.progress || 0,
-        status: enrolledCourses.find(ec => ec.id === course.id)?.progress === 100 ? 
-                'completado' : 
-                enrolledCourses.some(ec => ec.id === course.id) ? 
+        status: enrolledCourses.find(ec => ec.id === course.id)?.progress === 100 ?
+                'completado' :
+                enrolledCourses.some(ec => ec.id === course.id) ?
                 'en-progreso' : 'disponible'
       }));
 
@@ -47,6 +61,7 @@ const CursosAulaVirtual = () => {
     } catch (err) {
       console.error('Error fetching courses:', err);
       setError('Error al cargar los cursos. Por favor, intenta nuevamente.');
+      setCourses([]);
     } finally {
       setLoading(false);
     }

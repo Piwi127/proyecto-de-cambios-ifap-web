@@ -50,6 +50,14 @@ import AdminCourses from './pages/AdminCourses';
 import AdminPermissions from './pages/AdminPermissions';
 import AdminSystemSettings from './pages/AdminSystemSettings';
 import AdminReports from './pages/AdminReports';
+import GestionCursosAdmin from './pages/GestionCursosAdmin';
+// Nuevos componentes de administración
+import AdminReportsComponent from './components/admin/AdminReports';
+import AdminRealTimeMetrics from './components/admin/AdminRealTimeMetrics';
+import AdminCustomReports from './components/admin/AdminCustomReports';
+import AdminAnalytics from './components/admin/AdminAnalytics';
+import AdminExportTools from './components/admin/AdminExportTools';
+import AdminReportConfig from './components/admin/AdminReportConfig';
 
 function App() {
   return (
@@ -91,6 +99,27 @@ function App() {
         </ProtectedRoute>
       } />
       <Route path="/aula-virtual/cursos" element={
+        <ProtectedRoute>
+          <AulaVirtualLayout>
+            <CursosAulaVirtual />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/aula-virtual/gestionar-cursos" element={
+        <ProtectedRoute>
+          <AulaVirtualLayout>
+            <CursosAulaVirtual />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/aula-virtual/crear-curso" element={
+        <ProtectedRoute>
+          <AulaVirtualLayout>
+            <CursosAulaVirtual />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/aula-virtual/mis-cursos" element={
         <ProtectedRoute>
           <AulaVirtualLayout>
             <CursosAulaVirtual />
@@ -280,6 +309,13 @@ function App() {
           </AulaVirtualLayout>
         </ProtectedRoute>
       } />
+      <Route path="/aula-virtual/gestion-cursos-admin" element={
+        <ProtectedRoute requiredRole="superuser">
+          <AulaVirtualLayout>
+            <GestionCursosAdmin />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
       <Route path="/admin" element={
         <ProtectedRoute requiredRole="superuser">
           <AulaVirtualLayout>
@@ -310,6 +346,58 @@ function App() {
       } />
       <Route path="/admin/reports" element={
         <ProtectedRoute requiredRole="superuser">
+          <AulaVirtualLayout>
+            <AdminReports />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      
+      {/* Nuevas rutas del sistema de reportes y métricas */}
+      <Route path="/admin/reports/dashboard" element={
+        <ProtectedRoute requiredRole="superuser">
+          <AulaVirtualLayout>
+            <AdminReportsComponent />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/admin/metrics/realtime" element={
+        <ProtectedRoute requiredRole="superuser">
+          <AulaVirtualLayout>
+            <AdminRealTimeMetrics />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/admin/reports/custom" element={
+        <ProtectedRoute requiredRole="superuser">
+          <AulaVirtualLayout>
+            <AdminCustomReports />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/admin/analytics" element={
+        <ProtectedRoute requiredRole="superuser">
+          <AulaVirtualLayout>
+            <AdminAnalytics />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/admin/export" element={
+        <ProtectedRoute requiredRole="superuser">
+          <AulaVirtualLayout>
+            <AdminExportTools />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/admin/reports/config" element={
+        <ProtectedRoute requiredRole="superuser">
+          <AulaVirtualLayout>
+            <AdminReportConfig />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      
+      <Route path="/aula-virtual/reportes" element={
+        <ProtectedRoute>
           <AulaVirtualLayout>
             <AdminReports />
           </AulaVirtualLayout>

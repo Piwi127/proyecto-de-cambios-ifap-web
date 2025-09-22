@@ -1,0 +1,72 @@
+{
+  "total_tests": 49,
+  "passed_tests": 12,
+  "failed_tests": 37,
+  "errors": [
+    "❌ Registro de Usuario - FAILED (0.07s): Status: 400",
+    "❌ Login Correcto - FAILED (0.55s): Status: 401",
+    "❌ Logout - FAILED (0.05s): Status: 401",
+    "❌ Crear Curso - FAILED (0.05s): Status: 401",
+    "❌ Cursos Admin - Todos - FAILED (0.06s): Status: 401",
+    "❌ Cursos Admin - Inactivos - FAILED (0.06s): Status: 401",
+    "❌ Cursos Admin - Métricas - FAILED (0.06s): Status: 401",
+    "❌ Cursos Admin - Stats Instructor - FAILED (0.05s): Status: 401",
+    "❌ Activación Masiva - FAILED (0.05s): Status: 401",
+    "❌ Desactivación Masiva - FAILED (0.05s): Status: 401",
+    "❌ Crear Quiz - FAILED (0.06s): Status: 401",
+    "❌ Listar Preguntas - FAILED (0.05s): Status: 401",
+    "❌ Listar Intentos - FAILED (0.05s): Status: 401",
+    "❌ Listar Estadísticas - FAILED (0.09s): Status: 404",
+    "❌ Lista de Notificaciones - FAILED (0.05s): Status: 401",
+    "❌ Categorías del Foro - FAILED (0.06s): Status: 401",
+    "❌ Temas del Foro - FAILED (0.06s): Status: 401",
+    "❌ Respuestas del Foro - FAILED (0.06s): Status: 401",
+    "❌ Estadísticas del Foro - FAILED (0.10s): Status: 404",
+    "❌ Comentarios en Lecciones - FAILED (0.06s): Status: 401",
+    "❌ Conversaciones - FAILED (0.06s): Status: 401",
+    "❌ Mensajes - FAILED (0.05s): Status: 401",
+    "❌ Indicadores de Escritura - FAILED (0.06s): Status: 401",
+    "❌ Categorías de Tareas - FAILED (0.08s): Status: 404",
+    "❌ Tareas - FAILED (0.08s): Status: 404",
+    "❌ Asignaciones - FAILED (0.08s): Status: 404",
+    "❌ Entregas - FAILED (0.11s): Status: 404",
+    "❌ Archivos de Tareas - FAILED (0.08s): Status: 404",
+    "❌ Comentarios de Tareas - FAILED (0.09s): Status: 404",
+    "❌ Categorías de Biblioteca - FAILED (0.06s): Status: 401",
+    "❌ Archivos de Biblioteca - FAILED (0.06s): Status: 401",
+    "❌ Control de Acceso - FAILED (0.06s): Status: 401",
+    "❌ Descargas - FAILED (0.06s): Status: 401",
+    "❌ Favoritos - FAILED (0.06s): Status: 401",
+    "❌ Salas de Chat - FAILED (0.06s): Status: 401",
+    "❌ Mensajes de Chat - FAILED (0.06s): Status: 401",
+    "❌ Notificaciones de Chat - FAILED (0.06s): Status: 401"
+  ],
+  "performance_metrics": {
+    "health": {
+      "response_time": 0.0497736930847168,
+      "status_code": 200,
+      "timestamp": "2025-09-22T15:09:50.285037"
+    },
+    "courses": {
+      "response_time": 0.05144023895263672,
+      "status_code": 200,
+      "timestamp": "2025-09-22T15:09:50.337030"
+    },
+    "lessons": {
+      "response_time": 0.06342315673828125,
+      "status_code": 200,
+      "timestamp": "2025-09-22T15:09:50.401050"
+    },
+    "quizzes": {
+      "response_time": 0.05936408042907715,
+      "status_code": 401,
+      "timestamp": "2025-09-22T15:09:50.460907"
+    },
+    "notifications": {
+      "response_time": 0.0600132942199707,
+      "status_code": 401,
+      "timestamp": "2025-09-22T15:09:50.521452"
+    }
+  },
+  "security_issues": []
+}

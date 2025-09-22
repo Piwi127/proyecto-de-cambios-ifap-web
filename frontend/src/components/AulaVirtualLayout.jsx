@@ -134,6 +134,14 @@ const AulaVirtualLayout = ({ children }) => {
     },
     // Opciones específicas para administradores
     {
+      path: "/aula-virtual/gestion-cursos-admin",
+      icon: "⚡",
+      name: "Admin. de Cursos",
+      color: "text-red-600",
+      bgColor: "bg-red-50",
+      roles: ['admin']
+    },
+    {
       path: "/aula-virtual/user-management",
       icon: "👥",
       name: "Gestión de Usuarios",

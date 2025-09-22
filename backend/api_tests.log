@@ -1,0 +1,116 @@
+2025-09-22 15:09:45,226 - INFO - 🚀 INICIANDO PRUEBAS EXHAUSTIVAS DE API
+2025-09-22 15:09:45,226 - INFO - URL Base: http://localhost:8001/api
+2025-09-22 15:09:45,227 - INFO - ============================================================
+2025-09-22 15:09:45,227 - INFO - 
+🩺 Probando endpoints de Health Check...
+2025-09-22 15:09:45,240 - INFO - ✅ Health Check Básico - PASSED (0.01s)
+2025-09-22 15:09:46,305 - INFO - ✅ Health Check Detallado - PASSED (1.06s)
+2025-09-22 15:09:46,305 - INFO - ✅ Estructura Health Check - PASSED (0.00s)
+2025-09-22 15:09:46,306 - INFO - 
+📚 Probando documentación Swagger...
+2025-09-22 15:09:46,497 - INFO - ✅ Documentación Swagger - PASSED (0.19s)
+2025-09-22 15:09:46,498 - INFO - 
+🔐 Probando endpoints de Autenticación...
+2025-09-22 15:09:46,573 - ERROR - ❌ Registro de Usuario - FAILED (0.07s): Status: 400
+2025-09-22 15:09:47,121 - ERROR - ❌ Login Correcto - FAILED (0.55s): Status: 401
+2025-09-22 15:09:47,648 - INFO - ✅ Login Incorrecto - PASSED (0.53s)
+2025-09-22 15:09:47,701 - ERROR - ❌ Logout - FAILED (0.05s): Status: 401
+2025-09-22 15:09:47,701 - INFO - 
+📚 Probando endpoints de Cursos...
+2025-09-22 15:09:47,757 - ERROR - ❌ Crear Curso - FAILED (0.05s): Status: 401
+2025-09-22 15:09:47,837 - INFO - ✅ Listar Cursos - PASSED (0.08s)
+2025-09-22 15:09:47,837 - INFO - 
+👨‍💼 Probando endpoints administrativos de Cursos...
+2025-09-22 15:09:47,893 - ERROR - ❌ Cursos Admin - Todos - FAILED (0.06s): Status: 401
+2025-09-22 15:09:47,949 - ERROR - ❌ Cursos Admin - Inactivos - FAILED (0.06s): Status: 401
+2025-09-22 15:09:48,008 - ERROR - ❌ Cursos Admin - Métricas - FAILED (0.06s): Status: 401
+2025-09-22 15:09:48,061 - ERROR - ❌ Cursos Admin - Stats Instructor - FAILED (0.05s): Status: 401
+2025-09-22 15:09:48,061 - INFO - 
+📦 Probando operaciones masivas de Cursos...
+2025-09-22 15:09:48,281 - ERROR - ❌ Activación Masiva - FAILED (0.05s): Status: 401
+2025-09-22 15:09:48,333 - ERROR - ❌ Desactivación Masiva - FAILED (0.05s): Status: 401
+2025-09-22 15:09:48,333 - INFO - 
+📖 Probando endpoints de Lecciones...
+2025-09-22 15:09:48,389 - INFO - 
+📝 Probando endpoints de Quizzes...
+2025-09-22 15:09:48,453 - ERROR - ❌ Crear Quiz - FAILED (0.06s): Status: 401
+2025-09-22 15:09:48,505 - ERROR - ❌ Listar Preguntas - FAILED (0.05s): Status: 401
+2025-09-22 15:09:48,561 - ERROR - ❌ Listar Intentos - FAILED (0.05s): Status: 401
+2025-09-22 15:09:48,649 - ERROR - ❌ Listar Estadísticas - FAILED (0.09s): Status: 404
+2025-09-22 15:09:48,649 - INFO - 
+🔔 Probando endpoints de Notificaciones...
+2025-09-22 15:09:48,704 - ERROR - ❌ Lista de Notificaciones - FAILED (0.05s): Status: 401
+2025-09-22 15:09:48,705 - INFO - 
+💬 Probando endpoints de Foro...
+2025-09-22 15:09:48,761 - ERROR - ❌ Categorías del Foro - FAILED (0.06s): Status: 401
+2025-09-22 15:09:48,817 - ERROR - ❌ Temas del Foro - FAILED (0.06s): Status: 401
+2025-09-22 15:09:48,873 - ERROR - ❌ Respuestas del Foro - FAILED (0.06s): Status: 401
+2025-09-22 15:09:48,969 - ERROR - ❌ Estadísticas del Foro - FAILED (0.10s): Status: 404
+2025-09-22 15:09:49,025 - ERROR - ❌ Comentarios en Lecciones - FAILED (0.06s): Status: 401
+2025-09-22 15:09:49,081 - ERROR - ❌ Conversaciones - FAILED (0.06s): Status: 401
+2025-09-22 15:09:49,133 - ERROR - ❌ Mensajes - FAILED (0.05s): Status: 401
+2025-09-22 15:09:49,193 - ERROR - ❌ Indicadores de Escritura - FAILED (0.06s): Status: 401
+2025-09-22 15:09:49,193 - INFO - 
+📋 Probando endpoints de Tareas...
+2025-09-22 15:09:49,273 - ERROR - ❌ Categorías de Tareas - FAILED (0.08s): Status: 404
+2025-09-22 15:09:49,353 - ERROR - ❌ Tareas - FAILED (0.08s): Status: 404
+2025-09-22 15:09:49,433 - ERROR - ❌ Asignaciones - FAILED (0.08s): Status: 404
+2025-09-22 15:09:49,545 - ERROR - ❌ Entregas - FAILED (0.11s): Status: 404
+2025-09-22 15:09:49,629 - ERROR - ❌ Archivos de Tareas - FAILED (0.08s): Status: 404
+2025-09-22 15:09:49,717 - ERROR - ❌ Comentarios de Tareas - FAILED (0.09s): Status: 404
+2025-09-22 15:09:49,717 - INFO - 
+📚 Probando endpoints de Biblioteca...
+2025-09-22 15:09:49,773 - ERROR - ❌ Categorías de Biblioteca - FAILED (0.06s): Status: 401
+2025-09-22 15:09:49,829 - ERROR - ❌ Archivos de Biblioteca - FAILED (0.06s): Status: 401
+2025-09-22 15:09:49,885 - ERROR - ❌ Control de Acceso - FAILED (0.06s): Status: 401
+2025-09-22 15:09:49,941 - ERROR - ❌ Descargas - FAILED (0.06s): Status: 401
+2025-09-22 15:09:49,997 - ERROR - ❌ Favoritos - FAILED (0.06s): Status: 401
+2025-09-22 15:09:49,997 - INFO - 
+💬 Probando endpoints de Chat...
+2025-09-22 15:09:50,057 - ERROR - ❌ Salas de Chat - FAILED (0.06s): Status: 401
+2025-09-22 15:09:50,117 - ERROR - ❌ Mensajes de Chat - FAILED (0.06s): Status: 401
+2025-09-22 15:09:50,177 - ERROR - ❌ Notificaciones de Chat - FAILED (0.06s): Status: 401
+2025-09-22 15:09:50,178 - INFO - 
+🔒 Probando aspectos de Seguridad...
+2025-09-22 15:09:50,233 - INFO - ✅ Acceso sin Autenticación - PASSED (0.05s)
+2025-09-22 15:09:50,234 - INFO - 
+⚡ Probando métricas de rendimiento...
+2025-09-22 15:09:50,285 - INFO - ✅ Rendimiento /health/ - PASSED (0.05s)
+2025-09-22 15:09:50,337 - INFO - ✅ Rendimiento /courses/ - PASSED (0.05s)
+2025-09-22 15:09:50,401 - INFO - ✅ Rendimiento /lessons/ - PASSED (0.06s)
+2025-09-22 15:09:50,461 - INFO - ✅ Rendimiento /quizzes/ - PASSED (0.06s)
+2025-09-22 15:09:50,521 - INFO - ✅ Rendimiento /notifications/ - PASSED (0.06s)
+2025-09-22 15:09:50,522 - INFO - 
+📊 GENERANDO REPORTE FINAL DE PRUEBAS
+2025-09-22 15:09:50,523 - INFO - ============================================================
+2025-09-22 15:09:50,527 - INFO - Total de Pruebas: 49
+2025-09-22 15:09:50,528 - INFO - Pruebas Exitosas: 12
+2025-09-22 15:09:50,528 - INFO - Pruebas Fallidas: 37
+2025-09-22 15:09:50,528 - INFO - Tasa de Éxito: 24.49%
+2025-09-22 15:09:50,528 - INFO - 
+📈 MÉTRICAS DE RENDIMIENTO:
+2025-09-22 15:09:50,528 - INFO -   health: 0.05s
+2025-09-22 15:09:50,529 - INFO -   courses: 0.05s
+2025-09-22 15:09:50,529 - INFO -   lessons: 0.06s
+2025-09-22 15:09:50,529 - INFO -   quizzes: 0.06s
+2025-09-22 15:09:50,529 - INFO -   notifications: 0.06s
+2025-09-22 15:09:50,530 - INFO - 
+❌ ERRORES ENCONTRADOS:
+2025-09-22 15:09:50,530 - INFO -   ❌ Registro de Usuario - FAILED (0.07s): Status: 400
+2025-09-22 15:09:50,530 - INFO -   ❌ Login Correcto - FAILED (0.55s): Status: 401
+2025-09-22 15:09:50,530 - INFO -   ❌ Logout - FAILED (0.05s): Status: 401
+2025-09-22 15:09:50,530 - INFO -   ❌ Crear Curso - FAILED (0.05s): Status: 401
+2025-09-22 15:09:50,530 - INFO -   ❌ Cursos Admin - Todos - FAILED (0.06s): Status: 401
+2025-09-22 15:09:50,531 - INFO -   ❌ Cursos Admin - Inactivos - FAILED (0.06s): Status: 401
+2025-09-22 15:09:50,531 - INFO -   ❌ Cursos Admin - Métricas - FAILED (0.06s): Status: 401
+2025-09-22 15:09:50,531 - INFO -   ❌ Cursos Admin - Stats Instructor - FAILED (0.05s): Status: 401
+2025-09-22 15:09:50,531 - INFO -   ❌ Activación Masiva - FAILED (0.05s): Status: 401
+2025-09-22 15:09:50,531 - INFO -   ❌ Desactivación Masiva - FAILED (0.05s): Status: 401
+2025-09-22 15:09:50,534 - INFO -   ... y 27 errores más
+2025-09-22 15:09:50,534 - INFO - 
+💡 RECOMENDACIONES:
+2025-09-22 15:09:50,534 - INFO -   ❌ Calidad deficiente, revisión completa requerida
+2025-09-22 15:09:50,535 - INFO -   🔧 Revisar los 37 endpoints fallidos
+2025-09-22 15:09:50,535 - INFO -   📋 Verificar logs detallados en api_tests.log
+2025-09-22 15:09:50,536 - INFO - 
+📄 Reporte detallado guardado en: api_test_report.json
