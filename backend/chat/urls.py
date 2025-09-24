@@ -8,5 +8,5 @@ router.register(r'messages', MessageViewSet, basename='message')
 router.register(r'notifications', ChatNotificationViewSet, basename='chatnotification')
 
 urlpatterns = [
-    path('chat/', include(router.urls)),
+    path('', include(router.urls)),
 ]

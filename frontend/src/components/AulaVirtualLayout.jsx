@@ -157,6 +157,14 @@ const AulaVirtualLayout = ({ children }) => {
       bgColor: "bg-violet-100",
       roles: ['admin']
     },
+    {
+      path: "/aula-virtual/mensajes-contacto",
+      icon: "📧",
+      name: "Mensajes de Contacto",
+      color: "text-blue-500",
+      bgColor: "bg-blue-100",
+      roles: ['admin']
+    },
 
     // Opciones comunes al final
     {

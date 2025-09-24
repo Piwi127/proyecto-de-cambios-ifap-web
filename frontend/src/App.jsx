@@ -58,6 +58,7 @@ import AdminCustomReports from './components/admin/AdminCustomReports';
 import AdminAnalytics from './components/admin/AdminAnalytics';
 import AdminExportTools from './components/admin/AdminExportTools';
 import AdminReportConfig from './components/admin/AdminReportConfig';
+import ContactMessages from './pages/ContactMessages.jsx';
 
 function App() {
   return (
@@ -400,6 +401,13 @@ function App() {
         <ProtectedRoute>
           <AulaVirtualLayout>
             <AdminReports />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/aula-virtual/mensajes-contacto" element={
+        <ProtectedRoute requiredRole="superuser">
+          <AulaVirtualLayout>
+            <ContactMessages />
           </AulaVirtualLayout>
         </ProtectedRoute>
       } />

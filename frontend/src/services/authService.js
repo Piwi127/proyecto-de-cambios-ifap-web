@@ -4,7 +4,7 @@ export const authService = {
   // Login user
   async login(credentials) {
     try {
-      const response = await api.post('/users/login/', credentials);
+      const response = await api.post('/token/', credentials);
       return response.data;
     } catch (error) {
       throw handleApiError(error);
@@ -35,7 +35,7 @@ export const authService = {
   // Refresh access token
   async refreshToken(refreshToken) {
     try {
-      const response = await api.post('/users/refresh/', { refresh: refreshToken });
+      const response = await api.post('/token/refresh/', { refresh: refreshToken });
       return response.data;
     } catch (error) {
       throw handleApiError(error);

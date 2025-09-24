@@ -1,7 +1,7 @@
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAdminUser
 from .models import ContactInfo, ContactFormSubmission
 from .serializers import ContactInfoSerializer, ContactFormSubmissionSerializer
 
@@ -33,6 +33,7 @@ class ContactInfoViewSet(viewsets.ReadOnlyModelViewSet):
 class ContactFormSubmissionViewSet(viewsets.ModelViewSet):
     queryset = ContactFormSubmission.objects.all()
     serializer_class = ContactFormSubmissionSerializer
+    permission_classes = [IsAdminUser]
 
     @action(detail=False, methods=['post'])
     def submit(self, request):
