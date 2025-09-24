@@ -196,11 +196,11 @@ const Navbar = () => {
               </div>
               <div className="hidden sm:block">
                 <h1 className="text-lg font-semibold text-neutral-900 group-hover:text-primary-700 transition-colors duration-300">
-                  Instituto de Formación Archivística
+                  INSTITUTO DE FORMACIÓN Archivística DEL PERÚ
                 </h1>
                 <p className="text-xs text-neutral-500 group-hover:text-primary-600 transition-colors duration-300">
-                  <span className="text-black">Formación profesional en archivística</span>
-                </p>
+                    Formación Archivística Profesional
+                  </p>
               </div>
             </Link>
 

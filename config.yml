@@ -1,0 +1,6 @@
+tunnel: 016715e6-2fb6-4a62-a7e8-3ab94fefcd43
+credentials-file: /root/.cloudflared/016715e6-2fb6-4a62-a7e8-3ab94fefcd43.json
+
+ingress:
+  # Route all traffic through Apache virtual hosts
+  - service: http://127.0.0.1:80
