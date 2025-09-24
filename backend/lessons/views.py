@@ -3,8 +3,9 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from django.shortcuts import get_object_or_404
+from django.utils import timezone
 from courses.models import Course
-from .models import Lesson
+from .models import Lesson, LessonCompletion
 from .serializers import LessonSerializer, LessonContentSerializer
 
 class LessonViewSet(viewsets.ModelViewSet):
@@ -62,3 +63,33 @@ class LessonViewSet(viewsets.ModelViewSet):
 
         serializer = LessonContentSerializer(lesson)
         return Response(serializer.data)
+
+    @action(detail=True, methods=['post'], permission_classes=[IsAuthenticated])
+    def complete(self, request, pk=None):
+        lesson = self.get_object()
+        user = request.user
+
+        # Verificar que el usuario esté inscrito en el curso
+        if not lesson.course.students.filter(id=user.id).exists():
+            return Response(
+                {'error': 'No tienes acceso a esta lección'},
+                status=status.HTTP_403_FORBIDDEN
+            )
+
+        # Verificar si ya está completada
+        completion, created = LessonCompletion.objects.get_or_create(
+            user=user,
+            lesson=lesson,
+            defaults={'completed_at': timezone.now()}
+        )
+
+        if created:
+            return Response(
+                {'message': 'Lección marcada como completada', 'completed_at': completion.completed_at},
+                status=status.HTTP_201_CREATED
+            )
+        else:
+            return Response(
+                {'message': 'La lección ya estaba completada', 'completed_at': completion.completed_at},
+                status=status.HTTP_200_OK
+            )

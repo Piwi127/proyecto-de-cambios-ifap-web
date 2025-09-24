@@ -195,7 +195,10 @@ const DashboardAulaVirtual = () => {
                 <span className="text-2xl mr-3">🎓</span>
                 Mis Cursos
               </h2>
-              <button className="text-primary-600 hover:text-primary-700 font-medium text-sm">
+              <button 
+                onClick={() => navigate('/aula-virtual/cursos')}
+                className="text-primary-600 hover:text-primary-700 font-medium text-sm transition-colors"
+              >
                 Ver todos →
               </button>
             </div>
@@ -245,7 +248,16 @@ const DashboardAulaVirtual = () => {
                             <span className="text-sm text-gray-500">
                               Modalidad: {course.modality || 'Virtual'}
                             </span>
-                            <button className="text-primary-600 hover:text-primary-700 font-medium text-sm">
+                            <button 
+                              onClick={() => {
+                                if (course.is_enrolled) {
+                                  navigate(`/aula-virtual/curso/${course.id}`);
+                                } else {
+                                  navigate('/aula-virtual/cursos');
+                                }
+                              }}
+                              className="text-primary-600 hover:text-primary-700 font-medium text-sm transition-colors"
+                            >
                               {course.is_enrolled ? 'Continuar →' : 'Inscribirse'}
                             </button>
                           </div>

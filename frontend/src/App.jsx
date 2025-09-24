@@ -12,6 +12,7 @@ import Dashboard from './pages/Dashboard';
 import DashboardAulaVirtual from './pages/DashboardAulaVirtual';
 import PerfilEstudiante from './pages/PerfilEstudiante';
 import CursosAulaVirtual from './pages/CursosAulaVirtual';
+import CursoDetalle from './pages/CursoDetalle';
 import CalendarioAulaVirtual from './pages/CalendarioAulaVirtual';
 import BibliotecaAulaVirtual from './pages/BibliotecaAulaVirtual';
 import QuizzesAulaVirtual from './pages/QuizzesAulaVirtual';
@@ -124,6 +125,13 @@ function App() {
         <ProtectedRoute>
           <AulaVirtualLayout>
             <CursosAulaVirtual />
+          </AulaVirtualLayout>
+        </ProtectedRoute>
+      } />
+      <Route path="/aula-virtual/curso/:courseId" element={
+        <ProtectedRoute>
+          <AulaVirtualLayout>
+            <CursoDetalle />
           </AulaVirtualLayout>
         </ProtectedRoute>
       } />

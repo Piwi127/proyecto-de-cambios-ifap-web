@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 // import { useAuth } from '../context/AuthContext.jsx'; // Comentado: no utilizado
 import { courseService } from '../services/courseService.js';
 import Card from '../components/Card';
 
 const CursosAulaVirtual = () => {
+  const navigate = useNavigate();
   const [filter, setFilter] = useState('todos');
   const [searchTerm, setSearchTerm] = useState('');
   const [courses, setCourses] = useState([]);
@@ -276,7 +278,18 @@ const CursosAulaVirtual = () => {
 
                 <div className="mt-auto">
                   {course.enrolled ? (
-                    <button className="w-full bg-primary-600 text-white py-2 px-4 rounded-lg hover:bg-primary-700 transition-colors text-sm font-medium">
+                    <button 
+                      onClick={() => {
+                        if (course.status === 'completado') {
+                          // Navegar a certificados o mostrar certificado
+                          navigate(`/aula-virtual/certificado/${course.id}`);
+                        } else {
+                          // Navegar al curso para continuar
+                          navigate(`/aula-virtual/curso/${course.id}`);
+                        }
+                      }}
+                      className="w-full bg-primary-600 text-white py-2 px-4 rounded-lg hover:bg-primary-700 transition-colors text-sm font-medium"
+                    >
                       {course.status === 'completado' ? 'Ver Certificado' : 'Continuar Curso'}
                     </button>
                   ) : (
