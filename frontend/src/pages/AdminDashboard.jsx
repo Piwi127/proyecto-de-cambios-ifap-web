@@ -13,7 +13,8 @@ import {
   AlertTriangle,
   Database,
   Server,
-  Clock
+  Clock,
+  RefreshCw
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import Card from '../components/Card';

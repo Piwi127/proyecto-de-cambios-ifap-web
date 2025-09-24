@@ -15,4 +15,5 @@ urlpatterns = [
     path('courses/bulk-activate/', CourseViewSet.as_view({'post': 'bulk_activate'}), name='course-bulk-activate'),
     path('courses/bulk-deactivate/', CourseViewSet.as_view({'post': 'bulk_deactivate'}), name='course-bulk-deactivate'),
     path('courses/bulk-delete/', CourseViewSet.as_view({'post': 'bulk_delete'}), name='course-bulk-delete'),
+    path('courses/<int:pk>/metrics/', CourseViewSet.as_view({'get': 'course_metrics'}), name='course-metrics'),
 ]

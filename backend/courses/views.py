@@ -368,67 +368,33 @@ class CourseViewSet(OptimizedQueryMixin, viewsets.ModelViewSet):
         serializer = self.get_serializer(taught_courses, many=True)
         return Response(serializer.data)
 
-    @action(detail=True, methods=['get'], url_path='course-metrics')
-    def metrics(self, request, pk=None):
+    @action(detail=True, methods=['get'], url_path='metrics', permission_classes=[IsAuthenticated, IsInstructorOrAdmin])
+    def course_metrics(self, request, pk=None):
         """
-        Obtiene métricas detalladas de un curso específico.
-
-        Este endpoint proporciona estadísticas completas sobre el rendimiento
-        y participación en un curso específico, incluyendo:
-
-        - Número total de estudiantes inscritos
-        - Progreso promedio de los estudiantes en las lecciones
-        - Puntuación promedio en quizzes y evaluaciones
-
-        Cálculos realizados:
-        1. Cuenta total de estudiantes activos en el curso
-        2. Calcula el progreso promedio basado en lecciones completadas
-        3. Obtiene puntuación promedio de todos los quizzes del curso
-
-        Permisos:
-        - Solo el instructor del curso puede acceder a estas métricas
-        - Los administradores (superusers) también tienen acceso
-        - Se deniega el acceso a usuarios no autorizados con HTTP 403
-
-        Args:
-            request: HttpRequest object
-            pk: ID del curso (requerido, desde URL)
-
-        Returns:
-            Response: JSON con métricas del curso:
-            {
-                'total_students': int,
-                'average_progress': float (porcentaje),
-                'average_score': float (porcentaje)
-            }
-
-        Raises:
-            Http403: Si el usuario no tiene permisos para ver las métricas
+        Retorna métricas detalladas para un curso específico.
+        Accesible por instructores del curso o administradores.
         """
-        course = self.get_object()
-        # Permitir acceso al instructor del curso o a superusers/administradores
-        if not (request.user.is_superuser or (hasattr(request.user, 'is_instructor') and request.user.is_instructor and request.user == course.instructor)):
-            return Response({'error': 'Solo el instructor o administradores pueden ver las métricas'}, status=status.HTTP_403_FORBIDDEN)
+        course = get_object_or_404(Course, pk=pk)
+
+        if not (request.user.is_superuser or (request.user.is_instructor and course.instructor == request.user)):
+            return Response({"detail": "No tiene permiso para ver las métricas de este curso."}, status=status.HTTP_403_FORBIDDEN)
+
         total_students = course.students.count()
-        total_lessons = course.lessons.count()
-        if total_lessons > 0:
-            completions = LessonCompletion.objects.filter(lesson__course=course).values('user').annotate(count=Count('id')).aggregate(avg=Avg('count'))
-            avg_progress = ((completions['avg'] or 0) / total_lessons) * 100
-        else:
-            avg_progress = 0
-        quizzes = Quiz.objects.filter(course=course)
-        if quizzes.exists():
-            avg_score = QuizAttempt.objects.filter(quiz__in=quizzes).aggregate(avg=Avg('percentage'))['avg'] or 0
-        else:
-            avg_score = 0
+        completed_lessons = LessonCompletion.objects.filter(lesson__course=course, completed_by=request.user, is_completed=True).count()
+        total_quizzes = Quiz.objects.filter(lesson__course=course).count()
+        completed_quizzes = QuizAttempt.objects.filter(quiz__lesson__course=course, user=request.user, is_completed=True).count()
+
         data = {
-            'total_students': total_students,
-            'average_progress': round(avg_progress, 2),
-            'average_score': round(avg_score, 2),
+            "total_students": total_students,
+            "completed_lessons": completed_lessons,
+            "total_quizzes": total_quizzes,
+            "completed_quizzes": completed_quizzes,
+            "course_id": course.id,
+            "course_title": course.title,
         }
         return Response(data)
 
-    # ========== NUEVOS ENDPOINTS ADMINISTRATIVOS ==========
+    # ========== OPERACIONES ADMINISTRATIVAS ==========
 
     @action(detail=True, methods=['post'], permission_classes=[IsAuthenticated, IsAdminUser])
     def activate(self, request, pk=None):

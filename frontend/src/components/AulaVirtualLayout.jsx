@@ -157,14 +157,7 @@ const AulaVirtualLayout = ({ children }) => {
       bgColor: "bg-violet-100",
       roles: ['admin']
     },
-    {
-      path: "/aula-virtual/configuracion-sistema",
-      icon: "🔧",
-      name: "Config. Sistema",
-      color: "text-slate-500",
-      bgColor: "bg-slate-100",
-      roles: ['admin']
-    },
+
     // Opciones comunes al final
     {
       name: 'Perfil',

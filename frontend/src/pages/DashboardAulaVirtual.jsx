@@ -6,6 +6,8 @@ import UserRoleDisplay from '../components/UserRoleDisplay';
 import RoleBasedStats from '../components/RoleBasedStats';
 import RoleBasedActions from '../components/RoleBasedActions';
 import { useNavigate } from 'react-router-dom';
+import DashboardProfesor from './DashboardProfesor';
+import AdminDashboard from './AdminDashboard';
 
 const DashboardAulaVirtual = () => {
   const { user } = useAuth();
@@ -137,6 +139,16 @@ const DashboardAulaVirtual = () => {
     );
   }
 
+  // Renderizado condicional basado en el rol del usuario
+  if (user?.is_superuser) {
+    return <AdminDashboard />;
+  }
+
+  if (user?.is_instructor) {
+    return <DashboardProfesor />;
+  }
+
+  // Dashboard para estudiantes (o usuarios sin rol específico)
   return (
     <div className="space-y-8">
       {/* Header con bienvenida */}

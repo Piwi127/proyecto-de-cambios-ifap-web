@@ -274,7 +274,7 @@ function App() {
           </AulaVirtualLayout>
         </ProtectedRoute>
       } />
-      <Route path="/aula-virtual/configuracion-sistema" element={
+      <Route path="/aula-virtual/configuracion" element={
         <ProtectedRoute>
           <AulaVirtualLayout>
             <ConfiguracionAulaVirtual />
