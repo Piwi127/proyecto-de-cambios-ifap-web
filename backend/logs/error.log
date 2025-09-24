@@ -6268,3 +6268,72 @@ Traceback (most recent call last):
   File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/http/request.py", line 150, in get_host
     raise DisallowedHost(msg)
 django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'www.ifap-edu.uk'. You may need to add 'www.ifap-edu.uk' to ALLOWED_HOSTS.
+[2025-09-24 12:25:06,974] ERROR error_handler exceptions:68 Exception in ContactInfoViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2025-09-24 12:26:08,853] ERROR error_handler exceptions:68 Exception in ContactInfoViewSet: TypeError: ContactInfo() got unexpected keyword arguments: 'phone_number', 'schedule'
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/jorge/pagina web nueva ifap dos/backend/contact/views.py", line 21, in list
+    ContactInfo.objects.create(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        address="Dirección de ejemplo",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        schedule="L-V: 9am-5pm"
+        ^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 656, in create
+    obj = self.model(**kwargs)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/db/models/base.py", line 567, in __init__
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: ContactInfo() got unexpected keyword arguments: 'phone_number', 'schedule'
+[2025-09-24 12:26:08,863] ERROR django.request log:241 Internal Server Error: /api/contact/info/
+[2025-09-24 12:30:24,996] ERROR error_handler exceptions:68 Exception in ContactFormSubmissionViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.

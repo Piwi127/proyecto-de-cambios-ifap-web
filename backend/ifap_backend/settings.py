@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     'tasks',
     'library',
     'chat',
+    'contact',
 ]
 
 MIDDLEWARE = [
