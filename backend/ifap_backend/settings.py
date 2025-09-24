@@ -36,7 +36,7 @@ SECRET_KEY = 'django-insecure-%-ug0@s9fjs9o=oz#d0*p%w91z_&x3dsz-rq6ir(i7+l0-=vu(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', 'www.ifap-edu.uk', 'ifap-edu.uk']
 
 # Channels configuration (moved to bottom with Redis config)
 
@@ -290,6 +290,10 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:8001",
     "http://localhost:8003",
     "http://127.0.0.1:8003",
+    "https://www.ifap-edu.uk",
+    "https://ifap-edu.uk",
+    "http://www.ifap-edu.uk",
+    "http://ifap-edu.uk",
 ]
 
 CORS_ALLOW_CREDENTIALS = True

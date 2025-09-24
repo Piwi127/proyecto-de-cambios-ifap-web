@@ -1,6 +1,14 @@
-tunnel: 016715e6-2fb6-4a62-a7e8-3ab94fefcd43
+tunnel: ifap-tunnel
 credentials-file: /root/.cloudflared/016715e6-2fb6-4a62-a7e8-3ab94fefcd43.json
 
 ingress:
-  # Route all traffic through Apache virtual hosts
-  - service: http://127.0.0.1:80
+  - hostname: www.ifap-edu.uk
+    service: http://localhost:80
+  - service: http_status:404
+
+# Configuration Notes:
+# - Apache serves on port 80 and proxies to backend (8000) and frontend (5174)
+# - Django backend ALLOWED_HOSTS includes: www.ifap-edu.uk, ifap-edu.uk
+# - CORS_ALLOWED_ORIGINS includes: https://www.ifap-edu.uk, https://ifap-edu.uk
+# - Vite frontend configured for port 5174 (consistent with start script)
+# - WebSocket support configured for both Django (/ws/) and Vite HMR (/vite-hmr)
