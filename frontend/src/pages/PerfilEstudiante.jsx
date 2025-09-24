@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { userService } from '../services/userService';
+// import { userService } from '../services/userService'; // Comentado: no utilizado
 import Card from '../components/Card';
 
 const PerfilEstudiante = () => {
-  const { user, updateProfile } = useAuth();
+  const { user, updateProfile: _updateProfile } = useAuth(); // updateProfile no se usa actualmente
   const [isEditing, setIsEditing] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
@@ -59,7 +59,8 @@ const PerfilEstudiante = () => {
       };
 
       // Actualizar perfil usando el contexto de autenticación
-      const updatedUser = await updateProfile(updateData);
+      // eslint-disable-next-line no-unused-vars
+      const _updatedUser = await _updateProfile(updateData);
 
       setSuccessMessage('Perfil actualizado exitosamente');
       setIsEditing(false);

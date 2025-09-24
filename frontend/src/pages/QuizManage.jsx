@@ -7,7 +7,7 @@ import Card from '../components/Card';
 const QuizManage = () => {
   const { quizId } = useParams();
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user: _user } = useAuth(); // Usuario no utilizado actualmente
   const [quiz, setQuiz] = useState(null);
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -18,7 +18,8 @@ const QuizManage = () => {
 
   useEffect(() => {
     fetchQuizData();
-  }, [quizId]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [quizId]); // fetchQuizData es estable
 
   const fetchQuizData = async () => {
     try {

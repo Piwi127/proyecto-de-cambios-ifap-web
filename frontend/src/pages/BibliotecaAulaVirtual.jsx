@@ -3,7 +3,7 @@ import Card from '../components/Card';
 
 const BibliotecaAulaVirtual = () => {
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, _setError] = useState(null);
 
   useEffect(() => {
     // Simular carga de datos

@@ -1,0 +1,85 @@
+[MASTER]
+# Archivos y directorios a ignorar
+ignore=migrations,venv,staticfiles,logs
+ignore-patterns=.*_initial\.py,.*_auto_.*\.py
+
+# Usar múltiples procesos para acelerar Pylint
+jobs=1
+
+# Cargar plugins específicos para Django
+load-plugins=pylint_django
+
+[MESSAGES CONTROL]
+# Deshabilitar algunos mensajes específicos para Django
+disable=
+    missing-module-docstring,
+    missing-class-docstring,
+    missing-function-docstring,
+    too-few-public-methods,
+    import-error,
+    no-member,
+    invalid-name,
+    duplicate-code
+
+# Habilitar solo advertencias importantes
+enable=
+    line-too-long,
+    unused-variable,
+    unused-import,
+    undefined-variable,
+    unused-argument
+
+[FORMAT]
+# Máximo número de caracteres por línea
+max-line-length=120
+
+# Número de espacios para indentación
+indent-string='    '
+
+[DESIGN]
+# Máximo número de argumentos para función/método
+max-args=10
+
+# Máximo número de variables locales
+max-locals=20
+
+# Máximo número de declaraciones de retorno
+max-returns=6
+
+# Máximo número de ramas
+max-branches=15
+
+[SIMILARITIES]
+# Número mínimo de líneas similares para reportar duplicación
+min-similarity-lines=6
+
+# Ignorar comentarios al computar similitudes
+ignore-comments=yes
+
+# Ignorar docstrings al computar similitudes
+ignore-docstrings=yes
+
+# Ignorar imports al computar similitudes
+ignore-imports=no
+
+[VARIABLES]
+# Lista de nombres adicionales que se supone están definidos en el entorno global
+additional-builtins=
+
+# Lista de strings que pueden identificar un callback
+callbacks=cb_,_cb
+
+[CLASSES]
+# Lista de nombres de métodos válidos
+valid-classmethod-first-arg=cls
+
+# Lista de nombres de métodos válidos
+valid-metaclass-classmethod-first-arg=mcs
+
+[IMPORTS]
+# Permitir wildcard imports en __init__.py
+allow-wildcard-with-all=no
+
+[EXCEPTIONS]
+# Excepciones que se consideran demasiado genéricas
+overgeneral-exceptions=Exception

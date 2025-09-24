@@ -8,7 +8,7 @@ import Card from '../components/Card';
 const QuizEdit = () => {
   const { quizId } = useParams();
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user: _user } = useAuth(); // Usuario no utilizado actualmente
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [courses, setCourses] = useState([]);
@@ -31,11 +31,12 @@ const QuizEdit = () => {
 
   useEffect(() => {
     fetchData();
-  }, [quizId]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [quizId]); // fetchData es estable
 
   useEffect(() => {
     if (formData.course) {
-      fetchLessons(formData.course);
+      fetchLessons();
     } else {
       setLessons([]);
     }
@@ -74,7 +75,7 @@ const QuizEdit = () => {
     }
   };
 
-  const fetchLessons = async (courseId) => {
+  const fetchLessons = async () => {
     try {
       // TODO: Implementar servicio para obtener lecciones de un curso
       setLessons([]);

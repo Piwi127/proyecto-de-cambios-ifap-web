@@ -18,7 +18,7 @@ import {
 
 const Foro = () => {
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user: _user } = useAuth();
   const [categories, setCategories] = useState([]);
   const [topics, setTopics] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);

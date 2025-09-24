@@ -88,7 +88,8 @@ const Contacto = () => {
         mensaje: '',
         tipoConsulta: 'general'
       });
-    } catch (error) {
+    // eslint-disable-next-line no-unused-vars
+    } catch (_error) {
       setSubmitMessage('Error al enviar el mensaje. Por favor, inténtalo de nuevo.');
     } finally {
       setIsSubmitting(false);

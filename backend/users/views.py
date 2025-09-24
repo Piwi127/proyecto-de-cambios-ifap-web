@@ -1,3 +1,17 @@
+"""
+Vistas para la gestión de usuarios en el sistema IFAP.
+
+Este módulo contiene las vistas de la API REST para:
+- Registro de nuevos usuarios
+- Autenticación y autorización
+- Gestión de perfiles de usuario
+- Administración de roles
+- Operaciones CRUD de usuarios
+
+Las vistas incluyen optimizaciones de consultas y logging de auditoría
+para garantizar el rendimiento y la trazabilidad del sistema.
+"""
+
 import logging
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
@@ -33,6 +47,19 @@ class UserRegisterView(CreateAPIView):
     authentication_classes = []
 
 class UserViewSet(OptimizedQueryMixin, viewsets.ModelViewSet):
+    """
+    ViewSet para la gestión completa de usuarios.
+    
+    Proporciona endpoints para:
+    - CRUD completo de usuarios
+    - Autenticación (login/logout)
+    - Gestión de roles
+    - Consulta de información del usuario actual
+    - Listado de usuarios por rol
+    - Resumen estadístico de roles
+    
+    Incluye optimizaciones de consultas automáticas y logging de auditoría.
+    """
     queryset = User.objects.all()
     serializer_class = UserSerializer
     pagination_class = StandardResultsPagination

@@ -27,17 +27,18 @@ import { AdminNotificationProvider, useAdminNotifications } from '../components/
 
 // Internal component that uses notifications
 const GestionCursosAdminContent = () => {
-  const { isAdmin, canManageCourses } = useAuth();
-  const { showSuccess, showError, showWarning, showConfirm, showBulkOperation } = useAdminNotifications();
+  const { isAdmin, canManageCourses: _canManageCourses } = useAuth();
+  const { showSuccess, showError, showWarning, showInfo, showConfirm: _showConfirm, showBulkOperation: _showBulkOperation } = useAdminNotifications();
   const [courses, setCourses] = useState([]);
   const [inactiveCourses, setInactiveCourses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [activeTab, setActiveTab] = useState('all');
-  const [searchTerm, setSearchTerm] = useState('');
+  const [activeTab, _setActiveTab] = useState('all');
+  const [searchTerm, _setSearchTerm] = useState('');
   const [selectedCourses, setSelectedCourses] = useState([]);
   const [showBulkOperations, setShowBulkOperations] = useState(false);
   const [showTransferModal, setShowTransferModal] = useState(false);
+  const [selectedCourseForTransfer, setSelectedCourseForTransfer] = useState(null);
   const [transferCourse, setTransferCourse] = useState(null);
   const [metrics, setMetrics] = useState(null);
   const [instructorStats, setInstructorStats] = useState([]);
@@ -57,9 +58,9 @@ const GestionCursosAdminContent = () => {
   const [selectedCourseForState, setSelectedCourseForState] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(12);
-  const [totalItems, setTotalItems] = useState(0);
-  const [sortBy, setSortBy] = useState('title');
-  const [sortOrder, setSortOrder] = useState('asc');
+  const [totalItems, _setTotalItems] = useState(0);
+  const [_sortBy, _setSortBy] = useState('title');
+  const [_sortOrder, _setSortOrder] = useState('asc');
 
   // Load data on component mount
   useEffect(() => {
@@ -248,7 +249,8 @@ const GestionCursosAdminContent = () => {
     setShowMaintenanceModal(true);
   };
 
-  const handleStateChange = (newState, reason) => {
+  // eslint-disable-next-line no-unused-vars
+  const handleStateChange = (newState, _reason) => {
     showSuccess(`Estado del curso actualizado a: ${newState}`);
     loadData();
     setShowStateManager(false);
@@ -262,7 +264,8 @@ const GestionCursosAdminContent = () => {
     setSelectedCourseForTransfer(null);
   };
 
-  const handlePoliciesSave = (policies) => {
+  // eslint-disable-next-line no-unused-vars
+  const handlePoliciesSave = (_policies) => {
     showSuccess('Políticas del sistema actualizadas exitosamente');
     setShowPoliciesModal(false);
   };
@@ -736,7 +739,9 @@ const GestionCursosAdminContent = () => {
             setShowDetailModal(false);
             setSelectedCourseForDetail(null);
           }}
-          onUpdate={(course) => {
+          onUpdate={
+            // eslint-disable-next-line no-unused-vars
+            (_course) => {
             showSuccess('Curso actualizado correctamente');
             loadData();
           }}

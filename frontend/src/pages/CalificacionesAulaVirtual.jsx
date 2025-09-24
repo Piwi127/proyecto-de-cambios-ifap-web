@@ -4,7 +4,7 @@ import { courseService } from '../services/courseService';
 import Card from '../components/Card';
 
 const CalificacionesAulaVirtual = () => {
-  const { user } = useAuth();
+  const { user: _user } = useAuth();
   const [courses, setCourses] = useState([]);
   const [selectedCourse, setSelectedCourse] = useState('');
   const [students, setStudents] = useState([]);

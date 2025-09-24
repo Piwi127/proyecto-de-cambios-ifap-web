@@ -2266,3 +2266,36 @@ django.http.response.Http404: “/home/jorge/pagina web nueva ifap dos/backend/@
 {"timestamp": "2025-09-23 19:07:45,433", "level": "INFO", "logger": "middleware", "message": "Response: 404 for GET /api/contact/info/"}
 {"timestamp": "2025-09-23 19:47:13,856", "level": "INFO", "logger": "middleware", "message": "Request: GET /.git/config"}
 {"timestamp": "2025-09-23 19:47:13,912", "level": "INFO", "logger": "middleware", "message": "Response: 400 for GET /.git/config"}
+{"timestamp": "2025-09-23 20:51:04,290", "level": "INFO", "logger": "middleware", "message": "Request: POST /api/users/login/"}
+{"timestamp": "2025-09-23 20:51:04,716", "level": "INFO", "logger": "middleware", "message": "Response: 200 for POST /api/users/login/"}
+{"timestamp": "2025-09-23 20:51:04,841", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/my_courses/"}
+{"timestamp": "2025-09-23 20:51:04,847", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/"}
+{"timestamp": "2025-09-23 20:51:04,875", "level": "INFO", "logger": "courses", "message": "User 10 requested course list"}
+{"timestamp": "2025-09-23 20:51:04,944", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/"}
+{"timestamp": "2025-09-23 20:51:04,968", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/chat/notifications/"}
+{"timestamp": "2025-09-23 20:51:04,996", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/chat/notifications/"}
+{"timestamp": "2025-09-23 20:51:05,001", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/my_courses/"}
+{"timestamp": "2025-09-23 20:51:05,011", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/chat/notifications/"}
+{"timestamp": "2025-09-23 20:51:05,035", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/my_courses/"}
+{"timestamp": "2025-09-23 20:51:05,036", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/chat/notifications/"}
+{"timestamp": "2025-09-23 20:51:05,091", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/my_courses/"}
+{"timestamp": "2025-09-23 20:51:05,108", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/my_courses/"}
+{"timestamp": "2025-09-23 20:51:05,149", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/users/role_summary/"}
+{"timestamp": "2025-09-23 20:51:05,202", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/users/role_summary/"}
+{"timestamp": "2025-09-23 20:51:05,207", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/my_courses/"}
+{"timestamp": "2025-09-23 20:51:05,218", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/users/role_summary/"}
+{"timestamp": "2025-09-23 20:51:05,238", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/users/role_summary/"}
+{"timestamp": "2025-09-23 20:51:17,384", "level": "INFO", "logger": "middleware", "message": "Request: POST /api/users/logout/"}
+{"timestamp": "2025-09-23 20:51:17,395", "level": "INFO", "logger": "middleware", "message": "Response: 400 for POST /api/users/logout/"}
+{"timestamp": "2025-09-23 20:57:00,545", "level": "INFO", "logger": "middleware", "message": "Request: GET /"}
+{"timestamp": "2025-09-23 20:57:00,549", "level": "INFO", "logger": "middleware", "message": "Request: GET /"}
+{"timestamp": "2025-09-23 20:57:00,675", "level": "INFO", "logger": "middleware", "message": "Response: 400 for GET /"}
+{"timestamp": "2025-09-23 20:57:00,683", "level": "INFO", "logger": "middleware", "message": "Response: 400 for GET /"}
+{"timestamp": "2025-09-23 20:57:12,112", "level": "INFO", "logger": "middleware", "message": "Request: GET /"}
+{"timestamp": "2025-09-23 20:57:12,168", "level": "INFO", "logger": "middleware", "message": "Response: 400 for GET /"}
+{"timestamp": "2025-09-23 20:57:25,836", "level": "INFO", "logger": "middleware", "message": "Request: GET /#"}
+{"timestamp": "2025-09-23 20:57:25,902", "level": "INFO", "logger": "middleware", "message": "Response: 400 for GET /#"}
+{"timestamp": "2025-09-23 21:04:57,146", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/contact/info/"}
+{"timestamp": "2025-09-23 21:04:57,185", "level": "INFO", "logger": "middleware", "message": "Response: 404 for GET /api/contact/info/"}
+{"timestamp": "2025-09-23 21:04:57,334", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/contact/info/"}
+{"timestamp": "2025-09-23 21:04:57,372", "level": "INFO", "logger": "middleware", "message": "Response: 404 for GET /api/contact/info/"}

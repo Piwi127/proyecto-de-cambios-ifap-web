@@ -986,7 +986,7 @@ export const courseService = {
   // ========== SECURITY AND AUDIT FUNCTIONS ==========
 
   // Validate course data before operations
-  validateCourseData(courseData, operation = 'create') {
+  validateCourseData(courseData) {
     const errors = [];
 
     // Required fields validation

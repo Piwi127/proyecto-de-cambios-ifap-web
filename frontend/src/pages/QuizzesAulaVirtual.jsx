@@ -31,7 +31,8 @@ const QuizzesAulaVirtual = () => {
     if (!authLoading) {
       fetchData();
     }
-  }, [authLoading]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [authLoading]); // fetchData es estable
 
   const fetchData = async () => {
     try {
@@ -93,7 +94,7 @@ const QuizzesAulaVirtual = () => {
   const handlePublishQuiz = async (quizId) => {
     setActionLoading(quizId);
     try {
-      const updatedQuiz = await quizService.updateQuiz(quizId, { is_published: true });
+      const _updatedQuiz = await quizService.updateQuiz(quizId, { is_published: true });
       setQuizzes(quizzes.map(quiz =>
         quiz.id === quizId ? { ...quiz, is_published: true } : quiz
       ));
@@ -109,7 +110,7 @@ const QuizzesAulaVirtual = () => {
   const handleUnpublishQuiz = async (quizId) => {
     setActionLoading(quizId);
     try {
-      const updatedQuiz = await quizService.updateQuiz(quizId, { is_published: false });
+      const _updatedQuiz = await quizService.updateQuiz(quizId, { is_published: false });
       setQuizzes(quizzes.map(quiz =>
         quiz.id === quizId ? { ...quiz, is_published: false } : quiz
       ));

@@ -79,6 +79,7 @@ const NotificacionesAulaVirtual = () => {
     }
   };
 
+  // eslint-disable-next-line no-unused-vars
   const getPriorityColor = (priority) => {
     switch (priority) {
       case 'alta': return 'border-l-red-500 bg-red-50';
@@ -88,6 +89,7 @@ const NotificacionesAulaVirtual = () => {
     }
   };
 
+  // eslint-disable-next-line no-unused-vars
   const getTypeLabel = (type) => {
     switch (type) {
       case 'tarea': return 'Tarea';
@@ -100,6 +102,7 @@ const NotificacionesAulaVirtual = () => {
     }
   };
 
+  // eslint-disable-next-line no-unused-vars
   const formatTime = (timestamp) => {
     const date = new Date(timestamp);
     const now = new Date();

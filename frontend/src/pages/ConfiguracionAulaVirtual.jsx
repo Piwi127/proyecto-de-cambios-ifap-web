@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 
 const ConfiguracionAulaVirtual = () => {
   const { user, loading, isAuthenticated } = useAuth();
-  const [activeTab, setActiveTab] = useState('perfil');
+  const [_activeTab, _setActiveTab] = useState('perfil');
 
   // Debug information
   console.log('ConfiguracionAulaVirtual Debug:', {

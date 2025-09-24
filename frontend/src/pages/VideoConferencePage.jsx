@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import VideoConference from '../components/VideoConference';
 
 const VideoConferencePage = () => {
-  const [roomName, setRoomName] = useState('AulaVirtualIFAP'); // Nombre de sala dinámico basado en curso en el futuro
+  const roomName = 'AulaVirtualIFAP'; // Nombre de sala dinámico basado en curso en el futuro
 
   return (
     <div className="p-6">

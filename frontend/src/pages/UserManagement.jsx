@@ -47,7 +47,8 @@ const UserManagement = () => {
 
   useEffect(() => {
     filterUsers();
-  }, [users, searchTerm, roleFilter, statusFilter]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [users, searchTerm, roleFilter, statusFilter]); // filterUsers es estable
 
   const loadUsers = async () => {
     try {

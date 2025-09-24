@@ -5,7 +5,7 @@ import Card from '../components/Card';
 
 const QuizTemplates = () => {
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user: _user } = useAuth(); // Usuario no utilizado actualmente
   const [templates, setTemplates] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('all');

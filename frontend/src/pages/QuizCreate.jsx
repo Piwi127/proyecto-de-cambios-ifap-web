@@ -7,7 +7,7 @@ import Card from '../components/Card';
 
 const QuizCreate = () => {
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user: _user } = useAuth(); // Usuario no utilizado actualmente
   const [loading, setLoading] = useState(false);
   const [courses, setCourses] = useState([]);
   const [lessons, setLessons] = useState([]);
@@ -33,7 +33,7 @@ const QuizCreate = () => {
 
   useEffect(() => {
     if (formData.course) {
-      fetchLessons(formData.course);
+      fetchLessons();
     } else {
       setLessons([]);
     }
@@ -48,7 +48,7 @@ const QuizCreate = () => {
     }
   };
 
-  const fetchLessons = async (courseId) => {
+  const fetchLessons = async () => {
     try {
       // TODO: Implementar servicio para obtener lecciones de un curso
       setLessons([]);

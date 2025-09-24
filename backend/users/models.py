@@ -1,8 +1,27 @@
+"""
+Módulo de modelos de usuarios para el sistema IFAP.
+
+Este módulo define el modelo personalizado de usuario que extiende AbstractUser
+de Django para incluir roles específicos del sistema educativo.
+"""
+
 from django.db import models
 from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.core.exceptions import ValidationError
 
 class User(AbstractUser):
+    """
+    Modelo personalizado de usuario para el sistema IFAP.
+    
+    Extiende AbstractUser de Django para incluir roles específicos:
+    - Estudiante: Puede inscribirse en cursos y realizar actividades
+    - Docente: Puede crear y gestionar cursos, calificar estudiantes
+    - Administrador: Acceso completo al sistema
+    
+    Attributes:
+        is_student (bool): Indica si el usuario es estudiante
+        is_instructor (bool): Indica si el usuario es docente
+    """
     is_student = models.BooleanField(default=True, verbose_name='Es estudiante')
     is_instructor = models.BooleanField(default=False, verbose_name='Es docente')
 

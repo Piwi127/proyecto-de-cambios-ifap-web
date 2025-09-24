@@ -135,7 +135,7 @@ class ErrorHandler {
     };
 
     // Console log en desarrollo
-    if (process.env.NODE_ENV === 'development') {
+    if (import.meta.env.DEV) {
       console.group('🚨 Error Captured');
       console.error('Error Info:', errorInfo);
       console.error('Full Log Data:', logData);
@@ -156,7 +156,7 @@ class ErrorHandler {
         const payload = JSON.parse(atob(token.split('.')[1]));
         return payload.user_id;
       }
-    } catch (e) {
+    } catch {
       // Token inválido o no existe
     }
     return null;
@@ -229,7 +229,7 @@ class ErrorHandler {
   getStoredErrorLogs() {
     try {
       return JSON.parse(localStorage.getItem('error_logs') || '[]');
-    } catch (e) {
+    } catch {
       return [];
     }
   }

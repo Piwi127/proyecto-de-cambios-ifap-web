@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useAuth } from '../context/AuthContext.jsx';
+// import { useAuth } from '../context/AuthContext.jsx'; // Comentado: no utilizado
 import { courseService } from '../services/courseService.js';
 import Card from '../components/Card';
 
@@ -10,7 +10,7 @@ const CursosAulaVirtual = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [enrolling, setEnrolling] = useState({});
-  const {  } = useAuth();
+  // const {  } = useAuth(); // Comentado: no se utiliza actualmente
 
   useEffect(() => {
     fetchCourses();

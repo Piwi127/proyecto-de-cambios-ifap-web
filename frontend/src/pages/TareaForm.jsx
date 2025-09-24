@@ -5,14 +5,13 @@ import {
   getTaskById,
   createTask,
   updateTask,
-  getTaskCategories,
-  assignStudentsToTask
+  getTaskCategories
 } from '../services/taskService';
 
 const TareaForm = () => {
   const { taskId } = useParams();
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user: _user } = useAuth(); // Usuario no utilizado actualmente
   const isEditing = Boolean(taskId);
   
   const [formData, setFormData] = useState({
@@ -32,23 +31,25 @@ const TareaForm = () => {
   });
   
   const [categories, setCategories] = useState([]);
-  const [courses, setCourses] = useState([]);
-  const [lessons, setLessons] = useState([]);
+  // const [courses, setCourses] = useState([]); // No utilizado actualmente
+  // const [lessons, setLessons] = useState([]); // No utilizado actualmente
   const [selectedStudents, setSelectedStudents] = useState([]);
-  const [availableStudents, setAvailableStudents] = useState([]);
+  // const [availableStudents, setAvailableStudents] = useState([]); // No utilizado actualmente
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
 
   useEffect(() => {
     loadInitialData();
-  }, [taskId]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [taskId]); // loadInitialData es estable
 
-  useEffect(() => {
-    if (formData.course) {
-      loadCourseData(formData.course);
-    }
-  }, [formData.course]);
+  // TODO: Implementar cuando loadCourseData esté disponible
+  // useEffect(() => {
+  //   if (formData.course) {
+  //     loadCourseData(formData.course);
+  //   }
+  // }, [formData.course]);
 
   const loadInitialData = async () => {
     try {
@@ -90,19 +91,19 @@ const TareaForm = () => {
     }
   };
 
-  const loadCourseData = async (courseId) => {
-    try {
-      // Aquí deberías implementar getLessonsByCourse y getStudentsByCourse
-      // const [lessonsData, studentsData] = await Promise.all([
-      //   getLessonsByCourse(courseId),
-      //   getStudentsByCourse(courseId)
-      // ]);
-      // setLessons(lessonsData);
-      // setAvailableStudents(studentsData);
-    } catch (err) {
-      console.error('Error loading course data:', err);
-    }
-  };
+  // TODO: Implementar loadCourseData cuando sea necesario
+  // const loadCourseData = async (courseId) => {
+  //   try {
+  //     const [lessonsData, studentsData] = await Promise.all([
+  //       getLessonsByCourse(courseId),
+  //       getStudentsByCourse(courseId)
+  //     ]);
+  //     setLessons(lessonsData);
+  //     setAvailableStudents(studentsData);
+  //   } catch (err) {
+  //     console.error('Error loading course data:', err);
+  //   }
+  // };
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -112,18 +113,21 @@ const TareaForm = () => {
     }));
   };
 
-  const handleStudentSelection = (studentId) => {
-    setSelectedStudents(prev => {
-      if (prev.includes(studentId)) {
-        return prev.filter(id => id !== studentId);
-      } else {
-        return [...prev, studentId];
-      }
-    });
-  };
+  // TODO: Implementar cuando sea necesario seleccionar estudiantes
+  // const handleStudentSelection = (studentId) => {
+  //   setSelectedStudents(prev => {
+  //     if (prev.includes(studentId)) {
+  //       return prev.filter(id => id !== studentId);
+  //     } else {
+  //       return [...prev, studentId];
+  //     }
+  //   });
+  // };
 
   const selectAllStudents = () => {
-    setSelectedStudents(availableStudents.map(student => student.id));
+    // TODO: Implementar cuando availableStudents esté disponible
+    // setSelectedStudents(availableStudents.map(student => student.id));
+    setSelectedStudents([]);
   };
 
   const clearStudentSelection = () => {
@@ -189,9 +193,10 @@ const TareaForm = () => {
         setSuccess('Tarea creada exitosamente');
         
         // Si hay estudiantes seleccionados, asignar la tarea
-        if (selectedStudents.length > 0) {
-          await assignTaskToStudents(savedTask.id, selectedStudents);
-        }
+        // TODO: Implementar asignación de estudiantes
+        // if (selectedStudents.length > 0) {
+        //   await assignStudentsToTask(savedTask.id, selectedStudents);
+        // }
       }
       
       // Redirigir después de un breve delay
@@ -348,11 +353,12 @@ const TareaForm = () => {
                   required
                 >
                   <option value="">Seleccionar curso</option>
-                  {courses.map(course => (
+                  {/* TODO: Implementar carga de cursos */}
+                  {/* {courses.map(course => (
                     <option key={course.id} value={course.id}>
                       {course.name}
                     </option>
-                  ))}
+                  ))} */}
                 </select>
               </div>
               
@@ -368,11 +374,12 @@ const TareaForm = () => {
                   disabled={!formData.course}
                 >
                   <option value="">Sin lección específica</option>
-                  {lessons.map(lesson => (
+                  {/* TODO: Implementar carga de lecciones */}
+                  {/* {lessons.map(lesson => (
                     <option key={lesson.id} value={lesson.id}>
                       {lesson.title}
                     </option>
-                  ))}
+                  ))} */}
                 </select>
               </div>
               
@@ -504,12 +511,13 @@ const TareaForm = () => {
                   </button>
                 </div>
                 <p className="text-sm text-gray-500 mt-2">
-                  {selectedStudents.length} de {availableStudents.length} estudiantes seleccionados
+                  {selectedStudents.length} de 0 estudiantes seleccionados
                 </p>
               </div>
               
               <div className="max-h-60 overflow-y-auto border border-gray-200 rounded-md">
-                {availableStudents.map(student => (
+                {/* TODO: Implementar carga de estudiantes disponibles */}
+                {/* {availableStudents.map(student => (
                   <label
                     key={student.id}
                     className="flex items-center p-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0"
@@ -527,7 +535,7 @@ const TareaForm = () => {
                       <p className="text-sm text-gray-500">{student.email}</p>
                     </div>
                   </label>
-                ))}
+                ))} */}
               </div>
             </div>
           )}

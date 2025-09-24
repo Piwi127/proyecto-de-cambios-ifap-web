@@ -104,6 +104,24 @@ class CourseAuditLog(models.Model):
         )
 
 class Course(models.Model):
+    """
+    Modelo principal para representar cursos en el sistema IFAP.
+    
+    Un curso es la unidad básica de enseñanza que puede contener lecciones,
+    quizzes, tareas y otros materiales educativos. Los cursos son creados
+    por instructores y pueden tener estudiantes inscritos.
+    
+    Attributes:
+        title (str): Título del curso
+        description (str): Descripción detallada del curso
+        instructor (User): Docente responsable del curso
+        students (ManyToMany): Estudiantes inscritos en el curso
+        created_at (datetime): Fecha de creación
+        updated_at (datetime): Fecha de última actualización
+        is_active (bool): Estado activo/inactivo del curso
+        duration_hours (int): Duración estimada en horas
+        modality (str): Modalidad del curso (presencial, virtual, híbrido)
+    """
     title = models.CharField(max_length=200)
     description = models.TextField()
     instructor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='courses_taught')

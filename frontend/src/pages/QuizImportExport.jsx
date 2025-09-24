@@ -130,7 +130,8 @@ const QuizImportExport = () => {
     return { valid: errors.length === 0, errors };
   };
 
-  const processImportData = async (data) => {
+  // eslint-disable-next-line no-unused-vars
+  const processImportData = async (_data) => {
     // TODO: Implementar procesamiento real con backend
     return new Promise((resolve) => {
       setTimeout(() => {

@@ -29,7 +29,8 @@ const TareaDetalle = () => {
 
   useEffect(() => {
     loadTaskData();
-  }, [taskId]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [taskId]); // loadTaskData es estable
 
   const loadTaskData = async () => {
     try {

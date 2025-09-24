@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 const DashboardAulaVirtual = () => {
   const { user } = useAuth();
-  const [stats, setStats] = useState({
+  const [_stats, _setStats] = useState({
     cursosInscritos: 0,
     cursosCompletados: 0,
     horasEstudiadas: 0,
@@ -91,7 +91,7 @@ const DashboardAulaVirtual = () => {
         setEnrolledCourses(myCourses || []);
 
         // Calcular estadísticas reales
-        setStats({
+        _setStats({
           cursosInscritos: myCourses?.length || 0,
           cursosCompletados: myCourses?.filter(course => course.progress === 100).length || 0,
           horasEstudiadas: myCourses?.reduce((total, course) => total + (course.duration_hours || 0), 0) || 0,

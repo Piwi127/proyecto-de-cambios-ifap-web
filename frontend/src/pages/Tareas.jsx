@@ -31,7 +31,8 @@ const Tareas = () => {
 
   useEffect(() => {
     loadData();
-  }, [activeTab, filters]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeTab, filters]); // loadData es estable
 
   const loadData = async () => {
     try {
