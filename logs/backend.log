@@ -29,3 +29,92 @@ INFO Dashboard stats requested by admin user 10 (jorge1)
 INFO Response: 200 for GET /api/users/dashboard_stats/
 INFO Request: POST /api/users/login/
 INFO Response: 200 for POST /api/users/login/
+INFO Request: POST /api/users/login/
+INFO Response: 200 for POST /api/users/login/
+INFO Request: GET /api/courses/my_courses/
+INFO Request: GET /api/courses/
+INFO Response: 200 for GET /api/courses/
+INFO Request: GET /api/chat/notifications/
+INFO Response: 200 for GET /api/chat/notifications/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/chat/notifications/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/chat/notifications/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/users/dashboard_stats/
+INFO Request: GET /api/courses/my_courses/
+INFO Dashboard stats requested by admin user 10 (jorge1)
+INFO Response: 200 for GET /api/users/dashboard_stats/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/users/dashboard_stats/
+INFO Dashboard stats requested by admin user 10 (jorge1)
+INFO Response: 200 for GET /api/users/dashboard_stats/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Request: GET /api/users/dashboard_stats/
+INFO Dashboard stats requested by admin user 10 (jorge1)
+INFO Response: 200 for GET /api/users/dashboard_stats/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/users/dashboard_stats/
+INFO Dashboard stats requested by admin user 10 (jorge1)
+INFO Response: 200 for GET /api/users/dashboard_stats/
+INFO Request: POST /api/users/logout/
+INFO Response: 400 for POST /api/users/logout/
+INFO Request: GET /api/courses/
+INFO User 10 requested course list
+INFO Response: 200 for GET /api/courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Request: GET /api/users/dashboard_stats/
+INFO Dashboard stats requested by admin user 10 (jorge1)
+INFO Response: 200 for GET /api/users/dashboard_stats/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/users/dashboard_stats/
+INFO Dashboard stats requested by admin user 10 (jorge1)
+INFO Response: 200 for GET /api/users/dashboard_stats/
+INFO Request: GET /api/chat/notifications/
+INFO Response: 200 for GET /api/chat/notifications/
+INFO Request: GET /api/chat/notifications/
+INFO Response: 200 for GET /api/chat/notifications/
+INFO Request: GET /api/chat/notifications/
+INFO Response: 200 for GET /api/chat/notifications/
+INFO Request: GET /api/chat/notifications/
+INFO Response: 200 for GET /api/chat/notifications/
+INFO Request: GET /api/users/me/
+INFO User 10 accessed profile
+INFO Response: 200 for GET /api/users/me/
+INFO Request: GET /api/users/me/
+INFO User 10 accessed profile
+INFO Response: 200 for GET /api/users/me/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: POST /api/users/login/
+INFO Response: 200 for POST /api/users/login/
+INFO Request: GET /api/courses/my_courses/
+INFO Request: GET /api/chat/notifications/
+INFO Response: 200 for GET /api/chat/notifications/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/chat/notifications/
+INFO Response: 200 for GET /api/chat/notifications/
+INFO Request: GET /api/users/dashboard_stats/
+INFO Request: GET /api/courses/my_courses/
+INFO Dashboard stats requested by admin user 10 (jorge1)
+INFO Response: 200 for GET /api/users/dashboard_stats/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/users/dashboard_stats/
+INFO Dashboard stats requested by admin user 10 (jorge1)
+INFO Response: 200 for GET /api/users/dashboard_stats/
+INFO Request: GET /api/chat/rooms/
+INFO Response: 200 for GET /api/chat/rooms/
+INFO Request: POST /api/users/logout/
+INFO Response: 400 for POST /api/users/logout/
