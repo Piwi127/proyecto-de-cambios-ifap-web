@@ -21,7 +21,7 @@ const NavbarLogo = ({ isDarkMode }) => {
       </div>
       {/* Nombre del Instituto */}
       <span className="self-center text-2xl font-extrabold whitespace-nowrap text-gray-900 dark:text-white transition-colors duration-300 group-hover:text-primary-700 dark:group-hover:text-primary-300">
-        INSTITUTO DE FORMACIÓN Archivística DEL PERÚ
+        Instituto de Formación Archivística del Perú
       </span>
     </Link>
   );

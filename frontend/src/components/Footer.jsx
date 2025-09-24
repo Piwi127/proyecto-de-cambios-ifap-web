@@ -10,10 +10,10 @@ const Footer = () => {
               <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold">IFAP</span>
               </div>
-              <h3 className="text-lg font-bold">IFAP INSTITUTO DE FORMACIÓN Archivística DEL PERÚ</h3>
+              <h3 className="text-lg font-bold">IFAP Instituto de Formación Archivística del Perú</h3>
             </div>
             <p className="text-neutral-400">
-              IFAP INSTITUTO DE FORMACIÓN ARCHIVÍSTICA DEL PERÚ - Formación profesional en archivística y gestión documental.
+              IFAP Instituto de Formación Archivística del Perú - Formación profesional en archivística y gestión documental.
             </p>
           </div>
           <div>
@@ -43,7 +43,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-neutral-800 mt-8 pt-8 text-center text-neutral-400">
-          <p>&copy; 2025 IFAP INSTITUTO DE FORMACIÓN Archivística DEL PERÚ. Todos los derechos reservados.</p>
+          <p>&copy; 2025 IFAP Instituto de Formación Archivística del Perú. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

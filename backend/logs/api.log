@@ -2264,3 +2264,5 @@ django.http.response.Http404: “/home/jorge/pagina web nueva ifap dos/backend/@
 {"timestamp": "2025-09-23 19:07:45,378", "level": "INFO", "logger": "middleware", "message": "Response: 404 for GET /api/contact/info/"}
 {"timestamp": "2025-09-23 19:07:45,398", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/contact/info/"}
 {"timestamp": "2025-09-23 19:07:45,433", "level": "INFO", "logger": "middleware", "message": "Response: 404 for GET /api/contact/info/"}
+{"timestamp": "2025-09-23 19:47:13,856", "level": "INFO", "logger": "middleware", "message": "Request: GET /.git/config"}
+{"timestamp": "2025-09-23 19:47:13,912", "level": "INFO", "logger": "middleware", "message": "Response: 400 for GET /.git/config"}

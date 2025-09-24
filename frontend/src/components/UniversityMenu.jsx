@@ -148,7 +148,7 @@ const UniversityMenu = () => {
               <h1 className="text-xl font-bold text-gradient">
                 Instituto IFAP
               </h1>
-              <p className="text-xs text-gray-600 -mt-1">Instituto de Formación Académica Profesional</p>
+              <p className="text-xs text-gray-600 -mt-1">Instituto de Formación Archivística del Perú</p>
             </div>
           </div>
 
