@@ -341,12 +341,63 @@ class CourseViewSet(OptimizedQueryMixin, viewsets.ModelViewSet):
         course.students.remove(user)
         return Response({'message': 'Te has dado de baja del curso'})
 
-    @action(detail=False, methods=['get'])
+    @action(detail=False, methods=['get'], permission_classes=[IsAuthenticated])
     def my_courses(self, request):
+        """
+        Retorna los cursos en los que el usuario autenticado está inscrito,
+        incluyendo el progreso de lecciones y quizzes.
+        """
         user = request.user
-        enrolled_courses = user.courses_enrolled.filter(is_active=True)
-        serializer = self.get_serializer(enrolled_courses, many=True)
-        return Response(serializer.data)
+        enrolled_courses = Course.objects.filter(students=user, is_active=True).prefetch_related('lessons')
+
+        courses_data = []
+        for course in enrolled_courses:
+            total_lessons = course.lessons.count()
+            completed_lessons = LessonCompletion.objects.filter(
+                lesson__course=course,
+                user=user,
+                is_completed=True
+            ).count()
+
+            total_quizzes = Quiz.objects.filter(lesson__course=course).count()
+            completed_quizzes = QuizAttempt.objects.filter(
+                quiz__lesson__course=course,
+                user=user,
+                is_passed=True
+            ).count()
+
+            progress_lessons = (completed_lessons / total_lessons * 100) if total_lessons > 0 else 0
+            progress_quizzes = (completed_quizzes / total_quizzes * 100) if total_quizzes > 0 else 0
+            
+            # Simple average of lesson and quiz progress for overall course progress
+            overall_progress = (progress_lessons + progress_quizzes) / 2
+
+            # Get next lesson (first incomplete lesson)
+            next_lesson = None
+            completed_lesson_ids = LessonCompletion.objects.filter(
+                lesson__course=course,
+                user=user,
+                is_completed=True
+            ).values_list('lesson_id', flat=True)
+            
+            next_lesson = course.lessons.filter(is_published=True).exclude(
+                id__in=completed_lesson_ids
+            ).order_by('order').first()
+            
+            courses_data.append({
+                "id": course.id,
+                "title": course.title,
+                "description": course.description,
+                "instructor": course.instructor.get_full_name() if course.instructor else "N/A",
+                "progress": round(overall_progress, 2),
+                "next_lesson_title": next_lesson.title if next_lesson else "No hay lecciones pendientes",
+                "total_lessons": total_lessons,
+                "completed_lessons": completed_lessons,
+                "total_quizzes": total_quizzes,
+                "completed_quizzes": completed_quizzes,
+            })
+
+        return Response(courses_data)
 
     @action(detail=False, methods=['get'])
     def taught_courses(self, request):

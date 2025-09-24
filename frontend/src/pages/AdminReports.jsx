@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext.jsx';
 import Card from '../components/Card';
+import reportsService from '../services/reportsService';
 
 const AdminReports = () => {
   const navigate = useNavigate();
@@ -37,72 +38,77 @@ const AdminReports = () => {
   const loadDashboardData = async () => {
     try {
       setLoading(true);
-      // TODO: Implementar carga de datos desde la API
+      
+      // Cargar datos reales desde la API
+      const [
+        systemMetrics,
+        userMetrics,
+        courseMetrics,
+        chartData
+      ] = await Promise.all([
+        reportsService.getSystemMetrics(timeRange),
+        reportsService.getUserMetrics(timeRange),
+        reportsService.getCourseMetrics(timeRange),
+        reportsService.getChartData('all', timeRange)
+      ]);
 
-      // Datos de ejemplo
-      const mockStats = {
+      // Mapear datos del backend al formato esperado por el componente
+      const mappedStats = {
         users: {
-          total: 1250,
-          active: 890,
-          new: 45,
-          growth: 12.5
+          total: userMetrics?.total_users || 0,
+          active: userMetrics?.active_users || 0,
+          new: userMetrics?.new_users || 0,
+          growth: userMetrics?.growth_rate || 0
         },
         courses: {
-          total: 67,
-          active: 52,
-          completed: 2340,
-          enrollment: 15.8
+          total: courseMetrics?.total_courses || 0,
+          active: courseMetrics?.active_courses || 0,
+          completed: courseMetrics?.completed_enrollments || 0,
+          enrollment: courseMetrics?.enrollment_rate || 0
         },
         lessons: {
-          total: 450,
-          views: 12500,
-          avg_completion: 78.5,
-          popular: 'Introducción a Archivística'
+          total: courseMetrics?.total_lessons || 0,
+          views: courseMetrics?.total_views || 0,
+          avg_completion: courseMetrics?.avg_completion_rate || 0,
+          popular: courseMetrics?.most_popular_course || 'N/A'
         },
         forum: {
-          posts: 890,
-          topics: 156,
-          replies: 2340,
-          active_users: 234
+          posts: systemMetrics?.forum_posts || 0,
+          topics: systemMetrics?.forum_topics || 0,
+          replies: systemMetrics?.forum_replies || 0,
+          active_users: systemMetrics?.forum_active_users || 0
         },
         system: {
-          uptime: 99.8,
-          response_time: 245,
-          storage_used: 68.5,
-          bandwidth: 2.4
+          uptime: systemMetrics?.uptime || 0,
+          response_time: systemMetrics?.avg_response_time || 0,
+          storage_used: systemMetrics?.storage_usage || 0,
+          bandwidth: systemMetrics?.bandwidth_usage || 0
         }
       };
 
-      const mockChartData = {
-        userGrowth: [
-          { month: 'Ene', users: 1200 },
-          { month: 'Feb', users: 1180 },
-          { month: 'Mar', users: 1220 },
-          { month: 'Abr', users: 1250 },
-          { month: 'May', users: 1280 },
-          { month: 'Jun', users: 1250 }
-        ],
-        courseEnrollment: [
-          { course: 'Archivística Básica', enrolled: 450 },
-          { course: 'Gestión Documental', enrolled: 380 },
-          { course: 'Preservación Digital', enrolled: 320 },
-          { course: 'Normas ISO', enrolled: 280 },
-          { course: 'Auditoría Archivística', enrolled: 220 }
-        ],
-        activityByHour: [
-          { hour: '06:00', activity: 12 },
-          { hour: '09:00', activity: 45 },
-          { hour: '12:00', activity: 78 },
-          { hour: '15:00', activity: 92 },
-          { hour: '18:00', activity: 67 },
-          { hour: '21:00', activity: 34 }
-        ]
+      const mappedChartData = {
+        userGrowth: chartData?.user_growth || [],
+        courseEnrollment: chartData?.course_enrollment || [],
+        activityByHour: chartData?.activity_by_hour || []
       };
 
-      setStats(mockStats);
-      setChartData(mockChartData);
+      setStats(mappedStats);
+      setChartData(mappedChartData);
     } catch (error) {
       console.error('Error loading dashboard data:', error);
+      // Fallback a datos por defecto en caso de error
+      setStats({
+        users: { total: 0, active: 0, new: 0, growth: 0 },
+        courses: { total: 0, active: 0, completed: 0, enrollment: 0 },
+        lessons: { total: 0, views: 0, avg_completion: 0, popular: 'N/A' },
+        forum: { posts: 0, topics: 0, replies: 0, active_users: 0 },
+        system: { uptime: 0, response_time: 0, storage_used: 0, bandwidth: 0 }
+      });
+      setChartData({
+        userGrowth: [],
+        courseEnrollment: [],
+        activityByHour: []
+      });
     } finally {
       setLoading(false);
     }

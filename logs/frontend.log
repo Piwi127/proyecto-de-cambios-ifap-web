@@ -3,30 +3,10 @@
 > vite --port 5174
 
 
-  VITE v7.1.6  ready in 1238 ms
+  VITE v7.1.7  ready in 1229 ms
 
   ➜  Local:   http://localhost:5174/
   ➜  Network: http://192.168.123.38:5174/
   ➜  Network: http://172.18.0.1:5174/
-6:39:31 p. m. [vite] vite.config.js changed, restarting server...
-6:39:31 p. m. [vite] vite.config.js changed, restarting server...
-WebSocket server error: Port 5173 is already in use
-6:39:31 p. m. [vite] server restarted.
-
-  ➜  Local:   http://localhost:5174/
-  ➜  Network: http://192.168.123.38:5174/
-  ➜  Network: http://172.18.0.1:5174/
-
-  ➜  Local:   http://localhost:5174/
-  ➜  Network: http://192.168.123.38:5174/
-  ➜  Network: http://172.18.0.1:5174/
-6:42:04 p. m. [vite] vite.config.js changed, restarting server...
-WebSocket server error: Port 5173 is already in use
-6:42:04 p. m. [vite] server restarted.
-6:42:04 p. m. [vite] vite.config.js changed, restarting server...
-WebSocket server error: Port 5173 is already in use
-6:42:05 p. m. [vite] server restarted.
-7:04:33 p. m. [vite] (client) page reload index.html
-7:04:33 p. m. [vite] (client) page reload index.html
-7:04:42 p. m. [vite] (client) page reload index.html
-7:04:42 p. m. [vite] (client) page reload index.html
+10:48:27 p. m. [vite] .env changed, restarting server...
+10:48:27 p. m. [vite] server restarted.

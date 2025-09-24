@@ -37,6 +37,13 @@ from ifap_backend.query_optimizations import OptimizedQueryMixin, UserQueryOptim
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 
+# Imports para estadísticas del dashboard
+from courses.models import Course
+from lessons.models import Lesson
+from quizzes.models import Quiz
+from forum.models import ForumTopic
+from library.models import LibraryFile
+
 audit_logger = logging.getLogger('audit')
 
 # Vista para el registro de usuarios
@@ -257,6 +264,109 @@ class UserViewSet(OptimizedQueryMixin, viewsets.ModelViewSet):
         }
         
         return Response(summary)
+
+    @swagger_auto_schema(
+        operation_description="Obtener estadísticas completas del dashboard administrativo",
+        responses={
+            200: openapi.Response(
+                description="Estadísticas del sistema",
+                examples={
+                    "application/json": {
+                        "users": {
+                            "total": 14,
+                            "active": 14,
+                            "students": 11,
+                            "instructors": 2,
+                            "admins": 3
+                        },
+                        "courses": {
+                            "total": 4,
+                            "active": 4
+                        },
+                        "lessons": {
+                            "total": 0
+                        },
+                        "quizzes": {
+                            "total": 2
+                        },
+                        "forum": {
+                            "topics": 4
+                        },
+                        "library": {
+                            "files": 3
+                        }
+                    }
+                }
+            ),
+            403: "Sin permisos de administrador"
+        }
+    )
+    @action(detail=False, methods=['get'], permission_classes=[IsAdminUser])
+    def dashboard_stats(self, request):
+        """Obtener estadísticas completas para el dashboard administrativo"""
+        try:
+            # Estadísticas de usuarios
+            total_users = User.objects.count()
+            active_users = User.objects.filter(is_active=True).count()
+            students = User.objects.filter(is_student=True).count()
+            instructors = User.objects.filter(is_instructor=True).count()
+            admins = User.objects.filter(is_superuser=True).count()
+            
+            # Estadísticas de cursos
+            total_courses = Course.objects.count()
+            active_courses = Course.objects.filter(is_active=True).count()
+            
+            # Estadísticas de lecciones
+            total_lessons = Lesson.objects.count()
+            
+            # Estadísticas de quizzes
+            total_quizzes = Quiz.objects.count()
+            
+            # Estadísticas del foro
+            total_topics = ForumTopic.objects.count()
+            
+            # Estadísticas de la biblioteca
+            total_files = LibraryFile.objects.count()
+            
+            stats = {
+                'users': {
+                    'total': total_users,
+                    'active': active_users,
+                    'students': students,
+                    'instructors': instructors,
+                    'admins': admins
+                },
+                'courses': {
+                    'total': total_courses,
+                    'active': active_courses
+                },
+                'lessons': {
+                    'total': total_lessons
+                },
+                'quizzes': {
+                    'total': total_quizzes
+                },
+                'forum': {
+                    'topics': total_topics
+                },
+                'library': {
+                    'files': total_files
+                }
+            }
+            
+            audit_logger.info(
+                f"Dashboard stats requested by admin user {request.user.id} ({request.user.username})"
+            )
+            
+            return Response(stats)
+            
+        except Exception as e:
+            audit_logger.error(
+                f"Error getting dashboard stats for user {request.user.id}: {str(e)}"
+            )
+            return Response({
+                'error': 'Error al obtener estadísticas del dashboard'
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     @action(detail=False, methods=['post'], permission_classes=[IsAuthenticated])
     def logout(self, request):

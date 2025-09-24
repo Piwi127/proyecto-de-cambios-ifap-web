@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import Card from '../components/Card';
+import { dashboardService } from '../services/dashboardService';
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -32,6 +33,7 @@ const AdminDashboard = () => {
   });
   const [loading, setLoading] = useState(true);
   const [recentActivity, setRecentActivity] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     loadDashboardData();
@@ -40,49 +42,44 @@ const AdminDashboard = () => {
   const loadDashboardData = async () => {
     try {
       setLoading(true);
-      // TODO: Implementar llamadas a la API para obtener estadísticas reales
-      // Por ahora usamos datos de ejemplo
+      setError(null);
+      
+      // Obtener estadísticas reales del backend
+      const dashboardStats = await dashboardService.getDashboardStats();
+      
+      // Mapear los datos del backend al formato esperado por el frontend
       setStats({
-        totalUsers: 245,
-        activeUsers: 189,
-        totalCourses: 12,
-        totalQuizzes: 67,
-        totalTasks: 34,
-        systemHealth: 'good'
+        totalUsers: dashboardStats.users.total,
+        activeUsers: dashboardStats.users.active,
+        totalCourses: dashboardStats.courses.total,
+        totalQuizzes: dashboardStats.quizzes.total,
+        totalTasks: dashboardStats.library.files, // Archivos en biblioteca
+        forumTopics: dashboardStats.forum.topics,
+        students: dashboardStats.users.students,
+        instructors: dashboardStats.users.instructors,
+        admins: dashboardStats.users.admins,
+        activeCourses: dashboardStats.courses.active,
+        lessons: dashboardStats.lessons.total,
+        systemHealth: 'good' // Por ahora hardcodeado, se puede implementar lógica más adelante
       });
 
-      setRecentActivity([
-        {
-          id: 1,
-          type: 'user_registered',
-          message: 'Nuevo usuario registrado: María González',
-          timestamp: new Date(Date.now() - 1000 * 60 * 30), // 30 minutos atrás
-          icon: '👤'
-        },
-        {
-          id: 2,
-          type: 'course_created',
-          message: 'Nuevo curso creado: Archivística Avanzada',
-          timestamp: new Date(Date.now() - 1000 * 60 * 60 * 2), // 2 horas atrás
-          icon: '📚'
-        },
-        {
-          id: 3,
-          type: 'quiz_completed',
-          message: 'Quiz completado por 15 estudiantes',
-          timestamp: new Date(Date.now() - 1000 * 60 * 60 * 4), // 4 horas atrás
-          icon: '✅'
-        },
-        {
-          id: 4,
-          type: 'system_backup',
-          message: 'Backup del sistema completado exitosamente',
-          timestamp: new Date(Date.now() - 1000 * 60 * 60 * 24), // 1 día atrás
-          icon: '💾'
-        }
-      ]);
+      // Obtener actividad reciente
+      const activity = await dashboardService.getRecentActivity();
+      setRecentActivity(activity);
+      
     } catch (error) {
       console.error('Error loading dashboard data:', error);
+      setError('Error al cargar los datos del dashboard');
+      
+      // Fallback a datos por defecto en caso de error
+      setStats({
+        totalUsers: 0,
+        activeUsers: 0,
+        totalCourses: 0,
+        totalQuizzes: 0,
+        totalTasks: 0,
+        systemHealth: 'warning'
+      });
     } finally {
       setLoading(false);
     }
@@ -154,7 +151,7 @@ const AdminDashboard = () => {
     },
     {
       title: 'Posts en Foro',
-      value: stats.totalQuizzes,
+      value: stats.forumTopics || 0,
       icon: <FileText className="w-6 h-6" />,
       color: 'text-purple-600',
       bgColor: 'bg-purple-100'
@@ -209,6 +206,30 @@ const AdminDashboard = () => {
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto mb-4"></div>
             <p className="text-gray-600">Cargando panel de administración...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="p-6 max-w-7xl mx-auto">
+        <div className="flex items-center justify-center min-h-96">
+          <div className="text-center">
+            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+              <div className="flex items-center justify-center mb-2">
+                <AlertTriangle className="w-6 h-6 mr-2" />
+                <strong>Error</strong>
+              </div>
+              <p>{error}</p>
+            </div>
+            <button
+              onClick={loadDashboardData}
+              className="bg-primary-600 text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors"
+            >
+              Reintentar
+            </button>
           </div>
         </div>
       </div>

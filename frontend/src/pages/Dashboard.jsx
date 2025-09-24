@@ -1,34 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { useCourse } from '../context/CourseContext';
 import Card from '../components/Card';
 
 const Dashboard = () => {
   const { logout } = useAuth();
+  const { myCourses, loading, error, fetchMyCourses } = useCourse();
 
-  // Datos de ejemplo para el dashboard
-  const enrolledCourses = [
-    {
-      id: 1,
-      title: 'Archivística Básica',
-      progress: 75,
-      nextLesson: 'Clasificación Documental',
-      instructor: 'Dra. María González'
-    },
-    {
-      id: 2,
-      title: 'Gestión Digital de Archivos',
-      progress: 45,
-      nextLesson: 'Digitalización de Documentos',
-      instructor: 'Ing. Carlos Rodríguez'
-    },
-    {
-      id: 3,
-      title: 'Archivos Históricos del Perú',
-      progress: 90,
-      nextLesson: 'Período Colonial',
-      instructor: 'Dr. Juan Pérez'
-    }
-  ];
+  useEffect(() => {
+    fetchMyCourses();
+  }, []);
+
+  // Use real data from CourseContext, fallback to empty array if loading
+  const enrolledCourses = myCourses || [];
 
   const upcomingActivities = [
     {
@@ -132,29 +116,56 @@ const Dashboard = () => {
                 </a>
               </div>
               <div className="space-y-4">
-                {enrolledCourses.map((course) => (
-                  <div key={course.id} className="border border-neutral-200 rounded-lg p-4 hover:shadow-md transition-shadow">
-                    <div className="flex justify-between items-start mb-3">
-                      <div>
-                        <h4 className="font-medium text-neutral-900">{course.title}</h4>
-                        <p className="text-sm text-neutral-600">Prof. {course.instructor}</p>
-                      </div>
-                      <span className="text-sm font-medium text-primary-600">{course.progress}%</span>
-                    </div>
-                    <div className="w-full bg-neutral-200 rounded-full h-2 mb-3">
-                      <div
-                        className="bg-primary-600 h-2 rounded-full"
-                        style={{ width: `${course.progress}%` }}
-                      ></div>
-                    </div>
-                    <div className="flex justify-between items-center text-sm">
-                      <span className="text-neutral-600">Próxima lección: {course.nextLesson}</span>
-                      <button className="text-primary-600 hover:text-primary-800 font-medium">
-                        Continuar →
-                      </button>
-                    </div>
+                {loading ? (
+                  <div className="text-center py-8">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600 mx-auto mb-4"></div>
+                    <p className="text-neutral-600">Cargando cursos...</p>
                   </div>
-                ))}
+                ) : error ? (
+                  <div className="text-center py-8">
+                    <div className="text-red-500 text-2xl mb-4">⚠️</div>
+                    <p className="text-neutral-600 mb-4">Error al cargar los cursos</p>
+                    <button 
+                      onClick={fetchMyCourses}
+                      className="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700"
+                    >
+                      Reintentar
+                    </button>
+                  </div>
+                ) : enrolledCourses.length === 0 ? (
+                  <div className="text-center py-8">
+                    <div className="text-neutral-400 text-4xl mb-4">📚</div>
+                    <p className="text-neutral-600">No tienes cursos inscritos aún</p>
+                    <p className="text-neutral-500 text-sm">Explora nuestro catálogo para comenzar tu aprendizaje</p>
+                  </div>
+                ) : (
+                  enrolledCourses.map((course) => (
+                    <div key={course.id} className="border border-neutral-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                      <div className="flex justify-between items-start mb-3">
+                        <div>
+                          <h4 className="font-medium text-neutral-900">{course.title}</h4>
+                          <p className="text-sm text-neutral-600">Prof. {course.instructor}</p>
+                        </div>
+                        <span className="text-sm font-medium text-primary-600">{course.progress}%</span>
+                      </div>
+                      <div className="w-full bg-neutral-200 rounded-full h-2 mb-3">
+                        <div
+                          className="bg-primary-600 h-2 rounded-full"
+                          style={{ width: `${course.progress}%` }}
+                        ></div>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="text-neutral-600">Próxima lección: {course.next_lesson_title}</span>
+                        <button className="text-primary-600 hover:text-primary-800 font-medium">
+                          Continuar →
+                        </button>
+                      </div>
+                      <div className="mt-2 text-xs text-neutral-500">
+                        {course.completed_lessons}/{course.total_lessons} lecciones • {course.completed_quizzes}/{course.total_quizzes} quizzes
+                      </div>
+                    </div>
+                  ))
+                )}
               </div>
             </Card>
 
@@ -220,20 +231,30 @@ const Dashboard = () => {
               <h3 className="text-lg font-semibold text-neutral-900 mb-6">Mi Progreso</h3>
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-neutral-600">Cursos completados</span>
-                  <span className="font-medium">2/5</span>
+                  <span className="text-sm text-neutral-600">Cursos inscritos</span>
+                  <span className="font-medium">{enrolledCourses.length}</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-neutral-600">Horas estudiadas</span>
-                  <span className="font-medium">127h</span>
+                  <span className="text-sm text-neutral-600">Lecciones completadas</span>
+                  <span className="font-medium">
+                    {enrolledCourses.reduce((total, course) => total + (course.completed_lessons || 0), 0)}/
+                    {enrolledCourses.reduce((total, course) => total + (course.total_lessons || 0), 0)}
+                  </span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-neutral-600">Certificaciones</span>
-                  <span className="font-medium">1</span>
+                  <span className="text-sm text-neutral-600">Quizzes completados</span>
+                  <span className="font-medium">
+                    {enrolledCourses.reduce((total, course) => total + (course.completed_quizzes || 0), 0)}/
+                    {enrolledCourses.reduce((total, course) => total + (course.total_quizzes || 0), 0)}
+                  </span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-neutral-600">Promedio general</span>
-                  <span className="font-medium text-green-600">18.5</span>
+                  <span className="text-sm text-neutral-600">Progreso promedio</span>
+                  <span className="font-medium text-green-600">
+                    {enrolledCourses.length > 0 
+                      ? Math.round(enrolledCourses.reduce((total, course) => total + (course.progress || 0), 0) / enrolledCourses.length)
+                      : 0}%
+                  </span>
                 </div>
               </div>
             </Card>
