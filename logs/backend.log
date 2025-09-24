@@ -332,3 +332,413 @@ INFO Request: GET /api/contact/info/
 INFO Response: 404 for GET /api/contact/info/
 INFO Request: GET /api/contact/info/
 INFO Response: 404 for GET /api/contact/info/
+INFO Request: GET /
+ERROR Invalid HTTP_HOST header: 'ifap-edu.uk'. You may need to add 'ifap-edu.uk' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'ifap-edu.uk'. You may need to add 'ifap-edu.uk' to ALLOWED_HOSTS.
+INFO Response: 400 for GET /
+INFO Request: GET /
+ERROR Invalid HTTP_HOST header: 'ifap-edu.uk'. You may need to add 'ifap-edu.uk' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'ifap-edu.uk'. You may need to add 'ifap-edu.uk' to ALLOWED_HOSTS.
+INFO Response: 400 for GET /
+INFO Request: GET /
+ERROR Invalid HTTP_HOST header: 'ifap-edu.uk'. You may need to add 'ifap-edu.uk' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'ifap-edu.uk'. You may need to add 'ifap-edu.uk' to ALLOWED_HOSTS.
+INFO Response: 400 for GET /
+INFO Request: GET /#
+ERROR Invalid HTTP_HOST header: 'ifap-edu.uk'. You may need to add 'ifap-edu.uk' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'ifap-edu.uk'. You may need to add 'ifap-edu.uk' to ALLOWED_HOSTS.
+INFO Response: 400 for GET /#
+INFO Request: POST /api/users/login/
+INFO Response: 200 for POST /api/users/login/
+INFO Request: GET /api/courses/
+INFO Request: GET /api/courses/my_courses/
+INFO User 10 requested course list
+INFO Response: 200 for GET /api/courses/
+INFO Request: GET /api/chat/notifications/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/chat/notifications/
+INFO Request: GET /api/chat/notifications/
+INFO Response: 200 for GET /api/chat/notifications/
+INFO Response: 200 for GET /api/courses/my_courses/
+127.0.0.1:38444 - - [23/Sep/2025:18:41:31] "HEAD /" 404 -
+127.0.0.1:59858 - - [23/Sep/2025:18:42:42] "HEAD /" 400 3054
+127.0.0.1:46116 - - [23/Sep/2025:18:50:00] "OPTIONS /api/users/login/" 200 -
+127.0.0.1:46116 - - [23/Sep/2025:18:50:00] "POST /api/users/login/" 200 814
+127.0.0.1:46130 - - [23/Sep/2025:18:50:00] "OPTIONS /api/courses/my_courses/" 200 -
+127.0.0.1:46116 - - [23/Sep/2025:18:50:00] "OPTIONS /api/courses/" 200 -
+127.0.0.1:46116 - - [23/Sep/2025:18:50:00] "OPTIONS /api/chat/notifications/" 200 -
+127.0.0.1:46130 - - [23/Sep/2025:18:50:00] "OPTIONS /api/courses/my_courses/" 200 -
+127.0.0.1:46116 - - [23/Sep/2025:18:50:00] "OPTIONS /api/courses/my_courses/" 200 -
+127.0.0.1:46130 - - [23/Sep/2025:18:50:00] "OPTIONS /api/chat/notifications/" 200 -
+127.0.0.1:46116 - - [23/Sep/2025:18:50:00] "GET /api/courses/my_courses/" 200 1571
+127.0.0.1:46130 - - [23/Sep/2025:18:50:00] "GET /api/courses/" 200 1669
+127.0.0.1:46116 - - [23/Sep/2025:18:50:00] "GET /api/chat/notifications/" 200 52
+127.0.0.1:46116 - - [23/Sep/2025:18:50:00] "GET /api/chat/notifications/" 200 52
+127.0.0.1:46130 - - [23/Sep/2025:18:50:00] "GET /api/courses/my_courses/" 200 1571
+127.0.0.1:46130 - - [23/Sep/2025:18:50:00] "OPTIONS /api/users/role_summary/" 200 -
+127.0.0.1:46134 - - [23/Sep/2025:18:50:00] "OPTIONS /api/users/role_summary/" 200 -
+127.0.0.1:46130 - - [23/Sep/2025:18:50:01] "GET /api/users/role_summary/" 200 82
+127.0.0.1:46116 - - [23/Sep/2025:18:50:01] "GET /api/courses/my_courses/" 200 1571
+127.0.0.1:46134 - - [23/Sep/2025:18:50:01] "GET /api/users/role_summary/" 200 82
+127.0.0.1:46134 - - [23/Sep/2025:18:50:10] "GET /api/courses/my_courses/" 200 1571
+127.0.0.1:46116 - - [23/Sep/2025:18:50:10] "GET /api/courses/my_courses/" 200 1571
+127.0.0.1:46116 - - [23/Sep/2025:18:51:01] "OPTIONS /api/courses/taught_courses/" 200 -
+127.0.0.1:46134 - - [23/Sep/2025:18:51:01] "OPTIONS /api/courses/taught_courses/" 200 -
+127.0.0.1:46116 - - [23/Sep/2025:18:51:01] "GET /api/courses/taught_courses/" 200 1571
+127.0.0.1:46116 - - [23/Sep/2025:18:51:01] "OPTIONS /api/courses/4/metrics/" 200 -
+127.0.0.1:46116 - - [23/Sep/2025:18:51:01] "OPTIONS /api/courses/3/metrics/" 200 -
+127.0.0.1:46116 - - [23/Sep/2025:18:51:01] "OPTIONS /api/courses/2/metrics/" 200 -
+127.0.0.1:46116 - - [23/Sep/2025:18:51:01] "OPTIONS /api/courses/1/metrics/" 200 -
+127.0.0.1:46116 - - [23/Sep/2025:18:51:01] "GET /api/courses/4/metrics/" 404 30572
+127.0.0.1:46134 - - [23/Sep/2025:18:51:01] "GET /api/courses/taught_courses/" 200 1571
+127.0.0.1:46134 - - [23/Sep/2025:18:51:02] "GET /api/courses/2/metrics/" 404 30572
+127.0.0.1:46116 - - [23/Sep/2025:18:51:02] "GET /api/courses/3/metrics/" 404 30572
+127.0.0.1:46134 - - [23/Sep/2025:18:51:02] "GET /api/courses/1/metrics/" 404 30572
+127.0.0.1:46116 - - [23/Sep/2025:18:51:02] "GET /api/courses/4/metrics/" 404 30572
+127.0.0.1:45384 - - [23/Sep/2025:18:51:02] "GET /api/courses/1/metrics/" 404 30572
+127.0.0.1:45368 - - [23/Sep/2025:18:51:02] "GET /api/courses/3/metrics/" 404 30572
+127.0.0.1:45380 - - [23/Sep/2025:18:51:02] "GET /api/courses/2/metrics/" 404 30572
+127.0.0.1:46436 - - [23/Sep/2025:18:51:03] "WSCONNECTING /ws/notifications/" - -
+127.0.0.1:46436 - - [23/Sep/2025:18:51:03] "WSDISCONNECT /ws/notifications/" - -
+127.0.0.1:45380 - - [23/Sep/2025:18:51:03] "GET /api/courses/my_courses/" 200 1571
+127.0.0.1:45380 - - [23/Sep/2025:18:51:03] "GET /api/users/role_summary/" 200 82
+127.0.0.1:45368 - - [23/Sep/2025:18:51:03] "GET /api/courses/my_courses/" 200 1571
+127.0.0.1:45384 - - [23/Sep/2025:18:51:03] "GET /api/users/role_summary/" 200 82
+127.0.0.1:46446 - - [23/Sep/2025:18:51:08] "WSCONNECTING /ws/notifications/" - -
+127.0.0.1:46446 - - [23/Sep/2025:18:51:08] "WSDISCONNECT /ws/notifications/" - -
+127.0.0.1:58306 - - [23/Sep/2025:18:51:13] "WSCONNECTING /ws/notifications/" - -
+127.0.0.1:58306 - - [23/Sep/2025:18:51:13] "WSDISCONNECT /ws/notifications/" - -
+127.0.0.1:38188 - - [23/Sep/2025:18:51:25] "WSCONNECTING /ws/notifications/" - -
+127.0.0.1:38188 - - [23/Sep/2025:18:51:25] "WSDISCONNECT /ws/notifications/" - -
+127.0.0.1:45384 - - [23/Sep/2025:18:51:31] "OPTIONS /api/users/logout/" 200 -
+127.0.0.1:45384 - - [23/Sep/2025:18:51:31] "POST /api/users/logout/" 400 33
+127.0.0.1:33902 - - [23/Sep/2025:19:01:18] "GET /" 400 69573
+127.0.0.1:33902 - - [23/Sep/2025:19:01:22] "GET /favicon.ico" 400 69694
+127.0.0.1:34678 - - [23/Sep/2025:19:01:27] "GET /favicon.png" 400 69694
+127.0.0.1:47772 - - [23/Sep/2025:19:02:09] "GET /" 400 71409
+127.0.0.1:33902 - - [23/Sep/2025:19:02:12] "GET /favicon.ico" 400 71440
+127.0.0.1:56220 - - [23/Sep/2025:19:07:36] "POST /api/users/login/" 200 814
+127.0.0.1:56220 - - [23/Sep/2025:19:07:36] "GET /api/courses/" 200 1669
+127.0.0.1:56236 - - [23/Sep/2025:19:07:36] "GET /api/courses/my_courses/" 200 1571
+127.0.0.1:56220 - - [23/Sep/2025:19:07:36] "GET /api/chat/notifications/" 200 52
+127.0.0.1:56220 - - [23/Sep/2025:19:07:36] "GET /api/chat/notifications/" 200 52
+127.0.0.1:56236 - - [23/Sep/2025:19:07:36] "GET /api/courses/my_courses/" 200 1571
+127.0.0.1:56236 - - [23/Sep/2025:19:07:36] "GET /api/users/role_summary/" 200 82
+127.0.0.1:56220 - - [23/Sep/2025:19:07:36] "GET /api/courses/my_courses/" 200 1571
+127.0.0.1:56236 - - [23/Sep/2025:19:07:36] "GET /api/users/role_summary/" 200 82
+127.0.0.1:56236 - - [23/Sep/2025:19:07:41] "POST /api/users/logout/" 400 33
+127.0.0.1:56236 - - [23/Sep/2025:19:07:45] "GET /api/contact/info/" 404 30557
+127.0.0.1:56220 - - [23/Sep/2025:19:07:45] "GET /api/contact/info/" 404 30557
+127.0.0.1:41108 - - [23/Sep/2025:19:47:13] "GET /.git/config" 400 70024
+127.0.0.1:50082 - - [23/Sep/2025:20:51:04] "OPTIONS /api/users/login/" 200 -
+127.0.0.1:50082 - - [23/Sep/2025:20:51:04] "POST /api/users/login/" 200 814
+127.0.0.1:50082 - - [23/Sep/2025:20:51:04] "OPTIONS /api/courses/" 200 -
+127.0.0.1:50084 - - [23/Sep/2025:20:51:04] "OPTIONS /api/courses/my_courses/" 200 -
+127.0.0.1:50082 - - [23/Sep/2025:20:51:04] "OPTIONS /api/chat/notifications/" 200 -
+127.0.0.1:50084 - - [23/Sep/2025:20:51:04] "OPTIONS /api/courses/my_courses/" 200 -
+127.0.0.1:50082 - - [23/Sep/2025:20:51:04] "OPTIONS /api/courses/my_courses/" 200 -
+127.0.0.1:50084 - - [23/Sep/2025:20:51:04] "OPTIONS /api/chat/notifications/" 200 -
+127.0.0.1:50084 - - [23/Sep/2025:20:51:04] "GET /api/courses/" 200 1669
+127.0.0.1:50084 - - [23/Sep/2025:20:51:04] "GET /api/chat/notifications/" 200 52
+127.0.0.1:50082 - - [23/Sep/2025:20:51:05] "GET /api/courses/my_courses/" 200 1571
+127.0.0.1:50084 - - [23/Sep/2025:20:51:05] "GET /api/chat/notifications/" 200 52
+127.0.0.1:50082 - - [23/Sep/2025:20:51:05] "GET /api/courses/my_courses/" 200 1571
+127.0.0.1:50082 - - [23/Sep/2025:20:51:05] "OPTIONS /api/users/role_summary/" 200 -
+127.0.0.1:50086 - - [23/Sep/2025:20:51:05] "OPTIONS /api/users/role_summary/" 200 -
+127.0.0.1:50082 - - [23/Sep/2025:20:51:05] "GET /api/users/role_summary/" 200 82
+127.0.0.1:50084 - - [23/Sep/2025:20:51:05] "GET /api/courses/my_courses/" 200 1571
+127.0.0.1:50086 - - [23/Sep/2025:20:51:05] "GET /api/users/role_summary/" 200 82
+127.0.0.1:50086 - - [23/Sep/2025:20:51:17] "POST /api/users/logout/" 400 33
+127.0.0.1:54504 - - [23/Sep/2025:20:57:00] "GET /" 400 70580
+127.0.0.1:54520 - - [23/Sep/2025:20:57:00] "GET /" 400 70582
+127.0.0.1:54520 - - [23/Sep/2025:20:57:12] "GET /" 400 70560
+127.0.0.1:54520 - - [23/Sep/2025:20:57:25] "GET /%23" 400 70583
+127.0.0.1:57960 - - [23/Sep/2025:21:04:57] "GET /api/contact/info/" 404 30557
+127.0.0.1:57974 - - [23/Sep/2025:21:04:57] "GET /api/contact/info/" 404 30557
+127.0.0.1:41182 - - [23/Sep/2025:21:22:50] "GET /" 400 70578
+127.0.0.1:41196 - - [23/Sep/2025:21:22:51] "GET /" 400 70582
+127.0.0.1:41182 - - [23/Sep/2025:21:23:05] "GET /" 400 70578
+127.0.0.1:41182 - - [23/Sep/2025:21:23:21] "GET /%23" 400 70601
+127.0.0.1:39724 - - [23/Sep/2025:21:34:01] "POST /api/users/login/" 200 814
+127.0.0.1:39724 - - [23/Sep/2025:21:34:01] "GET /api/courses/" 200 1669
+127.0.0.1:39726 - - [23/Sep/2025:21:34:01] "GET /api/courses/my_courses/" 200 1571
+127.0.0.1:39724 - - [23/Sep/2025:21:34:01] "GET /api/chat/notifications/" 200 52
+127.0.0.1:39724 - - [23/Sep/2025:21:34:01] "GET /api/chat/notifications/" 200 52
+127.0.0.1:39726 - - [23/Sep/2025:21:34:01] "GET /api/courses/my_courses/" 200 1571
+INFO Request: GET /api/courses/my_courses/
+INFO Request: GET /api/users/role_summary/
+INFO Response: 200 for GET /api/users/role_summary/
+INFO Request: GET /api/users/role_summary/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/users/role_summary/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Request: GET /api/quizzes/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/quizzes/
+INFO Request: GET /api/quizzes/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/quizzes/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/forum/categories/
+INFO Request: GET /api/forum/topics/
+INFO Request: GET /api/forum/stats/overview/
+INFO Response: 200 for GET /api/forum/categories/
+INFO Request: GET /api/forum/categories/
+INFO Response: 200 for GET /api/forum/topics/
+INFO Request: GET /api/forum/topics/
+INFO Response: 200 for GET /api/forum/categories/
+INFO Response: 200 for GET /api/forum/stats/overview/
+INFO Request: GET /api/forum/stats/overview/
+INFO Response: 200 for GET /api/forum/topics/
+INFO Response: 200 for GET /api/forum/stats/overview/
+INFO Request: GET /api/notifications/
+INFO Response: 200 for GET /api/notifications/
+INFO Request: GET /api/notifications/
+INFO Response: 200 for GET /api/notifications/
+INFO Request: GET /api/courses/taught_courses/
+INFO Response: 200 for GET /api/courses/taught_courses/
+INFO Request: GET /api/courses/taught_courses/
+INFO Request: GET /api/courses/2/metrics/
+INFO Request: GET /api/courses/4/metrics/
+INFO Request: GET /api/courses/3/metrics/
+INFO Request: GET /api/courses/1/metrics/
+INFO Response: 404 for GET /api/courses/2/metrics/
+INFO Response: 404 for GET /api/courses/4/metrics/
+INFO Response: 404 for GET /api/courses/1/metrics/
+INFO Response: 404 for GET /api/courses/3/metrics/
+INFO Response: 200 for GET /api/courses/taught_courses/
+INFO Request: GET /api/courses/3/metrics/
+INFO Request: GET /api/courses/2/metrics/
+INFO Request: GET /api/courses/1/metrics/
+INFO Request: GET /api/courses/4/metrics/
+INFO Response: 404 for GET /api/courses/2/metrics/
+INFO Response: 404 for GET /api/courses/3/metrics/
+INFO Response: 404 for GET /api/courses/4/metrics/
+INFO Response: 404 for GET /api/courses/1/metrics/
+2025-09-23 21:35:03,292 ERROR    Exception inside application: No route found for path 'ws/notifications/'.
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 150, in __call__
+    raise ValueError("No route found for path %r." % path)
+ValueError: No route found for path 'ws/notifications/'.
+INFO Request: GET /api/users/me/
+INFO User 10 accessed profile
+INFO Response: 200 for GET /api/users/me/
+INFO Request: GET /api/users/me/
+INFO User 10 accessed profile
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/users/me/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: POST /api/users/login/
+INFO Response: 200 for POST /api/users/login/
+INFO Request: GET /api/chat/notifications/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/chat/notifications/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/chat/notifications/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/chat/notifications/
+INFO Request: GET /api/users/role_summary/
+INFO Response: 200 for GET /api/users/role_summary/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/users/role_summary/
+INFO Response: 200 for GET /api/users/role_summary/
+INFO Request: GET /api/courses/taught_courses/
+INFO Response: 200 for GET /api/courses/taught_courses/
+INFO Request: GET /api/courses/taught_courses/
+INFO Request: GET /api/courses/1/metrics/
+INFO Request: GET /api/courses/2/metrics/
+INFO Request: GET /api/courses/4/metrics/
+INFO Request: GET /api/courses/3/metrics/
+INFO Response: 404 for GET /api/courses/2/metrics/
+INFO Response: 404 for GET /api/courses/1/metrics/
+INFO Response: 404 for GET /api/courses/3/metrics/
+INFO Response: 404 for GET /api/courses/4/metrics/
+INFO Response: 200 for GET /api/courses/taught_courses/
+INFO Request: GET /api/courses/4/metrics/
+INFO Request: GET /api/courses/1/metrics/
+INFO Request: GET /api/courses/2/metrics/
+INFO Request: GET /api/courses/3/metrics/
+INFO Response: 404 for GET /api/courses/2/metrics/
+INFO Response: 404 for GET /api/courses/4/metrics/
+INFO Response: 404 for GET /api/courses/1/metrics/
+INFO Response: 404 for GET /api/courses/3/metrics/
+2025-09-23 21:35:20,317 ERROR    Exception inside application: No route found for path 'ws/notifications/'.
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 150, in __call__
+    raise ValueError("No route found for path %r." % path)
+ValueError: No route found for path 'ws/notifications/'.
+2025-09-23 21:35:21,325 ERROR    Exception inside application: No route found for path 'ws/notifications/'.
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 150, in __call__
+    raise ValueError("No route found for path %r." % path)
+ValueError: No route found for path 'ws/notifications/'.
+2025-09-23 21:35:25,337 ERROR    Exception inside application: No route found for path 'ws/notifications/'.
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 150, in __call__
+    raise ValueError("No route found for path %r." % path)
+ValueError: No route found for path 'ws/notifications/'.
+2025-09-23 21:35:31,352 ERROR    Exception inside application: No route found for path 'ws/notifications/'.
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 150, in __call__
+    raise ValueError("No route found for path %r." % path)
+ValueError: No route found for path 'ws/notifications/'.
+2025-09-23 21:35:43,371 ERROR    Exception inside application: No route found for path 'ws/notifications/'.
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 150, in __call__
+    raise ValueError("No route found for path %r." % path)
+ValueError: No route found for path 'ws/notifications/'.
+2025-09-23 21:36:05,405 ERROR    Exception inside application: No route found for path 'ws/notifications/'.
+Traceback (most recent call last):
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 150, in __call__
+    raise ValueError("No route found for path %r." % path)
+ValueError: No route found for path 'ws/notifications/'.
