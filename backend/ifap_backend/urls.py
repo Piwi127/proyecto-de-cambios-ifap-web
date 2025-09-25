@@ -40,7 +40,6 @@ urlpatterns = [
     path('api/library/', include('library.urls')),
     path('api/chat/', include('chat.urls')),
     path('api/contact/', include('contact.urls')),
-    path('api/reminders/', include('reminders.urls')),
     path('api/health-check/', HealthCheckView.as_view(), name='health_check'),
 
     # Swagger UI and ReDoc
