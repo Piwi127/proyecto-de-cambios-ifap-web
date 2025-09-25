@@ -1,0 +1,156 @@
+name: Notify Development Environment
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master ]
+    types: [ closed ]
+
+jobs:
+  notify-dev-env:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Get commit info
+      id: commit_info
+      run: |
+        echo "commit_sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+        echo "commit_message=$(git log -1 --pretty=%B)" >> $GITHUB_OUTPUT
+        echo "author_name=$(git log -1 --pretty=%an)" >> $GITHUB_OUTPUT
+        echo "author_email=$(git log -1 --pretty=%ae)" >> $GITHUB_OUTPUT
+        echo "timestamp=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> $GITHUB_OUTPUT
+        
+    - name: Detect changes
+      id: changes
+      run: |
+        # Detectar tipos de cambios
+        if git diff --name-only HEAD~1 HEAD | grep -q "backend/requirements.txt"; then
+          echo "backend_deps=true" >> $GITHUB_OUTPUT
+        fi
+        
+        if git diff --name-only HEAD~1 HEAD | grep -q "frontend/package.json\|frontend/package-lock.json"; then
+          echo "frontend_deps=true" >> $GITHUB_OUTPUT
+        fi
+        
+        if git diff --name-only HEAD~1 HEAD | grep -q "backend/.*models.py\|backend/.*migrations/"; then
+          echo "migrations=true" >> $GITHUB_OUTPUT
+        fi
+        
+        if git diff --name-only HEAD~1 HEAD | grep -q "backend/.*settings\|frontend/.*config\|\.env"; then
+          echo "config=true" >> $GITHUB_OUTPUT
+        fi
+        
+        # Contar archivos cambiados
+        echo "files_changed=$(git diff --name-only HEAD~1 HEAD | wc -l)" >> $GITHUB_OUTPUT
+        
+    - name: Create notification payload
+      id: payload
+      run: |
+        cat > notification.json << EOF
+        {
+          "repository": "${{ github.repository }}",
+          "branch": "${{ github.ref_name }}",
+          "commit": {
+            "sha": "${{ steps.commit_info.outputs.commit_sha }}",
+            "message": "${{ steps.commit_info.outputs.commit_message }}",
+            "author": {
+              "name": "${{ steps.commit_info.outputs.author_name }}",
+              "email": "${{ steps.commit_info.outputs.author_email }}"
+            },
+            "timestamp": "${{ steps.commit_info.outputs.timestamp }}",
+            "url": "${{ github.event.head_commit.url }}"
+          },
+          "changes": {
+            "files_changed": ${{ steps.changes.outputs.files_changed }},
+            "backend_deps": ${{ steps.changes.outputs.backend_deps || false }},
+            "frontend_deps": ${{ steps.changes.outputs.frontend_deps || false }},
+            "migrations": ${{ steps.changes.outputs.migrations || false }},
+            "config": ${{ steps.changes.outputs.config || false }}
+          },
+          "action": "${{ github.event_name }}",
+          "workflow_run_url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+        }
+        EOF
+        
+        echo "payload_file=notification.json" >> $GITHUB_OUTPUT
+        
+    - name: Display notification info
+      run: |
+        echo "🚀 Nuevo cambio detectado en ${{ github.repository }}"
+        echo "📝 Commit: ${{ steps.commit_info.outputs.commit_message }}"
+        echo "👤 Autor: ${{ steps.commit_info.outputs.author_name }}"
+        echo "🔢 Archivos cambiados: ${{ steps.changes.outputs.files_changed }}"
+        echo ""
+        echo "Cambios detectados:"
+        if [[ "${{ steps.changes.outputs.backend_deps }}" == "true" ]]; then
+          echo "  ⚙️  Dependencias del backend"
+        fi
+        if [[ "${{ steps.changes.outputs.frontend_deps }}" == "true" ]]; then
+          echo "  📦 Dependencias del frontend"
+        fi
+        if [[ "${{ steps.changes.outputs.migrations }}" == "true" ]]; then
+          echo "  🗄️  Migraciones de base de datos"
+        fi
+        if [[ "${{ steps.changes.outputs.config }}" == "true" ]]; then
+          echo "  ⚙️  Archivos de configuración"
+        fi
+        
+    # Opcional: Webhook para notificar a tu entorno local
+    # Descomenta y configura si tienes un webhook endpoint
+    # - name: Notify local development environment
+    #   if: env.DEV_WEBHOOK_URL != ''
+    #   run: |
+    #     curl -X POST "${{ env.DEV_WEBHOOK_URL }}" \
+    #       -H "Content-Type: application/json" \
+    #       -H "X-GitHub-Event: ${{ github.event_name }}" \
+    #       -H "X-GitHub-Signature: ${{ github.event.head_commit.id }}" \
+    #       -d @notification.json
+    #   env:
+    #     DEV_WEBHOOK_URL: ${{ secrets.DEV_WEBHOOK_URL }}
+        
+    - name: Create summary
+      run: |
+        echo "## 🔄 Sincronización de Entorno de Desarrollo" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Repositorio:** ${{ github.repository }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Rama:** ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Commit:** \`${{ steps.commit_info.outputs.commit_sha }}\`" >> $GITHUB_STEP_SUMMARY
+        echo "**Autor:** ${{ steps.commit_info.outputs.author_name }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Mensaje:** ${{ steps.commit_info.outputs.commit_message }}" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 📊 Resumen de Cambios" >> $GITHUB_STEP_SUMMARY
+        echo "- **Archivos modificados:** ${{ steps.changes.outputs.files_changed }}" >> $GITHUB_STEP_SUMMARY
+        
+        if [[ "${{ steps.changes.outputs.backend_deps }}" == "true" ]]; then
+          echo "- ⚙️ **Dependencias del backend actualizadas**" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        if [[ "${{ steps.changes.outputs.frontend_deps }}" == "true" ]]; then
+          echo "- 📦 **Dependencias del frontend actualizadas**" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        if [[ "${{ steps.changes.outputs.migrations }}" == "true" ]]; then
+          echo "- 🗄️ **Migraciones de base de datos requeridas**" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        if [[ "${{ steps.changes.outputs.config }}" == "true" ]]; then
+          echo "- ⚙️ **Configuración modificada**" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 🛠️ Acciones Recomendadas para el Entorno Local" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "Para sincronizar tu entorno de desarrollo local:" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "\`\`\`bash" >> $GITHUB_STEP_SUMMARY
+        echo "# Sincronización manual" >> $GITHUB_STEP_SUMMARY
+        echo "./auto-sync.sh" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "# O iniciar monitoreo automático" >> $GITHUB_STEP_SUMMARY
+        echo "./watch-github.sh daemon" >> $GITHUB_STEP_SUMMARY
+        echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
