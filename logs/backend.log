@@ -1,6 +1,6 @@
 /home/jorge/pagina web nueva ifap dos/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/__init__.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import DistributionNotFound, get_distribution
-2025-09-24 16:19:55,651 INFO     Starting server at tcp:port=8000:interface=127.0.0.1
-2025-09-24 16:19:55,652 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
-2025-09-24 16:19:55,652 INFO     Configuring endpoint tcp:port=8000:interface=127.0.0.1
-2025-09-24 16:19:55,654 INFO     Listening on TCP address 127.0.0.1:8000
+2025-09-24 21:10:45,870 INFO     Starting server at tcp:port=8000:interface=127.0.0.1
+2025-09-24 21:10:45,871 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2025-09-24 21:10:45,872 INFO     Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2025-09-24 21:10:45,873 INFO     Listening on TCP address 127.0.0.1:8000
