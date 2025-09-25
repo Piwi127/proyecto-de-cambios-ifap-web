@@ -1,9 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from '../components/Card';
+import ReminderModal from '../components/ReminderModal';
+import ReminderCard from '../components/ReminderCard';
+import reminderService from '../services/reminderService';
 
 const CalendarioAulaVirtual = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(new Date());
+  
+  // Estados para recordatorios
+  const [reminders, setReminders] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [showReminderModal, setShowReminderModal] = useState(false);
+  const [editingReminder, setEditingReminder] = useState(null);
+  const [activeTab, setActiveTab] = useState('calendar'); // 'calendar' o 'reminders'
 
   // Datos de ejemplo de actividades
   const activities = [
@@ -69,6 +79,62 @@ const CalendarioAulaVirtual = () => {
     }
   ];
 
+  // Cargar recordatorios al montar el componente
+  useEffect(() => {
+    loadReminders();
+  }, []);
+
+  const loadReminders = async () => {
+    setLoading(true);
+    try {
+      const remindersData = await reminderService.getReminders();
+      setReminders(remindersData);
+    } catch (error) {
+      console.error('Error al cargar recordatorios:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSaveReminder = async (savedReminder) => {
+    await loadReminders(); // Recargar todos los recordatorios
+  };
+
+  const handleEditReminder = (reminder) => {
+    setEditingReminder(reminder);
+    setShowReminderModal(true);
+  };
+
+  const handleDeleteReminder = async (reminderId) => {
+    if (window.confirm('¿Estás seguro de que quieres eliminar este recordatorio?')) {
+      try {
+        await reminderService.deleteReminder(reminderId);
+        await loadReminders();
+      } catch (error) {
+        console.error('Error al eliminar recordatorio:', error);
+      }
+    }
+  };
+
+  const handleStatusChange = async (reminderId, newStatus) => {
+    try {
+      await reminderService.updateReminderStatus(reminderId, newStatus);
+      await loadReminders();
+    } catch (error) {
+      console.error('Error al cambiar estado:', error);
+    }
+  };
+
+  const handleAddReminder = () => {
+    setEditingReminder(null);
+    setShowReminderModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowReminderModal(false);
+    setEditingReminder(null);
+  };
+
   const getDaysInMonth = (date) => {
     const year = date.getFullYear();
     const month = date.getMonth();
@@ -82,24 +148,40 @@ const CalendarioAulaVirtual = () => {
     // Días del mes anterior
     for (let i = 0; i < startingDayOfWeek; i++) {
       const prevDate = new Date(year, month, -startingDayOfWeek + i + 1);
+      const dateStr = prevDate.toISOString().split('T')[0];
+      
+      const dayReminders = reminders.filter(reminder => {
+        const reminderDate = new Date(reminder.reminder_date);
+        return reminderDate.toISOString().split('T')[0] === dateStr;
+      });
+
       days.push({
         date: prevDate,
         isCurrentMonth: false,
-        activities: []
+        activities: [],
+        reminders: dayReminders
       });
     }
 
     // Días del mes actual
     for (let day = 1; day <= daysInMonth; day++) {
       const date = new Date(year, month, day);
+      const dateStr = date.toISOString().split('T')[0];
+      
       const dayActivities = activities.filter(activity =>
-        activity.date === date.toISOString().split('T')[0]
+        activity.date === dateStr
       );
+
+      const dayReminders = reminders.filter(reminder => {
+        const reminderDate = new Date(reminder.reminder_date);
+        return reminderDate.toISOString().split('T')[0] === dateStr;
+      });
 
       days.push({
         date,
         isCurrentMonth: true,
-        activities: dayActivities
+        activities: dayActivities,
+        reminders: dayReminders
       });
     }
 
@@ -107,10 +189,18 @@ const CalendarioAulaVirtual = () => {
     const remainingCells = 42 - days.length; // 6 semanas * 7 días
     for (let i = 1; i <= remainingCells; i++) {
       const nextDate = new Date(year, month + 1, i);
+      const dateStr = nextDate.toISOString().split('T')[0];
+      
+      const dayReminders = reminders.filter(reminder => {
+        const reminderDate = new Date(reminder.reminder_date);
+        return reminderDate.toISOString().split('T')[0] === dateStr;
+      });
+
       days.push({
         date: nextDate,
         isCurrentMonth: false,
-        activities: []
+        activities: [],
+        reminders: dayReminders
       });
     }
 
@@ -143,9 +233,14 @@ const CalendarioAulaVirtual = () => {
     }
   };
 
+  const selectedDateStr = selectedDate.toISOString().split('T')[0];
   const selectedDateActivities = activities.filter(activity =>
-    activity.date === selectedDate.toISOString().split('T')[0]
+    activity.date === selectedDateStr
   );
+  const selectedDateReminders = reminders.filter(reminder => {
+    const reminderDate = new Date(reminder.reminder_date);
+    return reminderDate.toISOString().split('T')[0] === selectedDateStr;
+  });
 
   const navigateMonth = (direction) => {
     setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + direction, 1));
@@ -155,13 +250,49 @@ const CalendarioAulaVirtual = () => {
     <div className="p-6 max-w-7xl mx-auto space-y-6">
       {/* Header */}
       <div className="bg-gradient-to-r from-primary-600 to-primary-800 rounded-lg p-6 text-white">
-        <h1 className="text-3xl font-bold mb-2">Calendario Académico</h1>
-        <p className="text-primary-100">Organiza tus actividades y no pierdas ninguna fecha importante</p>
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <h1 className="text-3xl font-bold mb-2">Calendario Académico</h1>
+            <p className="text-primary-100">Organiza tus actividades y no pierdas ninguna fecha importante</p>
+          </div>
+          <button
+            onClick={handleAddReminder}
+            className="bg-white text-primary-600 px-4 py-2 rounded-lg hover:bg-primary-50 transition-colors font-medium"
+          >
+            + Nuevo Recordatorio
+          </button>
+        </div>
+        
+        {/* Pestañas */}
+        <div className="flex space-x-4">
+          <button
+            onClick={() => setActiveTab('calendar')}
+            className={`px-4 py-2 rounded-lg transition-colors ${
+              activeTab === 'calendar' 
+                ? 'bg-white text-primary-600 font-medium' 
+                : 'text-primary-100 hover:text-white hover:bg-primary-700'
+            }`}
+          >
+            📅 Calendario
+          </button>
+          <button
+            onClick={() => setActiveTab('reminders')}
+            className={`px-4 py-2 rounded-lg transition-colors ${
+              activeTab === 'reminders' 
+                ? 'bg-white text-primary-600 font-medium' 
+                : 'text-primary-100 hover:text-white hover:bg-primary-700'
+            }`}
+          >
+            🔔 Recordatorios ({reminders.length})
+          </button>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-        {/* Calendario */}
-        <div className="lg:col-span-3">
+      {/* Contenido principal */}
+      {activeTab === 'calendar' ? (
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+          {/* Calendario */}
+          <div className="lg:col-span-3">
           <Card>
             {/* Header del calendario */}
             <div className="flex items-center justify-between mb-6">
@@ -209,7 +340,8 @@ const CalendarioAulaVirtual = () => {
                   </div>
 
                   <div className="space-y-1">
-                    {day.activities.slice(0, 3).map((activity) => (
+                    {/* Actividades */}
+                    {day.activities.slice(0, 2).map((activity) => (
                       <div
                         key={activity.id}
                         className={`text-xs p-1 rounded text-white ${getActivityTypeColor(activity.type)} truncate`}
@@ -218,9 +350,24 @@ const CalendarioAulaVirtual = () => {
                         {activity.time} {getActivityTypeIcon(activity.type)}
                       </div>
                     ))}
-                    {day.activities.length > 3 && (
+                    
+                    {/* Recordatorios */}
+                    {day.reminders && day.reminders.slice(0, 2 - day.activities.slice(0, 2).length).map((reminder) => (
+                      <div
+                        key={`reminder-${reminder.id}`}
+                        className={`text-xs p-1 rounded text-white truncate ${
+                          reminder.priority === 'high' ? 'bg-red-500' :
+                          reminder.priority === 'medium' ? 'bg-yellow-500' : 'bg-green-500'
+                        }`}
+                        title={reminder.title}
+                      >
+                        {new Date(reminder.reminder_date).toLocaleTimeString('es-ES', {hour: '2-digit', minute: '2-digit'})} 🔔
+                      </div>
+                    ))}
+                    
+                    {(day.activities.length + (day.reminders?.length || 0)) > 2 && (
                       <div className="text-xs text-gray-500">
-                        +{day.activities.length - 3} más
+                        +{(day.activities.length + (day.reminders?.length || 0)) - 2} más
                       </div>
                     )}
                   </div>
@@ -243,8 +390,9 @@ const CalendarioAulaVirtual = () => {
               })}
             </h3>
 
-            {selectedDateActivities.length > 0 ? (
+            {(selectedDateActivities.length > 0 || selectedDateReminders.length > 0) ? (
               <div className="space-y-3">
+                {/* Actividades */}
                 {selectedDateActivities.map((activity) => (
                   <div key={activity.id} className="p-3 border border-gray-200 rounded-lg">
                     <div className="flex items-start space-x-3">
@@ -261,11 +409,29 @@ const CalendarioAulaVirtual = () => {
                     </div>
                   </div>
                 ))}
+                
+                {/* Recordatorios */}
+                {selectedDateReminders.map((reminder) => (
+                  <ReminderCard
+                    key={reminder.id}
+                    reminder={reminder}
+                    onEdit={handleEditReminder}
+                    onDelete={handleDeleteReminder}
+                    onStatusChange={handleStatusChange}
+                    compact={false}
+                  />
+                ))}
               </div>
             ) : (
               <div className="text-center py-8 text-gray-500">
                 <span className="text-4xl mb-2 block">📅</span>
-                <p className="text-sm">No hay actividades programadas</p>
+                <p className="text-sm">No hay actividades ni recordatorios programados</p>
+                <button
+                  onClick={handleAddReminder}
+                  className="mt-3 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors text-sm"
+                >
+                  + Agregar Recordatorio
+                </button>
               </div>
             )}
           </Card>
@@ -315,7 +481,78 @@ const CalendarioAulaVirtual = () => {
             </div>
           </Card>
         </div>
-      </div>
+        </div>
+      ) : (
+        /* Vista de Recordatorios */
+        <div className="space-y-6">
+          {/* Filtros y acciones */}
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div className="flex flex-wrap gap-2">
+              <select className="px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                <option value="">Todos los estados</option>
+                <option value="pending">Pendiente</option>
+                <option value="completed">Completado</option>
+                <option value="cancelled">Cancelado</option>
+              </select>
+              <select className="px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                <option value="">Todas las prioridades</option>
+                <option value="high">Alta</option>
+                <option value="medium">Media</option>
+                <option value="low">Baja</option>
+              </select>
+            </div>
+            <button
+              onClick={handleAddReminder}
+              className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
+            >
+              + Nuevo Recordatorio
+            </button>
+          </div>
+
+          {/* Lista de recordatorios */}
+          {loading ? (
+            <div className="text-center py-8">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600 mx-auto"></div>
+              <p className="mt-2 text-gray-600">Cargando recordatorios...</p>
+            </div>
+          ) : reminders.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {reminders.map((reminder) => (
+                <ReminderCard
+                  key={reminder.id}
+                  reminder={reminder}
+                  onEdit={handleEditReminder}
+                  onDelete={handleDeleteReminder}
+                  onStatusChange={handleStatusChange}
+                  compact={true}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <span className="text-6xl mb-4 block">🔔</span>
+              <h3 className="text-lg font-medium text-gray-900 mb-2">No hay recordatorios</h3>
+              <p className="text-gray-600 mb-4">Crea tu primer recordatorio para empezar</p>
+              <button
+                onClick={handleAddReminder}
+                className="px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
+              >
+                + Crear Recordatorio
+              </button>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Modal de recordatorio */}
+      {showReminderModal && (
+        <ReminderModal
+          isOpen={showReminderModal}
+          onClose={handleCloseModal}
+          onSave={handleSaveReminder}
+          reminder={editingReminder}
+        />
+      )}
     </div>
   );
 };

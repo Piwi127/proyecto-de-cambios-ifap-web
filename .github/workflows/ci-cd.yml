@@ -202,7 +202,7 @@ jobs:
     
     environment:
       name: production
-      url: https://ifap.edu.pe
+      url: ${{ secrets.PRODUCTION_URL }}
 
     steps:
     - uses: actions/checkout@v4
@@ -213,18 +213,114 @@ jobs:
         name: frontend-build
         path: frontend/dist/
 
-    - name: Deploy to production
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Add server to known hosts
       run: |
-        echo "Deploying to production environment..."
-        # Aquí iría la lógica de deployment real
+        ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
+
+    - name: Deploy Backend to Production
+      run: |
+        echo "🚀 Deploying backend to production..."
+        
+        # Crear directorio temporal para el deployment
+        ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "
+          mkdir -p /tmp/ifap-deploy-$(date +%s)
+          cd /tmp/ifap-deploy-$(date +%s)
+        "
+        
+        # Subir archivos del backend
+        rsync -avz --delete \
+          --exclude='__pycache__' \
+          --exclude='*.pyc' \
+          --exclude='venv' \
+          --exclude='db.sqlite3' \
+          --exclude='logs' \
+          ./backend/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:${{ secrets.BACKEND_PATH }}/
+        
+        # Ejecutar comandos de deployment en el servidor
+        ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "
+          cd ${{ secrets.BACKEND_PATH }}
+          
+          # Activar entorno virtual
+          source venv/bin/activate
+          
+          # Instalar/actualizar dependencias
+          pip install -r requirements.txt
+          
+          # Ejecutar migraciones
+          python manage.py migrate --settings=ifap_backend.settings
+          
+          # Recolectar archivos estáticos
+          python manage.py collectstatic --noinput --settings=ifap_backend.settings
+          
+          # Reiniciar servicios
+          sudo systemctl restart ifap-backend
+          sudo systemctl restart nginx
+        "
+
+    - name: Deploy Frontend to Production
+      run: |
+        echo "🚀 Deploying frontend to production..."
+        
+        # Subir build del frontend
+        rsync -avz --delete \
+          ./frontend/dist/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:${{ secrets.FRONTEND_PATH }}/
+        
+        # Reiniciar nginx para servir nuevos archivos
+        ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "
+          sudo systemctl reload nginx
+        "
 
     - name: Run production health check
       run: |
-        echo "Running health checks on production..."
+        echo "🔍 Running health checks on production..."
+        
+        # Verificar que el backend responde
+        for i in {1..5}; do
+          if curl -f ${{ secrets.PRODUCTION_URL }}/api/health/; then
+            echo "✅ Backend health check passed"
+            break
+          else
+            echo "⏳ Waiting for backend to be ready... (attempt $i/5)"
+            sleep 10
+          fi
+        done
+        
+        # Verificar que el frontend carga
+        if curl -f ${{ secrets.PRODUCTION_URL }}/; then
+          echo "✅ Frontend health check passed"
+        else
+          echo "❌ Frontend health check failed"
+          exit 1
+        fi
 
     - name: Notify deployment success
       run: |
-        echo "Production deployment completed successfully!"
+        echo "🎉 Production deployment completed successfully!"
+        echo "🌐 Application is live at: ${{ secrets.PRODUCTION_URL }}"
+        
+        # Opcional: Enviar notificación a Slack/Discord/Email
+        # curl -X POST -H 'Content-type: application/json' \
+        #   --data '{"text":"🚀 IFAP Web deployed successfully to production!"}' \
+        #   ${{ secrets.SLACK_WEBHOOK_URL }}
+
+    - name: Rollback on failure
+      if: failure()
+      run: |
+        echo "❌ Deployment failed, initiating rollback..."
+        ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "
+          cd ${{ secrets.BACKEND_PATH }}
+          git checkout HEAD~1
+          source venv/bin/activate
+          python manage.py migrate --settings=ifap_backend.settings
+          sudo systemctl restart ifap-backend
+          sudo systemctl restart nginx
+        "
+        echo "🔄 Rollback completed"
 
   # Job para análisis de código
   code-quality:
