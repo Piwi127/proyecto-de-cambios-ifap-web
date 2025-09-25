@@ -96,7 +96,7 @@ const CalendarioAulaVirtual = () => {
     }
   };
 
-  const handleSaveReminder = async (savedReminder) => {
+  const handleSaveReminder = async () => {
     await loadReminders(); // Recargar todos los recordatorios
   };
 

@@ -3,8 +3,198 @@
 > vite --port 5174
 
 
-  VITE v7.1.7  ready in 1276 ms
+  VITE v7.1.7  ready in 1255 ms
 
   ➜  Local:   http://localhost:5174/
   ➜  Network: http://192.168.123.38:5174/
   ➜  Network: http://172.18.0.1:5174/
+9:16:37 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../components/ReminderModal" from "src/pages/CalendarioAulaVirtual.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/CalendarioAulaVirtual.jsx:3:26
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import Card from "../components/Card";
+  5  |  import ReminderModal from "../components/ReminderModal";
+     |                             ^
+  6  |  import ReminderCard from "../components/ReminderCard";
+  7  |  import reminderService from "../services/reminderService";
+9:16:41 p. m. [vite] Internal server error: Failed to resolve import "../components/ReminderModal" from "src/pages/CalendarioAulaVirtual.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/CalendarioAulaVirtual.jsx:3:26
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import Card from "../components/Card";
+  5  |  import ReminderModal from "../components/ReminderModal";
+     |                             ^
+  6  |  import ReminderCard from "../components/ReminderCard";
+  7  |  import reminderService from "../services/reminderService";
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:27187:20)
+9:16:57 p. m. [vite] Internal server error: Failed to resolve import "../components/ReminderModal" from "src/pages/CalendarioAulaVirtual.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/CalendarioAulaVirtual.jsx:3:26
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import Card from "../components/Card";
+  5  |  import ReminderModal from "../components/ReminderModal";
+     |                             ^
+  6  |  import ReminderCard from "../components/ReminderCard";
+  7  |  import reminderService from "../services/reminderService";
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:27187:20)
+9:17:02 p. m. [vite] Internal server error: Failed to resolve import "../components/ReminderModal" from "src/pages/CalendarioAulaVirtual.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/CalendarioAulaVirtual.jsx:3:26
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import Card from "../components/Card";
+  5  |  import ReminderModal from "../components/ReminderModal";
+     |                             ^
+  6  |  import ReminderCard from "../components/ReminderCard";
+  7  |  import reminderService from "../services/reminderService";
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:27187:20)
+9:17:24 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+9:17:25 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../components/ReminderModal" from "src/pages/CalendarioAulaVirtual.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/CalendarioAulaVirtual.jsx:3:26
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import Card from "../components/Card";
+  5  |  import ReminderModal from "../components/ReminderModal";
+     |                             ^
+  6  |  import ReminderCard from "../components/ReminderCard";
+  7  |  import reminderService from "../services/reminderService";
+9:17:25 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+9:17:26 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../components/ReminderModal" from "src/pages/CalendarioAulaVirtual.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/CalendarioAulaVirtual.jsx:3:26
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import Card from "../components/Card";
+  5  |  import ReminderModal from "../components/ReminderModal";
+     |                             ^
+  6  |  import ReminderCard from "../components/ReminderCard";
+  7  |  import reminderService from "../services/reminderService";
+9:17:27 p. m. [vite] Internal server error: Failed to resolve import "../components/ReminderModal" from "src/pages/CalendarioAulaVirtual.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/CalendarioAulaVirtual.jsx:3:26
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import Card from "../components/Card";
+  5  |  import ReminderModal from "../components/ReminderModal";
+     |                             ^
+  6  |  import ReminderCard from "../components/ReminderCard";
+  7  |  import reminderService from "../services/reminderService";
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
+9:17:27 p. m. [vite] Internal server error: Failed to resolve import "../components/ReminderModal" from "src/pages/CalendarioAulaVirtual.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/CalendarioAulaVirtual.jsx:3:26
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import Card from "../components/Card";
+  5  |  import ReminderModal from "../components/ReminderModal";
+     |                             ^
+  6  |  import ReminderCard from "../components/ReminderCard";
+  7  |  import reminderService from "../services/reminderService";
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
+9:17:57 p. m. [vite] Internal server error: Failed to resolve import "../components/ReminderModal" from "src/pages/CalendarioAulaVirtual.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/CalendarioAulaVirtual.jsx:3:26
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import Card from "../components/Card";
+  5  |  import ReminderModal from "../components/ReminderModal";
+     |                             ^
+  6  |  import ReminderCard from "../components/ReminderCard";
+  7  |  import reminderService from "../services/reminderService";
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:27187:20)
+9:18:10 p. m. [vite] Internal server error: Failed to resolve import "../components/ReminderModal" from "src/pages/CalendarioAulaVirtual.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/CalendarioAulaVirtual.jsx:3:26
+  3  |  import React, { useState, useEffect } from "react";
+  4  |  import Card from "../components/Card";
+  5  |  import ReminderModal from "../components/ReminderModal";
+     |                             ^
+  6  |  import ReminderCard from "../components/ReminderCard";
+  7  |  import reminderService from "../services/reminderService";
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29723:32
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:27187:20)
+9:18:13 p. m. [vite] (client) hmr update /src/App.jsx
+9:18:14 p. m. [vite] (client) Pre-transform error: Failed to resolve import "../components/ReminderCard" from "src/pages/CalendarioAulaVirtual.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/CalendarioAulaVirtual.jsx:4:25
+  4  |  import Card from "../components/Card";
+  5  |  import ReminderModal from "../components/ReminderModal";
+  6  |  import ReminderCard from "../components/ReminderCard";
+     |                            ^
+  7  |  import reminderService from "../services/reminderService";
+  8  |  const CalendarioAulaVirtual = () => {
+9:18:15 p. m. [vite] Internal server error: Failed to resolve import "../components/ReminderCard" from "src/pages/CalendarioAulaVirtual.jsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /home/jorge/pagina web nueva ifap dos/frontend/src/pages/CalendarioAulaVirtual.jsx:4:25
+  4  |  import Card from "../components/Card";
+  5  |  import ReminderModal from "../components/ReminderModal";
+  6  |  import ReminderCard from "../components/ReminderCard";
+     |                            ^
+  7  |  import reminderService from "../services/reminderService";
+  8  |  const CalendarioAulaVirtual = () => {
+      at TransformPluginContext._formatLog (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43)
+      at TransformPluginContext.error (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14)
+      at normalizeUrl (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29665:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29723:32
+      at async Promise.all (index 4)
+      at async TransformPluginContext.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29691:4)
+      at async EnvironmentPluginContainer.transform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14)
+      at async loadAndTransform (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26)
+      at async viteTransformMiddleware (file:///home/jorge/pagina%20web%20nueva%20ifap%20dos/frontend/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:27187:20)
+9:18:45 p. m. [vite] (client) hmr update /src/App.jsx
