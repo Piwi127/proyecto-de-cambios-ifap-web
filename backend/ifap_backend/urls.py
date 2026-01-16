@@ -1,3 +1,5 @@
+from importlib.util import find_spec
+
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
@@ -40,7 +42,6 @@ urlpatterns = [
     path('api/library/', include('library.urls')),
     path('api/chat/', include('chat.urls')),
     path('api/contact/', include('contact.urls')),
-    path('api/reminders/', include('reminders.urls')),
     path('api/health-check/', HealthCheckView.as_view(), name='health_check'),
 
     # Swagger UI and ReDoc
@@ -49,3 +50,6 @@ urlpatterns = [
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+if find_spec("reminders") is not None:
+    urlpatterns.append(path('api/reminders/', include('reminders.urls')))

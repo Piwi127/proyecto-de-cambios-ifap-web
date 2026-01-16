@@ -1,37 +1,140 @@
 # IFAP - Instituto de Formación y Actualización Profesional
 
-## Descripción del Proyecto
-
-Este es el repositorio principal del proyecto IFAP, que incluye una aplicación web completa con backend Django y frontend React/Vite.
+Repositorio principal del proyecto IFAP: backend Django con API REST/WebSockets y frontend React + Vite.
 
 ## Estructura del Proyecto
 
-- **backend/**: Aplicación Django con API REST y WebSockets
-- **frontend/**: Aplicación React con Vite
-- **etherpad/**: Integración de Etherpad para colaboración
-- **docs/**: 📚 **Documentación completa del proyecto**
+- **backend/**: API Django (REST + Channels)
+- **frontend/**: App React (Vite + Tailwind)
+- **etherpad/**: Integración de Etherpad
+- **docs/**: Documentación completa
 
-## 📖 Documentación
+## Tecnologias Aplicadas
 
-Toda la documentación del proyecto se encuentra organizada en la carpeta [`docs/`](./docs/). 
+**Backend**
+- Django 4.2 + Django REST Framework
+- JWT (djangorestframework-simplejwt)
+- Channels + Daphne (WebSockets)
+- Redis + channels-redis (capas de canales)
+- drf-yasg (Swagger/OpenAPI)
+- psycopg2-binary (PostgreSQL)
+- Pillow, django-filter, django-cors-headers, django-redis, whitenoise
+- Pytest + pytest-django + pytest-cov, factory-boy, Faker
 
-Para acceder a la documentación completa, consulta el [Índice de Documentación](./docs/INDEX.md).
+**Frontend**
+- React 19 + React Router
+- Vite 7
+- Tailwind CSS + PostCSS + Autoprefixer
+- MUI (Material UI) + Emotion
+- Axios
+- Jitsi SDK
+- WebSocket client
 
-## Inicio Rápido
+## Dependencias
 
-1. **Backend**: `cd backend && python manage.py runserver`
-2. **Frontend**: `cd frontend && npm run dev`
-3. **Servidores**: `./start_servers.sh`
+**Backend** (ver `backend/requirements.txt`)
+- Django==4.2.7
+- djangorestframework==3.14.0
+- djangorestframework-simplejwt==5.3.0
+- django-cors-headers==4.3.1
+- Pillow==11.3.0
+- python-decouple==3.8
+- psycopg2-binary==2.9.10
+- django-filter==23.3
+- drf-yasg==1.21.7
+- channels==4.1.0
+- channels-redis==4.2.0
+- django-redis==5.4.0
+- redis==5.0.1
+- whitenoise==6.6.0
+- pytest==7.4.3
+- pytest-django==4.7.0
+- pytest-cov==4.1.0
+- factory-boy==3.3.0
+- faker==20.1.0
+
+**Frontend** (ver `frontend/package.json`)
+- react, react-dom, react-router-dom
+- vite, @vitejs/plugin-react
+- tailwindcss, postcss, autoprefixer
+- @mui/material, @mui/icons-material, @emotion/react, @emotion/styled
+- axios
+- @jitsi/react-sdk
+- lucide-react
+- websocket
+
+## Requisitos
+
+- Python 3.9+ y pip
+- Node.js + npm
+- PostgreSQL (produccion), SQLite (desarrollo)
+- Redis (opcional para Channels/colas)
+
+## Instalacion
+
+**Backend**
+```bash
+cd backend
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python manage.py migrate
+```
+
+**Frontend**
+```bash
+cd frontend
+npm install
+```
+
+## Ejecucion
+
+**Modo rapido (recomendado)**
+```bash
+./start_servers.sh
+```
+
+**Detener servidores**
+```bash
+./stop_servers.sh
+```
+
+**Manualmente**
+```bash
+cd backend
+python manage.py runserver
+```
+```bash
+cd frontend
+npm run dev
+```
+
+## Variables de Entorno
+
+**Backend** (`backend/.env`)
+- `SECRET_KEY`
+- `DEBUG`
+- `ALLOWED_HOSTS`
+- `DATABASE_URL`
+- `CHANNEL_LAYERS_REDIS_URL` (si usas Redis)
+
+**Frontend** (`frontend/.env`)
+- `VITE_API_URL` (default: `http://localhost:8000/api`)
+- `VITE_WS_URL` (default: `ws://localhost:8000`)
 
 ## Estado del Proyecto
 
-✅ **Sistema completamente funcional**
-- Backend Django en puerto 8000
-- Frontend React/Vite en puerto 5174
-- Túnel Cloudflare configurado
-- Apache proxy configurado
-- WebSockets funcionando
+✅ Sistema funcional
+- Backend Django en `http://127.0.0.1:8000`
+- Frontend Vite en `http://localhost:5174`
+- WebSockets activos
+- Logs: `logs/backend.log`, `logs/frontend.log`
 
----
+## Notas de Funcionalidad
 
-**Para información detallada sobre configuración, instalación, pruebas y mantenimiento, consulta la [documentación completa](./docs/).**
+- Recordatorios: el frontend incluye `ReminderModal`/`ReminderCard` y un `reminderService` con fallback a `localStorage` cuando el backend de `reminders` no esta disponible.
+- En backend, la ruta `/api/reminders/` se registra solo si la app `reminders` existe.
+
+## Documentacion
+
+Consulta el indice en `docs/INDEX.md` para la guia completa de configuracion, pruebas y mantenimiento.

@@ -3467,3 +3467,172 @@ django.http.response.Http404: “/home/jorge/pagina web nueva ifap dos/backend/@
 {"timestamp": "2025-09-24 16:44:35,222", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/users/dashboard_stats/"}
 {"timestamp": "2025-09-24 16:44:35,227", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/my_courses/"}
 {"timestamp": "2025-09-24 16:44:35,257", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/users/dashboard_stats/"}
+{"timestamp": "2026-01-16 10:21:06,864", "level": "INFO", "logger": "middleware", "message": "Request: POST /api/token/"}
+{"timestamp": "2026-01-16 10:21:07,620", "level": "INFO", "logger": "middleware", "message": "Response: 401 for POST /api/token/"}
+{"timestamp": "2026-01-16 10:21:14,812", "level": "INFO", "logger": "middleware", "message": "Request: POST /api/token/"}
+{"timestamp": "2026-01-16 10:21:15,159", "level": "INFO", "logger": "middleware", "message": "Response: 401 for POST /api/token/"}
+{"timestamp": "2026-01-16 10:21:21,484", "level": "INFO", "logger": "middleware", "message": "Request: POST /api/token/"}
+{"timestamp": "2026-01-16 10:21:21,846", "level": "INFO", "logger": "middleware", "message": "Response: 200 for POST /api/token/"}
+{"timestamp": "2026-01-16 10:21:21,934", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/"}
+{"timestamp": "2026-01-16 10:21:21,943", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:21:21,968", "level": "INFO", "logger": "courses", "message": "User 9 requested course list"}
+{"timestamp": "2026-01-16 10:21:22,073", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/"}
+{"timestamp": "2026-01-16 10:21:22,188", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:21:22,210", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/chat/notifications/"}
+{"timestamp": "2026-01-16 10:21:22,225", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:21:22,252", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/chat/notifications/"}
+{"timestamp": "2026-01-16 10:21:22,279", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/chat/notifications/"}
+{"timestamp": "2026-01-16 10:21:22,350", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/chat/notifications/"}
+{"timestamp": "2026-01-16 10:21:22,388", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:21:22,400", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:21:22,478", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/users/dashboard_stats/"}
+{"timestamp": "2026-01-16 10:21:22,548", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:21:22,565", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/users/dashboard_stats/"}
+{"timestamp": "2026-01-16 10:21:22,577", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/users/dashboard_stats/"}
+{"timestamp": "2026-01-16 10:21:22,619", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/users/dashboard_stats/"}
+{"timestamp": "2026-01-16 10:21:31,429", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:21:31,549", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:21:31,571", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:21:31,693", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:21:32,515", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/reminders/"}
+{"timestamp": "2026-01-16 10:21:32,565", "level": "INFO", "logger": "middleware", "message": "Response: 404 for GET /api/reminders/"}
+{"timestamp": "2026-01-16 10:21:32,586", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/reminders/"}
+{"timestamp": "2026-01-16 10:21:32,643", "level": "INFO", "logger": "middleware", "message": "Response: 404 for GET /api/reminders/"}
+{"timestamp": "2026-01-16 10:21:35,228", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:21:35,262", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/quizzes/"}
+{"timestamp": "2026-01-16 10:21:35,432", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:21:35,460", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:21:35,467", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/quizzes/"}
+{"timestamp": "2026-01-16 10:21:35,495", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/quizzes/"}
+{"timestamp": "2026-01-16 10:21:35,661", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/quizzes/"}
+{"timestamp": "2026-01-16 10:21:35,668", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:21:36,341", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/forum/categories/"}
+{"timestamp": "2026-01-16 10:21:36,346", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/forum/stats/overview/"}
+{"timestamp": "2026-01-16 10:21:36,352", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/forum/topics/"}
+{"timestamp": "2026-01-16 10:21:36,668", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/forum/topics/"}
+{"timestamp": "2026-01-16 10:21:36,680", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/forum/categories/"}
+{"timestamp": "2026-01-16 10:21:36,719", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/forum/topics/"}
+{"timestamp": "2026-01-16 10:21:36,730", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/forum/categories/"}
+{"timestamp": "2026-01-16 10:21:37,034", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/forum/categories/"}
+{"timestamp": "2026-01-16 10:21:37,052", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/forum/stats/overview/"}
+{"timestamp": "2026-01-16 10:21:37,061", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/forum/topics/"}
+{"timestamp": "2026-01-16 10:21:37,071", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/forum/stats/overview/"}
+{"timestamp": "2026-01-16 10:21:37,271", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/forum/stats/overview/"}
+{"timestamp": "2026-01-16 10:21:38,074", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/notifications/"}
+{"timestamp": "2026-01-16 10:21:38,103", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/notifications/"}
+{"timestamp": "2026-01-16 10:21:38,147", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/notifications/"}
+{"timestamp": "2026-01-16 10:21:38,230", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/notifications/"}
+{"timestamp": "2026-01-16 10:26:39,233", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/taught_courses/"}
+{"timestamp": "2026-01-16 10:26:39,323", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/taught_courses/"}
+{"timestamp": "2026-01-16 10:26:39,352", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/taught_courses/"}
+{"timestamp": "2026-01-16 10:26:39,497", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/1/metrics/"}
+{"timestamp": "2026-01-16 10:26:39,499", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/4/metrics/"}
+{"timestamp": "2026-01-16 10:26:39,500", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/2/metrics/"}
+{"timestamp": "2026-01-16 10:26:39,505", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/3/metrics/"}
+{"timestamp": "2026-01-16 10:26:39,515", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/taught_courses/"}
+{"timestamp": "2026-01-16 10:26:39,648", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/1/metrics/"}
+{"timestamp": "2026-01-16 10:26:39,651", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/2/metrics/"}
+{"timestamp": "2026-01-16 10:26:39,664", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/4/metrics/"}
+{"timestamp": "2026-01-16 10:26:39,665", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/3/metrics/"}
+{"timestamp": "2026-01-16 10:26:39,701", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/1/metrics/"}
+{"timestamp": "2026-01-16 10:26:39,703", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/4/metrics/"}
+{"timestamp": "2026-01-16 10:26:39,729", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/3/metrics/"}
+{"timestamp": "2026-01-16 10:26:39,731", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/2/metrics/"}
+{"timestamp": "2026-01-16 10:26:39,787", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/1/metrics/"}
+{"timestamp": "2026-01-16 10:26:39,800", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/4/metrics/"}
+{"timestamp": "2026-01-16 10:26:39,858", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/2/metrics/"}
+{"timestamp": "2026-01-16 10:26:39,861", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/3/metrics/"}
+{"timestamp": "2026-01-16 10:26:44,688", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/users/me/"}
+{"timestamp": "2026-01-16 10:26:44,718", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/users/me/"}
+{"timestamp": "2026-01-16 10:26:44,739", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/users/me/"}
+{"timestamp": "2026-01-16 10:26:44,782", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/users/me/"}
+{"timestamp": "2026-01-16 10:26:45,238", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:26:45,343", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:26:46,884", "level": "INFO", "logger": "middleware", "message": "Request: POST /api/token/"}
+{"timestamp": "2026-01-16 10:26:47,213", "level": "INFO", "logger": "middleware", "message": "Response: 200 for POST /api/token/"}
+{"timestamp": "2026-01-16 10:26:47,448", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:26:47,451", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/chat/notifications/"}
+{"timestamp": "2026-01-16 10:26:47,480", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/chat/notifications/"}
+{"timestamp": "2026-01-16 10:26:47,507", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/chat/notifications/"}
+{"timestamp": "2026-01-16 10:26:47,558", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/chat/notifications/"}
+{"timestamp": "2026-01-16 10:26:47,617", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:26:47,632", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:26:47,663", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/users/dashboard_stats/"}
+{"timestamp": "2026-01-16 10:26:47,751", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/users/dashboard_stats/"}
+{"timestamp": "2026-01-16 10:26:47,781", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/users/dashboard_stats/"}
+{"timestamp": "2026-01-16 10:26:47,786", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:26:47,829", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/users/dashboard_stats/"}
+{"timestamp": "2026-01-16 10:26:51,902", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/taught_courses/"}
+{"timestamp": "2026-01-16 10:26:51,966", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/taught_courses/"}
+{"timestamp": "2026-01-16 10:26:51,986", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/taught_courses/"}
+{"timestamp": "2026-01-16 10:26:52,026", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/4/metrics/"}
+{"timestamp": "2026-01-16 10:26:52,034", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/3/metrics/"}
+{"timestamp": "2026-01-16 10:26:52,035", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/1/metrics/"}
+{"timestamp": "2026-01-16 10:26:52,040", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/2/metrics/"}
+{"timestamp": "2026-01-16 10:26:52,145", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/4/metrics/"}
+{"timestamp": "2026-01-16 10:26:52,194", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/2/metrics/"}
+{"timestamp": "2026-01-16 10:26:52,196", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/1/metrics/"}
+{"timestamp": "2026-01-16 10:26:52,234", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/3/metrics/"}
+{"timestamp": "2026-01-16 10:26:52,239", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/taught_courses/"}
+{"timestamp": "2026-01-16 10:26:52,310", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/4/metrics/"}
+{"timestamp": "2026-01-16 10:26:52,337", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/2/metrics/"}
+{"timestamp": "2026-01-16 10:26:52,343", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/1/metrics/"}
+{"timestamp": "2026-01-16 10:26:52,348", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/3/metrics/"}
+{"timestamp": "2026-01-16 10:26:52,410", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/4/metrics/"}
+{"timestamp": "2026-01-16 10:26:52,449", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/2/metrics/"}
+{"timestamp": "2026-01-16 10:26:52,459", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/1/metrics/"}
+{"timestamp": "2026-01-16 10:26:52,483", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/3/metrics/"}
+{"timestamp": "2026-01-16 10:30:17,687", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/users/me/"}
+{"timestamp": "2026-01-16 10:30:17,716", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/users/me/"}
+{"timestamp": "2026-01-16 10:30:17,733", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/users/me/"}
+{"timestamp": "2026-01-16 10:30:17,757", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/users/me/"}
+{"timestamp": "2026-01-16 10:30:18,179", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/taught_courses/"}
+{"timestamp": "2026-01-16 10:30:18,199", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/chat/notifications/"}
+{"timestamp": "2026-01-16 10:30:18,220", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:30:18,291", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/chat/notifications/"}
+{"timestamp": "2026-01-16 10:30:18,433", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/chat/notifications/"}
+{"timestamp": "2026-01-16 10:30:18,542", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/taught_courses/"}
+{"timestamp": "2026-01-16 10:30:18,550", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/chat/notifications/"}
+{"timestamp": "2026-01-16 10:30:18,562", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:30:18,578", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/taught_courses/"}
+{"timestamp": "2026-01-16 10:30:18,651", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/taught_courses/"}
+{"timestamp": "2026-01-16 10:30:18,670", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/taught_courses/"}
+{"timestamp": "2026-01-16 10:30:18,782", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/taught_courses/"}
+{"timestamp": "2026-01-16 10:30:18,844", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/1/metrics/"}
+{"timestamp": "2026-01-16 10:30:18,844", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/2/metrics/"}
+{"timestamp": "2026-01-16 10:30:18,847", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/3/metrics/"}
+{"timestamp": "2026-01-16 10:30:18,848", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/4/metrics/"}
+{"timestamp": "2026-01-16 10:30:18,937", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/2/metrics/"}
+{"timestamp": "2026-01-16 10:30:18,939", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/1/metrics/"}
+{"timestamp": "2026-01-16 10:30:18,947", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/3/metrics/"}
+{"timestamp": "2026-01-16 10:30:18,961", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/4/metrics/"}
+{"timestamp": "2026-01-16 10:30:18,985", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/2/metrics/"}
+{"timestamp": "2026-01-16 10:30:19,028", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/4/metrics/"}
+{"timestamp": "2026-01-16 10:30:19,030", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/3/metrics/"}
+{"timestamp": "2026-01-16 10:30:19,035", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/1/metrics/"}
+{"timestamp": "2026-01-16 10:30:19,043", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/2/metrics/"}
+{"timestamp": "2026-01-16 10:30:19,093", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/2/metrics/"}
+{"timestamp": "2026-01-16 10:30:19,112", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/3/metrics/"}
+{"timestamp": "2026-01-16 10:30:19,122", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/1/metrics/"}
+{"timestamp": "2026-01-16 10:30:19,124", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/4/metrics/"}
+{"timestamp": "2026-01-16 10:30:19,153", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/3/metrics/"}
+{"timestamp": "2026-01-16 10:30:19,163", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/1/metrics/"}
+{"timestamp": "2026-01-16 10:30:19,166", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/2/metrics/"}
+{"timestamp": "2026-01-16 10:30:19,201", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/4/metrics/"}
+{"timestamp": "2026-01-16 10:30:19,216", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/3/metrics/"}
+{"timestamp": "2026-01-16 10:30:19,268", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/1/metrics/"}
+{"timestamp": "2026-01-16 10:30:19,281", "level": "INFO", "logger": "middleware", "message": "Response: 500 for GET /api/courses/4/metrics/"}
+{"timestamp": "2026-01-16 10:30:20,447", "level": "INFO", "logger": "middleware", "message": "Request: POST /api/token/"}
+{"timestamp": "2026-01-16 10:30:20,784", "level": "INFO", "logger": "middleware", "message": "Response: 200 for POST /api/token/"}
+{"timestamp": "2026-01-16 10:30:20,943", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/chat/notifications/"}
+{"timestamp": "2026-01-16 10:30:20,944", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:30:20,983", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/chat/notifications/"}
+{"timestamp": "2026-01-16 10:30:20,996", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/chat/notifications/"}
+{"timestamp": "2026-01-16 10:30:21,064", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/chat/notifications/"}
+{"timestamp": "2026-01-16 10:30:21,119", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:30:21,134", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:30:21,160", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/users/dashboard_stats/"}
+{"timestamp": "2026-01-16 10:30:21,273", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/users/dashboard_stats/"}
+{"timestamp": "2026-01-16 10:30:21,307", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-16 10:30:21,311", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/users/dashboard_stats/"}
+{"timestamp": "2026-01-16 10:30:21,362", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/users/dashboard_stats/"}
