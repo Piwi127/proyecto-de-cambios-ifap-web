@@ -1877,3 +1877,841 @@ Traceback (most recent call last):
   File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 150, in __call__
     raise ValueError("No route found for path %r." % path)
 ValueError: No route found for path 'ws/notifications/'.
+INFO Request: GET /api/courses/my_courses/
+ERROR Exception in CourseViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+    ...<4 lines>...
+    )
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+INFO Request: GET /api/chat/notifications/
+INFO Request: GET /api/courses/
+ERROR Exception in ChatNotificationViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+    ...<4 lines>...
+    )
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+ERROR Exception in CourseViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+    ...<4 lines>...
+    )
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+INFO Response: 401 for GET /api/chat/notifications/
+INFO Response: 401 for GET /api/courses/my_courses/
+INFO Response: 401 for GET /api/courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Request: GET /api/chat/notifications/
+ERROR Exception in CourseViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+    ...<4 lines>...
+    )
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+ERROR Exception in ChatNotificationViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+    ...<4 lines>...
+    )
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+INFO Response: 401 for GET /api/courses/my_courses/
+INFO Response: 401 for GET /api/chat/notifications/
+INFO Request: POST /api/token/refresh/
+INFO Request: GET /api/courses/my_courses/
+INFO Request: POST /api/token/refresh/
+INFO Request: POST /api/token/refresh/
+INFO Response: 200 for POST /api/token/refresh/
+ERROR Exception in CourseViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+    ...<4 lines>...
+    )
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+INFO Response: 200 for POST /api/token/refresh/
+INFO Response: 200 for POST /api/token/refresh/
+INFO Response: 401 for GET /api/courses/my_courses/
+INFO Request: POST /api/token/refresh/
+INFO Request: POST /api/token/refresh/
+INFO Response: 200 for POST /api/token/refresh/
+INFO Request: GET /api/chat/notifications/
+INFO Request: GET /api/courses/
+INFO Response: 200 for POST /api/token/refresh/
+INFO Request: GET /api/courses/my_courses/
+INFO Request: POST /api/token/refresh/
+INFO User 9 requested course list
+INFO Response: 200 for GET /api/chat/notifications/
+INFO Request: GET /api/chat/notifications/
+INFO Response: 200 for POST /api/token/refresh/
+INFO Response: 200 for GET /api/chat/notifications/
+INFO Response: 200 for GET /api/courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/users/me/
+INFO User 9 accessed profile
+INFO Response: 200 for GET /api/users/me/
+INFO Request: GET /api/users/me/
+INFO User 9 accessed profile
+INFO Response: 200 for GET /api/users/me/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/users/me/
+INFO User 9 accessed profile
+INFO Response: 200 for GET /api/users/me/
+INFO Request: GET /api/users/me/
+INFO User 9 accessed profile
+INFO Response: 200 for GET /api/users/me/
+INFO Request: GET /api/courses/
+INFO Request: GET /api/courses/my_courses/
+INFO User 9 requested course list
+INFO Response: 200 for GET /api/courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: POST /api/token/
+INFO Response: 200 for POST /api/token/
+INFO Request: GET /api/courses/my_courses/
+INFO Request: GET /api/chat/notifications/
+INFO Response: 200 for GET /api/chat/notifications/
+INFO Request: GET /api/chat/notifications/
+INFO Response: 200 for GET /api/chat/notifications/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Request: GET /api/users/dashboard_stats/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Dashboard stats requested by admin user 9 (jorge)
+INFO Response: 200 for GET /api/users/dashboard_stats/
+INFO Request: GET /api/users/dashboard_stats/
+INFO Dashboard stats requested by admin user 9 (jorge)
+INFO Response: 200 for GET /api/users/dashboard_stats/
+2026-01-16 13:18:47,262 ERROR    Exception inside application: No route found for path 'ws/notifications/'.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 150, in __call__
+    raise ValueError("No route found for path %r." % path)
+ValueError: No route found for path 'ws/notifications/'.
+INFO Request: GET /api/courses/taught_courses/
+INFO Response: 200 for GET /api/courses/taught_courses/
+INFO Request: GET /api/courses/taught_courses/
+INFO Request: GET /api/courses/4/metrics/
+INFO Request: GET /api/courses/1/metrics/
+INFO Request: GET /api/courses/2/metrics/
+INFO Request: GET /api/courses/3/metrics/
+ERROR Exception in CourseViewSet: FieldError: Cannot resolve keyword 'completed_by' into field. Choices are: completed_at, id, is_completed, lesson, lesson_id, user, user_id
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/courses/views.py", line 434, in course_metrics
+    completed_lessons = LessonCompletion.objects.filter(lesson__course=course, completed_by=request.user, is_completed=True).count()
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<6 lines>...
+        summarize=summarize,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1426, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1236, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1724, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'completed_by' into field. Choices are: completed_at, id, is_completed, lesson, lesson_id, user, user_id
+INFO Response: 200 for GET /api/courses/taught_courses/
+ERROR Exception in CourseViewSet: FieldError: Cannot resolve keyword 'completed_by' into field. Choices are: completed_at, id, is_completed, lesson, lesson_id, user, user_id
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/courses/views.py", line 434, in course_metrics
+    completed_lessons = LessonCompletion.objects.filter(lesson__course=course, completed_by=request.user, is_completed=True).count()
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<6 lines>...
+        summarize=summarize,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1426, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1236, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1724, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'completed_by' into field. Choices are: completed_at, id, is_completed, lesson, lesson_id, user, user_id
+ERROR Exception in CourseViewSet: FieldError: Cannot resolve keyword 'completed_by' into field. Choices are: completed_at, id, is_completed, lesson, lesson_id, user, user_id
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/courses/views.py", line 434, in course_metrics
+    completed_lessons = LessonCompletion.objects.filter(lesson__course=course, completed_by=request.user, is_completed=True).count()
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<6 lines>...
+        summarize=summarize,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1426, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1236, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1724, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'completed_by' into field. Choices are: completed_at, id, is_completed, lesson, lesson_id, user, user_id
+INFO Response: 500 for GET /api/courses/1/metrics/
+ERROR Exception in CourseViewSet: FieldError: Cannot resolve keyword 'completed_by' into field. Choices are: completed_at, id, is_completed, lesson, lesson_id, user, user_id
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/courses/views.py", line 434, in course_metrics
+    completed_lessons = LessonCompletion.objects.filter(lesson__course=course, completed_by=request.user, is_completed=True).count()
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<6 lines>...
+        summarize=summarize,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1426, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1236, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1724, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'completed_by' into field. Choices are: completed_at, id, is_completed, lesson, lesson_id, user, user_id
+INFO Response: 500 for GET /api/courses/4/metrics/
+INFO Response: 500 for GET /api/courses/2/metrics/
+ERROR Internal Server Error: /api/courses/1/metrics/
+127.0.0.1:47842 - - [16/Jan/2026:10:27:34] "WSCONNECTING /ws/notifications/" - -
+127.0.0.1:47842 - - [16/Jan/2026:10:27:34] "WSDISCONNECT /ws/notifications/" - -
+127.0.0.1:56284 - - [16/Jan/2026:10:30:17] "GET /api/users/me/" 200 308
+127.0.0.1:56284 - - [16/Jan/2026:10:30:17] "GET /api/users/me/" 200 308
+127.0.0.1:56292 - - [16/Jan/2026:10:30:18] "WSCONNECTING /ws/notifications/" - -
+127.0.0.1:56292 - - [16/Jan/2026:10:30:18] "WSDISCONNECT /ws/notifications/" - -
+127.0.0.1:56316 - - [16/Jan/2026:10:30:18] "WSCONNECTING /ws/notifications/" - -
+127.0.0.1:56316 - - [16/Jan/2026:10:30:18] "WSDISCONNECT /ws/notifications/" - -
+127.0.0.1:56294 - - [16/Jan/2026:10:30:18] "GET /api/chat/notifications/" 200 52
+127.0.0.1:56284 - - [16/Jan/2026:10:30:18] "GET /api/courses/taught_courses/" 200 1577
+127.0.0.1:56294 - - [16/Jan/2026:10:30:18] "GET /api/chat/notifications/" 200 52
+127.0.0.1:56310 - - [16/Jan/2026:10:30:18] "GET /api/courses/my_courses/" 200 1177
+127.0.0.1:56284 - - [16/Jan/2026:10:30:18] "GET /api/courses/taught_courses/" 200 1577
+127.0.0.1:56284 - - [16/Jan/2026:10:30:18] "GET /api/courses/taught_courses/" 200 1577
+127.0.0.1:56332 - - [16/Jan/2026:10:30:18] "GET /api/courses/2/metrics/" 500 102
+127.0.0.1:56346 - - [16/Jan/2026:10:30:18] "GET /api/courses/1/metrics/" 500 102
+127.0.0.1:56294 - - [16/Jan/2026:10:30:18] "GET /api/courses/3/metrics/" 500 102
+127.0.0.1:56310 - - [16/Jan/2026:10:30:18] "GET /api/courses/4/metrics/" 500 102
+127.0.0.1:56332 - - [16/Jan/2026:10:30:19] "GET /api/courses/2/metrics/" 500 102
+127.0.0.1:56310 - - [16/Jan/2026:10:30:19] "GET /api/courses/3/metrics/" 500 102
+127.0.0.1:56346 - - [16/Jan/2026:10:30:19] "GET /api/courses/1/metrics/" 500 102
+127.0.0.1:56294 - - [16/Jan/2026:10:30:19] "GET /api/courses/4/metrics/" 500 102
+127.0.0.1:56348 - - [16/Jan/2026:10:30:19] "WSCONNECTING /ws/notifications/" - -
+127.0.0.1:56332 - - [16/Jan/2026:10:30:19] "GET /api/courses/2/metrics/" 500 102
+127.0.0.1:56310 - - [16/Jan/2026:10:30:19] "GET /api/courses/3/metrics/" 500 102
+127.0.0.1:56346 - - [16/Jan/2026:10:30:19] "GET /api/courses/1/metrics/" 500 102
+127.0.0.1:56294 - - [16/Jan/2026:10:30:19] "GET /api/courses/4/metrics/" 500 102
+127.0.0.1:56348 - - [16/Jan/2026:10:30:19] "WSDISCONNECT /ws/notifications/" - -
+127.0.0.1:56356 - - [16/Jan/2026:10:30:20] "WSCONNECTING /ws/notifications/" - -
+127.0.0.1:56356 - - [16/Jan/2026:10:30:20] "WSDISCONNECT /ws/notifications/" - -
+127.0.0.1:56294 - - [16/Jan/2026:10:30:20] "POST /api/token/" 200 810
+127.0.0.1:56346 - - [16/Jan/2026:10:30:20] "GET /api/chat/notifications/" 200 52
+127.0.0.1:56346 - - [16/Jan/2026:10:30:21] "GET /api/chat/notifications/" 200 52
+127.0.0.1:56294 - - [16/Jan/2026:10:30:21] "GET /api/courses/my_courses/" 200 1177
+127.0.0.1:56346 - - [16/Jan/2026:10:30:21] "GET /api/users/dashboard_stats/" 200 195
+127.0.0.1:56294 - - [16/Jan/2026:10:30:21] "GET /api/courses/my_courses/" 200 1177
+127.0.0.1:56346 - - [16/Jan/2026:10:30:21] "GET /api/users/dashboard_stats/" 200 195
+127.0.0.1:56360 - - [16/Jan/2026:10:30:24] "WSCONNECTING /ws/notifications/" - -
+127.0.0.1:56360 - - [16/Jan/2026:10:30:24] "WSDISCONNECT /ws/notifications/" - -
+127.0.0.1:39588 - - [16/Jan/2026:10:30:28] "WSCONNECTING /ws/notifications/" - -
+127.0.0.1:39588 - - [16/Jan/2026:10:30:29] "WSDISCONNECT /ws/notifications/" - -
+127.0.0.1:56028 - - [16/Jan/2026:10:30:40] "WSCONNECTING /ws/notifications/" - -
+127.0.0.1:56028 - - [16/Jan/2026:10:30:40] "WSDISCONNECT /ws/notifications/" - -
+127.0.0.1:37252 - - [16/Jan/2026:10:31:01] "WSCONNECTING /ws/notifications/" - -
+127.0.0.1:37252 - - [16/Jan/2026:10:31:01] "WSDISCONNECT /ws/notifications/" - -
+127.0.0.1:44082 - - [16/Jan/2026:13:00:33] "OPTIONS /api/users/me/" 200 -
+127.0.0.1:44088 - - [16/Jan/2026:13:00:33] "OPTIONS /api/users/me/" 200 -
+127.0.0.1:44088 - - [16/Jan/2026:13:00:34] "OPTIONS /api/courses/my_courses/" 200 -
+127.0.0.1:51666 - - [16/Jan/2026:13:00:34] "OPTIONS /api/courses/" 200 -
+127.0.0.1:51676 - - [16/Jan/2026:13:00:34] "OPTIONS /api/courses/my_courses/" 200 -
+127.0.0.1:44082 - - [16/Jan/2026:13:00:34] "OPTIONS /api/chat/notifications/" 200 -
+127.0.0.1:51674 - - [16/Jan/2026:13:00:34] "OPTIONS /api/courses/my_courses/" 200 -
+127.0.0.1:51678 - - [16/Jan/2026:13:00:34] "OPTIONS /api/chat/notifications/" 200 -
+127.0.0.1:44088 - - [16/Jan/2026:13:00:34] "GET /api/courses/my_courses/" 401 380
+127.0.0.1:51678 - - [16/Jan/2026:13:00:34] "GET /api/chat/notifications/" 401 380
+127.0.0.1:51674 - - [16/Jan/2026:13:00:34] "GET /api/courses/" 401 380
+127.0.0.1:51674 - - [16/Jan/2026:13:00:35] "OPTIONS /api/token/refresh/" 200 -
+127.0.0.1:44082 - - [16/Jan/2026:13:00:35] "GET /api/courses/my_courses/" 401 380
+127.0.0.1:51678 - - [16/Jan/2026:13:00:35] "OPTIONS /api/token/refresh/" 200 -
+127.0.0.1:44088 - - [16/Jan/2026:13:00:35] "OPTIONS /api/token/refresh/" 200 -
+127.0.0.1:51676 - - [16/Jan/2026:13:00:35] "GET /api/chat/notifications/" 401 380
+127.0.0.1:51674 - - [16/Jan/2026:13:00:35] "POST /api/token/refresh/" 200 241
+127.0.0.1:44082 - - [16/Jan/2026:13:00:35] "POST /api/token/refresh/" 200 241
+127.0.0.1:44088 - - [16/Jan/2026:13:00:35] "POST /api/token/refresh/" 200 241
+127.0.0.1:51666 - - [16/Jan/2026:13:00:35] "GET /api/courses/my_courses/" 401 380
+127.0.0.1:51666 - - [16/Jan/2026:13:00:35] "POST /api/token/refresh/" 200 241
+127.0.0.1:44088 - - [16/Jan/2026:13:00:35] "POST /api/token/refresh/" 200 241
+127.0.0.1:44082 - - [16/Jan/2026:13:00:35] "GET /api/chat/notifications/" 200 52
+127.0.0.1:51676 - - [16/Jan/2026:13:00:35] "POST /api/token/refresh/" 200 241
+127.0.0.1:44082 - - [16/Jan/2026:13:00:35] "GET /api/chat/notifications/" 200 52
+127.0.0.1:51674 - - [16/Jan/2026:13:00:35] "GET /api/courses/" 200 1675
+127.0.0.1:51666 - - [16/Jan/2026:13:00:35] "GET /api/courses/my_courses/" 200 1177
+127.0.0.1:51666 - - [16/Jan/2026:13:00:36] "GET /api/courses/my_courses/" 200 1177
+127.0.0.1:51666 - - [16/Jan/2026:13:00:36] "GET /api/courses/my_courses/" 200 1177
+127.0.0.1:37724 - - [16/Jan/2026:13:12:14] "GET /api/users/me/" 200 308
+127.0.0.1:37724 - - [16/Jan/2026:13:12:14] "GET /api/users/me/" 200 308
+127.0.0.1:37724 - - [16/Jan/2026:13:12:15] "GET /api/courses/my_courses/" 200 1177
+127.0.0.1:35518 - - [16/Jan/2026:13:16:19] "GET /api/users/me/" 200 308
+127.0.0.1:35518 - - [16/Jan/2026:13:16:19] "GET /api/users/me/" 200 308
+127.0.0.1:35518 - - [16/Jan/2026:13:16:19] "GET /api/courses/" 200 1675
+127.0.0.1:35520 - - [16/Jan/2026:13:16:19] "GET /api/courses/my_courses/" 200 1177
+127.0.0.1:52946 - - [16/Jan/2026:13:18:41] "OPTIONS /api/token/" 200 -
+127.0.0.1:52946 - - [16/Jan/2026:13:18:41] "POST /api/token/" 200 810
+127.0.0.1:52948 - - [16/Jan/2026:13:18:42] "GET /api/chat/notifications/" 200 52
+127.0.0.1:52948 - - [16/Jan/2026:13:18:42] "GET /api/chat/notifications/" 200 52
+127.0.0.1:52946 - - [16/Jan/2026:13:18:43] "GET /api/courses/my_courses/" 200 1177
+127.0.0.1:52948 - - [16/Jan/2026:13:18:43] "OPTIONS /api/users/dashboard_stats/" 200 -
+127.0.0.1:52956 - - [16/Jan/2026:13:18:43] "OPTIONS /api/users/dashboard_stats/" 200 -
+127.0.0.1:52946 - - [16/Jan/2026:13:18:43] "GET /api/courses/my_courses/" 200 1177
+127.0.0.1:52948 - - [16/Jan/2026:13:18:43] "GET /api/users/dashboard_stats/" 200 195
+127.0.0.1:52948 - - [16/Jan/2026:13:18:43] "GET /api/users/dashboard_stats/" 200 195
+127.0.0.1:36366 - - [16/Jan/2026:13:18:47] "WSCONNECTING /ws/notifications/" - -
+127.0.0.1:36366 - - [16/Jan/2026:13:18:47] "WSDISCONNECT /ws/notifications/" - -
+127.0.0.1:52948 - - [16/Jan/2026:13:18:47] "OPTIONS /api/courses/taught_courses/" 200 -
+127.0.0.1:52946 - - [16/Jan/2026:13:18:47] "OPTIONS /api/courses/taught_courses/" 200 -
+127.0.0.1:52948 - - [16/Jan/2026:13:18:47] "GET /api/courses/taught_courses/" 200 1577
+127.0.0.1:52946 - - [16/Jan/2026:13:18:47] "OPTIONS /api/courses/4/metrics/" 200 -
+127.0.0.1:52956 - - [16/Jan/2026:13:18:47] "OPTIONS /api/courses/3/metrics/" 200 -
+127.0.0.1:36368 - - [16/Jan/2026:13:18:47] "OPTIONS /api/courses/2/metrics/" 200 -
+127.0.0.1:36378 - - [16/Jan/2026:13:18:47] "OPTIONS /api/courses/1/metrics/" 200 -
+127.0.0.1:52948 - - [16/Jan/2026:13:18:47] "GET /api/courses/taught_courses/" 200 1577
+127.0.0.1:36368 - - [16/Jan/2026:13:18:47] "GET /api/courses/1/metrics/" 500 102
+ERROR Internal Server Error: /api/courses/4/metrics/
+INFO Response: 500 for GET /api/courses/3/metrics/
+ERROR Internal Server Error: /api/courses/2/metrics/
+ERROR Internal Server Error: /api/courses/3/metrics/
+INFO Request: GET /api/courses/1/metrics/
+INFO Request: GET /api/courses/3/metrics/
+INFO Request: GET /api/courses/4/metrics/
+INFO Request: GET /api/courses/2/metrics/
+ERROR Exception in CourseViewSet: FieldError: Cannot resolve keyword 'completed_by' into field. Choices are: completed_at, id, is_completed, lesson, lesson_id, user, user_id
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/courses/views.py", line 434, in course_metrics
+    completed_lessons = LessonCompletion.objects.filter(lesson__course=course, completed_by=request.user, is_completed=True).count()
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<6 lines>...
+        summarize=summarize,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1426, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1236, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1724, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'completed_by' into field. Choices are: completed_at, id, is_completed, lesson, lesson_id, user, user_id
+ERROR Exception in CourseViewSet: FieldError: Cannot resolve keyword 'completed_by' into field. Choices are: completed_at, id, is_completed, lesson, lesson_id, user, user_id
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/courses/views.py", line 434, in course_metrics
+    completed_lessons = LessonCompletion.objects.filter(lesson__course=course, completed_by=request.user, is_completed=True).count()
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<6 lines>...
+        summarize=summarize,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1426, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1236, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1724, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'completed_by' into field. Choices are: completed_at, id, is_completed, lesson, lesson_id, user, user_id
+ERROR Exception in CourseViewSet: FieldError: Cannot resolve keyword 'completed_by' into field. Choices are: completed_at, id, is_completed, lesson, lesson_id, user, user_id
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/courses/views.py", line 434, in course_metrics
+    completed_lessons = LessonCompletion.objects.filter(lesson__course=course, completed_by=request.user, is_completed=True).count()
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<6 lines>...
+        summarize=summarize,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1426, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1236, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1724, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'completed_by' into field. Choices are: completed_at, id, is_completed, lesson, lesson_id, user, user_id
+INFO Response: 500 for GET /api/courses/3/metrics/
+ERROR Exception in CourseViewSet: FieldError: Cannot resolve keyword 'completed_by' into field. Choices are: completed_at, id, is_completed, lesson, lesson_id, user, user_id
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/courses/views.py", line 434, in course_metrics
+    completed_lessons = LessonCompletion.objects.filter(lesson__course=course, completed_by=request.user, is_completed=True).count()
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<6 lines>...
+        summarize=summarize,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1426, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1236, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1724, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'completed_by' into field. Choices are: completed_at, id, is_completed, lesson, lesson_id, user, user_id
+INFO Response: 500 for GET /api/courses/4/metrics/
+ERROR Internal Server Error: /api/courses/3/metrics/
+INFO Response: 500 for GET /api/courses/1/metrics/
+INFO Response: 500 for GET /api/courses/2/metrics/
+ERROR Internal Server Error: /api/courses/4/metrics/
+ERROR Internal Server Error: /api/courses/1/metrics/
+ERROR Internal Server Error: /api/courses/2/metrics/
+2026-01-16 13:18:49,271 ERROR    Exception inside application: No route found for path 'ws/notifications/'.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 150, in __call__
+    raise ValueError("No route found for path %r." % path)
+ValueError: No route found for path 'ws/notifications/'.
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Request: GET /api/users/dashboard_stats/
+INFO Dashboard stats requested by admin user 9 (jorge)
+INFO Response: 200 for GET /api/users/dashboard_stats/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/users/dashboard_stats/
+INFO Dashboard stats requested by admin user 9 (jorge)
+INFO Response: 200 for GET /api/users/dashboard_stats/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/reminders/
+INFO Response: 404 for GET /api/reminders/
+INFO Request: GET /api/reminders/
+INFO Response: 404 for GET /api/reminders/
+2026-01-16 13:18:54,281 ERROR    Exception inside application: No route found for path 'ws/notifications/'.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 150, in __call__
+    raise ValueError("No route found for path %r." % path)
+ValueError: No route found for path 'ws/notifications/'.
+INFO Request: GET /api/courses/my_courses/
+INFO Request: GET /api/quizzes/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/quizzes/
+INFO Request: GET /api/courses/my_courses/
+INFO Request: GET /api/quizzes/
+INFO Response: 200 for GET /api/quizzes/
+INFO Response: 200 for GET /api/courses/my_courses/
+2026-01-16 13:18:58,289 ERROR    Exception inside application: No route found for path 'ws/notifications/'.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 150, in __call__
+    raise ValueError("No route found for path %r." % path)
+ValueError: No route found for path 'ws/notifications/'.
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Request: GET /api/users/dashboard_stats/
+INFO Dashboard stats requested by admin user 9 (jorge)
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/users/dashboard_stats/
+INFO Request: GET /api/users/dashboard_stats/
+INFO Dashboard stats requested by admin user 9 (jorge)
+INFO Response: 200 for GET /api/users/dashboard_stats/
+2026-01-16 13:19:11,309 ERROR    Exception inside application: No route found for path 'ws/notifications/'.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 150, in __call__
+    raise ValueError("No route found for path %r." % path)
+ValueError: No route found for path 'ws/notifications/'.
+2026-01-16 13:19:30,340 ERROR    Exception inside application: No route found for path 'ws/notifications/'.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels/routing.py", line 150, in __call__
+    raise ValueError("No route found for path %r." % path)
+ValueError: No route found for path 'ws/notifications/'.

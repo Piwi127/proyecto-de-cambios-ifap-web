@@ -8,3 +8,8 @@
   ➜  Local:   http://localhost:5174/
   ➜  Network: http://192.168.1.6:5174/
 [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+1:11:56 p. m. [vite] vite.config.js changed, restarting server...
+1:11:56 p. m. [vite] server restarted.
+1:16:10 p. m. [vite] (client) hmr update /src/App.jsx, /src/index.css, /src/components/UniversityMenu.css
+1:16:15 p. m. [vite] vite.config.js changed, restarting server...
+1:16:16 p. m. [vite] server restarted.

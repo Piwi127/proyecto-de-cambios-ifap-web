@@ -10,8 +10,8 @@
 // ========================================
 // IMPORTACIONES DE DEPENDENCIAS
 // ========================================
-import { defineConfig } from 'vite'           // Función principal para definir configuración de Vite
-import react from '@vitejs/plugin-react'       // Plugin oficial de Vite para React con Fast Refresh
+import { defineConfig } from 'vite'               // Función principal para definir configuración de Vite
+import react from '@vitejs/plugin-react'          // Plugin oficial de Vite para React con Fast Refresh
 import compression from 'vite-plugin-compression' // Plugin para compresión de assets en producción
 
 export default defineConfig({
@@ -74,23 +74,20 @@ export default defineConfig({
   // ========================================
   build: {
     // Configuración del minificador de JavaScript
-    minify: 'terser',       // Usa Terser para minificación avanzada
-                            // - Terser es más eficiente que el minificador por defecto
-                            // - Proporciona mejor compresión y optimizaciones
-                            // - Alternativa: 'esbuild' (más rápido pero menos optimizado)
+    minify: 'esbuild',      // Minificación más rápida para builds consistentes
+                            // - Mantiene buena compresión y reduce tiempos de build
 
-    // Opciones específicas del minificador Terser
-    terserOptions: {
-      compress: {
-        // Eliminación de código innecesario en producción
-        drop_console: true, // Remueve todas las llamadas a console.log, console.warn, etc.
-                            // - Reduce el tamaño del bundle final
-                            // - Mejora la seguridad (no expone logs internos)
-                            // - NOTA: Desactivar en desarrollo para debugging
-
-        drop_debugger: true, // Elimina todas las declaraciones 'debugger'
-                            // - Limpia el código de puntos de interrupción
-                            // - Evita que la app se detenga en producción
+    // Opciones de minificación con esbuild
+    esbuild: {
+      drop: ['console', 'debugger'], // Remueve logs y debuggers en producción
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          mui: ['@mui/material', '@mui/icons-material', '@emotion/react', '@emotion/styled'],
+          jitsi: ['@jitsi/react-sdk'],
+        },
       },
     },
 
@@ -100,6 +97,5 @@ export default defineConfig({
     // 3. El puerto 5174 debe estar abierto y disponible
     // 4. Los allowedHosts deben incluir todos los dominios de despliegue
     // 5. La compresión gzip reduce el tamaño de archivos hasta en un 70%
-    // 6. Terser puede aumentar el tiempo de build pero mejora el rendimiento
   },
 })

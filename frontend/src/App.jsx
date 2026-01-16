@@ -1,76 +1,78 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import AulaVirtualLayout from './components/AulaVirtualLayout';
 import ProtectedRoute from './components/ProtectedRoute';
-import HomeModern from './pages/HomeModern';
-import About from './pages/About';
-import Contacto from './pages/Contacto';
-import Blog from './pages/Blog';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import DashboardAulaVirtual from './pages/DashboardAulaVirtual';
-import PerfilEstudiante from './pages/PerfilEstudiante';
-import CursosAulaVirtual from './pages/CursosAulaVirtual';
-import CursoDetalle from './pages/CursoDetalle';
-import CalendarioAulaVirtual from './pages/CalendarioAulaVirtual';
-import BibliotecaAulaVirtual from './pages/BibliotecaAulaVirtual';
-import QuizzesAulaVirtual from './pages/QuizzesAulaVirtual';
-import QuizCreate from './pages/QuizCreate';
-import QuizManage from './pages/QuizManage';
-import QuizEdit from './pages/QuizEdit';
-import QuizTemplates from './pages/QuizTemplates';
-import QuizImportExport from './pages/QuizImportExport';
-import CalificacionesAulaVirtual from './pages/CalificacionesAulaVirtual';
-import Foro from './pages/Foro';
-import ForoTema from './pages/ForoTema';
-import NotificacionesAulaVirtual from './pages/NotificacionesAulaVirtual';
-import TareasAulaVirtual from './pages/TareasAulaVirtual';
-import Tareas from './pages/Tareas';
-import TareaDetalle from './pages/TareaDetalle';
-import TareaForm from './pages/TareaForm';
-import AsignacionDetalle from './pages/AsignacionDetalle';
-import Biblioteca from './components/aula-virtual/biblioteca/Biblioteca';
-import CategoriasGestion from './components/aula-virtual/biblioteca/CategoriasGestion';
-import EstadisticasBiblioteca from './components/aula-virtual/biblioteca/EstadisticasBiblioteca';
-import ConfiguracionAulaVirtual from './pages/ConfiguracionAulaVirtual';
-import ArchivisticaBasica from './pages/ArchivisticaBasica';
-import GestionDigital from './pages/GestionDigital';
-import ArchivosHistoricos from './pages/ArchivosHistoricos';
-import VideoConferencePage from './pages/VideoConferencePage';
-import ColaboracionPage from './pages/ColaboracionPage';
-import PreservacionDocumentos from './pages/PreservacionDocumentos';
-import ProgramaArchivisticaBasica from './pages/ProgramaArchivisticaBasica';
-import ProgramaGestionDigital from './pages/ProgramaGestionDigital';
-import ProgramaArchivosHistoricos from './pages/ProgramaArchivosHistoricos';
-import ProgramaPreservacionDocumentos from './pages/ProgramaPreservacionDocumentos';
-import DashboardProfesor from './pages/DashboardProfesor';
-import UserManagement from './pages/UserManagement';
-import AdminDashboard from './pages/AdminDashboard';
-import AdminCourses from './pages/AdminCourses';
-import AdminPermissions from './pages/AdminPermissions';
-import AdminSystemSettings from './pages/AdminSystemSettings';
-import AdminReports from './pages/AdminReports';
-import GestionCursosAdmin from './pages/GestionCursosAdmin';
+
+const HomeModern = lazy(() => import('./pages/HomeModern'));
+const About = lazy(() => import('./pages/About'));
+const Contacto = lazy(() => import('./pages/Contacto'));
+const Blog = lazy(() => import('./pages/Blog'));
+const Login = lazy(() => import('./pages/Login'));
+const Dashboard = lazy(() => import('./pages/Dashboard'));
+const DashboardAulaVirtual = lazy(() => import('./pages/DashboardAulaVirtual'));
+const PerfilEstudiante = lazy(() => import('./pages/PerfilEstudiante'));
+const CursosAulaVirtual = lazy(() => import('./pages/CursosAulaVirtual'));
+const CursoDetalle = lazy(() => import('./pages/CursoDetalle'));
+const CalendarioAulaVirtual = lazy(() => import('./pages/CalendarioAulaVirtual'));
+const BibliotecaAulaVirtual = lazy(() => import('./pages/BibliotecaAulaVirtual'));
+const QuizzesAulaVirtual = lazy(() => import('./pages/QuizzesAulaVirtual'));
+const QuizCreate = lazy(() => import('./pages/QuizCreate'));
+const QuizManage = lazy(() => import('./pages/QuizManage'));
+const QuizEdit = lazy(() => import('./pages/QuizEdit'));
+const QuizTemplates = lazy(() => import('./pages/QuizTemplates'));
+const QuizImportExport = lazy(() => import('./pages/QuizImportExport'));
+const CalificacionesAulaVirtual = lazy(() => import('./pages/CalificacionesAulaVirtual'));
+const Foro = lazy(() => import('./pages/Foro'));
+const ForoTema = lazy(() => import('./pages/ForoTema'));
+const NotificacionesAulaVirtual = lazy(() => import('./pages/NotificacionesAulaVirtual'));
+const TareasAulaVirtual = lazy(() => import('./pages/TareasAulaVirtual'));
+const Tareas = lazy(() => import('./pages/Tareas'));
+const TareaDetalle = lazy(() => import('./pages/TareaDetalle'));
+const TareaForm = lazy(() => import('./pages/TareaForm'));
+const AsignacionDetalle = lazy(() => import('./pages/AsignacionDetalle'));
+const Biblioteca = lazy(() => import('./components/aula-virtual/biblioteca/Biblioteca'));
+const CategoriasGestion = lazy(() => import('./components/aula-virtual/biblioteca/CategoriasGestion'));
+const EstadisticasBiblioteca = lazy(() => import('./components/aula-virtual/biblioteca/EstadisticasBiblioteca'));
+const ConfiguracionAulaVirtual = lazy(() => import('./pages/ConfiguracionAulaVirtual'));
+const ArchivisticaBasica = lazy(() => import('./pages/ArchivisticaBasica'));
+const GestionDigital = lazy(() => import('./pages/GestionDigital'));
+const ArchivosHistoricos = lazy(() => import('./pages/ArchivosHistoricos'));
+const VideoConferencePage = lazy(() => import('./pages/VideoConferencePage'));
+const ColaboracionPage = lazy(() => import('./pages/ColaboracionPage'));
+const PreservacionDocumentos = lazy(() => import('./pages/PreservacionDocumentos'));
+const ProgramaArchivisticaBasica = lazy(() => import('./pages/ProgramaArchivisticaBasica'));
+const ProgramaGestionDigital = lazy(() => import('./pages/ProgramaGestionDigital'));
+const ProgramaArchivosHistoricos = lazy(() => import('./pages/ProgramaArchivosHistoricos'));
+const ProgramaPreservacionDocumentos = lazy(() => import('./pages/ProgramaPreservacionDocumentos'));
+const DashboardProfesor = lazy(() => import('./pages/DashboardProfesor'));
+const UserManagement = lazy(() => import('./pages/UserManagement'));
+const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
+const AdminCourses = lazy(() => import('./pages/AdminCourses'));
+const AdminPermissions = lazy(() => import('./pages/AdminPermissions'));
+const AdminSystemSettings = lazy(() => import('./pages/AdminSystemSettings'));
+const AdminReports = lazy(() => import('./pages/AdminReports'));
+const GestionCursosAdmin = lazy(() => import('./pages/GestionCursosAdmin'));
 // Nuevos componentes de administración
-import AdminReportsComponent from './components/admin/AdminReports';
-import AdminRealTimeMetrics from './components/admin/AdminRealTimeMetrics';
-import AdminCustomReports from './components/admin/AdminCustomReports';
-import AdminAnalytics from './components/admin/AdminAnalytics';
-import AdminExportTools from './components/admin/AdminExportTools';
-import AdminReportConfig from './components/admin/AdminReportConfig';
-import ContactMessages from './pages/ContactMessages.jsx';
+const AdminReportsComponent = lazy(() => import('./components/admin/AdminReports'));
+const AdminRealTimeMetrics = lazy(() => import('./components/admin/AdminRealTimeMetrics'));
+const AdminCustomReports = lazy(() => import('./components/admin/AdminCustomReports'));
+const AdminAnalytics = lazy(() => import('./components/admin/AdminAnalytics'));
+const AdminExportTools = lazy(() => import('./components/admin/AdminExportTools'));
+const AdminReportConfig = lazy(() => import('./components/admin/AdminReportConfig'));
+const ContactMessages = lazy(() => import('./pages/ContactMessages.jsx'));
 
 function App() {
   return (
-    <Routes>
-      {/* Rutas públicas */}
-      <Route path="/" element={<Layout><HomeModern /></Layout>} />
-      <Route path="/nosotros" element={<Layout><About /></Layout>} />
-      <Route path="/contacto" element={<Layout><Contacto /></Layout>} />
-      <Route path="/blog" element={<Layout><Blog /></Layout>} />
-      <Route path="/login" element={<Layout><Login /></Layout>} />
-      <Route path="/dashboard" element={<Layout><Dashboard /></Layout>} />
+    <Suspense fallback={<div className="p-6 text-center text-gray-500">Cargando...</div>}>
+      <Routes>
+        {/* Rutas públicas */}
+        <Route path="/" element={<Layout><HomeModern /></Layout>} />
+        <Route path="/nosotros" element={<Layout><About /></Layout>} />
+        <Route path="/contacto" element={<Layout><Contacto /></Layout>} />
+        <Route path="/blog" element={<Layout><Blog /></Layout>} />
+        <Route path="/login" element={<Layout><Login /></Layout>} />
+        <Route path="/dashboard" element={<Layout><Dashboard /></Layout>} />
 
       {/* Rutas de cursos públicos */}
       <Route path="/courses/all" element={<Layout><CursosAulaVirtual /></Layout>} />
@@ -412,14 +414,15 @@ function App() {
           </AulaVirtualLayout>
         </ProtectedRoute>
       } />
-      <Route path="/aula-virtual/mensajes-contacto" element={
-        <ProtectedRoute requiredRole="superuser">
-          <AulaVirtualLayout>
-            <ContactMessages />
-          </AulaVirtualLayout>
-        </ProtectedRoute>
-      } />
-    </Routes>
+        <Route path="/aula-virtual/mensajes-contacto" element={
+          <ProtectedRoute requiredRole="superuser">
+            <AulaVirtualLayout>
+              <ContactMessages />
+            </AulaVirtualLayout>
+          </ProtectedRoute>
+        } />
+      </Routes>
+    </Suspense>
   );
 }
 
