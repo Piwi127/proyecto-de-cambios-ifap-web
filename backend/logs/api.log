@@ -6086,3 +6086,10 @@ django.http.response.Http404: “/home/jorge/pagina web nueva ifap dos/backend/@
 {"timestamp": "2026-01-17 16:24:53,219", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/users/dashboard_stats/"}
 {"timestamp": "2026-01-17 16:24:53,231", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/my_courses/"}
 {"timestamp": "2026-01-17 16:24:53,263", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/users/dashboard_stats/"}
+{"timestamp": "2026-01-17 16:46:03,346", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/"}
+{"timestamp": "2026-01-17 16:46:03,356", "level": "INFO", "logger": "courses", "message": "User 9 requested course list"}
+{"timestamp": "2026-01-17 16:46:03,412", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/"}
+{"timestamp": "2026-01-17 16:46:03,434", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-17 16:46:03,516", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-17 16:46:03,532", "level": "INFO", "logger": "middleware", "message": "Request: GET /api/courses/my_courses/"}
+{"timestamp": "2026-01-17 16:46:03,612", "level": "INFO", "logger": "middleware", "message": "Response: 200 for GET /api/courses/my_courses/"}
