@@ -146,12 +146,12 @@ const AsignacionDetalle = () => {
     if (!assignment) return false;
     
     // Verificar si permite múltiples entregas
-    if (!assignment.task.allow_multiple_submissions && submissions.length > 0) {
+    if ((assignment.task_max_attempts || 1) <= 1 && submissions.length > 0) {
       return false;
     }
     
     // Verificar si está vencida y no permite entregas tardías
-    if (isOverdue(assignment.effective_due_date, assignment.status) && !assignment.task.allow_late_submissions) {
+    if (isOverdue(assignment.effective_due_date, assignment.status) && !assignment.task_allow_late_submission) {
       return false;
     }
     
@@ -220,7 +220,7 @@ const AsignacionDetalle = () => {
             )}
             {latestSubmission?.score !== null && (
               <span className="px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-                Calificada: {latestSubmission.score}/{assignment.task.max_score || 100}
+                Calificada: {latestSubmission.score}/{assignment.task_max_score || 100}
               </span>
             )}
           </div>
@@ -315,13 +315,13 @@ const AsignacionDetalle = () => {
                     <span className="ml-2">{assignment.instructor_name}</span>
                   </div>
                   <div>
-                    <span className="font-medium text-gray-600">Tipo:</span>
-                    <span className="ml-2">{assignment.task_type}</span>
+                    <span className="font-medium text-gray-600">Prioridad:</span>
+                    <span className="ml-2">{assignment.task_priority}</span>
                   </div>
-                  {assignment.task.max_score && (
+                  {assignment.task_max_score && (
                     <div>
                       <span className="font-medium text-gray-600">Puntuación máxima:</span>
-                      <span className="ml-2">{assignment.task.max_score} puntos</span>
+                      <span className="ml-2">{assignment.task_max_score} puntos</span>
                     </div>
                   )}
                 </div>
@@ -332,16 +332,16 @@ const AsignacionDetalle = () => {
                 <div className="space-y-3">
                   <div>
                     <span className="font-medium text-gray-600">Entregas múltiples:</span>
-                    <span className="ml-2">{assignment.task.allow_multiple_submissions ? 'Permitidas' : 'No permitidas'}</span>
+                    <span className="ml-2">{(assignment.task_max_attempts || 1) > 1 ? 'Permitidas' : 'No permitidas'}</span>
                   </div>
                   <div>
                     <span className="font-medium text-gray-600">Entregas tardías:</span>
-                    <span className="ml-2">{assignment.task.allow_late_submissions ? 'Permitidas' : 'No permitidas'}</span>
+                    <span className="ml-2">{assignment.task_allow_late_submission ? 'Permitidas' : 'No permitidas'}</span>
                   </div>
-                  {assignment.task.late_penalty_per_day && (
+                  {assignment.task_late_penalty_percent && (
                     <div>
                       <span className="font-medium text-gray-600">Penalización por día:</span>
-                      <span className="ml-2">{assignment.task.late_penalty_per_day}%</span>
+                      <span className="ml-2">{assignment.task_late_penalty_percent}%</span>
                     </div>
                   )}
                 </div>
@@ -465,10 +465,10 @@ const AsignacionDetalle = () => {
           <div className="text-center py-8">
             <p className="text-gray-500 text-lg mb-4">No puedes realizar más entregas</p>
             <div className="text-sm text-gray-600">
-              {!assignment.task.allow_multiple_submissions && submissions.length > 0 && (
+              {(assignment.task_max_attempts || 1) <= 1 && submissions.length > 0 && (
                 <p>Esta tarea no permite múltiples entregas</p>
               )}
-              {isOverdue(assignment.effective_due_date, assignment.status) && !assignment.task.allow_late_submissions && (
+              {isOverdue(assignment.effective_due_date, assignment.status) && !assignment.task_allow_late_submission && (
                 <p>La fecha límite ha pasado y no se permiten entregas tardías</p>
               )}
               {assignment.status === 'graded' && (
@@ -502,7 +502,7 @@ const AsignacionDetalle = () => {
                         {submission.score !== null ? (
                           <div>
                             <span className="text-lg font-bold text-blue-600">
-                              {submission.score}/{assignment.task.max_score || 100}
+                              {submission.score}/{assignment.task_max_score || 100}
                             </span>
                             <p className="text-sm text-gray-500">Calificada</p>
                           </div>
@@ -551,7 +551,7 @@ const AsignacionDetalle = () => {
                       </div>
                     )}
                     
-                    {index === 0 && canSubmit() && assignment.task.allow_multiple_submissions && (
+                    {index === 0 && canSubmit() && (assignment.task_max_attempts || 1) > 1 && (
                       <div className="flex justify-end space-x-2">
                         <button
                           onClick={() => setActiveTab('submit')}

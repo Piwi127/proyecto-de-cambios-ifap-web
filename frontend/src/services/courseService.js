@@ -1,4 +1,5 @@
 import { api, handleApiError } from './api.js';
+import { userService } from './userService.js';
 
 export const courseService = {
   // Get all courses
@@ -124,6 +125,26 @@ export const courseService = {
       return response.data;
     } catch (error) {
       throw handleApiError(error);
+    }
+  },
+
+  // Get students enrolled in a course
+  async getCourseStudents(courseId) {
+    try {
+      const response = await api.get(`/courses/${courseId}/students/`);
+      if (response.data && response.data.results) {
+        return response.data.results;
+      }
+      return Array.isArray(response.data) ? response.data : [];
+    } catch (error) {
+      try {
+        const course = await this.getCourseById(courseId);
+        const studentIds = Array.isArray(course?.students) ? course.students : [];
+        if (studentIds.length === 0) return [];
+        return await userService.getUsersByIds(studentIds);
+      } catch (fallbackError) {
+        throw handleApiError(fallbackError);
+      }
     }
   },
 

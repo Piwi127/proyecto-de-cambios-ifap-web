@@ -5,37 +5,41 @@ import {
   getTaskById,
   createTask,
   updateTask,
-  getTaskCategories
+  getTaskCategories,
+  assignStudentsToTask
 } from '../services/taskService';
+import { courseService } from '../services/courseService.js';
+import { lessonService } from '../services/lessonService.js';
 
 const TareaForm = () => {
-  const { taskId } = useParams();
+  const { id: taskId } = useParams();
   const navigate = useNavigate();
-  const { user: _user } = useAuth(); // Usuario no utilizado actualmente
+  const { user } = useAuth();
   const isEditing = Boolean(taskId);
   
   const [formData, setFormData] = useState({
     title: '',
     description: '',
     instructions: '',
-    task_type: 'assignment',
+    priority: 'medium',
     status: 'draft',
     course: '',
     lesson: '',
     category: '',
     due_date: '',
     max_score: '',
-    allow_multiple_submissions: false,
-    allow_late_submissions: false,
-    late_penalty_per_day: ''
+    max_attempts: '1',
+    allow_late_submission: false,
+    late_penalty_percent: ''
   });
   
   const [categories, setCategories] = useState([]);
-  // const [courses, setCourses] = useState([]); // No utilizado actualmente
-  // const [lessons, setLessons] = useState([]); // No utilizado actualmente
+  const [courses, setCourses] = useState([]);
+  const [lessons, setLessons] = useState([]);
   const [selectedStudents, setSelectedStudents] = useState([]);
-  // const [availableStudents, setAvailableStudents] = useState([]); // No utilizado actualmente
+  const [availableStudents, setAvailableStudents] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [loadingCourseData, setLoadingCourseData] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
 
@@ -44,12 +48,23 @@ const TareaForm = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [taskId]); // loadInitialData es estable
 
-  // TODO: Implementar cuando loadCourseData esté disponible
-  // useEffect(() => {
-  //   if (formData.course) {
-  //     loadCourseData(formData.course);
-  //   }
-  // }, [formData.course]);
+  useEffect(() => {
+    if (formData.course) {
+      setSelectedStudents([]);
+      loadCourseData(formData.course);
+    } else {
+      setLessons([]);
+      setAvailableStudents([]);
+      setSelectedStudents([]);
+      setFormData(prev => ({ ...prev, lesson: '' }));
+    }
+  }, [formData.course]);
+
+  const normalizeList = (data) => {
+    if (Array.isArray(data)) return data;
+    if (Array.isArray(data?.results)) return data.results;
+    return [];
+  };
 
   const loadInitialData = async () => {
     try {
@@ -57,12 +72,13 @@ const TareaForm = () => {
       
       // Cargar categorías
       const categoriesData = await getTaskCategories();
-      setCategories(categoriesData);
+      setCategories(normalizeList(categoriesData));
       
       // Cargar cursos del instructor
-      // Aquí deberías implementar getCoursesByInstructor
-      // const coursesData = await getCoursesByInstructor();
-      // setCourses(coursesData);
+      const coursesData = user?.is_instructor || user?.is_superuser
+        ? await courseService.getTaughtCourses()
+        : await courseService.getMyCourses();
+      setCourses(normalizeList(coursesData));
       
       // Si estamos editando, cargar datos de la tarea
       if (isEditing) {
@@ -71,16 +87,16 @@ const TareaForm = () => {
           title: taskData.title || '',
           description: taskData.description || '',
           instructions: taskData.instructions || '',
-          task_type: taskData.task_type || 'assignment',
+          priority: taskData.priority || 'medium',
           status: taskData.status || 'draft',
           course: taskData.course?.id || '',
           lesson: taskData.lesson?.id || '',
           category: taskData.category?.id || '',
           due_date: taskData.due_date ? taskData.due_date.split('T')[0] : '',
           max_score: taskData.max_score || '',
-          allow_multiple_submissions: taskData.allow_multiple_submissions || false,
-          allow_late_submissions: taskData.allow_late_submissions || false,
-          late_penalty_per_day: taskData.late_penalty_per_day || ''
+          max_attempts: taskData.max_attempts ? String(taskData.max_attempts) : '1',
+          allow_late_submission: taskData.allow_late_submission || false,
+          late_penalty_percent: taskData.late_penalty_percent || ''
         });
       }
     } catch (err) {
@@ -91,43 +107,44 @@ const TareaForm = () => {
     }
   };
 
-  // TODO: Implementar loadCourseData cuando sea necesario
-  // const loadCourseData = async (courseId) => {
-  //   try {
-  //     const [lessonsData, studentsData] = await Promise.all([
-  //       getLessonsByCourse(courseId),
-  //       getStudentsByCourse(courseId)
-  //     ]);
-  //     setLessons(lessonsData);
-  //     setAvailableStudents(studentsData);
-  //   } catch (err) {
-  //     console.error('Error loading course data:', err);
-  //   }
-  // };
+  const loadCourseData = async (courseId) => {
+    try {
+      setLoadingCourseData(true);
+      const [lessonsData, studentsData] = await Promise.all([
+        lessonService.getAllLessons(courseId),
+        courseService.getCourseStudents(courseId)
+      ]);
+      setLessons(normalizeList(lessonsData));
+      setAvailableStudents(normalizeList(studentsData));
+    } catch (err) {
+      console.error('Error loading course data:', err);
+      setAvailableStudents([]);
+      setLessons([]);
+    } finally {
+      setLoadingCourseData(false);
+    }
+  };
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value
+      [name]: type === 'checkbox' ? checked : value,
+      ...(name === 'course' ? { lesson: '' } : {})
     }));
   };
 
-  // TODO: Implementar cuando sea necesario seleccionar estudiantes
-  // const handleStudentSelection = (studentId) => {
-  //   setSelectedStudents(prev => {
-  //     if (prev.includes(studentId)) {
-  //       return prev.filter(id => id !== studentId);
-  //     } else {
-  //       return [...prev, studentId];
-  //     }
-  //   });
-  // };
+  const handleStudentSelection = (studentId) => {
+    setSelectedStudents(prev => {
+      if (prev.includes(studentId)) {
+        return prev.filter(id => id !== studentId);
+      }
+      return [...prev, studentId];
+    });
+  };
 
   const selectAllStudents = () => {
-    // TODO: Implementar cuando availableStudents esté disponible
-    // setSelectedStudents(availableStudents.map(student => student.id));
-    setSelectedStudents([]);
+    setSelectedStudents(availableStudents.map(student => student.id));
   };
 
   const clearStudentSelection = () => {
@@ -148,13 +165,21 @@ const TareaForm = () => {
     if (!formData.course) {
       errors.push('El curso es requerido');
     }
+
+    if (!formData.due_date) {
+      errors.push('La fecha de vencimiento es requerida');
+    }
     
     if (formData.max_score && (isNaN(formData.max_score) || formData.max_score < 0)) {
       errors.push('La puntuación máxima debe ser un número válido');
     }
     
-    if (formData.late_penalty_per_day && (isNaN(formData.late_penalty_per_day) || formData.late_penalty_per_day < 0 || formData.late_penalty_per_day > 100)) {
+    if (formData.late_penalty_percent && (isNaN(formData.late_penalty_percent) || formData.late_penalty_percent < 0 || formData.late_penalty_percent > 100)) {
       errors.push('La penalización por día debe ser un porcentaje válido (0-100)');
+    }
+
+    if (formData.max_attempts && (isNaN(formData.max_attempts) || formData.max_attempts < 1)) {
+      errors.push('El número máximo de intentos debe ser válido');
     }
     
     return errors;
@@ -175,13 +200,24 @@ const TareaForm = () => {
       setSuccess(null);
       
       // Preparar datos para envío
+      const dueDate = formData.due_date
+        ? new Date(`${formData.due_date}T23:59:00`).toISOString()
+        : null;
+
       const taskData = {
-        ...formData,
-        max_score: formData.max_score ? parseFloat(formData.max_score) : null,
-        late_penalty_per_day: formData.late_penalty_per_day ? parseFloat(formData.late_penalty_per_day) : null,
-        due_date: formData.due_date || null,
+        title: formData.title.trim(),
+        description: formData.description.trim(),
+        instructions: formData.instructions.trim(),
+        priority: formData.priority,
+        status: formData.status,
+        course: formData.course || null,
+        lesson: formData.lesson || null,
         category: formData.category || null,
-        lesson: formData.lesson || null
+        due_date: dueDate,
+        max_score: formData.max_score ? parseFloat(formData.max_score) : null,
+        max_attempts: formData.max_attempts ? parseInt(formData.max_attempts, 10) : 1,
+        allow_late_submission: formData.allow_late_submission,
+        late_penalty_percent: formData.late_penalty_percent ? parseFloat(formData.late_penalty_percent) : 0
       };
       
       let savedTask;
@@ -193,15 +229,14 @@ const TareaForm = () => {
         setSuccess('Tarea creada exitosamente');
         
         // Si hay estudiantes seleccionados, asignar la tarea
-        // TODO: Implementar asignación de estudiantes
-        // if (selectedStudents.length > 0) {
-        //   await assignStudentsToTask(savedTask.id, selectedStudents);
-        // }
+        if (selectedStudents.length > 0) {
+          await assignStudentsToTask(savedTask.id, selectedStudents);
+        }
       }
       
       // Redirigir después de un breve delay
       setTimeout(() => {
-        navigate(`/aula-virtual/tareas/tarea/${savedTask.id}`);
+        navigate(`/aula-virtual/tareas/${savedTask.id}`);
       }, 1500);
       
     } catch (err) {
@@ -301,20 +336,18 @@ const TareaForm = () => {
               
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Tipo de Tarea
+                  Prioridad
                 </label>
                 <select
-                  name="task_type"
-                  value={formData.task_type}
+                  name="priority"
+                  value={formData.priority}
                   onChange={handleInputChange}
                   className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                  <option value="assignment">Tarea</option>
-                  <option value="project">Proyecto</option>
-                  <option value="essay">Ensayo</option>
-                  <option value="presentation">Presentación</option>
-                  <option value="lab">Laboratorio</option>
-                  <option value="other">Otro</option>
+                  <option value="low">Baja</option>
+                  <option value="medium">Media</option>
+                  <option value="high">Alta</option>
+                  <option value="urgent">Urgente</option>
                 </select>
               </div>
               
@@ -330,7 +363,7 @@ const TareaForm = () => {
                 >
                   <option value="draft">Borrador</option>
                   <option value="published">Publicada</option>
-                  <option value="archived">Archivada</option>
+                  <option value="closed">Cerrada</option>
                 </select>
               </div>
             </div>
@@ -353,12 +386,11 @@ const TareaForm = () => {
                   required
                 >
                   <option value="">Seleccionar curso</option>
-                  {/* TODO: Implementar carga de cursos */}
-                  {/* {courses.map(course => (
+                  {courses.map(course => (
                     <option key={course.id} value={course.id}>
-                      {course.name}
+                      {course.title || course.name}
                     </option>
-                  ))} */}
+                  ))}
                 </select>
               </div>
               
@@ -374,12 +406,11 @@ const TareaForm = () => {
                   disabled={!formData.course}
                 >
                   <option value="">Sin lección específica</option>
-                  {/* TODO: Implementar carga de lecciones */}
-                  {/* {lessons.map(lesson => (
+                  {lessons.map(lesson => (
                     <option key={lesson.id} value={lesson.id}>
-                      {lesson.title}
+                      {lesson.title || lesson.name}
                     </option>
-                  ))} */}
+                  ))}
                 </select>
               </div>
               
@@ -412,6 +443,7 @@ const TareaForm = () => {
                   value={formData.due_date}
                   onChange={handleInputChange}
                   className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
                 />
               </div>
             </div>
@@ -440,42 +472,45 @@ const TareaForm = () => {
               
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Penalización por Día Tardío (%)
+                  Penalización por Entrega Tardía (%)
                 </label>
                 <input
                   type="number"
-                  name="late_penalty_per_day"
-                  value={formData.late_penalty_per_day}
+                  name="late_penalty_percent"
+                  value={formData.late_penalty_percent}
                   onChange={handleInputChange}
                   min="0"
                   max="100"
                   step="0.1"
                   className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="10"
-                  disabled={!formData.allow_late_submissions}
+                  disabled={!formData.allow_late_submission}
                 />
               </div>
               
               <div className="md:col-span-2">
                 <div className="space-y-4">
-                  <label className="flex items-center">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Máximo de intentos
+                    </label>
                     <input
-                      type="checkbox"
-                      name="allow_multiple_submissions"
-                      checked={formData.allow_multiple_submissions}
+                      type="number"
+                      name="max_attempts"
+                      value={formData.max_attempts}
                       onChange={handleInputChange}
-                      className="mr-2"
+                      min="1"
+                      step="1"
+                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="1"
                     />
-                    <span className="text-sm font-medium text-gray-700">
-                      Permitir múltiples entregas
-                    </span>
-                  </label>
+                  </div>
                   
                   <label className="flex items-center">
                     <input
                       type="checkbox"
-                      name="allow_late_submissions"
-                      checked={formData.allow_late_submissions}
+                      name="allow_late_submission"
+                      checked={formData.allow_late_submission}
                       onChange={handleInputChange}
                       className="mr-2"
                     />
@@ -511,31 +546,36 @@ const TareaForm = () => {
                   </button>
                 </div>
                 <p className="text-sm text-gray-500 mt-2">
-                  {selectedStudents.length} de 0 estudiantes seleccionados
+                  {selectedStudents.length} de {availableStudents.length} estudiantes seleccionados
                 </p>
               </div>
               
               <div className="max-h-60 overflow-y-auto border border-gray-200 rounded-md">
-                {/* TODO: Implementar carga de estudiantes disponibles */}
-                {/* {availableStudents.map(student => (
-                  <label
-                    key={student.id}
-                    className="flex items-center p-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0"
-                  >
-                    <input
-                      type="checkbox"
-                      checked={selectedStudents.includes(student.id)}
-                      onChange={() => handleStudentSelection(student.id)}
-                      className="mr-3"
-                    />
-                    <div>
-                      <p className="font-medium text-gray-800">
-                        {student.first_name} {student.last_name}
-                      </p>
-                      <p className="text-sm text-gray-500">{student.email}</p>
-                    </div>
-                  </label>
-                ))} */}
+                {loadingCourseData ? (
+                  <div className="p-4 text-sm text-gray-500">Cargando estudiantes...</div>
+                ) : availableStudents.length === 0 ? (
+                  <div className="p-4 text-sm text-gray-500">No hay estudiantes disponibles para este curso.</div>
+                ) : (
+                  availableStudents.map(student => (
+                    <label
+                      key={student.id}
+                      className="flex items-center p-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0"
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selectedStudents.includes(student.id)}
+                        onChange={() => handleStudentSelection(student.id)}
+                        className="mr-3"
+                      />
+                      <div>
+                        <p className="font-medium text-gray-800">
+                          {student.first_name} {student.last_name}
+                        </p>
+                        <p className="text-sm text-gray-500">{student.email}</p>
+                      </div>
+                    </label>
+                  ))
+                )}
               </div>
             </div>
           )}

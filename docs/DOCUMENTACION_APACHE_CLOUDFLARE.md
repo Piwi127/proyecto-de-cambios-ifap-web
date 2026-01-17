@@ -122,12 +122,12 @@ mod_headers
     ProxyRequests Off
     
     # Proxy API requests to Django backend
-    ProxyPass /api/ http://127.0.0.1:8000/api/
-    ProxyPassReverse /api/ http://127.0.0.1:8000/api/
+    ProxyPass /api/ http://localhost:8000/api/
+    ProxyPassReverse /api/ http://localhost:8000/api/
     
     # Proxy WebSocket connections for API
-    ProxyPass /ws/ ws://127.0.0.1:8000/ws/
-    ProxyPassReverse /ws/ ws://127.0.0.1:8000/ws/
+    ProxyPass /ws/ ws://localhost:8000/ws/
+    ProxyPassReverse /ws/ ws://localhost:8000/ws/
     
     # Proxy all other requests to Vite frontend (must be last)
     ProxyPass / http://127.0.0.1:5174/

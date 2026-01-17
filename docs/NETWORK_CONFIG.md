@@ -42,12 +42,12 @@ ingress:
     ProxyRequests Off
     
     # API requests to Django backend (PRIORITY: FIRST)
-    ProxyPass /api/ http://127.0.0.1:8000/api/ nocanon
-    ProxyPassReverse /api/ http://127.0.0.1:8000/api/
+    ProxyPass /api/ http://localhost:8000/api/ nocanon
+    ProxyPassReverse /api/ http://localhost:8000/api/
     
     # WebSocket connections for Django Channels
-    ProxyPass /ws/ ws://127.0.0.1:8000/ws/ nocanon
-    ProxyPassReverse /ws/ ws://127.0.0.1:8000/ws/
+    ProxyPass /ws/ ws://localhost:8000/ws/ nocanon
+    ProxyPassReverse /ws/ ws://localhost:8000/ws/
     
     # Vite HMR WebSocket connections
     ProxyPass /vite-hmr ws://127.0.0.1:5174/vite-hmr nocanon
@@ -80,7 +80,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5175",
     "http://127.0.0.1:5175",
     "http://localhost:8000",
-    "http://127.0.0.1:8000",
+    "http://localhost:8000",
     "http://localhost:8001",
     "http://127.0.0.1:8001",
     "http://localhost:8003",

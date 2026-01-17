@@ -8323,3 +8323,157 @@ django.core.exceptions.FieldError: Cannot resolve keyword 'completed_by' into fi
 [2026-01-16 13:18:47,844] ERROR django.request log:241 Internal Server Error: /api/courses/4/metrics/
 [2026-01-16 13:18:47,854] ERROR django.request log:241 Internal Server Error: /api/courses/1/metrics/
 [2026-01-16 13:18:47,855] ERROR django.request log:241 Internal Server Error: /api/courses/2/metrics/
+[2026-01-16 17:44:56,703] ERROR error_handler exceptions:68 Exception in UserViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+    ...<4 lines>...
+    )
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+[2026-01-16 17:44:56,787] ERROR error_handler exceptions:68 Exception in UserViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+    ...<4 lines>...
+    )
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+[2026-01-16 19:27:16,727] ERROR error_handler exceptions:68 Exception in UserViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+    ...<4 lines>...
+    )
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+[2026-01-16 19:27:16,816] ERROR error_handler exceptions:68 Exception in UserViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+    ...<4 lines>...
+    )
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+[2026-01-16 19:36:58,103] ERROR django.security.DisallowedHost exception:124 Invalid HTTP_HOST header: '192.168.1.6:8000'. You may need to add '192.168.1.6' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.1.6:8000'. You may need to add '192.168.1.6' to ALLOWED_HOSTS.
+[2026-01-16 19:36:59,007] ERROR django.security.DisallowedHost exception:124 Invalid HTTP_HOST header: '192.168.1.6:8000'. You may need to add '192.168.1.6' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.1.6:8000'. You may need to add '192.168.1.6' to ALLOWED_HOSTS.
+[2026-01-16 19:37:04,841] ERROR django.security.DisallowedHost exception:124 Invalid HTTP_HOST header: '192.168.1.6:8000'. You may need to add '192.168.1.6' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.1.6:8000'. You may need to add '192.168.1.6' to ALLOWED_HOSTS.
+[2026-01-16 19:37:05,005] ERROR django.security.DisallowedHost exception:124 Invalid HTTP_HOST header: '192.168.1.6:8000'. You may need to add '192.168.1.6' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.1.6:8000'. You may need to add '192.168.1.6' to ALLOWED_HOSTS.
+[2026-01-16 19:38:03,216] ERROR django.security.DisallowedHost exception:124 Invalid HTTP_HOST header: '192.168.1.6:8000'. You may need to add '192.168.1.6' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.1.6:8000'. You may need to add '192.168.1.6' to ALLOWED_HOSTS.
+[2026-01-16 19:38:03,924] ERROR django.security.DisallowedHost exception:124 Invalid HTTP_HOST header: '192.168.1.6:8000'. You may need to add '192.168.1.6' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.1.6:8000'. You may need to add '192.168.1.6' to ALLOWED_HOSTS.

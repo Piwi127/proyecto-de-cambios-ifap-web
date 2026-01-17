@@ -125,7 +125,7 @@ npm run dev
 ## Estado del Proyecto
 
 ✅ Sistema funcional
-- Backend Django en `http://127.0.0.1:8000`
+- Backend Django en `http://localhost:8000`
 - Frontend Vite en `http://localhost:5174`
 - WebSockets activos
 - Logs: `logs/backend.log`, `logs/frontend.log`

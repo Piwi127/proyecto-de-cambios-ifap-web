@@ -15,7 +15,7 @@ import {
 } from '../services/taskService';
 
 const TareaDetalle = () => {
-  const { taskId } = useParams();
+  const { id: taskId } = useParams();
   const navigate = useNavigate();
   const { user } = useAuth();
   const [task, setTask] = useState(null);
@@ -157,7 +157,7 @@ const TareaDetalle = () => {
               {formatTaskStatus(task.status)}
             </span>
             <span className="px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
-              {formatTaskType(task.task_type)}
+              {formatTaskType(task.priority)}
             </span>
             {task.category && (
               <span className="px-3 py-1 rounded-full text-sm font-medium bg-purple-100 text-purple-800">
@@ -188,7 +188,7 @@ const TareaDetalle = () => {
               >
                 <option value="draft">Borrador</option>
                 <option value="published">Publicada</option>
-                <option value="archived">Archivada</option>
+                <option value="closed">Cerrada</option>
               </select>
             </div>
             <button
@@ -310,17 +310,17 @@ const TareaDetalle = () => {
                 <h3 className="text-lg font-semibold text-gray-800 mb-4">Configuración</h3>
                 <div className="space-y-3">
                   <div>
-                    <span className="font-medium text-gray-600">Entregas múltiples:</span>
-                    <span className="ml-2">{task.allow_multiple_submissions ? 'Permitidas' : 'No permitidas'}</span>
+                    <span className="font-medium text-gray-600">Máximo de intentos:</span>
+                    <span className="ml-2">{task.max_attempts || 1}</span>
                   </div>
                   <div>
                     <span className="font-medium text-gray-600">Entregas tardías:</span>
-                    <span className="ml-2">{task.allow_late_submissions ? 'Permitidas' : 'No permitidas'}</span>
+                    <span className="ml-2">{task.allow_late_submission ? 'Permitidas' : 'No permitidas'}</span>
                   </div>
-                  {task.late_penalty_per_day && (
+                  {task.late_penalty_percent && (
                     <div>
                       <span className="font-medium text-gray-600">Penalización por día:</span>
-                      <span className="ml-2">{task.late_penalty_per_day}%</span>
+                      <span className="ml-2">{task.late_penalty_percent}%</span>
                     </div>
                   )}
                 </div>

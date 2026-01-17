@@ -8,9 +8,12 @@ class ChatService {
     this.maxReconnectAttempts = 5;
     this.reconnectDelay = 1000;
     // Configuración de WebSocket desde variables de entorno
-    this.wsBaseUrl = import.meta.env.VITE_API_WS_URL || 'ws://localhost:8000';
-    this.wsBaseUrlAlt = import.meta.env.VITE_API_WS_URL_ALT || 'ws://localhost:8001';
-    this.wsBaseUrlAlt2 = import.meta.env.VITE_API_WS_URL_ALT2 || 'ws://localhost:8003';
+    const defaultHost = typeof window !== 'undefined' ? window.location.hostname : 'localhost';
+    const wsProtocol =
+      typeof window !== 'undefined' && window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    this.wsBaseUrl = import.meta.env.VITE_API_WS_URL || `${wsProtocol}//${defaultHost}:8000`;
+    this.wsBaseUrlAlt = import.meta.env.VITE_API_WS_URL_ALT || `${wsProtocol}//${defaultHost}:8001`;
+    this.wsBaseUrlAlt2 = import.meta.env.VITE_API_WS_URL_ALT2 || `${wsProtocol}//${defaultHost}:8003`;
   }
 
   // API Methods
@@ -269,7 +272,10 @@ class ChatService {
     } else if (port === 8003) {
       this.wsBaseUrl = this.wsBaseUrlAlt2;
     } else {
-      this.wsBaseUrl = import.meta.env.VITE_API_WS_URL || 'ws://localhost:8000';
+      const defaultHost = typeof window !== 'undefined' ? window.location.hostname : 'localhost';
+      const wsProtocol =
+        typeof window !== 'undefined' && window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+      this.wsBaseUrl = import.meta.env.VITE_API_WS_URL || `${wsProtocol}//${defaultHost}:8000`;
     }
   }
 

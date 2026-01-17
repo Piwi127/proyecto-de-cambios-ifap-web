@@ -1,70 +1,121 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Card from '../components/Card';
+import { useAuth } from '../context/AuthContext.jsx';
+import { getTasks, startAssignment, createSubmission } from '../services/taskService';
 
 const TareasAulaVirtual = () => {
+  const navigate = useNavigate();
+  const { user } = useAuth();
   const [filter, setFilter] = useState('todas');
-  const [showNewTask, setShowNewTask] = useState(false);
-  const [newTask, setNewTask] = useState({ title: '', description: '', dueDate: '', priority: 'media', course: '' });
+  const [tasks, setTasks] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [actionLoading, setActionLoading] = useState(null);
+  const [error, setError] = useState(null);
+  const [showCompleteModal, setShowCompleteModal] = useState(false);
+  const [activeTask, setActiveTask] = useState(null);
+  const [submissionContent, setSubmissionContent] = useState('');
+  const [submissionFiles, setSubmissionFiles] = useState([]);
 
-  const tasks = [
-    {
-      id: 1,
-      title: 'Proyecto Final de Digitalización',
-      description: 'Digitalizar y catalogar 50 documentos históricos siguiendo las normativas archivísticas',
-      course: 'Gestión Digital de Archivos',
-      dueDate: '2025-09-20',
-      priority: 'alta',
-      status: 'pendiente',
-      createdAt: '2025-09-10',
-      progress: 0
-    },
-    {
-      id: 2,
-      title: 'Ensayo sobre Preservación Documental',
-      description: 'Redactar un ensayo de 2000 palabras sobre técnicas modernas de preservación',
-      course: 'Preservación de Documentos',
-      dueDate: '2025-09-18',
-      priority: 'media',
-      status: 'en-progreso',
-      createdAt: '2025-09-08',
-      progress: 60
-    },
-    {
-      id: 3,
-      title: 'Lectura: Historia de la Archivística',
-      description: 'Leer capítulos 5-8 del libro "Historia de la Archivística en América Latina"',
-      course: 'Archivos Históricos',
-      dueDate: '2025-09-16',
-      priority: 'baja',
-      status: 'completada',
-      createdAt: '2025-09-05',
-      progress: 100
-    },
-    {
-      id: 4,
-      title: 'Práctica de Clasificación Documental',
-      description: 'Clasificar 100 documentos administrativos según el sistema de clasificación estudiado',
-      course: 'Archivística Básica',
-      dueDate: '2025-09-22',
-      priority: 'alta',
-      status: 'pendiente',
-      createdAt: '2025-09-12',
-      progress: 0
-    },
-    {
-      id: 5,
-      title: 'Participación en Foro de Discusión',
-      description: 'Participar activamente en al menos 3 discusiones del foro sobre temas archivísticos',
-      course: 'Archivística General',
-      dueDate: '2025-09-25',
-      priority: 'media',
-      status: 'en-progreso',
-      createdAt: '2025-09-11',
-      progress: 33
+  useEffect(() => {
+    loadTasks();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const normalizeList = (data) => {
+    if (Array.isArray(data)) return data;
+    if (Array.isArray(data?.results)) return data.results;
+    return [];
+  };
+
+  const mapPriority = (priority) => {
+    switch (priority) {
+      case 'high':
+      case 'urgent':
+        return 'alta';
+      case 'low':
+        return 'baja';
+      default:
+        return 'media';
     }
-  ];
+  };
 
-  const courses = [...new Set(tasks.map(task => task.course))];
+  const mapAssignmentStatus = (status) => {
+    switch (status) {
+      case 'assigned':
+        return 'pendiente';
+      case 'in_progress':
+        return 'en-progreso';
+      case 'submitted':
+      case 'graded':
+        return 'completada';
+      case 'returned':
+        return 'en-progreso';
+      default:
+        return 'pendiente';
+    }
+  };
+
+  const mapTaskStatus = (status) => {
+    switch (status) {
+      case 'draft':
+        return 'pendiente';
+      case 'published':
+        return 'en-progreso';
+      case 'closed':
+        return 'completada';
+      default:
+        return 'pendiente';
+    }
+  };
+
+  const progressFromStatus = (status) => {
+    switch (status) {
+      case 'pendiente':
+        return 0;
+      case 'en-progreso':
+        return 60;
+      case 'completada':
+        return 100;
+      default:
+        return 0;
+    }
+  };
+
+  const mapTask = (task) => {
+    const assignment = task.user_assignment || null;
+    const uiStatus = assignment ? mapAssignmentStatus(assignment.status) : mapTaskStatus(task.status);
+    const dueDate = assignment?.effective_due_date || task.due_date;
+
+    return {
+      id: task.id,
+      assignmentId: assignment?.id || null,
+      title: task.title,
+      description: task.description,
+      course: task.course?.title || task.course?.name || assignment?.course_name || 'Sin curso',
+      dueDate,
+      priority: mapPriority(task.priority),
+      status: uiStatus,
+      rawAssignmentStatus: assignment?.status || null,
+      progress: progressFromStatus(uiStatus),
+      isAssignment: Boolean(assignment)
+    };
+  };
+
+  const loadTasks = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const data = await getTasks();
+      setTasks(normalizeList(data).map(mapTask));
+    } catch (err) {
+      console.error('Error loading tasks:', err);
+      setError('Error al cargar las tareas');
+      setTasks([]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const filteredTasks = tasks.filter(task => {
     if (filter === 'todas') return true;
@@ -73,21 +124,53 @@ const TareasAulaVirtual = () => {
     if (filter === 'completadas') return task.status === 'completada';
     return task.priority === filter;
   });
-
-  const handleCreateTask = () => {
-    if (!newTask.title.trim()) return;
-
-    // Aquí iría la lógica para crear la tarea en el backend
-    console.log('Creando nueva tarea:', newTask);
-
-    // Reset form
-    setNewTask({ title: '', description: '', dueDate: '', priority: 'media', course: '' });
-    setShowNewTask(false);
+  
+  const handleStartTask = async (task) => {
+    if (!task.assignmentId) return;
+    try {
+      setActionLoading(task.id);
+      await startAssignment(task.assignmentId);
+      await loadTasks();
+    } catch (err) {
+      console.error('Error starting task:', err);
+      setError('No se pudo iniciar la tarea');
+    } finally {
+      setActionLoading(null);
+    }
   };
 
-  const updateTaskStatus = (taskId, newStatus) => {
-    // Aquí iría la lógica para actualizar el estado de la tarea
-    console.log('Actualizando tarea', taskId, 'a estado:', newStatus);
+  const handleCompleteTask = async (task) => {
+    if (!task.assignmentId) return;
+    setActiveTask(task);
+    setSubmissionContent('');
+    setSubmissionFiles([]);
+    setShowCompleteModal(true);
+  };
+
+  const handleSubmitCompletion = async () => {
+    if (!activeTask?.assignmentId) return;
+    try {
+      setActionLoading(activeTask.id);
+      await createSubmission(
+        { assignment: activeTask.assignmentId, content: submissionContent.trim() },
+        submissionFiles
+      );
+      await loadTasks();
+      setShowCompleteModal(false);
+    } catch (err) {
+      console.error('Error completing task:', err);
+      setError('No se pudo completar la tarea');
+    } finally {
+      setActionLoading(null);
+    }
+  };
+
+  const handleEditTask = (task) => {
+    if (user?.is_instructor || user?.is_superuser) {
+      navigate(`/aula-virtual/tareas/editar/${task.id}`);
+      return;
+    }
+    navigate(`/aula-virtual/tareas/${task.id}`);
   };
 
   const getPriorityColor = (priority) => {
@@ -132,13 +215,13 @@ const TareasAulaVirtual = () => {
     return due < today;
   };
 
-  const stats = {
+  const stats = useMemo(() => ({
     total: tasks.length,
     pendientes: tasks.filter(t => t.status === 'pendiente').length,
     enProgreso: tasks.filter(t => t.status === 'en-progreso').length,
     completadas: tasks.filter(t => t.status === 'completada').length,
     altas: tasks.filter(t => t.priority === 'alta').length
-  };
+  }), [tasks]);
 
   return (
     <div className="p-6 max-w-6xl mx-auto space-y-6">
@@ -221,18 +304,30 @@ const TareasAulaVirtual = () => {
             ))}
           </div>
 
-          <button
-            onClick={() => setShowNewTask(true)}
-            className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-medium"
-          >
-            Nueva Tarea
-          </button>
+          {(user?.is_instructor || user?.is_superuser) && (
+            <button
+              onClick={() => navigate('/aula-virtual/tareas/crear')}
+              className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-medium"
+            >
+              Nueva Tarea
+            </button>
+          )}
         </div>
       </Card>
 
       {/* Lista de tareas */}
       <div className="space-y-4">
-        {filteredTasks.map((task) => (
+        {loading && (
+          <Card>
+            <div className="text-center py-8 text-gray-500">Cargando tareas...</div>
+          </Card>
+        )}
+        {!loading && error && (
+          <Card>
+            <div className="text-center py-8 text-red-600">{error}</div>
+          </Card>
+        )}
+        {!loading && !error && filteredTasks.map((task) => (
           <Card key={task.id} className={`transition-all hover:shadow-lg ${isOverdue(task.dueDate) && task.status !== 'completada' ? 'border-l-4 border-l-red-500' : ''}`}>
             <div className="flex items-start justify-between">
               <div className="flex-1">
@@ -275,26 +370,32 @@ const TareasAulaVirtual = () => {
               </div>
 
               <div className="ml-4 flex flex-col space-y-2">
-                {task.status !== 'completada' && (
+                {task.isAssignment && task.status !== 'completada' && (
                   <>
                     <button
-                      onClick={() => updateTaskStatus(task.id, task.status === 'pendiente' ? 'en-progreso' : 'completada')}
-                      className="px-3 py-1 bg-primary-600 text-white text-sm rounded hover:bg-primary-700 transition-colors"
+                      onClick={() => task.status === 'pendiente' ? handleStartTask(task) : handleCompleteTask(task)}
+                      className="px-3 py-1 bg-primary-600 text-white text-sm rounded hover:bg-primary-700 transition-colors disabled:opacity-60"
+                      disabled={actionLoading === task.id}
                     >
-                      {task.status === 'pendiente' ? 'Iniciar' : 'Completar'}
-                    </button>
-                    <button className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded hover:bg-gray-200 transition-colors">
-                      Editar
+                      {actionLoading === task.id
+                        ? 'Procesando...'
+                        : (task.status === 'pendiente' ? 'Iniciar' : 'Completar')}
                     </button>
                   </>
                 )}
+                <button
+                  onClick={() => handleEditTask(task)}
+                  className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded hover:bg-gray-200 transition-colors"
+                >
+                  {user?.is_instructor || user?.is_superuser ? 'Editar' : 'Ver'}
+                </button>
               </div>
             </div>
           </Card>
         ))}
       </div>
 
-      {filteredTasks.length === 0 && (
+      {!loading && !error && filteredTasks.length === 0 && (
         <Card>
           <div className="text-center py-12">
             <div className="text-gray-400 mb-4">
@@ -305,100 +406,64 @@ const TareasAulaVirtual = () => {
           </div>
         </Card>
       )}
-
-      {/* Modal para nueva tarea */}
-      {showNewTask && (
+      {showCompleteModal && activeTask && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <Card className="w-full max-w-2xl mx-4">
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-semibold text-gray-900">Crear Nueva Tarea</h2>
+              <div>
+                <h2 className="text-xl font-semibold text-gray-900">Completar tarea</h2>
+                <p className="text-sm text-gray-500">{activeTask.title}</p>
+              </div>
               <button
-                onClick={() => setShowNewTask(false)}
+                onClick={() => setShowCompleteModal(false)}
                 className="text-gray-400 hover:text-gray-600"
               >
                 <span className="text-2xl">×</span>
               </button>
             </div>
 
-            <form className="space-y-4">
+            <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Título de la Tarea</label>
-                <input
-                  type="text"
-                  value={newTask.title}
-                  onChange={(e) => setNewTask({...newTask, title: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                  placeholder="Escribe el título de la tarea..."
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Descripción</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Comentario o entrega</label>
                 <textarea
-                  rows={3}
-                  value={newTask.description}
-                  onChange={(e) => setNewTask({...newTask, description: e.target.value})}
+                  rows={4}
+                  value={submissionContent}
+                  onChange={(e) => setSubmissionContent(e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                  placeholder="Describe los detalles de la tarea..."
+                  placeholder="Describe lo realizado o pega tu entrega..."
                 />
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Curso</label>
-                  <select
-                    value={newTask.course}
-                    onChange={(e) => setNewTask({...newTask, course: e.target.value})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                  >
-                    <option value="">Seleccionar curso...</option>
-                    {courses.map((course) => (
-                      <option key={course} value={course}>{course}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Fecha Límite</label>
-                  <input
-                    type="date"
-                    value={newTask.dueDate}
-                    onChange={(e) => setNewTask({...newTask, dueDate: e.target.value})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                  />
-                </div>
-              </div>
-
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Prioridad</label>
-                <select
-                  value={newTask.priority}
-                  onChange={(e) => setNewTask({...newTask, priority: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                >
-                  <option value="baja">Baja</option>
-                  <option value="media">Media</option>
-                  <option value="alta">Alta</option>
-                </select>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Archivos adjuntos</label>
+                <input
+                  type="file"
+                  multiple
+                  onChange={(e) => setSubmissionFiles(Array.from(e.target.files || []))}
+                  className="w-full text-sm text-gray-600"
+                />
+                {submissionFiles.length > 0 && (
+                  <p className="text-sm text-gray-500 mt-2">{submissionFiles.length} archivo(s) seleccionado(s)</p>
+                )}
               </div>
+            </div>
 
-              <div className="flex justify-end space-x-3">
-                <button
-                  type="button"
-                  onClick={() => setShowNewTask(false)}
-                  className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50"
-                >
-                  Cancelar
-                </button>
-                <button
-                  type="button"
-                  onClick={handleCreateTask}
-                  className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700"
-                >
-                  Crear Tarea
-                </button>
-              </div>
-            </form>
+            <div className="flex justify-end space-x-3 mt-6">
+              <button
+                type="button"
+                onClick={() => setShowCompleteModal(false)}
+                className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50"
+              >
+                Cancelar
+              </button>
+              <button
+                type="button"
+                onClick={handleSubmitCompletion}
+                disabled={actionLoading === activeTask.id || (!submissionContent.trim() && submissionFiles.length === 0)}
+                className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-60"
+              >
+                {actionLoading === activeTask.id ? 'Enviando...' : 'Enviar entrega'}
+              </button>
+            </div>
           </Card>
         </div>
       )}

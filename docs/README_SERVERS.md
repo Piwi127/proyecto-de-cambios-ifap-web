@@ -16,7 +16,7 @@ Antes de usar los scripts, asegúrese de que:
 
 ### `start_servers.sh`
 Inicia todos los servidores del proyecto IFAP:
-- **Backend Django**: Puerto 8000 (http://127.0.0.1:8000)
+- **Backend Django**: Puerto 8000 (http://localhost:8000)
 - **Frontend React/Vite**: Puerto preferido 5174, pero puede usar alternativo (http://localhost:5174+)
 
 **Uso:**

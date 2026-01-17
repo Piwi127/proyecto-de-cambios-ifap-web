@@ -4,7 +4,7 @@
 # Fecha: 16 de setiembre de 2025
 
 echo "🚀 Iniciando servidores del proyecto IFAP..."
-echo "====================    setsid daphne -b 127.0.0.1 -p 8000 ifap_backend.asgi:application > ../logs/backend.log 2>&1 &========================="
+echo "====================    setsid daphne -b 0.0.0.0 -p 8000 ifap_backend.asgi:application > ../logs/backend.log 2>&1 &========================="
 
 # Colores para output
 RED='\033[0;31m'
@@ -184,7 +184,7 @@ echo "Aplicando migraciones de la base de datos..."
 
 # Iniciar servidor Django en background
 echo "Iniciando servidor Django en puerto 8000..."
-PYTHONPATH=/home/jorge/pagina\ web\ nueva\ ifap\ dos/backend DJANGO_SETTINGS_MODULE=ifap_backend.settings setsid daphne -b 127.0.0.1 -p 8000 ifap_backend.asgi:application > ../logs/backend.log 2>&1 &
+PYTHONPATH=/home/jorge/pagina\ web\ nueva\ ifap\ dos/backend DJANGO_SETTINGS_MODULE=ifap_backend.settings setsid daphne -b 0.0.0.0 -p 8000 ifap_backend.asgi:application > ../logs/backend.log 2>&1 &
 BACKEND_PID=$!
 cd ..
 
@@ -193,7 +193,7 @@ sleep 3
 
 # Verificar que el backend está corriendo
 if check_process $BACKEND_PID "Backend Django"; then
-    echo -e "${GREEN}🌐 Backend disponible en: http://127.0.0.1:8000${NC}"
+    echo -e "${GREEN}🌐 Backend disponible en: http://localhost:8000${NC}"
 else
     echo -e "${RED}❌ Error al iniciar el backend. Revise los logs en logs/backend.log${NC}"
     exit 1
@@ -244,7 +244,7 @@ echo $FRONTEND_PID > logs/frontend.pid
 
 echo -e "\n${GREEN}🎉 ¡Todos los servidores están ejecutándose correctamente!${NC}"
 echo "=============================================="
-echo -e "${GREEN}🌐 Backend (Django): http://127.0.0.1:8000${NC}"
+echo -e "${GREEN}🌐 Backend (Django): http://localhost:8000${NC}"
 echo -e "${GREEN}🌐 Frontend (React): http://localhost:5174${NC}"
 echo ""
 echo -e "${BLUE}💡 Para detener los servidores:${NC}"

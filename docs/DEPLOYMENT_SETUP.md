@@ -69,7 +69,7 @@ server {
     
     # Backend API
     location /api/ {
-        proxy_pass http://127.0.0.1:8000;
+        proxy_pass http://localhost:8000;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -106,7 +106,7 @@ User=ubuntu
 Group=ubuntu
 WorkingDirectory=/var/www/ifap-backend
 Environment=PATH=/var/www/ifap-backend/venv/bin
-ExecStart=/var/www/ifap-backend/venv/bin/gunicorn --workers 3 --bind 127.0.0.1:8000 ifap_backend.wsgi:application
+ExecStart=/var/www/ifap-backend/venv/bin/gunicorn --workers 3 --bind localhost:8000 ifap_backend.wsgi:application
 Restart=always
 
 [Install]

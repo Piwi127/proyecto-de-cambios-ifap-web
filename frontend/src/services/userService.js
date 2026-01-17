@@ -51,6 +51,20 @@ export const userService = {
     }
   },
 
+  // Obtener multiples usuarios por IDs
+  async getUsersByIds(userIds = []) {
+    if (!Array.isArray(userIds) || userIds.length === 0) return [];
+    const uniqueIds = [...new Set(userIds)].filter(Boolean);
+
+    const results = await Promise.allSettled(
+      uniqueIds.map((id) => api.get(`/users/${id}/`))
+    );
+
+    return results
+      .filter((result) => result.status === 'fulfilled')
+      .map((result) => result.value.data);
+  },
+
   // Crear nuevo usuario (solo para administradores)
   async createUser(userData) {
     try {

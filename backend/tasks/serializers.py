@@ -71,7 +71,16 @@ class TaskSubmissionCreateSerializer(serializers.ModelSerializer):
 class TaskAssignmentSerializer(serializers.ModelSerializer):
     student = UserSerializer(read_only=True)
     task_title = serializers.CharField(source='task.title', read_only=True)
-    course_name = serializers.CharField(source='task.course.name', read_only=True)
+    task_description = serializers.CharField(source='task.description', read_only=True)
+    task_instructions = serializers.CharField(source='task.instructions', read_only=True)
+    task_priority = serializers.CharField(source='task.priority', read_only=True)
+    task_due_date = serializers.DateTimeField(source='task.due_date', read_only=True)
+    task_max_attempts = serializers.IntegerField(source='task.max_attempts', read_only=True)
+    task_allow_late_submission = serializers.BooleanField(source='task.allow_late_submission', read_only=True)
+    task_late_penalty_percent = serializers.DecimalField(source='task.late_penalty_percent', max_digits=5, decimal_places=2, read_only=True)
+    task_max_score = serializers.DecimalField(source='task.max_score', max_digits=5, decimal_places=2, read_only=True)
+    instructor_name = serializers.CharField(source='task.instructor.get_full_name', read_only=True)
+    course_name = serializers.CharField(source='task.course.title', read_only=True)
     submissions = TaskSubmissionSerializer(many=True, read_only=True)
     effective_due_date = serializers.SerializerMethodField()
     is_overdue = serializers.SerializerMethodField()
@@ -80,14 +89,23 @@ class TaskAssignmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = TaskAssignment
         fields = [
-            'id', 'task', 'task_title', 'course_name', 'student', 'status',
-            'assigned_date', 'due_date_override', 'effective_due_date',
+            'id', 'task', 'task_title', 'task_description', 'task_instructions',
+            'task_priority',
+            'task_due_date', 'task_max_attempts', 'task_allow_late_submission',
+            'task_late_penalty_percent', 'task_max_score', 'instructor_name',
+            'course_name',
+            'student', 'status', 'assigned_date', 'due_date_override',
+            'effective_due_date',
             'started_at', 'last_activity', 'is_overdue', 'submissions',
             'latest_submission'
         ]
         read_only_fields = [
-            'id', 'task_title', 'course_name', 'student', 'assigned_date',
-            'started_at', 'last_activity', 'effective_due_date', 'is_overdue',
+            'id', 'task_title', 'task_description', 'task_instructions',
+            'task_priority',
+            'task_due_date', 'task_max_attempts', 'task_allow_late_submission',
+            'task_late_penalty_percent', 'task_max_score', 'instructor_name',
+            'course_name', 'student', 'assigned_date', 'started_at',
+            'last_activity', 'effective_due_date', 'is_overdue',
             'submissions', 'latest_submission'
         ]
     
@@ -109,6 +127,7 @@ class TaskAssignmentSerializer(serializers.ModelSerializer):
 class TaskSerializer(serializers.ModelSerializer):
     category = TaskCategorySerializer(read_only=True)
     course = CourseSerializer(read_only=True)
+    lesson = serializers.PrimaryKeyRelatedField(read_only=True)
     instructor = UserSerializer(read_only=True)
     assignments_count = serializers.SerializerMethodField()
     submissions_count = serializers.SerializerMethodField()
@@ -120,15 +139,19 @@ class TaskSerializer(serializers.ModelSerializer):
         model = Task
         fields = [
             'id', 'title', 'description', 'instructions', 'category', 'course',
-            'instructor', 'status', 'task_type', 'due_date', 'max_attempts',
-            'max_score', 'allow_late_submission', 'auto_grade', 'rubric',
-            'created_at', 'updated_at', 'assignments_count', 'submissions_count',
-            'graded_count', 'average_score', 'user_assignment'
+            'lesson',
+            'instructor', 'priority', 'status', 'due_date', 'start_date',
+            'max_attempts', 'max_score', 'allow_late_submission',
+            'late_penalty_percent', 'show_score_to_student',
+            'attachment_required', 'allowed_file_types', 'max_file_size_mb',
+            'created_at', 'updated_at', 'assignments_count',
+            'submissions_count', 'graded_count', 'average_score',
+            'user_assignment'
         ]
         read_only_fields = [
-            'id', 'category', 'course', 'instructor', 'created_at', 'updated_at',
-            'assignments_count', 'submissions_count', 'graded_count', 
-            'average_score', 'user_assignment'
+            'id', 'category', 'course', 'lesson', 'instructor', 'created_at',
+            'updated_at', 'assignments_count', 'submissions_count',
+            'graded_count', 'average_score', 'user_assignment'
         ]
     
     def get_assignments_count(self, obj):
@@ -159,44 +182,36 @@ class TaskSerializer(serializers.ModelSerializer):
         return None
 
 class TaskCreateSerializer(serializers.ModelSerializer):
-    category_id = serializers.IntegerField(write_only=True)
-    course_id = serializers.IntegerField(write_only=True)
-    
     class Meta:
         model = Task
         fields = [
-            'title', 'description', 'instructions', 'category_id', 'course_id',
-            'status', 'task_type', 'due_date', 'max_attempts', 'max_score',
-            'allow_late_submission', 'auto_grade', 'rubric'
+            'title', 'description', 'instructions', 'category', 'course',
+            'lesson', 'priority', 'status', 'due_date', 'start_date',
+            'max_attempts', 'max_score', 'allow_late_submission',
+            'late_penalty_percent', 'show_score_to_student',
+            'attachment_required', 'allowed_file_types', 'max_file_size_mb'
         ]
-    
-    def validate_category_id(self, value):
-        try:
-            TaskCategory.objects.get(id=value, is_active=True)
-        except TaskCategory.DoesNotExist:
+
+    def validate_category(self, value):
+        if value and not value.is_active:
             raise serializers.ValidationError("Categoría no válida")
         return value
-    
-    def validate_course_id(self, value):
-        from courses.models import Course
-        try:
-            course = Course.objects.get(id=value)
-            # Verificar que el usuario sea instructor del curso
-            request = self.context.get('request')
-            if request and not course.instructors.filter(id=request.user.id).exists():
-                raise serializers.ValidationError("No tienes permiso para crear tareas en este curso")
-        except Course.DoesNotExist:
-            raise serializers.ValidationError("Curso no válido")
+
+    def validate_course(self, value):
+        request = self.context.get('request')
+        if not request or not request.user.is_authenticated:
+            raise serializers.ValidationError("Usuario no autenticado")
+
+        if request.user.is_superuser:
+            return value
+
+        if not request.user.is_instructor:
+            raise serializers.ValidationError("No tienes permiso para crear tareas en este curso")
+
+        if value.instructor_id != request.user.id:
+            raise serializers.ValidationError("No tienes permiso para crear tareas en este curso")
+
         return value
-    
-    def create(self, validated_data):
-        category_id = validated_data.pop('category_id')
-        course_id = validated_data.pop('course_id')
-        
-        validated_data['category_id'] = category_id
-        validated_data['course_id'] = course_id
-        
-        return super().create(validated_data)
 
 # Serializers para estadísticas
 class TaskStatsSerializer(serializers.Serializer):

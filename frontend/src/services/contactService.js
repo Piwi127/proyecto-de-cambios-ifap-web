@@ -1,5 +1,7 @@
 // Servicio para manejar el envío del formulario de contacto
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
+const defaultHost = typeof window !== 'undefined' ? window.location.hostname : 'localhost';
+const defaultProtocol = typeof window !== 'undefined' ? window.location.protocol : 'http:';
+const API_BASE_URL = import.meta.env.VITE_API_URL || `${defaultProtocol}//${defaultHost}:8000/api`;
 
 export const contactService = {
   // Enviar formulario de contacto

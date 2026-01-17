@@ -353,7 +353,7 @@ User=$SERVER_USER
 Group=$SERVER_USER
 WorkingDirectory=$BACKEND_PATH
 Environment=PATH=$BACKEND_PATH/venv/bin
-ExecStart=$BACKEND_PATH/venv/bin/gunicorn --workers 3 --bind 127.0.0.1:8000 ifap_backend.wsgi:application
+ExecStart=$BACKEND_PATH/venv/bin/gunicorn --workers 3 --bind 0.0.0.0:8000 ifap_backend.wsgi:application
 Restart=always
 
 [Install]

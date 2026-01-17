@@ -171,7 +171,7 @@ export const formatTaskStatus = (status) => {
   const statusMap = {
     'draft': 'Borrador',
     'published': 'Publicada',
-    'archived': 'Archivada'
+    'closed': 'Cerrada'
   };
   return statusMap[status] || status;
 };
@@ -193,7 +193,11 @@ export const formatTaskType = (type) => {
     'essay': 'Ensayo',
     'presentation': 'Presentación',
     'lab': 'Laboratorio',
-    'other': 'Otro'
+    'other': 'Otro',
+    'low': 'Baja',
+    'medium': 'Media',
+    'high': 'Alta',
+    'urgent': 'Urgente'
   };
   return typeMap[type] || type;
 };

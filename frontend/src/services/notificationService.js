@@ -10,7 +10,11 @@ function connectWebSocket(onNotification) {
     return;
   }
 
-  const wsUrl = `${import.meta.env.VITE_WS_URL || 'ws://localhost:8000'}/ws/notifications/?token=${token}`;
+  const defaultHost = typeof window !== 'undefined' ? window.location.hostname : 'localhost';
+  const wsProtocol =
+    typeof window !== 'undefined' && window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+  const baseWsUrl = import.meta.env.VITE_WS_URL || `${wsProtocol}//${defaultHost}:8000`;
+  const wsUrl = `${baseWsUrl}/ws/notifications/?token=${token}`;
   socket = new WebSocket(wsUrl);
 
   socket.onopen = () => {

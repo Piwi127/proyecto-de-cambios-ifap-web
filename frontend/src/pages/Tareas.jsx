@@ -34,6 +34,12 @@ const Tareas = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab, filters]); // loadData es estable
 
+  const normalizeList = (data) => {
+    if (Array.isArray(data)) return data;
+    if (Array.isArray(data?.results)) return data.results;
+    return [];
+  };
+
   const loadData = async () => {
     try {
       setLoading(true);
@@ -41,16 +47,16 @@ const Tareas = () => {
 
       // Cargar categorías
       const categoriesData = await getTaskCategories();
-      setCategories(categoriesData);
+      setCategories(normalizeList(categoriesData));
 
       if (activeTab === 'tasks' && user?.is_instructor) {
         // Cargar tareas para instructores
         const tasksData = await getTasks(filters);
-        setTasks(tasksData);
+        setTasks(normalizeList(tasksData));
       } else {
         // Cargar asignaciones para estudiantes
         const assignmentsData = await getAssignments(filters);
-        setAssignments(assignmentsData);
+        setAssignments(normalizeList(assignmentsData));
       }
     } catch (err) {
       console.error('Error loading data:', err);
@@ -77,11 +83,11 @@ const Tareas = () => {
   };
 
   const handleTaskClick = (taskId) => {
-    navigate(`/aula-virtual/tareas/tarea/${taskId}`);
+    navigate(`/aula-virtual/tareas/${taskId}`);
   };
 
   const handleAssignmentClick = (assignmentId) => {
-    navigate(`/aula-virtual/tareas/asignacion/${assignmentId}`);
+    navigate(`/aula-virtual/asignaciones/${assignmentId}`);
   };
 
   const handleCreateTask = () => {
@@ -194,7 +200,7 @@ const Tareas = () => {
                 <>
                   <option value="draft">Borrador</option>
                   <option value="published">Publicada</option>
-                  <option value="archived">Archivada</option>
+                  <option value="closed">Cerrada</option>
                 </>
               ) : (
                 <>
@@ -269,7 +275,7 @@ const Tareas = () => {
                         {formatTaskStatus(task.status)}
                       </span>
                       <span className="px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-                        {formatTaskType(task.task_type)}
+                        {formatTaskType(task.priority)}
                       </span>
                       {task.category && (
                         <span className="px-2 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
