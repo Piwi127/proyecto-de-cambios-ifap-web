@@ -112,3 +112,13 @@ INFO Request: GET /api/tasks/
 INFO Response: 200 for GET /api/tasks/
 INFO Request: GET /api/tasks/
 INFO Response: 200 for GET /api/tasks/
+INFO Request: GET /api/courses/my_courses/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Request: GET /api/courses/my_courses/
+INFO Request: GET /api/users/dashboard_stats/
+INFO Dashboard stats requested by admin user 9 (jorge)
+INFO Response: 200 for GET /api/users/dashboard_stats/
+INFO Request: GET /api/users/dashboard_stats/
+INFO Response: 200 for GET /api/courses/my_courses/
+INFO Dashboard stats requested by admin user 9 (jorge)
+INFO Response: 200 for GET /api/users/dashboard_stats/
