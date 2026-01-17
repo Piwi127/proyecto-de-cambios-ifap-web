@@ -40,7 +40,6 @@ urlpatterns = [
     path('api/forum/', include('forum.urls')),
     path('api/tasks/', include('tasks.urls')),
     path('api/library/', include('library.urls')),
-    path('api/chat/', include('chat.urls')),
     path('api/contact/', include('contact.urls')),
     path('api/health-check/', HealthCheckView.as_view(), name='health_check'),
 

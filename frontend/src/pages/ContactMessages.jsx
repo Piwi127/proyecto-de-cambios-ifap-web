@@ -1,28 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { useAuth } from '../context/AuthContext.jsx';
+import { api } from '../services/api.js';
 
 const ContactMessages = () => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { user } = useAuth();
+  const { user, isAdmin } = useAuth();
 
   useEffect(() => {
     const fetchMessages = async () => {
-      if (!user || user.role !== 'admin') {
+      if (!user || !isAdmin()) {
         setError('Acceso denegado. Solo los administradores pueden ver los mensajes de contacto.');
         setLoading(false);
         return;
       }
 
       try {
-        const response = await axios.get('/api/contact/submissions/', {
-          headers: {
-            Authorization: `Bearer ${user.token}`,
-          },
-        });
-        setMessages(response.data);
+        const response = await api.get('/contact/submissions/');
+        setMessages(response.data?.results || response.data || []);
       } catch (err) {
         setError('Error al cargar los mensajes de contacto.');
         console.error('Error fetching contact messages:', err);

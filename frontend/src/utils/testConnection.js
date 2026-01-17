@@ -213,8 +213,8 @@ export const testAuthIntegration = async (credentials = null) => {
   return authTestResults;
 };
 
-// Ejecutar pruebas automáticamente si este archivo se importa directamente
-if (import.meta.env.DEV) {
+// Ejecutar pruebas automáticamente solo si se habilitan por entorno
+if (import.meta.env.DEV && import.meta.env.VITE_ENABLE_INTEGRATION_TESTS === 'true') {
   setTimeout(() => {
     console.log('🚀 Ejecutando pruebas automáticas de integración...');
     testBackendConnection().then(results => {

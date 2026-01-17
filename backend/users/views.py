@@ -20,11 +20,16 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import TokenError
 from django.contrib.auth import authenticate
+from django.contrib.auth.password_validation import validate_password
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes, force_str
+from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.core.exceptions import ValidationError
 from .models import User
-from .serializers import UserSerializer, UserRegistrationSerializer
+from .serializers import UserSerializer, UserRegistrationSerializer, UserProfileSerializer
 from .permissions import (
     IsAdminUser, 
     IsInstructorOrAdmin, 
@@ -89,7 +94,7 @@ class UserViewSet(OptimizedQueryMixin, viewsets.ModelViewSet):
 
     def get_permissions(self):
         """Define permisos específicos para cada acción"""
-        if self.action in ['create', 'login']:
+        if self.action in ['create', 'login', 'password_reset', 'password_reset_confirm']:
             return [AllowAny()]
         elif self.action in ['list', 'destroy', 'update', 'partial_update']:
             return [CanManageUsers()]
@@ -97,13 +102,14 @@ class UserViewSet(OptimizedQueryMixin, viewsets.ModelViewSet):
             return [IsOwnerOrInstructorOrAdmin()]
         elif self.action == 'update_role':
             return [IsAdminUser()]
-        elif self.action in ['me', 'logout']:
+        elif self.action in ['me', 'logout', 'change_password']:
             return [IsAuthenticated()]
         elif self.action == 'list_by_role':
             return [IsInstructorOrAdmin()]
         return [IsAuthenticated()]
 
     @swagger_auto_schema(
+        method='get',
         operation_description="Obtener información del usuario autenticado",
         responses={
             200: openapi.Response(
@@ -113,12 +119,32 @@ class UserViewSet(OptimizedQueryMixin, viewsets.ModelViewSet):
             401: "No autenticado"
         }
     )
-    @action(detail=False, methods=['get'], permission_classes=[IsAuthenticated])
+    @swagger_auto_schema(
+        method='patch',
+        operation_description="Actualizar información del usuario autenticado",
+        request_body=UserProfileSerializer,
+        responses={
+            200: openapi.Response(
+                description="Perfil actualizado",
+                schema=UserSerializer
+            ),
+            400: "Datos inválidos",
+            401: "No autenticado"
+        }
+    )
+    @action(detail=False, methods=['get', 'patch'], permission_classes=[IsAuthenticated])
     def me(self, request):
         """Obtener información del usuario autenticado"""
-        serializer = self.get_serializer(request.user)
-        audit_logger.info(f"User {request.user.id} accessed profile")
-        return Response(serializer.data)
+        if request.method == 'GET':
+            serializer = self.get_serializer(request.user)
+            audit_logger.info(f"User {request.user.id} accessed profile")
+            return Response(serializer.data)
+
+        serializer = UserProfileSerializer(request.user, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        audit_logger.info(f"User {request.user.id} updated profile")
+        return Response(UserSerializer(request.user).data)
 
     @swagger_auto_schema(
         operation_description="Iniciar sesión en el sistema",
@@ -151,14 +177,20 @@ class UserViewSet(OptimizedQueryMixin, viewsets.ModelViewSet):
     )
     @action(detail=False, methods=['post'])
     def login(self, request):
-        username = request.data.get('username')
+        identifier = request.data.get('username') or request.data.get('email')
         password = request.data.get('password')
 
-        if not username or not password:
+        if not identifier or not password:
             return Response(
                 {'error': 'Se requieren username y password'},
                 status=status.HTTP_400_BAD_REQUEST
             )
+
+        username = identifier
+        if '@' in identifier:
+            user_by_email = User.objects.filter(email__iexact=identifier).only('username').first()
+            if user_by_email:
+                username = user_by_email.username
 
         user = authenticate(username=username, password=password)
 
@@ -395,3 +427,81 @@ class UserViewSet(OptimizedQueryMixin, viewsets.ModelViewSet):
                 {'error': 'Error al hacer logout'},
                 status=status.HTTP_400_BAD_REQUEST
             )
+
+    @action(detail=False, methods=['post'], permission_classes=[IsAuthenticated], url_path='change-password')
+    def change_password(self, request):
+        old_password = request.data.get('old_password')
+        new_password = request.data.get('new_password')
+        if not old_password or not new_password:
+            return Response(
+                {'error': 'old_password y new_password son requeridos'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        if not request.user.check_password(old_password):
+            return Response(
+                {'error': 'La contraseña actual es incorrecta'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        try:
+            validate_password(new_password, user=request.user)
+        except ValidationError as e:
+            return Response({'error': e.messages}, status=status.HTTP_400_BAD_REQUEST)
+
+        request.user.set_password(new_password)
+        request.user.save()
+        audit_logger.info(f"User {request.user.id} changed password")
+        return Response({'message': 'Contraseña actualizada correctamente'})
+
+    @action(detail=False, methods=['post'], permission_classes=[AllowAny], url_path='password-reset')
+    def password_reset(self, request):
+        email = request.data.get('email')
+        if not email:
+            return Response(
+                {'error': 'email es requerido'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        user = User.objects.filter(email__iexact=email, is_active=True).first()
+        response_data = {'message': 'Si el correo existe, se enviara un enlace de recuperacion.'}
+
+        if user:
+            uid = urlsafe_base64_encode(force_bytes(user.pk))
+            token = default_token_generator.make_token(user)
+            audit_logger.info(f"Password reset requested for user {user.id}")
+            if settings.DEBUG:
+                response_data.update({'uid': uid, 'token': token})
+
+        return Response(response_data)
+
+    @action(detail=False, methods=['post'], permission_classes=[AllowAny], url_path='password-reset-confirm')
+    def password_reset_confirm(self, request):
+        uid = request.data.get('uid')
+        token = request.data.get('token')
+        new_password = request.data.get('new_password')
+
+        if not uid or not token or not new_password:
+            return Response(
+                {'error': 'uid, token y new_password son requeridos'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        try:
+            user_id = force_str(urlsafe_base64_decode(uid))
+            user = User.objects.get(pk=user_id, is_active=True)
+        except (User.DoesNotExist, ValueError, TypeError):
+            return Response({'error': 'Token o usuario invalido'}, status=status.HTTP_400_BAD_REQUEST)
+
+        if not default_token_generator.check_token(user, token):
+            return Response({'error': 'Token invalido o expirado'}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            validate_password(new_password, user=user)
+        except ValidationError as e:
+            return Response({'error': e.messages}, status=status.HTTP_400_BAD_REQUEST)
+
+        user.set_password(new_password)
+        user.save()
+        audit_logger.info(f"Password reset confirmed for user {user.id}")
+        return Response({'message': 'Contrasena restablecida correctamente'})

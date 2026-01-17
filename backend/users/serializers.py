@@ -4,15 +4,21 @@ from .models import User
 class UserSerializer(serializers.ModelSerializer):
     role_name = serializers.ReadOnlyField()
     role_display = serializers.ReadOnlyField()
+    role = serializers.ReadOnlyField(source='role_name')
     
     class Meta:
         model = User
         fields = [
-            'id', 'username', 'email', 'first_name', 'last_name', 
+            'id', 'username', 'email', 'first_name', 'last_name',
             'is_student', 'is_instructor', 'is_staff', 'is_superuser', 'is_active',
-            'date_joined', 'role_name', 'role_display'
+            'date_joined', 'role', 'role_name', 'role_display'
         ]
         read_only_fields = ['id', 'date_joined', 'role_name', 'role_display']
+
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'first_name', 'last_name']
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, min_length=8)

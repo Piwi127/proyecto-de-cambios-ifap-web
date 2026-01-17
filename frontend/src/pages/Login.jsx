@@ -31,8 +31,15 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoginError('');
+    const formData = new FormData(e.currentTarget);
+    const username = (formData.get('username') || credentials.username || '').toString().trim();
+    const password = (formData.get('password') || credentials.password || '').toString();
+    if (!username || !password) {
+      setLoginError('Ingresa tu usuario y contraseña.');
+      return;
+    }
     try {
-      await login(credentials);
+      await login({ username, password });
       // Redirigir al aula virtual después del login exitoso
       navigate('/aula-virtual');
     } catch (error) {

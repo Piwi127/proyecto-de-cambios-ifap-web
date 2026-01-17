@@ -9,20 +9,41 @@ const DashboardProfesor = () => {
   const [taughtCourses, setTaughtCourses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [metricsError, setMetricsError] = useState(null);
   const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
         setLoading(true);
+        setMetricsError(null);
         const courses = await courseService.getTaughtCourses();
-        
-        const coursesWithMetrics = await Promise.all(
+
+        const defaultMetrics = {
+          total_students: 0,
+          average_progress: 0,
+          average_score: 0,
+        };
+
+        const metricsResults = await Promise.allSettled(
           courses.map(async (course) => {
             const metrics = await courseService.getCourseMetrics(course.id);
             return { ...course, metrics };
           })
         );
+
+        const coursesWithMetrics = metricsResults.map((result, index) => {
+          if (result.status === 'fulfilled') {
+            return result.value;
+          }
+          console.warn('Error fetching course metrics:', result.reason);
+          return { ...courses[index], metrics: defaultMetrics };
+        });
+
+        const failedMetrics = metricsResults.some((result) => result.status === 'rejected');
+        if (failedMetrics) {
+          setMetricsError('No se pudieron cargar algunas métricas. Mostrando valores por defecto.');
+        }
 
         setTaughtCourses(coursesWithMetrics);
       } catch (err) {
@@ -111,6 +132,11 @@ const DashboardProfesor = () => {
             Cursos Impartidos
           </h2>
         </div>
+        {metricsError && (
+          <div className="mb-4 rounded-lg border border-yellow-200 bg-yellow-50 px-4 py-3 text-sm text-yellow-800">
+            {metricsError}
+          </div>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {taughtCourses.length > 0 ? (
@@ -120,22 +146,22 @@ const DashboardProfesor = () => {
                 <div className="space-y-3">
                   <div className="flex justify-between">
                     <span className="text-gray-600">Estudiantes:</span>
-                    <span className="font-medium">{course.metrics.total_students}</span>
+                    <span className="font-medium">{course.metrics?.total_students ?? 0}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Progreso Promedio:</span>
-                    <span className="font-medium">{course.metrics.average_progress}%</span>
+                    <span className="font-medium">{course.metrics?.average_progress ?? 0}%</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Puntaje Promedio:</span>
-                    <span className="font-medium">{course.metrics.average_score}%</span>
+                    <span className="font-medium">{course.metrics?.average_score ?? 0}%</span>
                   </div>
                 </div>
                 <div className="mt-4">
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div
                       className="bg-primary-600 h-2 rounded-full"
-                      style={{ width: `${course.metrics.average_progress}%` }}
+                      style={{ width: `${course.metrics?.average_progress ?? 0}%` }}
                     ></div>
                   </div>
                 </div>

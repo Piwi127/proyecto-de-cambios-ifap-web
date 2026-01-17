@@ -3,9 +3,8 @@
 > vite --port 5174
 
 
-  VITE v7.1.7  ready in 645 ms
+  VITE v7.1.7  ready in 670 ms
 
   ➜  Local:   http://localhost:5174/
   ➜  Network: http://192.168.1.6:5174/
 [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
-11:51:17 p. m. [vite] (client) hmr update /src/pages/CursoDetalle.jsx, /src/index.css, /src/components/UniversityMenu.css

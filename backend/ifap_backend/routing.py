@@ -7,7 +7,6 @@ def get_websocket_urlpatterns():
         return []
 
     from .consumers import NotificationConsumer, MessagingConsumer, LessonCommentsConsumer
-    from chat import routing as chat_routing
 
     # Solo incluir rutas que realmente existen
     urlpatterns = [
@@ -16,12 +15,14 @@ def get_websocket_urlpatterns():
         re_path(r'ws/lesson-comments/(?P<lesson_id>\d+)/$', LessonCommentsConsumer.as_asgi()),
     ]
 
-    # Agregar rutas de chat que sí existen
-    try:
-        urlpatterns += chat_routing.websocket_urlpatterns
-    except ImportError:
-        # Si no existe el routing de chat, continuar sin él
-        pass
+    # Agregar rutas de chat solo si la app está instalada
+    if apps.is_installed('chat'):
+        try:
+            from chat import routing as chat_routing
+            urlpatterns += chat_routing.websocket_urlpatterns
+        except ImportError:
+            # Si no existe el routing de chat, continuar sin él
+            pass
 
     return urlpatterns
 

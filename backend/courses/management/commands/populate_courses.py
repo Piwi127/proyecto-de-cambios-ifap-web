@@ -1,6 +1,8 @@
 from django.core.management.base import BaseCommand
 from courses.models import Course
 from django.contrib.auth import get_user_model
+from django.utils.crypto import get_random_string
+import os
 
 User = get_user_model()
 
@@ -14,12 +16,21 @@ class Command(BaseCommand):
         try:
             instructor = User.objects.get(username='admin')
         except User.DoesNotExist:
+            default_password = os.environ.get('DEFAULT_ADMIN_PASSWORD')
+            if not default_password:
+                default_password = get_random_string(20)
+                self.stdout.write(
+                    self.style.WARNING('No DEFAULT_ADMIN_PASSWORD set; generated a random admin password.')
+                )
+                self.stdout.write(self.style.WARNING(f'Generated admin password: {default_password}'))
             instructor = User.objects.create_user(
                 username='admin',
                 email='admin@example.com',
-                password='adminpassword',
+                password=default_password,
                 is_staff=True,
-                is_superuser=True
+                is_superuser=True,
+                is_student=False,
+                is_instructor=False
             )
             self.stdout.write(self.style.WARNING('Created default admin user for instructor.'))
 

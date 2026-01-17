@@ -517,22 +517,6 @@ class APITester:
             self.log_test_result(test_name, success,
                                f"Status: {response.status_code}", response_time)
 
-    def test_chat_endpoints(self):
-        """Probar endpoints de chat"""
-        logger.info("\n💬 Probando endpoints de Chat...")
-
-        chat_endpoints = [
-            ('/chat/rooms/', 'Salas de Chat'),
-            ('/chat/messages/', 'Mensajes de Chat'),
-            ('/chat/notifications/', 'Notificaciones de Chat'),
-        ]
-
-        for endpoint, test_name in chat_endpoints:
-            response, response_time = self.make_request('GET', endpoint)
-            success = response.status_code == 200
-            self.log_test_result(test_name, success,
-                               f"Status: {response.status_code}", response_time)
-
     def test_security_aspects(self):
         """Probar aspectos de seguridad"""
         logger.info("\n🔒 Probando aspectos de Seguridad...")
@@ -672,8 +656,6 @@ class APITester:
             self.test_forum_endpoints()
             self.test_task_endpoints()
             self.test_library_endpoints()
-            self.test_chat_endpoints()
-
             # Pruebas de seguridad y rendimiento
             self.test_security_aspects()
             self.test_performance_metrics()

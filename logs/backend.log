@@ -1,193 +1,81 @@
 /home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/__init__.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import DistributionNotFound, get_distribution
-2026-01-16 23:48:19,765 INFO     Starting server at tcp:port=8000:interface=0.0.0.0
-2026-01-16 23:48:19,766 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
-2026-01-16 23:48:19,767 INFO     Configuring endpoint tcp:port=8000:interface=0.0.0.0
-2026-01-16 23:48:19,769 INFO     Listening on TCP address 0.0.0.0:8000
-INFO Request: POST /api/token/
-INFO Response: 200 for POST /api/token/
-INFO Request: GET /api/courses/my_courses/
+2026-01-17 16:16:44,807 INFO     Starting server at tcp:port=8000:interface=0.0.0.0
+2026-01-17 16:16:44,808 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-01-17 16:16:44,809 INFO     Configuring endpoint tcp:port=8000:interface=0.0.0.0
+2026-01-17 16:16:44,811 INFO     Listening on TCP address 0.0.0.0:8000
+INFO Request: GET /api/users/me/
+ERROR Exception in UserViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+    ...<4 lines>...
+    )
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+INFO Response: 401 for GET /api/users/me/
+INFO Request: GET /api/users/me/
+ERROR Exception in UserViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+    ...<4 lines>...
+    )
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+INFO Response: 401 for GET /api/users/me/
+INFO Request: POST /api/token/refresh/
+INFO Request: POST /api/token/refresh/
+INFO Response: 200 for POST /api/token/refresh/
+INFO Response: 200 for POST /api/token/refresh/
+INFO Request: GET /api/users/me/
+INFO User 9 accessed profile
+INFO Response: 200 for GET /api/users/me/
+INFO Request: GET /api/users/me/
+INFO User 9 accessed profile
+INFO Response: 200 for GET /api/users/me/
 INFO Request: GET /api/courses/
+INFO Request: GET /api/courses/my_courses/
 INFO User 9 requested course list
-INFO Response: 200 for GET /api/courses/my_courses/
 INFO Response: 200 for GET /api/courses/
-INFO Request: GET /api/courses/my_courses/
-INFO Request: GET /api/chat/notifications/
-INFO Response: 200 for GET /api/chat/notifications/
-INFO Request: GET /api/chat/notifications/
-INFO Response: 200 for GET /api/chat/notifications/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Request: GET /api/courses/my_courses/
-INFO Request: GET /api/users/dashboard_stats/
-INFO Dashboard stats requested by admin user 9 (jorge)
-INFO Response: 200 for GET /api/users/dashboard_stats/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Request: GET /api/users/dashboard_stats/
-INFO Dashboard stats requested by admin user 9 (jorge)
-INFO Response: 200 for GET /api/users/dashboard_stats/
-INFO Request: GET /api/chat/rooms/
-INFO Response: 200 for GET /api/chat/rooms/
-INFO Request: GET /api/courses/my_courses/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Request: GET /api/courses/my_courses/
-INFO Request: GET /api/users/dashboard_stats/
-INFO Dashboard stats requested by admin user 9 (jorge)
-INFO Response: 200 for GET /api/users/dashboard_stats/
-INFO Request: GET /api/users/dashboard_stats/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Dashboard stats requested by admin user 9 (jorge)
-INFO Response: 200 for GET /api/users/dashboard_stats/
-INFO Request: GET /api/courses/my_courses/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Request: GET /api/courses/my_courses/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Request: GET /api/courses/1/
-INFO Course 1 detail cached
-INFO Response: 200 for GET /api/courses/1/
-INFO Request: GET /api/courses/1/
-INFO Request: GET /api/lessons/
-INFO Course 1 detail served from cache
-INFO Response: 200 for GET /api/courses/1/
-INFO Response: 200 for GET /api/lessons/
-INFO Request: GET /api/lessons/
-INFO Request: GET /api/quizzes/
-INFO Response: 200 for GET /api/lessons/
-INFO Response: 200 for GET /api/quizzes/
-INFO Request: GET /api/quizzes/
-INFO Response: 200 for GET /api/quizzes/
-INFO Request: GET /api/users/me/
-INFO User 9 accessed profile
-INFO Response: 200 for GET /api/users/me/
-INFO Request: GET /api/users/me/
-INFO Request: GET /api/courses/my_courses/
-INFO User 9 accessed profile
-INFO Response: 200 for GET /api/users/me/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Request: GET /api/users/me/
-ERROR Exception in UserViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
-Traceback (most recent call last):
-  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
-    self.initial(request, *args, **kwargs)
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
-    self.perform_authentication(request)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
-  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
-    request.user
-  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
-    self._authenticate()
-    ~~~~~~~~~~~~~~~~~~^^
-  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
-    user_auth_tuple = authenticator.authenticate(self)
-  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
-    validated_token = self.get_validated_token(raw_token)
-  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
-    raise InvalidToken(
-    ...<4 lines>...
-    )
-rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
-INFO Response: 401 for GET /api/users/me/
-INFO Request: GET /api/users/me/
-ERROR Exception in UserViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
-Traceback (most recent call last):
-  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
-    self.initial(request, *args, **kwargs)
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
-    self.perform_authentication(request)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
-  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
-    request.user
-  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
-    self._authenticate()
-    ~~~~~~~~~~~~~~~~~~^^
-  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
-    user_auth_tuple = authenticator.authenticate(self)
-  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
-    validated_token = self.get_validated_token(raw_token)
-  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
-    raise InvalidToken(
-    ...<4 lines>...
-    )
-rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
-INFO Response: 401 for GET /api/users/me/
-INFO Request: POST /api/token/refresh/
-INFO Request: POST /api/token/refresh/
-INFO Response: 200 for POST /api/token/refresh/
-INFO Response: 200 for POST /api/token/refresh/
-INFO Request: GET /api/users/me/
-INFO User 9 accessed profile
-INFO Response: 200 for GET /api/users/me/
-INFO Request: GET /api/users/me/
-INFO Request: GET /api/courses/my_courses/
-INFO User 9 accessed profile
-INFO Response: 200 for GET /api/users/me/
 INFO Response: 200 for GET /api/courses/my_courses/
 INFO Request: POST /api/token/
 INFO Response: 200 for POST /api/token/
-INFO Request: GET /api/chat/notifications/
-INFO Request: GET /api/courses/my_courses/
-INFO Response: 200 for GET /api/chat/notifications/
-INFO Request: GET /api/chat/notifications/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Request: GET /api/courses/my_courses/
-INFO Request: GET /api/users/dashboard_stats/
-INFO Response: 200 for GET /api/chat/notifications/
-INFO Dashboard stats requested by admin user 9 (jorge)
-INFO Response: 200 for GET /api/users/dashboard_stats/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Request: GET /api/users/dashboard_stats/
-INFO Dashboard stats requested by admin user 9 (jorge)
-INFO Response: 200 for GET /api/users/dashboard_stats/
-INFO Request: GET /api/courses/my_courses/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Request: GET /api/courses/my_courses/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Request: GET /api/courses/1/
-INFO Course 1 detail served from cache
-INFO Response: 200 for GET /api/courses/1/
-INFO Request: GET /api/courses/1/
-INFO Request: GET /api/lessons/
-INFO Course 1 detail served from cache
-INFO Response: 200 for GET /api/courses/1/
-INFO Response: 200 for GET /api/lessons/
-INFO Request: GET /api/lessons/
-INFO Request: GET /api/quizzes/
-INFO Response: 200 for GET /api/lessons/
-INFO Response: 200 for GET /api/quizzes/
-INFO Request: GET /api/quizzes/
-INFO Response: 200 for GET /api/quizzes/
 INFO Request: GET /api/courses/my_courses/
 INFO Response: 200 for GET /api/courses/my_courses/
 INFO Request: GET /api/courses/my_courses/
 INFO Request: GET /api/users/dashboard_stats/
 INFO Dashboard stats requested by admin user 9 (jorge)
 INFO Response: 200 for GET /api/users/dashboard_stats/
+INFO Response: 200 for GET /api/courses/my_courses/
 INFO Request: GET /api/users/dashboard_stats/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Dashboard stats requested by admin user 9 (jorge)
-INFO Response: 200 for GET /api/users/dashboard_stats/
-INFO Request: GET /api/users/me/
-INFO User 9 accessed profile
-INFO Response: 200 for GET /api/users/me/
-INFO Request: GET /api/users/me/
-INFO User 9 accessed profile
-INFO Response: 200 for GET /api/users/me/
-INFO Request: GET /api/courses/my_courses/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Request: POST /api/token/
-INFO Response: 200 for POST /api/token/
-INFO Request: GET /api/chat/notifications/
-INFO Request: GET /api/courses/my_courses/
-INFO Response: 200 for GET /api/chat/notifications/
-INFO Request: GET /api/chat/notifications/
-INFO Response: 200 for GET /api/chat/notifications/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Request: GET /api/courses/my_courses/
-INFO Request: GET /api/users/dashboard_stats/
-INFO Dashboard stats requested by admin user 9 (jorge)
-INFO Response: 200 for GET /api/users/dashboard_stats/
-INFO Request: GET /api/users/dashboard_stats/
-INFO Response: 200 for GET /api/courses/my_courses/
 INFO Dashboard stats requested by admin user 9 (jorge)
 INFO Response: 200 for GET /api/users/dashboard_stats/

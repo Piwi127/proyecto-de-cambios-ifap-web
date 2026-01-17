@@ -22,6 +22,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 # )
 
 from pathlib import Path
+import os
+from django.core.exceptions import ImproperlyConfigured
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,19 +32,37 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
+def env_bool(name, default=False):
+    value = os.environ.get(name)
+    if value is None:
+        return default
+    return value.strip().lower() in ('1', 'true', 'yes', 'on')
+
+def env_list(name, default=''):
+    value = os.environ.get(name)
+    if value is None:
+        value = default
+    return [item.strip() for item in value.split(',') if item.strip()]
+
+ENVIRONMENT = os.environ.get('ENVIRONMENT', 'development')
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%-ug0@s9fjs9o=oz#d0*p%w91z_&x3dsz-rq6ir(i7+l0-=vu('
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+if not SECRET_KEY and ENVIRONMENT != 'development':
+    raise ImproperlyConfigured('DJANGO_SECRET_KEY is required in non-development environments.')
+if not SECRET_KEY:
+    SECRET_KEY = 'dev-insecure-change-me'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env_bool('DJANGO_DEBUG', default=(ENVIRONMENT == 'development'))
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', '192.168.1.6', 'www.ifap-edu.uk', 'ifap-edu.uk']
+ALLOWED_HOSTS = env_list('DJANGO_ALLOWED_HOSTS', default='localhost,127.0.0.1,0.0.0.0,192.168.1.6')
 
 # Channels configuration (moved to bottom with Redis config)
 
 # CORS settings
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = env_bool('CORS_ALLOW_ALL_ORIGINS', default=False)
+CORS_ALLOW_CREDENTIALS = env_bool('CORS_ALLOW_CREDENTIALS', default=True)
 
 
 # Application definition
@@ -67,7 +87,6 @@ INSTALLED_APPS = [
     'forum',
     'tasks',
     'library',
-    'chat',
     'contact',
 ]
 
@@ -224,8 +243,6 @@ SIMPLE_JWT = {
 }
 
 # Cache configuration
-import os
-
 # Configuración de Redis para cache
 REDIS_URL = os.environ.get('REDIS_URL', 'redis://127.0.0.1:6379/1')
 
@@ -276,25 +293,20 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 SESSION_CACHE_ALIAS = 'sessions'
 
 # CORS configuration
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-    "http://localhost:5174",
-    "http://127.0.0.1:5174",
-    "http://localhost:5175",
-    "http://127.0.0.1:5175",
-    "http://localhost:8000",
-    "http://localhost:8001",
-    "http://127.0.0.1:8001",
-    "http://localhost:8003",
-    "http://127.0.0.1:8003",
-    "https://www.ifap-edu.uk",
-    "https://ifap-edu.uk",
-    "http://www.ifap-edu.uk",
-    "http://ifap-edu.uk",
-]
+DEFAULT_CORS_ORIGINS = (
+    "http://localhost:3000,"
+    "http://127.0.0.1:3000,"
+    "http://localhost:5173,"
+    "http://127.0.0.1:5173,"
+    "http://192.168.1.6:5173,"
+    "http://localhost:5174,"
+    "http://127.0.0.1:5174,"
+    "http://192.168.1.6:5174,"
+    "http://localhost:5175,"
+    "http://127.0.0.1:5175,"
+    "http://192.168.1.6:5175"
+)
+CORS_ALLOWED_ORIGINS = env_list('CORS_ALLOWED_ORIGINS', default=DEFAULT_CORS_ORIGINS)
 
 CORS_ALLOW_CREDENTIALS = True
 
@@ -318,6 +330,22 @@ CORS_ALLOW_HEADERS = [
     'x-csrftoken',
     'x-requested-with',
 ]
+
+CSRF_TRUSTED_ORIGINS = env_list('CSRF_TRUSTED_ORIGINS', default=DEFAULT_CORS_ORIGINS)
+
+if CORS_ALLOW_ALL_ORIGINS and CORS_ALLOW_CREDENTIALS:
+    CORS_ALLOW_ALL_ORIGINS = False
+
+SECURE_SSL_REDIRECT = env_bool('DJANGO_SECURE_SSL_REDIRECT', default=not DEBUG)
+SESSION_COOKIE_SECURE = env_bool('DJANGO_SESSION_COOKIE_SECURE', default=not DEBUG)
+CSRF_COOKIE_SECURE = env_bool('DJANGO_CSRF_COOKIE_SECURE', default=not DEBUG)
+SESSION_COOKIE_HTTPONLY = True
+CSRF_COOKIE_HTTPONLY = env_bool('DJANGO_CSRF_COOKIE_HTTPONLY', default=True)
+SECURE_HSTS_SECONDS = int(os.environ.get('DJANGO_SECURE_HSTS_SECONDS', '0' if DEBUG else '31536000'))
+SECURE_HSTS_INCLUDE_SUBDOMAINS = env_bool('DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS', default=not DEBUG)
+SECURE_HSTS_PRELOAD = env_bool('DJANGO_SECURE_HSTS_PRELOAD', default=False)
+if env_bool('DJANGO_SECURE_PROXY_SSL_HEADER', default=not DEBUG):
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Logging configuration
 LOGGING = {
