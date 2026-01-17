@@ -50,22 +50,22 @@ class LibraryFileSerializer(serializers.ModelSerializer):
             user = request.user
             
             # Administradores pueden descargar todo
-            if user.role == 'admin':
+            if user.is_superuser:
                 return True
             
             # Verificar visibilidad
             if obj.visibility == 'public':
                 return True
-            elif obj.visibility == 'students' and user.role == 'student':
+            elif obj.visibility == 'students' and user.is_student:
                 return True
-            elif obj.visibility == 'instructors' and user.role in ['instructor', 'admin']:
+            elif obj.visibility == 'instructors' and (user.is_instructor or user.is_superuser):
                 return True
             elif obj.visibility == 'course' and obj.course:
                 # Verificar si el usuario está inscrito en el curso
-                if user.role == 'student':
-                    return user.enrolled_courses.filter(id=obj.course.id).exists()
-                elif user.role == 'instructor':
-                    return user.taught_courses.filter(id=obj.course.id).exists()
+                if user.is_student:
+                    return user.courses_enrolled.filter(id=obj.course.id).exists()
+                elif user.is_instructor:
+                    return user.courses_taught.filter(id=obj.course.id).exists()
             elif obj.visibility == 'private':
                 # Solo el propietario o usuarios con permisos específicos
                 if obj.uploaded_by == user:

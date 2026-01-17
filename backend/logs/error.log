@@ -9493,3 +9493,2804 @@ Traceback (most recent call last):
   File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
     raise exceptions.NotAuthenticated()
 rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:23:20,488] ERROR error_handler exceptions:68 Exception in QuizViewSet: MethodNotAllowed: Método "POST" no permitido.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 167, in http_method_not_allowed
+    raise exceptions.MethodNotAllowed(request.method)
+rest_framework.exceptions.MethodNotAllowed: Método "POST" no permitido.
+[2026-01-16 23:23:22,147] ERROR error_handler exceptions:68 Exception in QuizViewSet: ConnectionError: Error 111 connecting to 127.0.0.1:6379. 111.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/redis/asyncio/connection.py", line 243, in connect
+    await self.retry.call_with_retry(
+        lambda: self._connect(), lambda error: self.disconnect()
+    )
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/redis/asyncio/connection.py", line 650, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **self._connection_arguments()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/lib/python3.13/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        lambda: protocol, host, port, **kwds)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 1171, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 1146, in create_connection
+    sock = await self._connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+        exceptions, addrinfo, laddr_infos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 1045, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "/usr/lib/python3.13/asyncio/selector_events.py", line 641, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/selector_events.py", line 681, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 6379)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/quizzes/views.py", line 154, in start_attempt
+    attempt = QuizAttempt.objects.create(
+        user=user,
+        quiz=quiz,
+        attempt_number=QuizAttempt.objects.filter(user=user, quiz=quiz).count() + 1
+    )
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/base.py", line 892, in save_base
+    post_save.send(
+    ~~~~~~~~~~~~~~^
+        sender=origin,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        using=using,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/dispatch/dispatcher.py", line 177, in send
+    (receiver, receiver(signal=self, sender=sender, **named))
+               ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/quizzes/signals.py", line 10, in create_notification_on_quiz_attempt
+    Notification.objects.create(recipient=instance.user, message=message)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/base.py", line 892, in save_base
+    post_save.send(
+    ~~~~~~~~~~~~~~^
+        sender=origin,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        using=using,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/dispatch/dispatcher.py", line 177, in send
+    (receiver, receiver(signal=self, sender=sender, **named))
+               ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/notifications/models.py", line 27, in notify_user
+    send_notification_to_user(instance.recipient.id, instance.message)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/notifications/utils.py", line 8, in send_notification_to_user
+    async_to_sync(channel_layer.group_send)(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        group_name,
+        ^^^^^^^^^^^
+    ...<3 lines>...
+        }
+        ^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/asgiref/sync.py", line 325, in __call__
+    return call_result.result()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/asgiref/sync.py", line 365, in main_wrap
+    result = await awaitable
+             ^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels_redis/core.py", line 529, in group_send
+    await connection.zremrangebyscore(
+        key, min=0, max=int(time.time()) - self.group_expiry
+    )
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/redis/asyncio/client.py", line 601, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/redis/asyncio/connection.py", line 1040, in get_connection
+    await self.ensure_connection(connection)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/redis/asyncio/connection.py", line 1062, in ensure_connection
+    await connection.connect()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/redis/asyncio/connection.py", line 251, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to 127.0.0.1:6379. 111.
+[2026-01-16 23:23:22,261] ERROR django.request log:241 Internal Server Error: /api/quizzes/1/start_attempt/
+[2026-01-16 23:23:25,401] ERROR error_handler exceptions:68 Exception in QuizViewSet: ConnectionError: Error 111 connecting to 127.0.0.1:6379. 111.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/redis/asyncio/connection.py", line 243, in connect
+    await self.retry.call_with_retry(
+        lambda: self._connect(), lambda error: self.disconnect()
+    )
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/redis/asyncio/connection.py", line 650, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **self._connection_arguments()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/lib/python3.13/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        lambda: protocol, host, port, **kwds)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 1171, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 1146, in create_connection
+    sock = await self._connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+        exceptions, addrinfo, laddr_infos)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 1045, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "/usr/lib/python3.13/asyncio/selector_events.py", line 641, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/selector_events.py", line 681, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 6379)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/quizzes/views.py", line 154, in start_attempt
+    attempt = QuizAttempt.objects.create(
+        user=user,
+        quiz=quiz,
+        attempt_number=QuizAttempt.objects.filter(user=user, quiz=quiz).count() + 1
+    )
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/base.py", line 892, in save_base
+    post_save.send(
+    ~~~~~~~~~~~~~~^
+        sender=origin,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        using=using,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/dispatch/dispatcher.py", line 177, in send
+    (receiver, receiver(signal=self, sender=sender, **named))
+               ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/quizzes/signals.py", line 10, in create_notification_on_quiz_attempt
+    Notification.objects.create(recipient=instance.user, message=message)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/base.py", line 892, in save_base
+    post_save.send(
+    ~~~~~~~~~~~~~~^
+        sender=origin,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        using=using,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/dispatch/dispatcher.py", line 177, in send
+    (receiver, receiver(signal=self, sender=sender, **named))
+               ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/notifications/models.py", line 27, in notify_user
+    send_notification_to_user(instance.recipient.id, instance.message)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/notifications/utils.py", line 8, in send_notification_to_user
+    async_to_sync(channel_layer.group_send)(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        group_name,
+        ^^^^^^^^^^^
+    ...<3 lines>...
+        }
+        ^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/asgiref/sync.py", line 325, in __call__
+    return call_result.result()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/asgiref/sync.py", line 365, in main_wrap
+    result = await awaitable
+             ^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/channels_redis/core.py", line 529, in group_send
+    await connection.zremrangebyscore(
+        key, min=0, max=int(time.time()) - self.group_expiry
+    )
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/redis/asyncio/client.py", line 601, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/redis/asyncio/connection.py", line 1040, in get_connection
+    await self.ensure_connection(connection)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/redis/asyncio/connection.py", line 1062, in ensure_connection
+    await connection.connect()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/redis/asyncio/connection.py", line 251, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to 127.0.0.1:6379. 111.
+[2026-01-16 23:23:25,489] ERROR django.request log:241 Internal Server Error: /api/quizzes/1/start_attempt/
+[2026-01-16 23:23:26,259] ERROR error_handler exceptions:68 Exception in QuizViewSet: PermissionDenied: Solo los docentes y administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los docentes y administradores pueden realizar esta acción.
+[2026-01-16 23:23:27,040] ERROR error_handler exceptions:68 Exception in QuizViewSet: PermissionDenied: Solo los docentes y administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los docentes y administradores pueden realizar esta acción.
+[2026-01-16 23:23:27,844] ERROR error_handler exceptions:68 Exception in QuizViewSet: PermissionDenied: Solo los docentes y administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los docentes y administradores pueden realizar esta acción.
+[2026-01-16 23:24:26,531] ERROR error_handler exceptions:68 Exception in QuizViewSet: PermissionDenied: Solo los docentes y administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los docentes y administradores pueden realizar esta acción.
+[2026-01-16 23:24:27,378] ERROR error_handler exceptions:68 Exception in QuizViewSet: PermissionDenied: Solo los docentes y administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los docentes y administradores pueden realizar esta acción.
+[2026-01-16 23:24:28,184] ERROR error_handler exceptions:68 Exception in QuizViewSet: PermissionDenied: Solo los docentes y administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los docentes y administradores pueden realizar esta acción.
+[2026-01-16 23:26:02,721] ERROR error_handler exceptions:68 Exception in UserViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:26:03,046] ERROR error_handler exceptions:68 Exception in UserViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+    ...<4 lines>...
+    )
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+[2026-01-16 23:28:54,901] ERROR error_handler exceptions:68 Exception in UserRegisterView: ValidationError: {'perfil': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 235, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'perfil': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+[2026-01-16 23:28:55,584] ERROR error_handler exceptions:68 Exception in UserViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:55,603] ERROR error_handler exceptions:68 Exception in CourseViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:55,667] ERROR error_handler exceptions:68 Exception in CourseViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:55,686] ERROR error_handler exceptions:68 Exception in CourseViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:55,705] ERROR error_handler exceptions:68 Exception in CourseViewSet: ValueError: Field 'id' expected a number but got 'admin'.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2053, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'admin'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/courses/views.py", line 454, in course_metrics
+    course = get_object_or_404(Course, pk=pk)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 623, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<6 lines>...
+        summarize=summarize,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1318, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 27, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 341, in get_prep_lookup
+    return super().get_prep_lookup()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 85, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2055, in get_prep_value
+    raise e.__class__(
+        "Field '%s' expected a number but got %r." % (self.name, value),
+    ) from e
+ValueError: Field 'id' expected a number but got 'admin'.
+[2026-01-16 23:28:55,731] ERROR django.request log:241 Internal Server Error: /api/courses/admin/metrics/
+[2026-01-16 23:28:55,764] ERROR error_handler exceptions:68 Exception in CourseViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:55,784] ERROR error_handler exceptions:68 Exception in CourseViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:55,803] ERROR error_handler exceptions:68 Exception in CourseViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:55,822] ERROR error_handler exceptions:68 Exception in CourseViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:55,841] ERROR error_handler exceptions:68 Exception in CourseViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:55,860] ERROR error_handler exceptions:68 Exception in CourseViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:55,881] ERROR error_handler exceptions:68 Exception in CourseViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:55,902] ERROR error_handler exceptions:68 Exception in QuizViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,016] ERROR error_handler exceptions:68 Exception in NotificationListView: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,036] ERROR error_handler exceptions:68 Exception in ForumCategoryViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,055] ERROR error_handler exceptions:68 Exception in ForumTopicViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,077] ERROR error_handler exceptions:68 Exception in ForumReplyViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,142] ERROR error_handler exceptions:68 Exception in LessonCommentViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,159] ERROR error_handler exceptions:68 Exception in ConversationViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,178] ERROR error_handler exceptions:68 Exception in MessageViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,200] ERROR error_handler exceptions:68 Exception in TypingIndicatorViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,222] ERROR error_handler exceptions:68 Exception in TaskCategoryViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,242] ERROR error_handler exceptions:68 Exception in TaskViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,261] ERROR error_handler exceptions:68 Exception in TaskAssignmentViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,279] ERROR error_handler exceptions:68 Exception in TaskSubmissionViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,301] ERROR error_handler exceptions:68 Exception in TaskFileViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,319] ERROR error_handler exceptions:68 Exception in TaskCommentViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,338] ERROR error_handler exceptions:68 Exception in LibraryCategoryViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,357] ERROR error_handler exceptions:68 Exception in LibraryFileViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,377] ERROR error_handler exceptions:68 Exception in LibraryAccessViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,398] ERROR error_handler exceptions:68 Exception in LibraryDownloadViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,418] ERROR error_handler exceptions:68 Exception in LibraryFavoriteViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,439] ERROR error_handler exceptions:68 Exception in ChatRoomViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,460] ERROR error_handler exceptions:68 Exception in MessageViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,482] ERROR error_handler exceptions:68 Exception in ChatNotificationViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,500] ERROR error_handler exceptions:68 Exception in UserViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,605] ERROR error_handler exceptions:68 Exception in QuizViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:28:56,624] ERROR error_handler exceptions:68 Exception in NotificationListView: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:32:48,207] ERROR error_handler exceptions:68 Exception in HealthCheckView: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:32:49,543] ERROR error_handler exceptions:68 Exception in CourseViewSet: ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 235, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+[2026-01-16 23:32:49,597] ERROR error_handler exceptions:68 Exception in CourseViewSet: ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 235, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+[2026-01-16 23:32:49,634] ERROR error_handler exceptions:68 Exception in CourseViewSet: PermissionDenied: Solo los administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los administradores pueden realizar esta acción.
+[2026-01-16 23:32:49,658] ERROR error_handler exceptions:68 Exception in CourseViewSet: PermissionDenied: Solo los administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los administradores pueden realizar esta acción.
+[2026-01-16 23:32:49,684] ERROR error_handler exceptions:68 Exception in CourseViewSet: ValueError: Field 'id' expected a number but got 'admin'.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2053, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'admin'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/courses/views.py", line 454, in course_metrics
+    course = get_object_or_404(Course, pk=pk)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 623, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<6 lines>...
+        summarize=summarize,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1318, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 27, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 341, in get_prep_lookup
+    return super().get_prep_lookup()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 85, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2055, in get_prep_value
+    raise e.__class__(
+        "Field '%s' expected a number but got %r." % (self.name, value),
+    ) from e
+ValueError: Field 'id' expected a number but got 'admin'.
+[2026-01-16 23:32:49,696] ERROR django.request log:241 Internal Server Error: /api/courses/admin/metrics/
+[2026-01-16 23:32:49,715] ERROR error_handler exceptions:68 Exception in CourseViewSet: PermissionDenied: Solo los administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los administradores pueden realizar esta acción.
+[2026-01-16 23:32:49,743] ERROR error_handler exceptions:68 Exception in CourseViewSet: ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 235, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+[2026-01-16 23:32:49,771] ERROR error_handler exceptions:68 Exception in CourseViewSet: ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 235, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+[2026-01-16 23:32:49,797] ERROR error_handler exceptions:68 Exception in CourseViewSet: ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 235, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+[2026-01-16 23:32:49,821] ERROR error_handler exceptions:68 Exception in CourseViewSet: MethodNotAllowed: Método "POST" no permitido.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 167, in http_method_not_allowed
+    raise exceptions.MethodNotAllowed(request.method)
+rest_framework.exceptions.MethodNotAllowed: Método "POST" no permitido.
+[2026-01-16 23:32:49,846] ERROR error_handler exceptions:68 Exception in CourseViewSet: MethodNotAllowed: Método "POST" no permitido.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 167, in http_method_not_allowed
+    raise exceptions.MethodNotAllowed(request.method)
+rest_framework.exceptions.MethodNotAllowed: Método "POST" no permitido.
+[2026-01-16 23:32:49,876] ERROR error_handler exceptions:68 Exception in CourseViewSet: ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 235, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+[2026-01-16 23:32:49,916] ERROR error_handler exceptions:68 Exception in CourseViewSet: ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 235, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+[2026-01-16 23:32:49,986] ERROR error_handler exceptions:68 Exception in QuizViewSet: Http404: 
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2053, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'questions'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 623, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<6 lines>...
+        summarize=summarize,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1318, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 27, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 341, in get_prep_lookup
+    return super().get_prep_lookup()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 85, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2055, in get_prep_value
+    raise e.__class__(
+        "Field '%s' expected a number but got %r." % (self.name, value),
+    ) from e
+ValueError: Field 'id' expected a number but got 'questions'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 21, in get_object_or_404
+    raise Http404
+django.http.response.Http404
+[2026-01-16 23:32:50,019] ERROR error_handler exceptions:68 Exception in QuizViewSet: Http404: 
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2053, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'attempts'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 623, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<6 lines>...
+        summarize=summarize,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1318, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 27, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 341, in get_prep_lookup
+    return super().get_prep_lookup()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 85, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2055, in get_prep_value
+    raise e.__class__(
+        "Field '%s' expected a number but got %r." % (self.name, value),
+    ) from e
+ValueError: Field 'id' expected a number but got 'attempts'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 21, in get_object_or_404
+    raise Http404
+django.http.response.Http404
+[2026-01-16 23:32:50,955] ERROR error_handler exceptions:68 Exception in LibraryFileViewSet: AttributeError: 'User' object has no attribute 'role'
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+                                    ~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/library/views.py", line 55, in get_queryset
+    if user.role == 'admin':
+       ^^^^^^^^^
+AttributeError: 'User' object has no attribute 'role'
+[2026-01-16 23:32:50,962] ERROR django.request log:241 Internal Server Error: /api/library/files/
+[2026-01-16 23:32:51,147] ERROR error_handler exceptions:68 Exception in UserViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:32:51,172] ERROR error_handler exceptions:68 Exception in UserViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+    ...<4 lines>...
+    )
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+[2026-01-16 23:34:20,081] ERROR error_handler exceptions:68 Exception in QuizViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:34:44,007] ERROR error_handler exceptions:68 Exception in QuizViewSet: Http404: 
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2053, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'questions'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 623, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<6 lines>...
+        summarize=summarize,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1318, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 27, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 341, in get_prep_lookup
+    return super().get_prep_lookup()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 85, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2055, in get_prep_value
+    raise e.__class__(
+        "Field '%s' expected a number but got %r." % (self.name, value),
+    ) from e
+ValueError: Field 'id' expected a number but got 'questions'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 21, in get_object_or_404
+    raise Http404
+django.http.response.Http404
+[2026-01-16 23:34:44,037] ERROR error_handler exceptions:68 Exception in QuizViewSet: Http404: 
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2053, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'attempts'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 623, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<6 lines>...
+        summarize=summarize,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1318, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 27, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 341, in get_prep_lookup
+    return super().get_prep_lookup()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 85, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2055, in get_prep_value
+    raise e.__class__(
+        "Field '%s' expected a number but got %r." % (self.name, value),
+    ) from e
+ValueError: Field 'id' expected a number but got 'attempts'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 21, in get_object_or_404
+    raise Http404
+django.http.response.Http404
+[2026-01-16 23:35:18,402] ERROR error_handler exceptions:68 Exception in QuizViewSet: Http404: 
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2053, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'questions'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 623, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<6 lines>...
+        summarize=summarize,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1318, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 27, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 341, in get_prep_lookup
+    return super().get_prep_lookup()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 85, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2055, in get_prep_value
+    raise e.__class__(
+        "Field '%s' expected a number but got %r." % (self.name, value),
+    ) from e
+ValueError: Field 'id' expected a number but got 'questions'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 21, in get_object_or_404
+    raise Http404
+django.http.response.Http404
+[2026-01-16 23:38:41,200] ERROR error_handler exceptions:68 Exception in CourseViewSet: MethodNotAllowed: Método "POST" no permitido.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 167, in http_method_not_allowed
+    raise exceptions.MethodNotAllowed(request.method)
+rest_framework.exceptions.MethodNotAllowed: Método "POST" no permitido.
+[2026-01-16 23:41:27,289] ERROR error_handler exceptions:68 Exception in CourseViewSet: ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 235, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+[2026-01-16 23:41:27,376] ERROR error_handler exceptions:68 Exception in CourseViewSet: ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 235, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+[2026-01-16 23:41:27,402] ERROR error_handler exceptions:68 Exception in CourseViewSet: PermissionDenied: Solo los administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los administradores pueden realizar esta acción.
+[2026-01-16 23:41:27,427] ERROR error_handler exceptions:68 Exception in CourseViewSet: PermissionDenied: Solo los administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los administradores pueden realizar esta acción.
+[2026-01-16 23:41:27,454] ERROR error_handler exceptions:68 Exception in CourseViewSet: PermissionDenied: Solo los administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los administradores pueden realizar esta acción.
+[2026-01-16 23:41:27,481] ERROR error_handler exceptions:68 Exception in CourseViewSet: PermissionDenied: Solo los administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los administradores pueden realizar esta acción.
+[2026-01-16 23:41:27,512] ERROR error_handler exceptions:68 Exception in CourseViewSet: ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 235, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+[2026-01-16 23:41:27,539] ERROR error_handler exceptions:68 Exception in CourseViewSet: ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 235, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+[2026-01-16 23:41:27,567] ERROR error_handler exceptions:68 Exception in CourseViewSet: ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 235, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+[2026-01-16 23:41:27,591] ERROR error_handler exceptions:68 Exception in CourseViewSet: PermissionDenied: Solo los administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los administradores pueden realizar esta acción.
+[2026-01-16 23:41:27,617] ERROR error_handler exceptions:68 Exception in CourseViewSet: PermissionDenied: Solo los administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los administradores pueden realizar esta acción.
+[2026-01-16 23:41:27,646] ERROR error_handler exceptions:68 Exception in CourseViewSet: ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 235, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+[2026-01-16 23:41:27,675] ERROR error_handler exceptions:68 Exception in CourseViewSet: ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 235, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+[2026-01-16 23:41:28,657] ERROR error_handler exceptions:68 Exception in LibraryFileViewSet: AttributeError: 'User' object has no attribute 'role'
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 687, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/library/serializers.py", line 53, in get_can_download
+    if user.role == 'admin':
+       ^^^^^^^^^
+AttributeError: 'User' object has no attribute 'role'
+[2026-01-16 23:41:28,668] ERROR django.request log:241 Internal Server Error: /api/library/files/
+[2026-01-16 23:41:28,855] ERROR error_handler exceptions:68 Exception in UserViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:41:28,874] ERROR error_handler exceptions:68 Exception in UserViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+    ...<4 lines>...
+    )
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+[2026-01-16 23:41:38,425] ERROR error_handler exceptions:68 Exception in CourseViewSet: ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 235, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+[2026-01-16 23:41:51,157] ERROR error_handler exceptions:68 Exception in LibraryFileViewSet: AttributeError: 'User' object has no attribute 'role'
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 687, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/library/serializers.py", line 53, in get_can_download
+    if user.role == 'admin':
+       ^^^^^^^^^
+AttributeError: 'User' object has no attribute 'role'
+[2026-01-16 23:41:51,165] ERROR django.request log:241 Internal Server Error: /api/library/files/
+[2026-01-16 23:43:02,252] ERROR error_handler exceptions:68 Exception in CourseViewSet: ValidationError: {'description': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 67, in update
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 235, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'description': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+[2026-01-16 23:43:02,392] ERROR error_handler exceptions:68 Exception in CourseViewSet: PermissionDenied: Solo los administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los administradores pueden realizar esta acción.
+[2026-01-16 23:43:02,419] ERROR error_handler exceptions:68 Exception in CourseViewSet: PermissionDenied: Solo los administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los administradores pueden realizar esta acción.
+[2026-01-16 23:43:02,447] ERROR error_handler exceptions:68 Exception in CourseViewSet: PermissionDenied: Solo los administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los administradores pueden realizar esta acción.
+[2026-01-16 23:43:02,470] ERROR error_handler exceptions:68 Exception in CourseViewSet: PermissionDenied: Solo los administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los administradores pueden realizar esta acción.
+[2026-01-16 23:43:02,636] ERROR error_handler exceptions:68 Exception in CourseViewSet: PermissionDenied: Solo los administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los administradores pueden realizar esta acción.
+[2026-01-16 23:43:02,664] ERROR error_handler exceptions:68 Exception in CourseViewSet: PermissionDenied: Solo los administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los administradores pueden realizar esta acción.
+[2026-01-16 23:43:02,689] ERROR error_handler exceptions:68 Exception in CourseViewSet: PermissionDenied: Solo los administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los administradores pueden realizar esta acción.
+[2026-01-16 23:43:02,720] ERROR error_handler exceptions:68 Exception in LessonViewSet: ValidationError: {'description': [ErrorDetail(string='Este campo es requerido.', code='required')], 'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 235, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'description': [ErrorDetail(string='Este campo es requerido.', code='required')], 'instructor': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+[2026-01-16 23:43:03,900] ERROR error_handler exceptions:68 Exception in UserViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:43:03,922] ERROR error_handler exceptions:68 Exception in UserViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+    ...<4 lines>...
+    )
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+[2026-01-16 23:44:59,304] ERROR error_handler exceptions:68 Exception in CourseViewSet: PermissionDenied: Solo los administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los administradores pueden realizar esta acción.
+[2026-01-16 23:44:59,330] ERROR error_handler exceptions:68 Exception in CourseViewSet: PermissionDenied: Solo los administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los administradores pueden realizar esta acción.
+[2026-01-16 23:44:59,355] ERROR error_handler exceptions:68 Exception in CourseViewSet: PermissionDenied: Solo los administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los administradores pueden realizar esta acción.
+[2026-01-16 23:44:59,381] ERROR error_handler exceptions:68 Exception in CourseViewSet: PermissionDenied: Solo los administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los administradores pueden realizar esta acción.
+[2026-01-16 23:44:59,547] ERROR error_handler exceptions:68 Exception in CourseViewSet: PermissionDenied: Solo los administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los administradores pueden realizar esta acción.
+[2026-01-16 23:44:59,572] ERROR error_handler exceptions:68 Exception in CourseViewSet: PermissionDenied: Solo los administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los administradores pueden realizar esta acción.
+[2026-01-16 23:44:59,600] ERROR error_handler exceptions:68 Exception in CourseViewSet: PermissionDenied: Solo los administradores pueden realizar esta acción.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 175, in permission_denied
+    raise exceptions.PermissionDenied(detail=message, code=code)
+rest_framework.exceptions.PermissionDenied: Solo los administradores pueden realizar esta acción.
+[2026-01-16 23:45:00,824] ERROR error_handler exceptions:68 Exception in UserViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 23:45:00,843] ERROR error_handler exceptions:68 Exception in UserViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+    ...<4 lines>...
+    )
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+[2026-01-16 23:51:39,765] ERROR error_handler exceptions:68 Exception in UserViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+    ...<4 lines>...
+    )
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+[2026-01-16 23:51:39,793] ERROR error_handler exceptions:68 Exception in UserViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+    ...<4 lines>...
+    )
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}

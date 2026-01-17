@@ -12,7 +12,7 @@ class LessonSerializer(serializers.ModelSerializer):
             'instructor', 'instructor_name', 'order', 'duration_minutes',
             'is_published', 'created_at', 'updated_at'
         ]
-        read_only_fields = ['id', 'created_at', 'updated_at']
+        read_only_fields = ['id', 'created_at', 'updated_at', 'instructor']
 
 class LessonContentSerializer(serializers.ModelSerializer):
     """Serializer para mostrar el contenido completo de la lección"""

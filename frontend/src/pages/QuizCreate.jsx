@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
 import { quizService } from '../services/quizService.js';
 import { courseService } from '../services/courseService.js';
+import { lessonService } from '../services/lessonService.js';
 import Card from '../components/Card';
 
 const QuizCreate = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { user: _user } = useAuth(); // Usuario no utilizado actualmente
   const [loading, setLoading] = useState(false);
   const [courses, setCourses] = useState([]);
@@ -32,6 +34,22 @@ const QuizCreate = () => {
   }, []);
 
   useEffect(() => {
+    const template = location.state?.template;
+    if (template?.data) {
+      setFormData(prev => ({
+        ...prev,
+        title: template.title || template.data.title || '',
+        description: template.description || template.data.description || '',
+        quiz_type: template.data.quiz_type || prev.quiz_type,
+        time_limit_minutes: template.data.time_limit_minutes || prev.time_limit_minutes,
+        max_attempts: template.data.max_attempts ?? prev.max_attempts,
+        passing_score: template.data.passing_score ?? prev.passing_score,
+        randomize_questions: template.data.randomize_questions ?? prev.randomize_questions
+      }));
+    }
+  }, [location.state]);
+
+  useEffect(() => {
     if (formData.course) {
       fetchLessons();
     } else {
@@ -50,8 +68,9 @@ const QuizCreate = () => {
 
   const fetchLessons = async () => {
     try {
-      // TODO: Implementar servicio para obtener lecciones de un curso
-      setLessons([]);
+      const lessonsData = await lessonService.getAllLessons(formData.course);
+      const list = Array.isArray(lessonsData?.results) ? lessonsData.results : lessonsData;
+      setLessons(Array.isArray(list) ? list : []);
     } catch (error) {
       console.error('Error fetching lessons:', error);
     }

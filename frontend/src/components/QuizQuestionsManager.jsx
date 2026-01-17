@@ -44,9 +44,8 @@ const QuizQuestionsManager = ({ quizId, onClose }) => {
     }
 
     try {
-      // TODO: Implementar eliminación de pregunta en el servicio
+      await quizService.deleteQuestion(questionId);
       setQuestions(questions.filter(q => q.id !== questionId));
-      alert('Pregunta eliminada exitosamente');
     } catch (error) {
       console.error('Error deleting question:', error);
       alert('Error al eliminar la pregunta');
@@ -55,12 +54,25 @@ const QuizQuestionsManager = ({ quizId, onClose }) => {
 
   const handleSaveQuestion = async (questionData) => {
     try {
+      const options = (questionData.options || []).map((option, index) => ({
+        option_text: option.option_text,
+        is_correct: Boolean(option.is_correct),
+        order: index + 1
+      }));
+      const payload = {
+        quiz: Number(quizId),
+        question_text: questionData.question_text,
+        question_type: questionData.question_type,
+        points: Number(questionData.points || 1),
+        order: editingQuestion?.order || questions.length + 1,
+        explanation: questionData.explanation || '',
+        options
+      };
+
       if (editingQuestion) {
-        // TODO: Implementar actualización de pregunta
-        console.log('Actualizando pregunta:', editingQuestion.id, questionData);
+        await quizService.updateQuestion(editingQuestion.id, payload);
       } else {
-        // TODO: Implementar creación de pregunta
-        console.log('Creando nueva pregunta:', questionData);
+        await quizService.createQuestion(payload);
       }
 
       setShowAddForm(false);

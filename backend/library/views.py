@@ -52,25 +52,25 @@ class LibraryFileViewSet(viewsets.ModelViewSet):
         queryset = LibraryFile.objects.select_related('uploaded_by', 'category', 'course')
         
         # Filtrar por permisos de visibilidad
-        if user.role == 'admin':
+        if user.is_superuser:
             return queryset
         
         # Construir filtros de visibilidad
         visibility_filter = Q(visibility='public')
         
-        if user.role == 'student':
+        if user.is_student:
             visibility_filter |= Q(visibility='students')
             # Archivos de cursos en los que está inscrito
             visibility_filter |= Q(
                 visibility='course',
-                course__in=user.enrolled_courses.all()
+                course__in=user.courses_enrolled.all()
             )
-        elif user.role == 'instructor':
+        elif user.is_instructor:
             visibility_filter |= Q(visibility='instructors')
             # Archivos de cursos que enseña
             visibility_filter |= Q(
                 visibility='course',
-                course__in=user.taught_courses.all()
+                course__in=user.courses_taught.all()
             )
         
         # Archivos propios

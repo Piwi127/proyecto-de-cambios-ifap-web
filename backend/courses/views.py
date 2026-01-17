@@ -136,6 +136,14 @@ class CourseViewSet(OptimizedQueryMixin, viewsets.ModelViewSet):
 
         return queryset.select_related('instructor').prefetch_related('students')
 
+    def perform_create(self, serializer):
+        """Asignar instructor por defecto al creador si no se especifica."""
+        instructor = serializer.validated_data.get('instructor')
+        if instructor is None:
+            serializer.save(instructor=self.request.user)
+        else:
+            serializer.save()
+
     # ========== VALIDACIONES DE SEGURIDAD ==========
 
     def _validate_course_ownership(self, course, user):
@@ -873,7 +881,7 @@ class CourseViewSet(OptimizedQueryMixin, viewsets.ModelViewSet):
 
         # Cursos por modalidad
         courses_by_modality = {}
-        for modality, _ in Course.MODALITY_CHOICES:
+        for modality, _ in Course._meta.get_field('modality').choices:
             count = Course.objects.filter(modality=modality).count()
             courses_by_modality[modality] = count
 

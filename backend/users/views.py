@@ -18,6 +18,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.exceptions import TokenError
 from django.contrib.auth import authenticate
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
@@ -372,10 +373,24 @@ class UserViewSet(OptimizedQueryMixin, viewsets.ModelViewSet):
     def logout(self, request):
         try:
             refresh_token = request.data.get('refresh_token')
+            if not refresh_token:
+                return Response(
+                    {'error': 'refresh_token es requerido'},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
             token = RefreshToken(refresh_token)
-            token.blacklist()
+            try:
+                token.blacklist()
+            except (AttributeError, NotImplementedError):
+                # Blacklist no configurado; mantener logout exitoso
+                pass
             return Response({'message': 'Logout exitoso'})
-        except Exception as e:
+        except TokenError:
+            return Response(
+                {'error': 'Token inválido'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        except Exception:
             return Response(
                 {'error': 'Error al hacer logout'},
                 status=status.HTTP_400_BAD_REQUEST

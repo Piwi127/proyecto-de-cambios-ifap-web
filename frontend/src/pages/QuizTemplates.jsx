@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
+import { quizService } from '../services/quizService.js';
 import Card from '../components/Card';
 
 const QuizTemplates = () => {
@@ -18,66 +19,14 @@ const QuizTemplates = () => {
   const fetchTemplates = async () => {
     try {
       setLoading(true);
-      // TODO: Implementar servicio para obtener plantillas
-      // Por ahora usamos datos de ejemplo
-      const mockTemplates = [
-        {
-          id: 1,
-          title: 'Evaluación Básica de Conocimientos',
-          description: 'Plantilla para evaluaciones generales con preguntas de opción múltiple',
-          category: 'general',
-          difficulty: 'beginner',
-          questionCount: 10,
-          estimatedTime: 15,
-          tags: ['básico', 'general', 'opción múltiple'],
-          usageCount: 45
-        },
-        {
-          id: 2,
-          title: 'Examen de Archivística Avanzada',
-          description: 'Evaluación completa para estudiantes avanzados en archivística',
-          category: 'archivistica',
-          difficulty: 'advanced',
-          questionCount: 25,
-          estimatedTime: 45,
-          tags: ['archivística', 'avanzado', 'completo'],
-          usageCount: 23
-        },
-        {
-          id: 3,
-          title: 'Práctica de Gestión Documental',
-          description: 'Ejercicios prácticos sobre gestión y preservación de documentos',
-          category: 'gestion',
-          difficulty: 'intermediate',
-          questionCount: 15,
-          estimatedTime: 30,
-          tags: ['gestión', 'documental', 'práctica'],
-          usageCount: 67
-        },
-        {
-          id: 4,
-          title: 'Cuestionario de Verdadero/Falso',
-          description: 'Evaluación rápida con preguntas de verdadero o falso',
-          category: 'general',
-          difficulty: 'beginner',
-          questionCount: 20,
-          estimatedTime: 10,
-          tags: ['verdadero/falso', 'rápido', 'básico'],
-          usageCount: 89
-        },
-        {
-          id: 5,
-          title: 'Evaluación de Preservación Digital',
-          description: 'Preguntas sobre técnicas modernas de preservación digital',
-          category: 'preservacion',
-          difficulty: 'advanced',
-          questionCount: 18,
-          estimatedTime: 35,
-          tags: ['digital', 'preservación', 'moderno'],
-          usageCount: 34
-        }
-      ];
-      setTemplates(mockTemplates);
+      const templatesData = await quizService.getQuizTemplates();
+      const list = Array.isArray(templatesData?.results) ? templatesData.results : templatesData;
+      const normalized = (list || []).map(template => ({
+        ...template,
+        questionCount: Array.isArray(template.data?.questions) ? template.data.questions.length : 0,
+        estimatedTime: template.estimated_time || 0
+      }));
+      setTemplates(normalized);
     } catch (error) {
       console.error('Error fetching templates:', error);
     } finally {
@@ -110,8 +59,6 @@ const QuizTemplates = () => {
 
   const handleUseTemplate = async (template) => {
     try {
-      // TODO: Implementar lógica para usar plantilla
-      alert(`Usando plantilla: ${template.title}`);
       navigate('/aula-virtual/quizzes/create', {
         state: { template: template }
       });

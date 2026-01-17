@@ -2,6 +2,8 @@ import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
 import Card from '../components/Card';
+import { quizService } from '../services/quizService.js';
+import { courseService } from '../services/courseService.js';
 
 const QuizImportExport = () => {
   const navigate = useNavigate();
@@ -13,18 +15,28 @@ const QuizImportExport = () => {
   const [selectedFormat, setSelectedFormat] = useState('json');
   const [selectedQuizzes, setSelectedQuizzes] = useState([]);
   const [availableQuizzes, setAvailableQuizzes] = useState([]);
+  const [courses, setCourses] = useState([]);
+  const [selectedCourse, setSelectedCourse] = useState('');
 
   // Datos de ejemplo para quizzes disponibles
   React.useEffect(() => {
-    // TODO: Obtener quizzes del usuario desde el backend
-    const mockQuizzes = [
-      { id: 1, title: 'Evaluación Básica de Archivística', course: 'Archivística I', questions: 15 },
-      { id: 2, title: 'Práctica de Gestión Documental', course: 'Gestión Documental', questions: 20 },
-      { id: 3, title: 'Examen Final de Preservación', course: 'Preservación Digital', questions: 25 },
-      { id: 4, title: 'Cuestionario de Verdadero/Falso', course: 'Archivística II', questions: 10 }
-    ];
-    setAvailableQuizzes(mockQuizzes);
+    loadInitialData();
   }, []);
+
+  const loadInitialData = async () => {
+    try {
+      const [quizzesData, coursesData] = await Promise.all([
+        quizService.getAllQuizzes(),
+        courseService.getMyCourses()
+      ]);
+      const quizzesList = Array.isArray(quizzesData?.results) ? quizzesData.results : quizzesData;
+      const coursesList = Array.isArray(coursesData?.results) ? coursesData.results : coursesData;
+      setAvailableQuizzes(Array.isArray(quizzesList) ? quizzesList : []);
+      setCourses(Array.isArray(coursesList) ? coursesList : []);
+    } catch (error) {
+      console.error('Error loading import/export data:', error);
+    }
+  };
 
   const handleFileSelect = (event) => {
     const file = event.target.files[0];
@@ -44,34 +56,33 @@ const QuizImportExport = () => {
       if (file.name.endsWith('.json')) {
         data = JSON.parse(text);
       } else if (file.name.endsWith('.csv')) {
-        // TODO: Implementar parsing CSV
-        data = parseCSV(text);
+        data = parseCSV(text, file.name);
       } else {
         throw new Error('Formato de archivo no soportado');
       }
 
-      // Validar estructura del archivo
-      const validation = validateImportData(data);
-
-      if (!validation.valid) {
-        setImportResults({
-          success: false,
-          message: 'Archivo inválido',
-          errors: validation.errors
-        });
-        return;
+      if (!data.course) {
+        if (!selectedCourse) {
+          throw new Error('Selecciona un curso para importar el quiz');
+        }
+        data.course = Number(selectedCourse);
       }
 
-      // TODO: Enviar datos al backend para procesamiento
-      const results = await processImportData(data);
+      // Validar estructura del archivo
+      await quizService.validateImportData(data);
+      const createdQuiz = await quizService.importQuiz(data);
 
       setImportResults({
         success: true,
         message: `Importación completada exitosamente`,
-        imported: results.imported,
-        skipped: results.skipped,
-        errors: results.errors
+        imported: 1,
+        skipped: 0,
+        errors: []
       });
+
+      if (createdQuiz) {
+        await loadInitialData();
+      }
 
     } catch (error) {
       setImportResults({
@@ -84,64 +95,47 @@ const QuizImportExport = () => {
     }
   };
 
-  const parseCSV = (csvText) => {
-    // TODO: Implementar parser CSV completo
+  const parseCSV = (csvText, filename) => {
     const lines = csvText.split('\n');
     const headers = lines[0].split(',');
-
-    return lines.slice(1).map(line => {
+    const rows = lines.slice(1).filter(line => line.trim().length > 0).map(line => {
       const values = line.split(',');
       const obj = {};
       headers.forEach((header, index) => {
-        obj[header.trim()] = values[index]?.trim() || '';
+        obj[header.trim()] = (values[index] || '').replace(/^"|"$/g, '').trim();
       });
       return obj;
     });
-  };
 
-  const validateImportData = (data) => {
-    const errors = [];
-
-    if (!data || typeof data !== 'object') {
-      errors.push('El archivo debe contener un objeto JSON válido');
-      return { valid: false, errors };
-    }
-
-    if (!data.title || typeof data.title !== 'string') {
-      errors.push('El quiz debe tener un título válido');
-    }
-
-    if (!Array.isArray(data.questions)) {
-      errors.push('El quiz debe tener una lista de preguntas');
-    } else {
-      data.questions.forEach((question, index) => {
-        if (!question.text || typeof question.text !== 'string') {
-          errors.push(`Pregunta ${index + 1}: falta el texto de la pregunta`);
-        }
-        if (!Array.isArray(question.options) || question.options.length < 2) {
-          errors.push(`Pregunta ${index + 1}: debe tener al menos 2 opciones`);
-        }
-        if (!Array.isArray(question.correctAnswers) || question.correctAnswers.length === 0) {
-          errors.push(`Pregunta ${index + 1}: debe tener al menos una respuesta correcta`);
-        }
-      });
-    }
-
-    return { valid: errors.length === 0, errors };
-  };
-
-  // eslint-disable-next-line no-unused-vars
-  const processImportData = async (_data) => {
-    // TODO: Implementar procesamiento real con backend
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({
-          imported: 1,
-          skipped: 0,
-          errors: []
+    const questionsMap = new Map();
+    rows.forEach(row => {
+      const key = row.question_text || row.question;
+      if (!key) return;
+      if (!questionsMap.has(key)) {
+        questionsMap.set(key, {
+          question_text: key,
+          question_type: row.question_type || 'multiple_choice',
+          points: Number(row.points || 1),
+          order: Number(row.order || questionsMap.size + 1),
+          explanation: row.explanation || '',
+          options: []
         });
-      }, 2000);
+      }
+      if (row.option_text) {
+        questionsMap.get(key).options.push({
+          option_text: row.option_text,
+          is_correct: String(row.is_correct).toLowerCase() === 'true',
+          order: Number(row.option_order || questionsMap.get(key).options.length + 1)
+        });
+      }
     });
+
+    return {
+      title: filename.replace(/\.(csv|json)$/i, ''),
+      description: '',
+      course: selectedCourse ? Number(selectedCourse) : null,
+      questions: Array.from(questionsMap.values())
+    };
   };
 
   const handleExport = async () => {
@@ -153,43 +147,9 @@ const QuizImportExport = () => {
     setExporting(true);
 
     try {
-      // TODO: Obtener datos completos de los quizzes desde el backend
-      const exportData = {
-        quizzes: selectedQuizzes.map(id => {
-          const quiz = availableQuizzes.find(q => q.id === id);
-          return {
-            id: quiz.id,
-            title: quiz.title,
-            course: quiz.course,
-            questions: [], // TODO: Obtener preguntas reales
-            exportedAt: new Date().toISOString(),
-            exportedBy: user?.username || 'Usuario'
-          };
-        }),
-        metadata: {
-          exportedAt: new Date().toISOString(),
-          exportedBy: user?.username || 'Usuario',
-          format: selectedFormat,
-          version: '1.0'
-        }
-      };
-
-      let content;
-      let filename;
-      let mimeType;
-
-      if (selectedFormat === 'json') {
-        content = JSON.stringify(exportData, null, 2);
-        filename = `quizzes_export_${new Date().toISOString().split('T')[0]}.json`;
-        mimeType = 'application/json';
-      } else if (selectedFormat === 'csv') {
-        content = generateCSV(exportData);
-        filename = `quizzes_export_${new Date().toISOString().split('T')[0]}.csv`;
-        mimeType = 'text/csv';
-      }
-
-      // Crear y descargar archivo
-      const blob = new Blob([content], { type: mimeType });
+      const blobData = await quizService.bulkExportQuizzes(selectedQuizzes, selectedFormat);
+      const filename = `quizzes_export_${new Date().toISOString().split('T')[0]}.${selectedFormat}`;
+      const blob = new Blob([blobData], { type: selectedFormat === 'csv' ? 'text/csv' : 'application/json' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
@@ -207,18 +167,6 @@ const QuizImportExport = () => {
     } finally {
       setExporting(false);
     }
-  };
-
-  const generateCSV = (data) => {
-    // TODO: Implementar generación CSV completa
-    const headers = ['Quiz ID', 'Título', 'Curso', 'Preguntas', 'Exportado'];
-    const rows = data.quizzes.map(quiz =>
-      [quiz.id, quiz.title, quiz.course, quiz.questions.length, quiz.exportedAt]
-    );
-
-    return [headers, ...rows]
-      .map(row => row.map(cell => `"${cell}"`).join(','))
-      .join('\n');
   };
 
   const handleQuizSelection = (quizId) => {
@@ -270,6 +218,27 @@ const QuizImportExport = () => {
               <h2 className="text-xl font-semibold text-gray-900 mb-2">Importar Quizzes</h2>
               <p className="text-gray-600 text-sm">
                 Sube un archivo JSON o CSV con la estructura de quizzes para importarlos al sistema
+              </p>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Curso de destino
+              </label>
+              <select
+                value={selectedCourse}
+                onChange={(e) => setSelectedCourse(e.target.value)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+              >
+                <option value="">Selecciona un curso</option>
+                {courses.map(course => (
+                  <option key={course.id} value={course.id}>
+                    {course.title || course.name}
+                  </option>
+                ))}
+              </select>
+              <p className="text-xs text-gray-500 mt-1">
+                Necesario para crear el quiz importado.
               </p>
             </div>
 

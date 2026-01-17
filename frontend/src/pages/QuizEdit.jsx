@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
 import { quizService } from '../services/quizService.js';
 import { courseService } from '../services/courseService.js';
+import { lessonService } from '../services/lessonService.js';
 import Card from '../components/Card';
 
 const QuizEdit = () => {
@@ -77,8 +78,9 @@ const QuizEdit = () => {
 
   const fetchLessons = async () => {
     try {
-      // TODO: Implementar servicio para obtener lecciones de un curso
-      setLessons([]);
+      const lessonsData = await lessonService.getAllLessons(formData.course);
+      const list = Array.isArray(lessonsData?.results) ? lessonsData.results : lessonsData;
+      setLessons(Array.isArray(list) ? list : []);
     } catch (error) {
       console.error('Error fetching lessons:', error);
     }

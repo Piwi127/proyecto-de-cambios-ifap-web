@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Quiz, Question, Option, QuizAttempt, UserAnswer
+from .models import Quiz, Question, Option, QuizAttempt, UserAnswer, QuizTemplate
 from courses.serializers import CourseSerializer
 from lessons.serializers import LessonSerializer
 from users.serializers import UserSerializer
@@ -101,6 +101,32 @@ class QuestionCreateSerializer(serializers.ModelSerializer):
             Option.objects.create(question=question, **option_data)
         
         return question
+
+    def update(self, instance, validated_data):
+        options_data = validated_data.pop('options', None)
+
+        for attr, value in validated_data.items():
+            setattr(instance, attr, value)
+        instance.save()
+
+        if options_data is not None:
+            instance.options.all().delete()
+            for option_data in options_data:
+                Option.objects.create(question=instance, **option_data)
+
+        return instance
+
+
+class QuizTemplateSerializer(serializers.ModelSerializer):
+    created_by = UserSerializer(read_only=True)
+
+    class Meta:
+        model = QuizTemplate
+        fields = [
+            'id', 'title', 'description', 'category', 'difficulty', 'estimated_time',
+            'tags', 'data', 'created_by', 'created_at', 'updated_at'
+        ]
+        read_only_fields = ['id', 'created_by', 'created_at', 'updated_at']
 
 class QuizSubmissionSerializer(serializers.Serializer):
     answers = serializers.ListField(

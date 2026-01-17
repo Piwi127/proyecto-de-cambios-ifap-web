@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Quiz, Question, Option, QuizAttempt, UserAnswer
+from .models import Quiz, Question, Option, QuizAttempt, UserAnswer, QuizTemplate
 
 @admin.register(Quiz)
 class QuizAdmin(admin.ModelAdmin):
@@ -70,16 +70,12 @@ class QuizAttemptAdmin(admin.ModelAdmin):
 class UserAnswerAdmin(admin.ModelAdmin):
     list_display = ['attempt', 'question', 'is_correct', 'points_earned', 'answered_at']
     list_filter = ['is_correct', 'question__quiz__course', 'answered_at']
-    search_fields = ['attempt__user__username', 'question__question_text']
-    ordering = ['-answered_at']
-    readonly_fields = ['answered_at']
 
-    fieldsets = (
-        ('Información de la Respuesta', {
-            'fields': ('attempt', 'question', 'selected_options', 'text_answer', 'is_correct', 'points_earned')
-        }),
-        ('Fecha', {
-            'fields': ('answered_at',),
-            'classes': ('collapse',)
-        }),
-    )
+
+@admin.register(QuizTemplate)
+class QuizTemplateAdmin(admin.ModelAdmin):
+    list_display = ['title', 'category', 'difficulty', 'created_by', 'created_at']
+    list_filter = ['category', 'difficulty', 'created_at']
+    search_fields = ['title', 'description']
+    ordering = ['-created_at']
+    readonly_fields = ['created_at', 'updated_at']

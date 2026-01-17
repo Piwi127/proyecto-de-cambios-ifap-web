@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext.jsx';
 import { quizService } from '../services/quizService.js';
 import { courseService } from '../services/courseService.js';
+import { lessonService } from '../services/lessonService.js';
 import Card from '../components/Card';
 
 const QuizForm = ({ quiz, onSave, onCancel }) => {
@@ -44,8 +45,9 @@ const QuizForm = ({ quiz, onSave, onCancel }) => {
 
   const fetchLessons = async (courseId) => {
     try {
-      // TODO: Implementar servicio para obtener lecciones de un curso
-      setLessons([]);
+      const lessonsData = await lessonService.getAllLessons(courseId);
+      const list = Array.isArray(lessonsData?.results) ? lessonsData.results : lessonsData;
+      setLessons(Array.isArray(list) ? list : []);
     } catch (error) {
       console.error('Error fetching lessons:', error);
     }

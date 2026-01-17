@@ -22,6 +22,12 @@ const CursoDetalle = () => {
   const [selectedLesson, setSelectedLesson] = useState(null);
   const [lessonProgress, setLessonProgress] = useState({});
 
+  const normalizeList = (data) => {
+    if (Array.isArray(data)) return data;
+    if (Array.isArray(data?.results)) return data.results;
+    return [];
+  };
+
   useEffect(() => {
     if (courseId) {
       fetchCourseData();
@@ -39,11 +45,11 @@ const CursoDetalle = () => {
       
       // Obtener lecciones del curso
       const lessonsData = await lessonService.getAllLessons(courseId);
-      setLessons(lessonsData);
+      setLessons(normalizeList(lessonsData));
       
       // Obtener quizzes del curso
       const quizzesData = await quizService.getQuizzesByCourse(courseId);
-      setQuizzes(quizzesData);
+      setQuizzes(normalizeList(quizzesData));
       
     } catch (err) {
       console.error('Error fetching course data:', err);

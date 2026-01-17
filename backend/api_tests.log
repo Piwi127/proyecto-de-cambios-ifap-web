@@ -114,3 +114,568 @@
 2025-09-22 15:09:50,535 - INFO -   📋 Verificar logs detallados en api_tests.log
 2025-09-22 15:09:50,536 - INFO - 
 📄 Reporte detallado guardado en: api_test_report.json
+2026-01-16 23:28:54,731 - INFO - 🚀 INICIANDO PRUEBAS EXHAUSTIVAS DE API
+2026-01-16 23:28:54,733 - INFO - URL Base: http://localhost:8000/api
+2026-01-16 23:28:54,733 - INFO - ============================================================
+2026-01-16 23:28:54,734 - INFO - 
+🩺 Probando endpoints de Health Check...
+2026-01-16 23:28:54,798 - ERROR - ❌ Health Check Básico - FAILED (0.06s): Status: 404
+2026-01-16 23:28:54,829 - ERROR - ❌ Health Check Detallado - FAILED (0.03s): Status: 404
+2026-01-16 23:28:54,830 - INFO - 
+📚 Probando documentación Swagger...
+2026-01-16 23:28:54,864 - ERROR - ❌ Documentación Swagger - FAILED (0.03s): Status: 404
+2026-01-16 23:28:54,864 - INFO - 
+🔐 Probando endpoints de Autenticación...
+2026-01-16 23:28:54,920 - ERROR - ❌ Registro de Usuario - FAILED (0.06s): Status: 400
+2026-01-16 23:28:55,242 - ERROR - ❌ Login Correcto - FAILED (0.32s): Status: 401
+2026-01-16 23:28:55,573 - INFO - ✅ Login Incorrecto - PASSED (0.33s)
+2026-01-16 23:28:55,593 - ERROR - ❌ Logout - FAILED (0.02s): Status: 401
+2026-01-16 23:28:55,593 - INFO - 
+📚 Probando endpoints de Cursos...
+2026-01-16 23:28:55,612 - ERROR - ❌ Crear Curso - FAILED (0.02s): Status: 401
+2026-01-16 23:28:55,656 - INFO - ✅ Listar Cursos - PASSED (0.04s)
+2026-01-16 23:28:55,657 - INFO - 
+👨‍💼 Probando endpoints administrativos de Cursos...
+2026-01-16 23:28:55,676 - ERROR - ❌ Cursos Admin - Todos - FAILED (0.02s): Status: 401
+2026-01-16 23:28:55,696 - ERROR - ❌ Cursos Admin - Inactivos - FAILED (0.02s): Status: 401
+2026-01-16 23:28:55,735 - ERROR - ❌ Cursos Admin - Métricas - FAILED (0.04s): Status: 500
+2026-01-16 23:28:55,774 - ERROR - ❌ Cursos Admin - Stats Instructor - FAILED (0.04s): Status: 401
+2026-01-16 23:28:55,775 - INFO - 
+📦 Probando operaciones masivas de Cursos...
+2026-01-16 23:28:55,850 - ERROR - ❌ Activación Masiva - FAILED (0.02s): Status: 401
+2026-01-16 23:28:55,870 - ERROR - ❌ Desactivación Masiva - FAILED (0.02s): Status: 401
+2026-01-16 23:28:55,871 - INFO - 
+📖 Probando endpoints de Lecciones...
+2026-01-16 23:28:55,892 - INFO - 
+📝 Probando endpoints de Quizzes...
+2026-01-16 23:28:55,912 - ERROR - ❌ Crear Quiz - FAILED (0.02s): Status: 401
+2026-01-16 23:28:55,944 - ERROR - ❌ Listar Preguntas - FAILED (0.03s): Status: 404
+2026-01-16 23:28:55,976 - ERROR - ❌ Listar Intentos - FAILED (0.03s): Status: 404
+2026-01-16 23:28:56,006 - ERROR - ❌ Listar Estadísticas - FAILED (0.03s): Status: 404
+2026-01-16 23:28:56,006 - INFO - 
+🔔 Probando endpoints de Notificaciones...
+2026-01-16 23:28:56,025 - ERROR - ❌ Lista de Notificaciones - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,025 - INFO - 
+💬 Probando endpoints de Foro...
+2026-01-16 23:28:56,045 - ERROR - ❌ Categorías del Foro - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,065 - ERROR - ❌ Temas del Foro - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,086 - ERROR - ❌ Respuestas del Foro - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,132 - ERROR - ❌ Estadísticas del Foro - FAILED (0.05s): Status: 404
+2026-01-16 23:28:56,151 - ERROR - ❌ Comentarios en Lecciones - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,168 - ERROR - ❌ Conversaciones - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,189 - ERROR - ❌ Mensajes - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,208 - ERROR - ❌ Indicadores de Escritura - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,209 - INFO - 
+📋 Probando endpoints de Tareas...
+2026-01-16 23:28:56,232 - ERROR - ❌ Categorías de Tareas - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,252 - ERROR - ❌ Tareas - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,270 - ERROR - ❌ Asignaciones - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,289 - ERROR - ❌ Entregas - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,309 - ERROR - ❌ Archivos de Tareas - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,328 - ERROR - ❌ Comentarios de Tareas - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,328 - INFO - 
+📚 Probando endpoints de Biblioteca...
+2026-01-16 23:28:56,348 - ERROR - ❌ Categorías de Biblioteca - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,366 - ERROR - ❌ Archivos de Biblioteca - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,388 - ERROR - ❌ Control de Acceso - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,407 - ERROR - ❌ Descargas - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,428 - ERROR - ❌ Favoritos - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,429 - INFO - 
+💬 Probando endpoints de Chat...
+2026-01-16 23:28:56,448 - ERROR - ❌ Salas de Chat - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,473 - ERROR - ❌ Mensajes de Chat - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,491 - ERROR - ❌ Notificaciones de Chat - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,492 - INFO - 
+🔒 Probando aspectos de Seguridad...
+2026-01-16 23:28:56,508 - INFO - ✅ Acceso sin Autenticación - PASSED (0.02s)
+2026-01-16 23:28:56,509 - INFO - 
+⚡ Probando métricas de rendimiento...
+2026-01-16 23:28:56,539 - INFO - ✅ Rendimiento /health/ - PASSED (0.03s)
+2026-01-16 23:28:56,554 - INFO - ✅ Rendimiento /courses/ - PASSED (0.01s)
+2026-01-16 23:28:56,596 - INFO - ✅ Rendimiento /lessons/ - PASSED (0.04s)
+2026-01-16 23:28:56,614 - INFO - ✅ Rendimiento /quizzes/ - PASSED (0.02s)
+2026-01-16 23:28:56,634 - INFO - ✅ Rendimiento /notifications/ - PASSED (0.02s)
+2026-01-16 23:28:56,634 - INFO - 
+📊 GENERANDO REPORTE FINAL DE PRUEBAS
+2026-01-16 23:28:56,635 - INFO - ============================================================
+2026-01-16 23:28:56,635 - INFO - Total de Pruebas: 48
+2026-01-16 23:28:56,635 - INFO - Pruebas Exitosas: 8
+2026-01-16 23:28:56,635 - INFO - Pruebas Fallidas: 40
+2026-01-16 23:28:56,636 - INFO - Tasa de Éxito: 16.67%
+2026-01-16 23:28:56,636 - INFO - 
+📈 MÉTRICAS DE RENDIMIENTO:
+2026-01-16 23:28:56,637 - INFO -   health: 0.03s
+2026-01-16 23:28:56,637 - INFO -   courses: 0.01s
+2026-01-16 23:28:56,637 - INFO -   lessons: 0.04s
+2026-01-16 23:28:56,637 - INFO -   quizzes: 0.02s
+2026-01-16 23:28:56,638 - INFO -   notifications: 0.02s
+2026-01-16 23:28:56,638 - INFO - 
+❌ ERRORES ENCONTRADOS:
+2026-01-16 23:28:56,638 - INFO -   ❌ Health Check Básico - FAILED (0.06s): Status: 404
+2026-01-16 23:28:56,639 - INFO -   ❌ Health Check Detallado - FAILED (0.03s): Status: 404
+2026-01-16 23:28:56,639 - INFO -   ❌ Documentación Swagger - FAILED (0.03s): Status: 404
+2026-01-16 23:28:56,639 - INFO -   ❌ Registro de Usuario - FAILED (0.06s): Status: 400
+2026-01-16 23:28:56,639 - INFO -   ❌ Login Correcto - FAILED (0.32s): Status: 401
+2026-01-16 23:28:56,639 - INFO -   ❌ Logout - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,639 - INFO -   ❌ Crear Curso - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,640 - INFO -   ❌ Cursos Admin - Todos - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,640 - INFO -   ❌ Cursos Admin - Inactivos - FAILED (0.02s): Status: 401
+2026-01-16 23:28:56,640 - INFO -   ❌ Cursos Admin - Métricas - FAILED (0.04s): Status: 500
+2026-01-16 23:28:56,640 - INFO -   ... y 30 errores más
+2026-01-16 23:28:56,640 - INFO - 
+💡 RECOMENDACIONES:
+2026-01-16 23:28:56,641 - INFO -   ❌ Calidad deficiente, revisión completa requerida
+2026-01-16 23:28:56,641 - INFO -   🔧 Revisar los 40 endpoints fallidos
+2026-01-16 23:28:56,641 - INFO -   📋 Verificar logs detallados en api_tests.log
+2026-01-16 23:28:56,643 - INFO - 
+📄 Reporte detallado guardado en: api_test_report.json
+2026-01-16 23:32:48,189 - INFO - 🚀 INICIANDO PRUEBAS EXHAUSTIVAS DE API
+2026-01-16 23:32:48,189 - INFO - URL Base: http://localhost:8000/api
+2026-01-16 23:32:48,190 - INFO - ============================================================
+2026-01-16 23:32:48,190 - INFO - 
+🩺 Probando endpoints de Health Check...
+2026-01-16 23:32:48,217 - ERROR - ❌ Health Check Básico - FAILED (0.03s): Status: 401
+2026-01-16 23:32:48,218 - INFO - 
+📚 Probando documentación Swagger...
+2026-01-16 23:32:48,474 - INFO - ✅ Documentación Swagger - PASSED (0.26s)
+2026-01-16 23:32:48,475 - INFO - 
+🔐 Probando endpoints de Autenticación...
+2026-01-16 23:32:48,811 - INFO - ✅ Registro de Usuario - PASSED (0.34s)
+2026-01-16 23:32:49,145 - INFO - ✅ Login Correcto - PASSED (0.33s)
+2026-01-16 23:32:49,146 - INFO - ✅ Tokens de autenticación obtenidos correctamente
+2026-01-16 23:32:49,473 - INFO - ✅ Login Incorrecto - PASSED (0.33s)
+2026-01-16 23:32:49,499 - INFO - ✅ Usuario Actual - PASSED (0.02s)
+2026-01-16 23:32:49,523 - ERROR - ❌ Logout - FAILED (0.02s): Status: 400
+2026-01-16 23:32:49,523 - INFO - 
+📚 Probando endpoints de Cursos...
+2026-01-16 23:32:49,553 - ERROR - ❌ Crear Curso - FAILED (0.03s): Status: 400
+2026-01-16 23:32:49,578 - INFO - ✅ Listar Cursos - PASSED (0.02s)
+2026-01-16 23:32:49,619 - INFO - 
+👨‍💼 Probando endpoints administrativos de Cursos...
+2026-01-16 23:32:49,643 - INFO - ✅ Cursos Admin - Todos - PASSED (0.02s)
+2026-01-16 23:32:49,670 - INFO - ✅ Cursos Admin - Inactivos - PASSED (0.03s)
+2026-01-16 23:32:49,700 - ERROR - ❌ Cursos Admin - Métricas - FAILED (0.03s): Status: 500
+2026-01-16 23:32:49,725 - INFO - ✅ Cursos Admin - Stats Instructor - PASSED (0.02s)
+2026-01-16 23:32:49,725 - INFO - 
+📦 Probando operaciones masivas de Cursos...
+2026-01-16 23:32:49,830 - ERROR - ❌ Activación Masiva - FAILED (0.02s): Status: 405
+2026-01-16 23:32:49,857 - ERROR - ❌ Desactivación Masiva - FAILED (0.03s): Status: 405
+2026-01-16 23:32:49,858 - INFO - 
+📖 Probando endpoints de Lecciones...
+2026-01-16 23:32:49,886 - INFO - 
+📝 Probando endpoints de Quizzes...
+2026-01-16 23:32:49,966 - INFO - ✅ Crear Quiz - PASSED (0.04s)
+2026-01-16 23:32:50,002 - ERROR - ❌ Listar Preguntas - FAILED (0.04s): Status: 404
+2026-01-16 23:32:50,034 - ERROR - ❌ Listar Intentos - FAILED (0.03s): Status: 404
+2026-01-16 23:32:50,062 - INFO - ✅ Listar Estadísticas - PASSED (0.03s)
+2026-01-16 23:32:50,063 - INFO - 
+🔔 Probando endpoints de Notificaciones...
+2026-01-16 23:32:50,088 - INFO - ✅ Lista de Notificaciones - PASSED (0.02s)
+2026-01-16 23:32:50,089 - INFO - 
+💬 Probando endpoints de Foro...
+2026-01-16 23:32:50,326 - INFO - ✅ Categorías del Foro - PASSED (0.24s)
+2026-01-16 23:32:50,419 - INFO - ✅ Temas del Foro - PASSED (0.09s)
+2026-01-16 23:32:50,445 - INFO - ✅ Respuestas del Foro - PASSED (0.03s)
+2026-01-16 23:32:50,608 - INFO - ✅ Estadísticas del Foro - PASSED (0.16s)
+2026-01-16 23:32:50,636 - INFO - ✅ Comentarios en Lecciones - PASSED (0.03s)
+2026-01-16 23:32:50,663 - INFO - ✅ Conversaciones - PASSED (0.03s)
+2026-01-16 23:32:50,694 - INFO - ✅ Mensajes - PASSED (0.03s)
+2026-01-16 23:32:50,719 - INFO - ✅ Indicadores de Escritura - PASSED (0.02s)
+2026-01-16 23:32:50,719 - INFO - 
+📋 Probando endpoints de Tareas...
+2026-01-16 23:32:50,743 - INFO - ✅ Categorías de Tareas - PASSED (0.02s)
+2026-01-16 23:32:50,773 - INFO - ✅ Tareas - PASSED (0.03s)
+2026-01-16 23:32:50,805 - INFO - ✅ Asignaciones - PASSED (0.03s)
+2026-01-16 23:32:50,842 - INFO - ✅ Entregas - PASSED (0.04s)
+2026-01-16 23:32:50,874 - INFO - ✅ Archivos de Tareas - PASSED (0.03s)
+2026-01-16 23:32:50,905 - INFO - ✅ Comentarios de Tareas - PASSED (0.03s)
+2026-01-16 23:32:50,906 - INFO - 
+📚 Probando endpoints de Biblioteca...
+2026-01-16 23:32:50,939 - INFO - ✅ Categorías de Biblioteca - PASSED (0.03s)
+2026-01-16 23:32:50,966 - ERROR - ❌ Archivos de Biblioteca - FAILED (0.03s): Status: 500
+2026-01-16 23:32:50,994 - INFO - ✅ Control de Acceso - PASSED (0.03s)
+2026-01-16 23:32:51,025 - INFO - ✅ Descargas - PASSED (0.03s)
+2026-01-16 23:32:51,052 - INFO - ✅ Favoritos - PASSED (0.03s)
+2026-01-16 23:32:51,053 - INFO - 
+💬 Probando endpoints de Chat...
+2026-01-16 23:32:51,081 - INFO - ✅ Salas de Chat - PASSED (0.03s)
+2026-01-16 23:32:51,111 - INFO - ✅ Mensajes de Chat - PASSED (0.03s)
+2026-01-16 23:32:51,138 - INFO - ✅ Notificaciones de Chat - PASSED (0.03s)
+2026-01-16 23:32:51,139 - INFO - 
+🔒 Probando aspectos de Seguridad...
+2026-01-16 23:32:51,158 - INFO - ✅ Acceso sin Autenticación - PASSED (0.02s)
+2026-01-16 23:32:51,184 - INFO - ✅ Token Inválido - PASSED (0.02s)
+2026-01-16 23:32:51,184 - INFO - 
+⚡ Probando métricas de rendimiento...
+2026-01-16 23:32:51,206 - INFO - ✅ Rendimiento /health-check/ - PASSED (0.02s)
+2026-01-16 23:32:51,229 - INFO - ✅ Rendimiento /courses/ - PASSED (0.02s)
+2026-01-16 23:32:51,273 - INFO - ✅ Rendimiento /lessons/ - PASSED (0.04s)
+2026-01-16 23:32:51,330 - INFO - ✅ Rendimiento /quizzes/ - PASSED (0.06s)
+2026-01-16 23:32:51,356 - INFO - ✅ Rendimiento /notifications/ - PASSED (0.03s)
+2026-01-16 23:32:51,356 - INFO - 
+📊 GENERANDO REPORTE FINAL DE PRUEBAS
+2026-01-16 23:32:51,358 - INFO - ============================================================
+2026-01-16 23:32:51,358 - INFO - Total de Pruebas: 49
+2026-01-16 23:32:51,358 - INFO - Pruebas Exitosas: 40
+2026-01-16 23:32:51,358 - INFO - Pruebas Fallidas: 9
+2026-01-16 23:32:51,359 - INFO - Tasa de Éxito: 81.63%
+2026-01-16 23:32:51,360 - INFO - 
+📈 MÉTRICAS DE RENDIMIENTO:
+2026-01-16 23:32:51,361 - INFO -   health-check: 0.02s
+2026-01-16 23:32:51,362 - INFO -   courses: 0.02s
+2026-01-16 23:32:51,362 - INFO -   lessons: 0.04s
+2026-01-16 23:32:51,363 - INFO -   quizzes: 0.06s
+2026-01-16 23:32:51,363 - INFO -   notifications: 0.03s
+2026-01-16 23:32:51,364 - INFO - 
+❌ ERRORES ENCONTRADOS:
+2026-01-16 23:32:51,364 - INFO -   ❌ Health Check Básico - FAILED (0.03s): Status: 401
+2026-01-16 23:32:51,364 - INFO -   ❌ Logout - FAILED (0.02s): Status: 400
+2026-01-16 23:32:51,365 - INFO -   ❌ Crear Curso - FAILED (0.03s): Status: 400
+2026-01-16 23:32:51,365 - INFO -   ❌ Cursos Admin - Métricas - FAILED (0.03s): Status: 500
+2026-01-16 23:32:51,366 - INFO -   ❌ Activación Masiva - FAILED (0.02s): Status: 405
+2026-01-16 23:32:51,366 - INFO -   ❌ Desactivación Masiva - FAILED (0.03s): Status: 405
+2026-01-16 23:32:51,367 - INFO -   ❌ Listar Preguntas - FAILED (0.04s): Status: 404
+2026-01-16 23:32:51,367 - INFO -   ❌ Listar Intentos - FAILED (0.03s): Status: 404
+2026-01-16 23:32:51,368 - INFO -   ❌ Archivos de Biblioteca - FAILED (0.03s): Status: 500
+2026-01-16 23:32:51,368 - INFO - 
+💡 RECOMENDACIONES:
+2026-01-16 23:32:51,368 - INFO -   ⚠️  Buena calidad, algunos endpoints necesitan atención
+2026-01-16 23:32:51,368 - INFO -   🔧 Revisar los 9 endpoints fallidos
+2026-01-16 23:32:51,368 - INFO -   📋 Verificar logs detallados en api_tests.log
+2026-01-16 23:32:51,370 - INFO - 
+📄 Reporte detallado guardado en: api_test_report.json
+2026-01-16 23:41:25,405 - INFO - 🚀 INICIANDO PRUEBAS EXHAUSTIVAS DE API
+2026-01-16 23:41:25,406 - INFO - URL Base: http://localhost:8000/api
+2026-01-16 23:41:25,407 - INFO - ============================================================
+2026-01-16 23:41:25,408 - INFO - 
+🩺 Probando endpoints de Health Check...
+2026-01-16 23:41:25,932 - INFO - ✅ Health Check Básico - PASSED (0.52s)
+2026-01-16 23:41:25,932 - INFO - ✅ Estructura Health Check - PASSED (0.00s)
+2026-01-16 23:41:25,933 - INFO - 
+📚 Probando documentación Swagger...
+2026-01-16 23:41:26,181 - INFO - ✅ Documentación Swagger - PASSED (0.25s)
+2026-01-16 23:41:26,181 - INFO - 
+🔐 Probando endpoints de Autenticación...
+2026-01-16 23:41:26,533 - INFO - ✅ Registro de Usuario - PASSED (0.35s)
+2026-01-16 23:41:26,894 - INFO - ✅ Login Correcto - PASSED (0.36s)
+2026-01-16 23:41:26,894 - INFO - ✅ Tokens de autenticación obtenidos correctamente
+2026-01-16 23:41:27,219 - INFO - ✅ Login Incorrecto - PASSED (0.32s)
+2026-01-16 23:41:27,246 - INFO - ✅ Usuario Actual - PASSED (0.03s)
+2026-01-16 23:41:27,268 - INFO - ✅ Logout - PASSED (0.02s)
+2026-01-16 23:41:27,268 - INFO - 
+📚 Probando endpoints de Cursos...
+2026-01-16 23:41:27,300 - ERROR - ❌ Crear Curso - FAILED (0.03s): Status: 400
+2026-01-16 23:41:27,358 - INFO - ✅ Listar Cursos - PASSED (0.06s)
+2026-01-16 23:41:27,386 - INFO - 
+👨‍💼 Probando endpoints administrativos de Cursos...
+2026-01-16 23:41:27,411 - INFO - ✅ Cursos Admin - Todos - PASSED (0.03s)
+2026-01-16 23:41:27,436 - INFO - ✅ Cursos Admin - Inactivos - PASSED (0.02s)
+2026-01-16 23:41:27,466 - INFO - ✅ Cursos Admin - Métricas - PASSED (0.03s)
+2026-01-16 23:41:27,491 - INFO - ✅ Cursos Admin - Stats Instructor - PASSED (0.02s)
+2026-01-16 23:41:27,491 - INFO - 
+📦 Probando operaciones masivas de Cursos...
+2026-01-16 23:41:27,601 - INFO - ✅ Activación Masiva - PASSED (0.03s)
+2026-01-16 23:41:27,627 - INFO - ✅ Desactivación Masiva - PASSED (0.02s)
+2026-01-16 23:41:27,627 - INFO - 
+📖 Probando endpoints de Lecciones...
+2026-01-16 23:41:27,655 - INFO - 
+📝 Probando endpoints de Quizzes...
+2026-01-16 23:41:27,732 - INFO - ✅ Crear Quiz - PASSED (0.05s)
+2026-01-16 23:41:27,763 - INFO - ✅ Listar Preguntas - PASSED (0.03s)
+2026-01-16 23:41:27,795 - INFO - ✅ Listar Intentos - PASSED (0.03s)
+2026-01-16 23:41:27,823 - INFO - ✅ Listar Estadísticas - PASSED (0.03s)
+2026-01-16 23:41:27,823 - INFO - 
+🔔 Probando endpoints de Notificaciones...
+2026-01-16 23:41:27,849 - INFO - ✅ Lista de Notificaciones - PASSED (0.03s)
+2026-01-16 23:41:27,850 - INFO - 
+💬 Probando endpoints de Foro...
+2026-01-16 23:41:27,935 - INFO - ✅ Categorías del Foro - PASSED (0.08s)
+2026-01-16 23:41:28,029 - INFO - ✅ Temas del Foro - PASSED (0.09s)
+2026-01-16 23:41:28,055 - INFO - ✅ Respuestas del Foro - PASSED (0.03s)
+2026-01-16 23:41:28,242 - INFO - ✅ Estadísticas del Foro - PASSED (0.19s)
+2026-01-16 23:41:28,269 - INFO - ✅ Comentarios en Lecciones - PASSED (0.03s)
+2026-01-16 23:41:28,301 - INFO - ✅ Conversaciones - PASSED (0.03s)
+2026-01-16 23:41:28,328 - INFO - ✅ Mensajes - PASSED (0.03s)
+2026-01-16 23:41:28,353 - INFO - ✅ Indicadores de Escritura - PASSED (0.02s)
+2026-01-16 23:41:28,353 - INFO - 
+📋 Probando endpoints de Tareas...
+2026-01-16 23:41:28,379 - INFO - ✅ Categorías de Tareas - PASSED (0.03s)
+2026-01-16 23:41:28,414 - INFO - ✅ Tareas - PASSED (0.03s)
+2026-01-16 23:41:28,453 - INFO - ✅ Asignaciones - PASSED (0.04s)
+2026-01-16 23:41:28,504 - INFO - ✅ Entregas - PASSED (0.05s)
+2026-01-16 23:41:28,535 - INFO - ✅ Archivos de Tareas - PASSED (0.03s)
+2026-01-16 23:41:28,569 - INFO - ✅ Comentarios de Tareas - PASSED (0.03s)
+2026-01-16 23:41:28,570 - INFO - 
+📚 Probando endpoints de Biblioteca...
+2026-01-16 23:41:28,604 - INFO - ✅ Categorías de Biblioteca - PASSED (0.03s)
+2026-01-16 23:41:28,672 - ERROR - ❌ Archivos de Biblioteca - FAILED (0.07s): Status: 500
+2026-01-16 23:41:28,702 - INFO - ✅ Control de Acceso - PASSED (0.03s)
+2026-01-16 23:41:28,727 - INFO - ✅ Descargas - PASSED (0.02s)
+2026-01-16 23:41:28,752 - INFO - ✅ Favoritos - PASSED (0.02s)
+2026-01-16 23:41:28,752 - INFO - 
+💬 Probando endpoints de Chat...
+2026-01-16 23:41:28,782 - INFO - ✅ Salas de Chat - PASSED (0.03s)
+2026-01-16 23:41:28,816 - INFO - ✅ Mensajes de Chat - PASSED (0.03s)
+2026-01-16 23:41:28,846 - INFO - ✅ Notificaciones de Chat - PASSED (0.03s)
+2026-01-16 23:41:28,846 - INFO - 
+🔒 Probando aspectos de Seguridad...
+2026-01-16 23:41:28,865 - INFO - ✅ Acceso sin Autenticación - PASSED (0.02s)
+2026-01-16 23:41:28,885 - INFO - ✅ Token Inválido - PASSED (0.02s)
+2026-01-16 23:41:28,886 - INFO - 
+⚡ Probando métricas de rendimiento...
+2026-01-16 23:41:28,901 - INFO - ✅ Rendimiento /health-check/ - PASSED (0.01s)
+2026-01-16 23:41:28,922 - INFO - ✅ Rendimiento /courses/ - PASSED (0.02s)
+2026-01-16 23:41:28,967 - INFO - ✅ Rendimiento /lessons/ - PASSED (0.04s)
+2026-01-16 23:41:29,022 - INFO - ✅ Rendimiento /quizzes/ - PASSED (0.05s)
+2026-01-16 23:41:29,047 - INFO - ✅ Rendimiento /notifications/ - PASSED (0.02s)
+2026-01-16 23:41:29,047 - INFO - 
+📊 GENERANDO REPORTE FINAL DE PRUEBAS
+2026-01-16 23:41:29,048 - INFO - ============================================================
+2026-01-16 23:41:29,048 - INFO - Total de Pruebas: 50
+2026-01-16 23:41:29,048 - INFO - Pruebas Exitosas: 48
+2026-01-16 23:41:29,049 - INFO - Pruebas Fallidas: 2
+2026-01-16 23:41:29,049 - INFO - Tasa de Éxito: 96.00%
+2026-01-16 23:41:29,049 - INFO - 
+📈 MÉTRICAS DE RENDIMIENTO:
+2026-01-16 23:41:29,050 - INFO -   health-check: 0.01s
+2026-01-16 23:41:29,050 - INFO -   courses: 0.02s
+2026-01-16 23:41:29,050 - INFO -   lessons: 0.04s
+2026-01-16 23:41:29,050 - INFO -   quizzes: 0.05s
+2026-01-16 23:41:29,051 - INFO -   notifications: 0.02s
+2026-01-16 23:41:29,051 - INFO - 
+❌ ERRORES ENCONTRADOS:
+2026-01-16 23:41:29,051 - INFO -   ❌ Crear Curso - FAILED (0.03s): Status: 400
+2026-01-16 23:41:29,051 - INFO -   ❌ Archivos de Biblioteca - FAILED (0.07s): Status: 500
+2026-01-16 23:41:29,052 - INFO - 
+💡 RECOMENDACIONES:
+2026-01-16 23:41:29,052 - INFO -   ✅ Excelente calidad de API
+2026-01-16 23:41:29,052 - INFO -   🔧 Revisar los 2 endpoints fallidos
+2026-01-16 23:41:29,052 - INFO -   📋 Verificar logs detallados en api_tests.log
+2026-01-16 23:41:29,054 - INFO - 
+📄 Reporte detallado guardado en: api_test_report.json
+2026-01-16 23:43:00,783 - INFO - 🚀 INICIANDO PRUEBAS EXHAUSTIVAS DE API
+2026-01-16 23:43:00,784 - INFO - URL Base: http://localhost:8000/api
+2026-01-16 23:43:00,784 - INFO - ============================================================
+2026-01-16 23:43:00,784 - INFO - 
+🩺 Probando endpoints de Health Check...
+2026-01-16 23:43:00,807 - INFO - ✅ Health Check Básico - PASSED (0.02s)
+2026-01-16 23:43:00,807 - INFO - ✅ Estructura Health Check - PASSED (0.00s)
+2026-01-16 23:43:00,808 - INFO - 
+📚 Probando documentación Swagger...
+2026-01-16 23:43:01,038 - INFO - ✅ Documentación Swagger - PASSED (0.23s)
+2026-01-16 23:43:01,038 - INFO - 
+🔐 Probando endpoints de Autenticación...
+2026-01-16 23:43:01,385 - INFO - ✅ Registro de Usuario - PASSED (0.35s)
+2026-01-16 23:43:01,710 - INFO - ✅ Login Correcto - PASSED (0.32s)
+2026-01-16 23:43:01,710 - INFO - ✅ Tokens de autenticación obtenidos correctamente
+2026-01-16 23:43:02,035 - INFO - ✅ Login Incorrecto - PASSED (0.32s)
+2026-01-16 23:43:02,061 - INFO - ✅ Usuario Actual - PASSED (0.03s)
+2026-01-16 23:43:02,083 - INFO - ✅ Logout - PASSED (0.02s)
+2026-01-16 23:43:02,084 - INFO - 
+📚 Probando endpoints de Cursos...
+2026-01-16 23:43:02,131 - INFO - ✅ Crear Curso - PASSED (0.05s)
+2026-01-16 23:43:02,132 - INFO - ✅ Curso creado con ID: 7
+2026-01-16 23:43:02,189 - INFO - ✅ Listar Cursos - PASSED (0.06s)
+2026-01-16 23:43:02,226 - INFO - ✅ Obtener Curso - PASSED (0.04s)
+2026-01-16 23:43:02,263 - ERROR - ❌ Actualizar Curso - FAILED (0.04s): Status: 400
+2026-01-16 23:43:02,375 - INFO - ✅ Eliminar Curso - PASSED (0.07s)
+2026-01-16 23:43:02,375 - INFO - 
+👨‍💼 Probando endpoints administrativos de Cursos...
+2026-01-16 23:43:02,402 - INFO - ✅ Cursos Admin - Todos - PASSED (0.03s)
+2026-01-16 23:43:02,429 - INFO - ✅ Cursos Admin - Inactivos - PASSED (0.03s)
+2026-01-16 23:43:02,455 - INFO - ✅ Cursos Admin - Métricas - PASSED (0.03s)
+2026-01-16 23:43:02,480 - INFO - ✅ Cursos Admin - Stats Instructor - PASSED (0.02s)
+2026-01-16 23:43:02,481 - INFO - 
+📦 Probando operaciones masivas de Cursos...
+2026-01-16 23:43:02,646 - INFO - ✅ Activación Masiva - PASSED (0.02s)
+2026-01-16 23:43:02,673 - INFO - ✅ Desactivación Masiva - PASSED (0.03s)
+2026-01-16 23:43:02,698 - INFO - ✅ Eliminación Masiva - PASSED (0.02s)
+2026-01-16 23:43:02,699 - INFO - 
+📖 Probando endpoints de Lecciones...
+2026-01-16 23:43:02,729 - ERROR - ❌ Crear Lección - FAILED (0.03s): Status: 400
+2026-01-16 23:43:02,776 - INFO - ✅ Listar Lecciones - PASSED (0.05s)
+2026-01-16 23:43:02,777 - INFO - 
+📝 Probando endpoints de Quizzes...
+2026-01-16 23:43:02,831 - INFO - ✅ Crear Quiz - PASSED (0.05s)
+2026-01-16 23:43:02,862 - INFO - ✅ Listar Preguntas - PASSED (0.03s)
+2026-01-16 23:43:02,892 - INFO - ✅ Listar Intentos - PASSED (0.03s)
+2026-01-16 23:43:02,919 - INFO - ✅ Listar Estadísticas - PASSED (0.03s)
+2026-01-16 23:43:02,920 - INFO - 
+🔔 Probando endpoints de Notificaciones...
+2026-01-16 23:43:02,947 - INFO - ✅ Lista de Notificaciones - PASSED (0.03s)
+2026-01-16 23:43:02,948 - INFO - 
+💬 Probando endpoints de Foro...
+2026-01-16 23:43:03,033 - INFO - ✅ Categorías del Foro - PASSED (0.08s)
+2026-01-16 23:43:03,126 - INFO - ✅ Temas del Foro - PASSED (0.09s)
+2026-01-16 23:43:03,152 - INFO - ✅ Respuestas del Foro - PASSED (0.03s)
+2026-01-16 23:43:03,311 - INFO - ✅ Estadísticas del Foro - PASSED (0.16s)
+2026-01-16 23:43:03,338 - INFO - ✅ Comentarios en Lecciones - PASSED (0.03s)
+2026-01-16 23:43:03,366 - INFO - ✅ Conversaciones - PASSED (0.03s)
+2026-01-16 23:43:03,394 - INFO - ✅ Mensajes - PASSED (0.03s)
+2026-01-16 23:43:03,419 - INFO - ✅ Indicadores de Escritura - PASSED (0.02s)
+2026-01-16 23:43:03,420 - INFO - 
+📋 Probando endpoints de Tareas...
+2026-01-16 23:43:03,445 - INFO - ✅ Categorías de Tareas - PASSED (0.03s)
+2026-01-16 23:43:03,479 - INFO - ✅ Tareas - PASSED (0.03s)
+2026-01-16 23:43:03,513 - INFO - ✅ Asignaciones - PASSED (0.03s)
+2026-01-16 23:43:03,548 - INFO - ✅ Entregas - PASSED (0.03s)
+2026-01-16 23:43:03,578 - INFO - ✅ Archivos de Tareas - PASSED (0.03s)
+2026-01-16 23:43:03,613 - INFO - ✅ Comentarios de Tareas - PASSED (0.03s)
+2026-01-16 23:43:03,614 - INFO - 
+📚 Probando endpoints de Biblioteca...
+2026-01-16 23:43:03,648 - INFO - ✅ Categorías de Biblioteca - PASSED (0.03s)
+2026-01-16 23:43:03,712 - INFO - ✅ Archivos de Biblioteca - PASSED (0.06s)
+2026-01-16 23:43:03,743 - INFO - ✅ Control de Acceso - PASSED (0.03s)
+2026-01-16 23:43:03,771 - INFO - ✅ Descargas - PASSED (0.03s)
+2026-01-16 23:43:03,796 - INFO - ✅ Favoritos - PASSED (0.02s)
+2026-01-16 23:43:03,796 - INFO - 
+💬 Probando endpoints de Chat...
+2026-01-16 23:43:03,824 - INFO - ✅ Salas de Chat - PASSED (0.03s)
+2026-01-16 23:43:03,856 - INFO - ✅ Mensajes de Chat - PASSED (0.03s)
+2026-01-16 23:43:03,889 - INFO - ✅ Notificaciones de Chat - PASSED (0.03s)
+2026-01-16 23:43:03,890 - INFO - 
+🔒 Probando aspectos de Seguridad...
+2026-01-16 23:43:03,910 - INFO - ✅ Acceso sin Autenticación - PASSED (0.02s)
+2026-01-16 23:43:03,932 - INFO - ✅ Token Inválido - PASSED (0.02s)
+2026-01-16 23:43:03,933 - INFO - 
+⚡ Probando métricas de rendimiento...
+2026-01-16 23:43:03,949 - INFO - ✅ Rendimiento /health-check/ - PASSED (0.01s)
+2026-01-16 23:43:03,969 - INFO - ✅ Rendimiento /courses/ - PASSED (0.02s)
+2026-01-16 23:43:04,010 - INFO - ✅ Rendimiento /lessons/ - PASSED (0.04s)
+2026-01-16 23:43:04,067 - INFO - ✅ Rendimiento /quizzes/ - PASSED (0.06s)
+2026-01-16 23:43:04,092 - INFO - ✅ Rendimiento /notifications/ - PASSED (0.02s)
+2026-01-16 23:43:04,093 - INFO - 
+📊 GENERANDO REPORTE FINAL DE PRUEBAS
+2026-01-16 23:43:04,093 - INFO - ============================================================
+2026-01-16 23:43:04,094 - INFO - Total de Pruebas: 56
+2026-01-16 23:43:04,094 - INFO - Pruebas Exitosas: 54
+2026-01-16 23:43:04,094 - INFO - Pruebas Fallidas: 2
+2026-01-16 23:43:04,094 - INFO - Tasa de Éxito: 96.43%
+2026-01-16 23:43:04,094 - INFO - 
+📈 MÉTRICAS DE RENDIMIENTO:
+2026-01-16 23:43:04,095 - INFO -   health-check: 0.01s
+2026-01-16 23:43:04,095 - INFO -   courses: 0.02s
+2026-01-16 23:43:04,095 - INFO -   lessons: 0.04s
+2026-01-16 23:43:04,095 - INFO -   quizzes: 0.06s
+2026-01-16 23:43:04,096 - INFO -   notifications: 0.02s
+2026-01-16 23:43:04,096 - INFO - 
+❌ ERRORES ENCONTRADOS:
+2026-01-16 23:43:04,096 - INFO -   ❌ Actualizar Curso - FAILED (0.04s): Status: 400
+2026-01-16 23:43:04,097 - INFO -   ❌ Crear Lección - FAILED (0.03s): Status: 400
+2026-01-16 23:43:04,098 - INFO - 
+💡 RECOMENDACIONES:
+2026-01-16 23:43:04,098 - INFO -   ✅ Excelente calidad de API
+2026-01-16 23:43:04,098 - INFO -   🔧 Revisar los 2 endpoints fallidos
+2026-01-16 23:43:04,098 - INFO -   📋 Verificar logs detallados en api_tests.log
+2026-01-16 23:43:04,099 - INFO - 
+📄 Reporte detallado guardado en: api_test_report.json
+2026-01-16 23:44:57,105 - INFO - 🚀 INICIANDO PRUEBAS EXHAUSTIVAS DE API
+2026-01-16 23:44:57,106 - INFO - URL Base: http://localhost:8000/api
+2026-01-16 23:44:57,106 - INFO - ============================================================
+2026-01-16 23:44:57,106 - INFO - 
+🩺 Probando endpoints de Health Check...
+2026-01-16 23:44:57,643 - INFO - ✅ Health Check Básico - PASSED (0.54s)
+2026-01-16 23:44:57,644 - INFO - ✅ Estructura Health Check - PASSED (0.00s)
+2026-01-16 23:44:57,644 - INFO - 
+📚 Probando documentación Swagger...
+2026-01-16 23:44:57,886 - INFO - ✅ Documentación Swagger - PASSED (0.24s)
+2026-01-16 23:44:57,886 - INFO - 
+🔐 Probando endpoints de Autenticación...
+2026-01-16 23:44:58,240 - INFO - ✅ Registro de Usuario - PASSED (0.35s)
+2026-01-16 23:44:58,581 - INFO - ✅ Login Correcto - PASSED (0.34s)
+2026-01-16 23:44:58,582 - INFO - ✅ Tokens de autenticación obtenidos correctamente
+2026-01-16 23:44:58,905 - INFO - ✅ Login Incorrecto - PASSED (0.32s)
+2026-01-16 23:44:58,931 - INFO - ✅ Usuario Actual - PASSED (0.03s)
+2026-01-16 23:44:58,953 - INFO - ✅ Logout - PASSED (0.02s)
+2026-01-16 23:44:58,954 - INFO - 
+📚 Probando endpoints de Cursos...
+2026-01-16 23:44:59,008 - INFO - ✅ Crear Curso - PASSED (0.05s)
+2026-01-16 23:44:59,008 - INFO - ✅ Curso creado con ID: 12
+2026-01-16 23:44:59,079 - INFO - ✅ Listar Cursos - PASSED (0.07s)
+2026-01-16 23:44:59,118 - INFO - ✅ Obtener Curso - PASSED (0.04s)
+2026-01-16 23:44:59,172 - INFO - ✅ Actualizar Curso - PASSED (0.05s)
+2026-01-16 23:44:59,286 - INFO - ✅ Eliminar Curso - PASSED (0.07s)
+2026-01-16 23:44:59,286 - INFO - 
+👨‍💼 Probando endpoints administrativos de Cursos...
+2026-01-16 23:44:59,315 - INFO - ✅ Cursos Admin - Todos - PASSED (0.03s)
+2026-01-16 23:44:59,340 - INFO - ✅ Cursos Admin - Inactivos - PASSED (0.02s)
+2026-01-16 23:44:59,366 - INFO - ✅ Cursos Admin - Métricas - PASSED (0.03s)
+2026-01-16 23:44:59,390 - INFO - ✅ Cursos Admin - Stats Instructor - PASSED (0.02s)
+2026-01-16 23:44:59,391 - INFO - 
+📦 Probando operaciones masivas de Cursos...
+2026-01-16 23:44:59,557 - INFO - ✅ Activación Masiva - PASSED (0.02s)
+2026-01-16 23:44:59,582 - INFO - ✅ Desactivación Masiva - PASSED (0.02s)
+2026-01-16 23:44:59,610 - INFO - ✅ Eliminación Masiva - PASSED (0.03s)
+2026-01-16 23:44:59,610 - INFO - 
+📖 Probando endpoints de Lecciones...
+2026-01-16 23:44:59,657 - INFO - ✅ Crear Lección - PASSED (0.05s)
+2026-01-16 23:44:59,699 - INFO - ✅ Listar Lecciones - PASSED (0.04s)
+2026-01-16 23:44:59,700 - INFO - 
+📝 Probando endpoints de Quizzes...
+2026-01-16 23:44:59,743 - INFO - ✅ Crear Quiz - PASSED (0.04s)
+2026-01-16 23:44:59,777 - INFO - ✅ Listar Preguntas - PASSED (0.03s)
+2026-01-16 23:44:59,808 - INFO - ✅ Listar Intentos - PASSED (0.03s)
+2026-01-16 23:44:59,835 - INFO - ✅ Listar Estadísticas - PASSED (0.03s)
+2026-01-16 23:44:59,836 - INFO - 
+🔔 Probando endpoints de Notificaciones...
+2026-01-16 23:44:59,863 - INFO - ✅ Lista de Notificaciones - PASSED (0.03s)
+2026-01-16 23:44:59,864 - INFO - 
+💬 Probando endpoints de Foro...
+2026-01-16 23:44:59,959 - INFO - ✅ Categorías del Foro - PASSED (0.10s)
+2026-01-16 23:45:00,053 - INFO - ✅ Temas del Foro - PASSED (0.09s)
+2026-01-16 23:45:00,078 - INFO - ✅ Respuestas del Foro - PASSED (0.02s)
+2026-01-16 23:45:00,238 - INFO - ✅ Estadísticas del Foro - PASSED (0.16s)
+2026-01-16 23:45:00,264 - INFO - ✅ Comentarios en Lecciones - PASSED (0.03s)
+2026-01-16 23:45:00,292 - INFO - ✅ Conversaciones - PASSED (0.03s)
+2026-01-16 23:45:00,318 - INFO - ✅ Mensajes - PASSED (0.03s)
+2026-01-16 23:45:00,343 - INFO - ✅ Indicadores de Escritura - PASSED (0.02s)
+2026-01-16 23:45:00,343 - INFO - 
+📋 Probando endpoints de Tareas...
+2026-01-16 23:45:00,368 - INFO - ✅ Categorías de Tareas - PASSED (0.02s)
+2026-01-16 23:45:00,405 - INFO - ✅ Tareas - PASSED (0.04s)
+2026-01-16 23:45:00,438 - INFO - ✅ Asignaciones - PASSED (0.03s)
+2026-01-16 23:45:00,474 - INFO - ✅ Entregas - PASSED (0.04s)
+2026-01-16 23:45:00,503 - INFO - ✅ Archivos de Tareas - PASSED (0.03s)
+2026-01-16 23:45:00,535 - INFO - ✅ Comentarios de Tareas - PASSED (0.03s)
+2026-01-16 23:45:00,536 - INFO - 
+📚 Probando endpoints de Biblioteca...
+2026-01-16 23:45:00,571 - INFO - ✅ Categorías de Biblioteca - PASSED (0.03s)
+2026-01-16 23:45:00,635 - INFO - ✅ Archivos de Biblioteca - PASSED (0.06s)
+2026-01-16 23:45:00,663 - INFO - ✅ Control de Acceso - PASSED (0.03s)
+2026-01-16 23:45:00,691 - INFO - ✅ Descargas - PASSED (0.03s)
+2026-01-16 23:45:00,719 - INFO - ✅ Favoritos - PASSED (0.03s)
+2026-01-16 23:45:00,719 - INFO - 
+💬 Probando endpoints de Chat...
+2026-01-16 23:45:00,749 - INFO - ✅ Salas de Chat - PASSED (0.03s)
+2026-01-16 23:45:00,783 - INFO - ✅ Mensajes de Chat - PASSED (0.03s)
+2026-01-16 23:45:00,814 - INFO - ✅ Notificaciones de Chat - PASSED (0.03s)
+2026-01-16 23:45:00,814 - INFO - 
+🔒 Probando aspectos de Seguridad...
+2026-01-16 23:45:00,833 - INFO - ✅ Acceso sin Autenticación - PASSED (0.02s)
+2026-01-16 23:45:00,854 - INFO - ✅ Token Inválido - PASSED (0.02s)
+2026-01-16 23:45:00,855 - INFO - 
+⚡ Probando métricas de rendimiento...
+2026-01-16 23:45:00,869 - INFO - ✅ Rendimiento /health-check/ - PASSED (0.01s)
+2026-01-16 23:45:00,891 - INFO - ✅ Rendimiento /courses/ - PASSED (0.02s)
+2026-01-16 23:45:00,935 - INFO - ✅ Rendimiento /lessons/ - PASSED (0.04s)
+2026-01-16 23:45:00,992 - INFO - ✅ Rendimiento /quizzes/ - PASSED (0.06s)
+2026-01-16 23:45:01,018 - INFO - ✅ Rendimiento /notifications/ - PASSED (0.03s)
+2026-01-16 23:45:01,018 - INFO - 
+📊 GENERANDO REPORTE FINAL DE PRUEBAS
+2026-01-16 23:45:01,019 - INFO - ============================================================
+2026-01-16 23:45:01,019 - INFO - Total de Pruebas: 56
+2026-01-16 23:45:01,019 - INFO - Pruebas Exitosas: 56
+2026-01-16 23:45:01,019 - INFO - Pruebas Fallidas: 0
+2026-01-16 23:45:01,019 - INFO - Tasa de Éxito: 100.00%
+2026-01-16 23:45:01,020 - INFO - 
+📈 MÉTRICAS DE RENDIMIENTO:
+2026-01-16 23:45:01,020 - INFO -   health-check: 0.01s
+2026-01-16 23:45:01,020 - INFO -   courses: 0.02s
+2026-01-16 23:45:01,020 - INFO -   lessons: 0.04s
+2026-01-16 23:45:01,020 - INFO -   quizzes: 0.06s
+2026-01-16 23:45:01,021 - INFO -   notifications: 0.03s
+2026-01-16 23:45:01,021 - INFO - 
+💡 RECOMENDACIONES:
+2026-01-16 23:45:01,021 - INFO -   ✅ Excelente calidad de API
+2026-01-16 23:45:01,022 - INFO - 
+📄 Reporte detallado guardado en: api_test_report.json

@@ -74,9 +74,8 @@ const QuizManage = () => {
     setQuestions(updatedQuestions);
     setDraggedQuestion(null);
 
-    // TODO: Enviar orden actualizado al backend
     try {
-      // await quizService.updateQuestionOrder(quizId, updatedQuestions.map(q => ({ id: q.id, order: q.order })));
+      await quizService.updateQuestionOrder(quizId, updatedQuestions.map(q => ({ id: q.id, order: q.order })));
     } catch (error) {
       console.error('Error updating question order:', error);
       // Revertir cambios en caso de error
@@ -100,9 +99,8 @@ const QuizManage = () => {
     }
 
     try {
-      // TODO: Implementar eliminación de pregunta
+      await quizService.deleteQuestion(questionId);
       setQuestions(questions.filter(q => q.id !== questionId));
-      alert('Pregunta eliminada exitosamente');
     } catch (error) {
       console.error('Error deleting question:', error);
       alert('Error al eliminar la pregunta');
@@ -111,12 +109,25 @@ const QuizManage = () => {
 
   const handleSaveQuestion = async (questionData) => {
     try {
+      const options = (questionData.options || []).map((option, index) => ({
+        option_text: option.option_text,
+        is_correct: Boolean(option.is_correct),
+        order: index + 1
+      }));
+      const payload = {
+        quiz: Number(quizId),
+        question_text: questionData.question_text,
+        question_type: questionData.question_type,
+        points: Number(questionData.points || 1),
+        order: editingQuestion?.order || questions.length + 1,
+        explanation: questionData.explanation || '',
+        options
+      };
+
       if (editingQuestion) {
-        // TODO: Implementar actualización de pregunta
-        console.log('Actualizando pregunta:', editingQuestion.id, questionData);
+        await quizService.updateQuestion(editingQuestion.id, payload);
       } else {
-        // TODO: Implementar creación de pregunta
-        console.log('Creando nueva pregunta:', questionData);
+        await quizService.createQuestion(payload);
       }
 
       setShowAddForm(false);

@@ -169,18 +169,81 @@ class QuizAPITest(APITestCase):
             'question_type': 'multiple_choice',
             'points': 5,
             'options': [
-                {'option_text': '5', 'is_correct': False},
-                {'option_text': '6', 'is_correct': True}
+                {'option_text': '5', 'is_correct': False, 'order': 1},
+                {'option_text': '6', 'is_correct': True, 'order': 2}
             ]
         }
-        response = self.client.post('/api/questions/', data, format='json')
+        response = self.client.post('/api/quizzes/questions/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+    def test_question_order_update(self):
+        self.client.force_authenticate(user=self.instructor)
+        question_two = Question.objects.create(
+            quiz=self.quiz,
+            question_text='What is 5+5?',
+            question_type='multiple_choice',
+            points=5,
+            order=2
+        )
+        response = self.client.patch(
+            f'/api/quizzes/{self.quiz.id}/update_question_order/',
+            {'question_orders': [
+                {'id': self.question.id, 'order': 2},
+                {'id': question_two.id, 'order': 1}
+            ]},
+            format='json'
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_user_stats(self):
         self.client.force_authenticate(user=self.student)
-        response = self.client.get('/api/stats/user_stats/')
+        response = self.client.get('/api/quizzes/stats/user_stats/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertIn('total_attempts', response.data)
+
+    def test_template_save_and_create(self):
+        self.client.force_authenticate(user=self.instructor)
+        response = self.client.post(
+            f'/api/quizzes/{self.quiz.id}/save_as_template/',
+            {'title': 'Template Quiz'}
+        )
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        template_id = response.data['id']
+
+        response = self.client.post(
+            f'/api/quizzes/templates/{template_id}/create/',
+            {'course': self.course.id}
+        )
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+    def test_import_export_quiz(self):
+        self.client.force_authenticate(user=self.instructor)
+        import_payload = {
+            'title': 'Import Quiz',
+            'description': 'Imported',
+            'course': self.course.id,
+            'questions': [
+                {
+                    'question_text': '2+2?',
+                    'question_type': 'multiple_choice',
+                    'points': 5,
+                    'order': 1,
+                    'options': [
+                        {'option_text': '4', 'is_correct': True, 'order': 1},
+                        {'option_text': '5', 'is_correct': False, 'order': 2}
+                    ]
+                }
+            ]
+        }
+        validate_response = self.client.post('/api/quizzes/validate_import/', import_payload, format='json')
+        self.assertEqual(validate_response.status_code, status.HTTP_200_OK)
+
+        import_response = self.client.post('/api/quizzes/import/', import_payload, format='json')
+        self.assertEqual(import_response.status_code, status.HTTP_201_CREATED)
+
+        quiz_id = import_response.data['id']
+        export_response = self.client.get(f'/api/quizzes/{quiz_id}/export/')
+        self.assertEqual(export_response.status_code, status.HTTP_200_OK)
 
     def test_student_cannot_create_quiz(self):
         """Test that students cannot create quizzes"""

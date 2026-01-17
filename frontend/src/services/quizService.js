@@ -61,6 +61,36 @@ export const quizService = {
     }
   },
 
+  // Create question (instructor only)
+  async createQuestion(questionData) {
+    try {
+      const response = await api.post('/quizzes/questions/', questionData);
+      return response.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+
+  // Update question (instructor only)
+  async updateQuestion(questionId, questionData) {
+    try {
+      const response = await api.patch(`/quizzes/questions/${questionId}/`, questionData);
+      return response.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+
+  // Delete question (instructor only)
+  async deleteQuestion(questionId) {
+    try {
+      const response = await api.delete(`/quizzes/questions/${questionId}/`);
+      return response.data;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+
   // Start a new quiz attempt
   async startQuizAttempt(quizId) {
     try {

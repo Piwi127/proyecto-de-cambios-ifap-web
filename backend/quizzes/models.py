@@ -38,6 +38,34 @@ class Quiz(models.Model):
     def __str__(self):
         return f"{self.course.title} - {self.title}"
 
+
+class QuizTemplate(models.Model):
+    """Plantillas de quizzes reutilizables."""
+    DIFFICULTY_CHOICES = [
+        ('beginner', 'Principiante'),
+        ('intermediate', 'Intermedio'),
+        ('advanced', 'Avanzado'),
+    ]
+
+    title = models.CharField(max_length=200)
+    description = models.TextField(blank=True)
+    category = models.CharField(max_length=100, blank=True)
+    difficulty = models.CharField(max_length=20, choices=DIFFICULTY_CHOICES, default='beginner')
+    estimated_time = models.PositiveIntegerField(default=0, help_text='Tiempo estimado en minutos')
+    tags = models.JSONField(default=list, blank=True)
+    data = models.JSONField(default=dict, help_text='Payload de quiz y preguntas')
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='quiz_templates')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Plantilla de Quiz'
+        verbose_name_plural = 'Plantillas de Quizzes'
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return self.title
+
 class Question(models.Model):
     QUESTION_TYPES = [
         ('multiple_choice', 'Selección múltiple'),
