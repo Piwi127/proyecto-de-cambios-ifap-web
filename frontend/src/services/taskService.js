@@ -2,53 +2,53 @@ import { api } from './api.js';
 
 // Categorías de tareas
 export const getTaskCategories = async () => {
-  const response = await api.get('/tasks/api/categories/');
+  const response = await api.get('/tasks/categories/');
   return response.data;
 };
 
 export const createTaskCategory = async (categoryData) => {
-  const response = await api.post('/tasks/api/categories/', categoryData);
+  const response = await api.post('/tasks/categories/', categoryData);
   return response.data;
 };
 
 export const updateTaskCategory = async (id, categoryData) => {
-  const response = await api.put(`/tasks/api/categories/${id}/`, categoryData);
+  const response = await api.put(`/tasks/categories/${id}/`, categoryData);
   return response.data;
 };
 
 export const deleteTaskCategory = async (id) => {
-  const response = await api.delete(`/tasks/api/categories/${id}/`);
+  const response = await api.delete(`/tasks/categories/${id}/`);
   return response.data;
 };
 
 // Tareas
 export const getTasks = async (params = {}) => {
-  const response = await api.get('/tasks/api/tasks/', { params });
+  const response = await api.get('/tasks/', { params });
   return response.data;
 };
 
 export const getTaskById = async (id) => {
-  const response = await api.get(`/tasks/api/tasks/${id}/`);
+  const response = await api.get(`/tasks/${id}/`);
   return response.data;
 };
 
 export const createTask = async (taskData) => {
-  const response = await api.post('/tasks/api/tasks/', taskData);
+  const response = await api.post('/tasks/', taskData);
   return response.data;
 };
 
 export const updateTask = async (id, taskData) => {
-  const response = await api.put(`/tasks/api/tasks/${id}/`, taskData);
+  const response = await api.put(`/tasks/${id}/`, taskData);
   return response.data;
 };
 
 export const deleteTask = async (id) => {
-  const response = await api.delete(`/tasks/api/tasks/${id}/`);
+  const response = await api.delete(`/tasks/${id}/`);
   return response.data;
 };
 
 export const assignStudentsToTask = async (taskId, studentIds, dueDateOverride = null) => {
-  const response = await api.post(`/tasks/api/tasks/${taskId}/assign_students/`, {
+  const response = await api.post(`/tasks/${taskId}/assign_students/`, {
     student_ids: studentIds,
     due_date_override: dueDateOverride
   });
@@ -56,44 +56,44 @@ export const assignStudentsToTask = async (taskId, studentIds, dueDateOverride =
 };
 
 export const getTaskAssignments = async (taskId, params = {}) => {
-  const response = await api.get(`/tasks/api/tasks/${taskId}/assignments/`, { params });
+  const response = await api.get(`/tasks/${taskId}/assignments/`, { params });
   return response.data;
 };
 
 export const getTaskStats = async (taskId) => {
-  const response = await api.get(`/tasks/api/tasks/${taskId}/stats/`);
+  const response = await api.get(`/tasks/${taskId}/stats/`);
   return response.data;
 };
 
 // Asignaciones
 export const getAssignments = async (params = {}) => {
-  const response = await api.get('/tasks/api/assignments/', { params });
+  const response = await api.get('/tasks/assignments/', { params });
   return response.data;
 };
 
 export const getAssignmentById = async (id) => {
-  const response = await api.get(`/tasks/api/assignments/${id}/`);
+  const response = await api.get(`/tasks/assignments/${id}/`);
   return response.data;
 };
 
 export const startAssignment = async (id) => {
-  const response = await api.post(`/tasks/api/assignments/${id}/start/`);
+  const response = await api.post(`/tasks/assignments/${id}/start/`);
   return response.data;
 };
 
 export const getAssignmentSubmissions = async (assignmentId) => {
-  const response = await api.get(`/tasks/api/assignments/${assignmentId}/submissions/`);
+  const response = await api.get(`/tasks/assignments/${assignmentId}/submissions/`);
   return response.data;
 };
 
 // Entregas
 export const getSubmissions = async (params = {}) => {
-  const response = await api.get('/tasks/api/submissions/', { params });
+  const response = await api.get('/tasks/submissions/', { params });
   return response.data;
 };
 
 export const getSubmissionById = async (id) => {
-  const response = await api.get(`/tasks/api/submissions/${id}/`);
+  const response = await api.get(`/tasks/submissions/${id}/`);
   return response.data;
 };
 
@@ -110,7 +110,7 @@ export const createSubmission = async (submissionData, files = []) => {
     formData.append('files', file);
   });
   
-  const response = await api.post('/tasks/api/submissions/', formData, {
+  const response = await api.post('/tasks/submissions/', formData, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },
@@ -119,7 +119,7 @@ export const createSubmission = async (submissionData, files = []) => {
 };
 
 export const gradeSubmission = async (id, score, feedback = '') => {
-  const response = await api.post(`/tasks/api/submissions/${id}/grade/`, {
+  const response = await api.post(`/tasks/submissions/${id}/grade/`, {
     score,
     feedback
   });
@@ -127,7 +127,7 @@ export const gradeSubmission = async (id, score, feedback = '') => {
 };
 
 export const addCommentToSubmission = async (submissionId, content, isPrivate = false) => {
-  const response = await api.post(`/tasks/api/submissions/${submissionId}/add_comment/`, {
+  const response = await api.post(`/tasks/submissions/${submissionId}/add_comment/`, {
     content,
     is_private: isPrivate
   });
@@ -136,33 +136,33 @@ export const addCommentToSubmission = async (submissionId, content, isPrivate = 
 
 // Archivos
 export const getTaskFiles = async (params = {}) => {
-  const response = await api.get('/tasks/api/files/', { params });
+  const response = await api.get('/tasks/files/', { params });
   return response.data;
 };
 
 export const getTaskFileById = async (id) => {
-  const response = await api.get(`/tasks/api/files/${id}/`);
+  const response = await api.get(`/tasks/files/${id}/`);
   return response.data;
 };
 
 // Comentarios
 export const getTaskComments = async (params = {}) => {
-  const response = await api.get('/tasks/api/comments/', { params });
+  const response = await api.get('/tasks/comments/', { params });
   return response.data;
 };
 
 export const createTaskComment = async (commentData) => {
-  const response = await api.post('/tasks/api/comments/', commentData);
+  const response = await api.post('/tasks/comments/', commentData);
   return response.data;
 };
 
 export const updateTaskComment = async (id, commentData) => {
-  const response = await api.put(`/tasks/api/comments/${id}/`, commentData);
+  const response = await api.put(`/tasks/comments/${id}/`, commentData);
   return response.data;
 };
 
 export const deleteTaskComment = async (id) => {
-  const response = await api.delete(`/tasks/api/comments/${id}/`);
+  const response = await api.delete(`/tasks/comments/${id}/`);
   return response.data;
 };
 

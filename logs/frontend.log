@@ -3,10 +3,8 @@
 > vite --port 5174
 
 
-  VITE v7.1.7  ready in 911 ms
+  VITE v7.1.7  ready in 873 ms
 
   ➜  Local:   http://localhost:5174/
   ➜  Network: http://192.168.1.6:5174/
 [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
-8:02:44 p. m. [vite] .env changed, restarting server...
-8:02:44 p. m. [vite] server restarted.

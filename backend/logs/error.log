@@ -8477,3 +8477,1019 @@ Traceback (most recent call last):
   File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/http/request.py", line 150, in get_host
     raise DisallowedHost(msg)
 django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.1.6:8000'. You may need to add '192.168.1.6' to ALLOWED_HOSTS.
+[2026-01-16 20:51:37,481] ERROR error_handler exceptions:68 Exception in TaskViewSet: ValidationError: {'max_score': [ErrorDetail(string='Este campo no puede ser nulo.', code='null')]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 235, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'max_score': [ErrorDetail(string='Este campo no puede ser nulo.', code='null')]}
+[2026-01-16 21:29:50,280] ERROR error_handler exceptions:68 Exception in TaskViewSet: Http404: 
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2053, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'undefined'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 623, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<6 lines>...
+        summarize=summarize,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1318, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 27, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 341, in get_prep_lookup
+    return super().get_prep_lookup()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 85, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2055, in get_prep_value
+    raise e.__class__(
+        "Field '%s' expected a number but got %r." % (self.name, value),
+    ) from e
+ValueError: Field 'id' expected a number but got 'undefined'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/tasks/views.py", line 79, in assign_students
+    task = self.get_object()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 21, in get_object_or_404
+    raise Http404
+django.http.response.Http404
+[2026-01-16 21:30:29,863] ERROR error_handler exceptions:68 Exception in TaskViewSet: Http404: 
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2053, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'undefined'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 623, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<6 lines>...
+        summarize=summarize,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1318, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 27, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 341, in get_prep_lookup
+    return super().get_prep_lookup()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 85, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2055, in get_prep_value
+    raise e.__class__(
+        "Field '%s' expected a number but got %r." % (self.name, value),
+    ) from e
+ValueError: Field 'id' expected a number but got 'undefined'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/tasks/views.py", line 79, in assign_students
+    task = self.get_object()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 21, in get_object_or_404
+    raise Http404
+django.http.response.Http404
+[2026-01-16 21:35:37,603] ERROR error_handler exceptions:68 Exception in TaskViewSet: Http404: 
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2053, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'undefined'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 623, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<6 lines>...
+        summarize=summarize,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1318, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 27, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 341, in get_prep_lookup
+    return super().get_prep_lookup()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 85, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2055, in get_prep_value
+    raise e.__class__(
+        "Field '%s' expected a number but got %r." % (self.name, value),
+    ) from e
+ValueError: Field 'id' expected a number but got 'undefined'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/tasks/views.py", line 79, in assign_students
+    task = self.get_object()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 21, in get_object_or_404
+    raise Http404
+django.http.response.Http404
+[2026-01-16 22:06:23,529] ERROR error_handler exceptions:68 Exception in UserViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+    ...<4 lines>...
+    )
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+[2026-01-16 22:06:23,567] ERROR error_handler exceptions:68 Exception in UserViewSet: InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 227, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 49, in authenticate
+    validated_token = self.get_validated_token(raw_token)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/authentication.py", line 113, in get_validated_token
+    raise InvalidToken(
+    ...<4 lines>...
+    )
+rest_framework_simplejwt.exceptions.InvalidToken: {'detail': ErrorDetail(string='El token dado no es valido para ningun tipo de token', code='token_not_valid'), 'code': ErrorDetail(string='token_not_valid', code='token_not_valid'), 'messages': [{'token_class': ErrorDetail(string='AccessToken', code='token_not_valid'), 'token_type': ErrorDetail(string='access', code='token_not_valid'), 'message': ErrorDetail(string='El token es inválido o ha expirado', code='token_not_valid')}]}
+[2026-01-16 22:07:05,230] ERROR error_handler exceptions:68 Exception in TaskViewSet: Http404: No Task matches the given query.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+tasks.models.Task.DoesNotExist: Task matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/tasks/views.py", line 88, in assign_students
+    task = self.get_object()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 87, in get_object_or_404
+    raise Http404(
+        "No %s matches the given query." % queryset.model._meta.object_name
+    )
+django.http.response.Http404: No Task matches the given query.
+[2026-01-16 22:07:07,189] ERROR error_handler exceptions:68 Exception in TaskViewSet: Http404: 
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2053, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'comments'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 623, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<6 lines>...
+        summarize=summarize,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1318, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 27, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 341, in get_prep_lookup
+    return super().get_prep_lookup()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 85, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2055, in get_prep_value
+    raise e.__class__(
+        "Field '%s' expected a number but got %r." % (self.name, value),
+    ) from e
+ValueError: Field 'id' expected a number but got 'comments'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 21, in get_object_or_404
+    raise Http404
+django.http.response.Http404
+[2026-01-16 22:07:07,193] ERROR error_handler exceptions:68 Exception in TaskViewSet: Http404: No Task matches the given query.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+tasks.models.Task.DoesNotExist: Task matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 87, in get_object_or_404
+    raise Http404(
+        "No %s matches the given query." % queryset.model._meta.object_name
+    )
+django.http.response.Http404: No Task matches the given query.
+[2026-01-16 22:07:07,200] ERROR error_handler exceptions:68 Exception in TaskViewSet: Http404: No Task matches the given query.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+tasks.models.Task.DoesNotExist: Task matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/tasks/views.py", line 117, in assignments
+    task = self.get_object()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 87, in get_object_or_404
+    raise Http404(
+        "No %s matches the given query." % queryset.model._meta.object_name
+    )
+django.http.response.Http404: No Task matches the given query.
+[2026-01-16 22:07:07,287] ERROR error_handler exceptions:68 Exception in TaskViewSet: Http404: 
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2053, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'comments'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 623, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<6 lines>...
+        summarize=summarize,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1318, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 27, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 341, in get_prep_lookup
+    return super().get_prep_lookup()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 85, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2055, in get_prep_value
+    raise e.__class__(
+        "Field '%s' expected a number but got %r." % (self.name, value),
+    ) from e
+ValueError: Field 'id' expected a number but got 'comments'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 21, in get_object_or_404
+    raise Http404
+django.http.response.Http404
+[2026-01-16 22:07:07,297] ERROR error_handler exceptions:68 Exception in TaskViewSet: Http404: No Task matches the given query.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+tasks.models.Task.DoesNotExist: Task matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 87, in get_object_or_404
+    raise Http404(
+        "No %s matches the given query." % queryset.model._meta.object_name
+    )
+django.http.response.Http404: No Task matches the given query.
+[2026-01-16 22:07:07,299] ERROR error_handler exceptions:68 Exception in TaskViewSet: Http404: No Task matches the given query.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+tasks.models.Task.DoesNotExist: Task matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/tasks/views.py", line 117, in assignments
+    task = self.get_object()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 87, in get_object_or_404
+    raise Http404(
+        "No %s matches the given query." % queryset.model._meta.object_name
+    )
+django.http.response.Http404: No Task matches the given query.
+[2026-01-16 22:19:02,282] ERROR django.security.DisallowedHost exception:124 Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+[2026-01-16 22:23:32,783] ERROR error_handler exceptions:68 Exception in TaskViewSet: Http404: No Task matches the given query.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+tasks.models.Task.DoesNotExist: Task matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/tasks/views.py", line 88, in assign_students
+    @action(detail=True, methods=['post'])
+               ^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 87, in get_object_or_404
+    raise Http404(
+        "No %s matches the given query." % queryset.model._meta.object_name
+    )
+django.http.response.Http404: No Task matches the given query.
+[2026-01-16 22:23:34,445] ERROR error_handler exceptions:68 Exception in TaskViewSet: Http404: 
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2053, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'comments'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 623, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<6 lines>...
+        summarize=summarize,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1318, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 27, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 341, in get_prep_lookup
+    return super().get_prep_lookup()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 85, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2055, in get_prep_value
+    raise e.__class__(
+        "Field '%s' expected a number but got %r." % (self.name, value),
+    ) from e
+ValueError: Field 'id' expected a number but got 'comments'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 21, in get_object_or_404
+    raise Http404
+django.http.response.Http404
+[2026-01-16 22:23:34,479] ERROR error_handler exceptions:68 Exception in TaskViewSet: Http404: No Task matches the given query.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+tasks.models.Task.DoesNotExist: Task matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/tasks/views.py", line 117, in assignments
+    @action(detail=True, methods=['get'])
+               ^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 87, in get_object_or_404
+    raise Http404(
+        "No %s matches the given query." % queryset.model._meta.object_name
+    )
+django.http.response.Http404: No Task matches the given query.
+[2026-01-16 22:23:34,485] ERROR error_handler exceptions:68 Exception in TaskViewSet: Http404: No Task matches the given query.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+tasks.models.Task.DoesNotExist: Task matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 87, in get_object_or_404
+    raise Http404(
+        "No %s matches the given query." % queryset.model._meta.object_name
+    )
+django.http.response.Http404: No Task matches the given query.
+[2026-01-16 22:23:34,520] ERROR error_handler exceptions:68 Exception in TaskViewSet: Http404: 
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2053, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'comments'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 623, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<6 lines>...
+        summarize=summarize,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1318, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 27, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 341, in get_prep_lookup
+    return super().get_prep_lookup()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/lookups.py", line 85, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/fields/__init__.py", line 2055, in get_prep_value
+    raise e.__class__(
+        "Field '%s' expected a number but got %r." % (self.name, value),
+    ) from e
+ValueError: Field 'id' expected a number but got 'comments'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 21, in get_object_or_404
+    raise Http404
+django.http.response.Http404
+[2026-01-16 22:23:34,566] ERROR error_handler exceptions:68 Exception in TaskViewSet: Http404: No Task matches the given query.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+tasks.models.Task.DoesNotExist: Task matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 87, in get_object_or_404
+    raise Http404(
+        "No %s matches the given query." % queryset.model._meta.object_name
+    )
+django.http.response.Http404: No Task matches the given query.
+[2026-01-16 22:23:34,574] ERROR error_handler exceptions:68 Exception in TaskViewSet: Http404: No Task matches the given query.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+tasks.models.Task.DoesNotExist: Task matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/tasks/views.py", line 117, in assignments
+    @action(detail=True, methods=['get'])
+               ^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/django/shortcuts.py", line 87, in get_object_or_404
+    raise Http404(
+        "No %s matches the given query." % queryset.model._meta.object_name
+    )
+django.http.response.Http404: No Task matches the given query.
+[2026-01-16 22:25:36,605] ERROR error_handler exceptions:68 Exception in TaskViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 22:25:36,644] ERROR error_handler exceptions:68 Exception in TaskViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 22:25:36,675] ERROR error_handler exceptions:68 Exception in TaskViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 22:27:06,053] ERROR error_handler exceptions:68 Exception in CourseViewSet: AttributeError: 'AnonymousUser' object has no attribute 'is_instructor'
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/courses/views.py", line 348, in students
+    if not self._validate_course_ownership(course, request.user):
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/courses/views.py", line 146, in _validate_course_ownership
+    if user.is_instructor and course.instructor == user:
+       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'AnonymousUser' object has no attribute 'is_instructor'
+[2026-01-16 22:27:06,068] ERROR django.request log:241 Internal Server Error: /api/courses/4/students/
+[2026-01-16 22:27:06,088] ERROR error_handler exceptions:68 Exception in TaskCommentViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 22:27:06,109] ERROR error_handler exceptions:68 Exception in TaskViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 22:27:56,049] ERROR error_handler exceptions:68 Exception in CourseViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 22:27:56,089] ERROR error_handler exceptions:68 Exception in TaskCommentViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+[2026-01-16 22:27:56,121] ERROR error_handler exceptions:68 Exception in TaskViewSet: NotAuthenticated: Las credenciales de autenticación no se proveyeron.
+Traceback (most recent call last):
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 415, in initial
+    self.check_permissions(request)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 333, in check_permissions
+    self.permission_denied(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+        message=getattr(permission, 'message', None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        code=getattr(permission, 'code', None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework/views.py", line 174, in permission_denied
+    raise exceptions.NotAuthenticated()
+rest_framework.exceptions.NotAuthenticated: Las credenciales de autenticación no se proveyeron.

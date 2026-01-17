@@ -185,12 +185,13 @@ class TaskCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
         fields = [
-            'title', 'description', 'instructions', 'category', 'course',
+            'id', 'title', 'description', 'instructions', 'category', 'course',
             'lesson', 'priority', 'status', 'due_date', 'start_date',
             'max_attempts', 'max_score', 'allow_late_submission',
             'late_penalty_percent', 'show_score_to_student',
             'attachment_required', 'allowed_file_types', 'max_file_size_mb'
         ]
+        read_only_fields = ['id']
 
     def validate_category(self, value):
         if value and not value.is_active:

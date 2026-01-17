@@ -1,91 +1,29 @@
 /home/joge/proyecto-de-cambios-ifap-web/backend/venv/lib/python3.13/site-packages/rest_framework_simplejwt/__init__.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   from pkg_resources import DistributionNotFound, get_distribution
-2026-01-16 19:58:23,107 INFO     Starting server at tcp:port=8000:interface=0.0.0.0
-2026-01-16 19:58:23,108 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
-2026-01-16 19:58:23,109 INFO     Configuring endpoint tcp:port=8000:interface=0.0.0.0
-2026-01-16 19:58:23,111 INFO     Listening on TCP address 0.0.0.0:8000
+2026-01-16 22:47:58,140 INFO     Starting server at tcp:port=8000:interface=0.0.0.0
+2026-01-16 22:47:58,141 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-01-16 22:47:58,142 INFO     Configuring endpoint tcp:port=8000:interface=0.0.0.0
+2026-01-16 22:47:58,143 INFO     Listening on TCP address 0.0.0.0:8000
+INFO Request: GET /api/users/me/
 INFO Request: GET /api/users/me/
 INFO User 9 accessed profile
-INFO Response: 200 for GET /api/users/me/
-INFO Request: GET /api/users/me/
 INFO User 9 accessed profile
 INFO Response: 200 for GET /api/users/me/
+INFO Response: 200 for GET /api/users/me/
+INFO Request: GET /api/users/me/
+INFO Request: GET /api/users/me/
+INFO User 9 accessed profile
 INFO Request: GET /api/courses/my_courses/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Request: GET /admin/
-INFO Response: 302 for GET /admin/
-INFO Request: GET /admin/login/
-INFO Response: 200 for GET /admin/login/
-INFO Request: GET /favicon.ico
-INFO Response: 404 for GET /favicon.ico
-INFO Request: POST /admin/login/
-INFO Response: 302 for POST /admin/login/
-INFO Request: GET /admin/
-INFO Response: 200 for GET /admin/
-INFO Request: GET /api/users/me/
-INFO User 9 accessed profile
-INFO Response: 200 for GET /api/users/me/
-INFO Request: GET /api/users/me/
-INFO User 9 accessed profile
-INFO Response: 200 for GET /api/users/me/
 INFO Request: GET /api/courses/
+INFO Response: 200 for GET /api/users/me/
+INFO User 9 accessed profile
+INFO Response: 200 for GET /api/users/me/
+INFO User 9 requested course list
 INFO Request: GET /api/courses/my_courses/
+INFO Request: GET /api/courses/
 INFO User 9 requested course list
 INFO Response: 200 for GET /api/courses/
 INFO Response: 200 for GET /api/courses/my_courses/
-INFO Request: GET /api/users/me/
-INFO User 9 accessed profile
-INFO Response: 200 for GET /api/users/me/
-INFO Request: GET /api/users/me/
-INFO User 9 accessed profile
-INFO Response: 200 for GET /api/users/me/
-INFO Request: GET /api/courses/my_courses/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Request: POST /api/token/
-INFO Response: 200 for POST /api/token/
-INFO Request: GET /api/courses/
-INFO Request: GET /api/courses/my_courses/
-INFO Response: 200 for GET /api/courses/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Request: GET /api/courses/my_courses/
-INFO Request: GET /api/chat/notifications/
-INFO Response: 200 for GET /api/chat/notifications/
-INFO Request: GET /api/chat/notifications/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Response: 200 for GET /api/chat/notifications/
-INFO Request: GET /api/courses/my_courses/
-INFO Request: GET /api/users/dashboard_stats/
-INFO Dashboard stats requested by admin user 9 (jorge)
-INFO Response: 200 for GET /api/users/dashboard_stats/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Request: GET /api/users/dashboard_stats/
-INFO Dashboard stats requested by admin user 9 (jorge)
-INFO Response: 200 for GET /api/users/dashboard_stats/
-INFO Request: GET /api/reminders/
-INFO Response: 404 for GET /api/reminders/
-INFO Request: GET /api/reminders/
-INFO Response: 404 for GET /api/reminders/
-INFO Request: GET /api/courses/my_courses/
-INFO Request: GET /api/quizzes/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Response: 200 for GET /api/quizzes/
-INFO Request: GET /api/courses/my_courses/
-INFO Request: GET /api/quizzes/
-INFO Response: 200 for GET /api/quizzes/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Request: GET /api/tasks/api/tasks/
-INFO Response: 404 for GET /api/tasks/api/tasks/
-INFO Request: GET /api/tasks/api/tasks/
-INFO Response: 404 for GET /api/tasks/api/tasks/
-INFO Request: GET /api/users/me/
-INFO User 9 accessed profile
-INFO Response: 200 for GET /api/users/me/
-INFO Request: GET /api/users/me/
-INFO User 9 accessed profile
-INFO Response: 200 for GET /api/users/me/
-INFO Request: GET /api/courses/
-INFO Request: GET /api/courses/my_courses/
-INFO User 9 requested course list
 INFO Response: 200 for GET /api/courses/
 INFO Response: 200 for GET /api/courses/my_courses/
 INFO Request: POST /api/token/
@@ -104,152 +42,73 @@ INFO Request: GET /api/users/dashboard_stats/
 INFO Response: 200 for GET /api/courses/my_courses/
 INFO Dashboard stats requested by admin user 9 (jorge)
 INFO Response: 200 for GET /api/users/dashboard_stats/
-INFO Request: GET /api/users/me/
-INFO User 9 accessed profile
-INFO Response: 200 for GET /api/users/me/
-INFO Request: GET /api/users/me/
-INFO User 9 accessed profile
-INFO Response: 200 for GET /api/users/me/
-INFO Request: GET /api/courses/
-INFO Request: GET /api/courses/my_courses/
-INFO Response: 200 for GET /api/courses/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Request: GET /admin/
-INFO Response: 302 for GET /admin/
-INFO Request: GET /admin/login/
-INFO Response: 200 for GET /admin/login/
-INFO Request: POST /admin/login/
-INFO Response: 302 for POST /admin/login/
-INFO Request: GET /admin/
-INFO Response: 200 for GET /admin/
-127.0.0.1:33178 - - [16/Jan/2026:19:58:38] "GET /api/users/me/" 200 308
-127.0.0.1:33178 - - [16/Jan/2026:19:58:38] "GET /api/users/me/" 200 308
-127.0.0.1:33194 - - [16/Jan/2026:19:58:38] "GET /api/courses/my_courses/" 200 1177
-192.168.1.3:63111 - - [16/Jan/2026:19:59:33] "GET /admin/" 302 -
-192.168.1.3:63111 - - [16/Jan/2026:19:59:33] "GET /admin/login/?next=/admin/" 200 4246
-192.168.1.3:53909 - - [16/Jan/2026:19:59:33] "GET /static/admin/css/dark_mode.css" 200 2929
-192.168.1.3:63111 - - [16/Jan/2026:19:59:33] "GET /static/admin/css/base.css" 200 21207
-192.168.1.3:57423 - - [16/Jan/2026:19:59:33] "GET /static/admin/css/login.css" 200 958
-192.168.1.3:53199 - - [16/Jan/2026:19:59:33] "GET /static/admin/css/nav_sidebar.css" 200 2694
-192.168.1.3:55875 - - [16/Jan/2026:19:59:33] "GET /static/admin/js/theme.js" 200 1943
-192.168.1.3:54045 - - [16/Jan/2026:19:59:33] "GET /static/admin/css/responsive.css" 200 18533
-192.168.1.3:53909 - - [16/Jan/2026:19:59:33] "GET /static/admin/js/nav_sidebar.js" 200 3063
-192.168.1.3:53909 - - [16/Jan/2026:19:59:33] "GET /favicon.ico" 404 4163
-192.168.1.3:53909 - - [16/Jan/2026:19:59:39] "POST /admin/login/?next=/admin/" 302 -
-192.168.1.3:53909 - - [16/Jan/2026:19:59:39] "GET /admin/" 200 17661
-192.168.1.3:63111 - - [16/Jan/2026:19:59:39] "GET /static/admin/css/responsive.css" 304 -
-192.168.1.3:55875 - - [16/Jan/2026:19:59:39] "GET /static/admin/css/nav_sidebar.css" 304 -
-192.168.1.3:53909 - - [16/Jan/2026:19:59:39] "GET /static/admin/css/base.css" 304 -
-192.168.1.3:53199 - - [16/Jan/2026:19:59:39] "GET /static/admin/js/theme.js" 304 -
-192.168.1.3:54045 - - [16/Jan/2026:19:59:39] "GET /static/admin/css/dark_mode.css" 304 -
-192.168.1.3:57423 - - [16/Jan/2026:19:59:39] "GET /static/admin/css/dashboard.css" 200 441
-192.168.1.3:63111 - - [16/Jan/2026:19:59:39] "GET /static/admin/js/nav_sidebar.js" 304 -
-192.168.1.3:63111 - - [16/Jan/2026:19:59:39] "GET /static/admin/img/icon-addlink.svg" 200 331
-192.168.1.3:57423 - - [16/Jan/2026:19:59:39] "GET /static/admin/img/icon-changelink.svg" 200 380
-192.168.1.3:54045 - - [16/Jan/2026:19:59:39] "GET /static/admin/img/icon-viewlink.svg" 200 581
-192.168.1.6:43394 - - [16/Jan/2026:20:02:48] "OPTIONS /api/users/me/" 200 -
-192.168.1.6:43406 - - [16/Jan/2026:20:02:48] "OPTIONS /api/users/me/" 200 -
-192.168.1.6:43394 - - [16/Jan/2026:20:02:48] "GET /api/users/me/" 200 308
-192.168.1.6:43394 - - [16/Jan/2026:20:02:48] "GET /api/users/me/" 200 308
-192.168.1.6:43394 - - [16/Jan/2026:20:02:48] "OPTIONS /api/courses/" 200 -
-192.168.1.6:43394 - - [16/Jan/2026:20:02:48] "OPTIONS /api/courses/my_courses/" 200 -
-192.168.1.6:43406 - - [16/Jan/2026:20:02:48] "GET /api/courses/" 200 1675
-192.168.1.6:43394 - - [16/Jan/2026:20:02:48] "GET /api/courses/my_courses/" 200 1177
-192.168.1.6:39070 - - [16/Jan/2026:20:04:37] "OPTIONS /api/users/me/" 200 -
-192.168.1.6:39072 - - [16/Jan/2026:20:04:37] "OPTIONS /api/users/me/" 200 -
-192.168.1.6:39070 - - [16/Jan/2026:20:04:37] "GET /api/users/me/" 200 308
-192.168.1.6:39070 - - [16/Jan/2026:20:04:37] "GET /api/users/me/" 200 308
-192.168.1.6:39072 - - [16/Jan/2026:20:04:37] "OPTIONS /api/courses/" 200 -
-192.168.1.6:39088 - - [16/Jan/2026:20:04:37] "OPTIONS /api/courses/my_courses/" 200 -
-192.168.1.6:39088 - - [16/Jan/2026:20:04:37] "GET /api/courses/my_courses/" 200 1177
-192.168.1.3:58237 - - [16/Jan/2026:20:07:21] "OPTIONS /api/token/" 200 -
-192.168.1.3:58237 - - [16/Jan/2026:20:07:21] "POST /api/token/" 200 810
-192.168.1.3:58237 - - [16/Jan/2026:20:07:21] "OPTIONS /api/courses/" 200 -
-192.168.1.3:50179 - - [16/Jan/2026:20:07:21] "OPTIONS /api/courses/my_courses/" 200 -
-192.168.1.3:50179 - - [16/Jan/2026:20:07:21] "GET /api/courses/" 200 1675
-192.168.1.3:58237 - - [16/Jan/2026:20:07:22] "GET /api/courses/my_courses/" 200 1177
-192.168.1.3:50179 - - [16/Jan/2026:20:07:22] "OPTIONS /api/chat/notifications/" 200 -
-192.168.1.3:64212 - - [16/Jan/2026:20:07:22] "OPTIONS /api/chat/notifications/" 200 -
-192.168.1.3:50179 - - [16/Jan/2026:20:07:22] "GET /api/chat/notifications/" 200 52
-192.168.1.3:58237 - - [16/Jan/2026:20:07:23] "GET /api/courses/my_courses/" 200 1177
-192.168.1.3:64212 - - [16/Jan/2026:20:07:23] "GET /api/chat/notifications/" 200 52
-192.168.1.3:58237 - - [16/Jan/2026:20:07:23] "OPTIONS /api/users/dashboard_stats/" 200 -
-192.168.1.3:64212 - - [16/Jan/2026:20:07:23] "OPTIONS /api/users/dashboard_stats/" 200 -
-192.168.1.3:58237 - - [16/Jan/2026:20:07:23] "GET /api/users/dashboard_stats/" 200 195
-192.168.1.3:50179 - - [16/Jan/2026:20:07:23] "GET /api/courses/my_courses/" 200 1177
-192.168.1.3:64212 - - [16/Jan/2026:20:07:23] "GET /api/users/dashboard_stats/" 200 195
-192.168.1.3:56808 - - [16/Jan/2026:20:13:31] "OPTIONS /api/reminders/" 200 -
-192.168.1.3:64300 - - [16/Jan/2026:20:13:31] "OPTIONS /api/reminders/" 200 -
-192.168.1.3:64300 - - [16/Jan/2026:20:13:31] "GET /api/reminders/" 404 4172
-192.168.1.3:56808 - - [16/Jan/2026:20:13:31] "GET /api/reminders/" 404 4172
-192.168.1.3:56808 - - [16/Jan/2026:20:13:34] "OPTIONS /api/quizzes/" 200 -
-192.168.1.3:64300 - - [16/Jan/2026:20:13:34] "OPTIONS /api/quizzes/" 200 -
-192.168.1.3:55352 - - [16/Jan/2026:20:13:34] "GET /api/courses/my_courses/" 200 1177
-192.168.1.3:56808 - - [16/Jan/2026:20:13:34] "GET /api/quizzes/" 200 2443
-192.168.1.3:64300 - - [16/Jan/2026:20:13:34] "GET /api/quizzes/" 200 2443
-192.168.1.3:56808 - - [16/Jan/2026:20:13:34] "GET /api/courses/my_courses/" 200 1177
-192.168.1.3:56808 - - [16/Jan/2026:20:13:36] "OPTIONS /api/tasks/api/tasks/" 200 -
-192.168.1.3:64300 - - [16/Jan/2026:20:13:36] "OPTIONS /api/tasks/api/tasks/" 200 -
-192.168.1.3:56808 - - [16/Jan/2026:20:13:36] "GET /api/tasks/api/tasks/" 404 14980
-192.168.1.3:64300 - - [16/Jan/2026:20:13:36] "GET /api/tasks/api/tasks/" 404 14980
-192.168.1.3:59926 - - [16/Jan/2026:20:39:20] "OPTIONS /api/users/me/" 200 -
-192.168.1.3:51016 - - [16/Jan/2026:20:39:20] "OPTIONS /api/users/me/" 200 -
-192.168.1.3:51016 - - [16/Jan/2026:20:39:20] "GET /api/users/me/" 200 308
-192.168.1.3:59926 - - [16/Jan/2026:20:39:20] "GET /api/users/me/" 200 308
-192.168.1.3:59926 - - [16/Jan/2026:20:39:21] "GET /api/courses/" 200 1675
-192.168.1.3:51016 - - [16/Jan/2026:20:39:21] "GET /api/courses/my_courses/" 200 1177
-192.168.1.3:51016 - - [16/Jan/2026:20:39:27] "POST /api/token/" 200 810
-192.168.1.3:59926 - - [16/Jan/2026:20:39:27] "GET /api/chat/notifications/" 200 52
-192.168.1.3:59926 - - [16/Jan/2026:20:39:27] "GET /api/chat/notifications/" 200 52
-192.168.1.3:51016 - - [16/Jan/2026:20:39:27] "GET /api/courses/my_courses/" 200 1177
-192.168.1.3:51016 - - [16/Jan/2026:20:39:27] "GET /api/users/dashboard_stats/" 200 195
-192.168.1.3:59926 - - [16/Jan/2026:20:39:27] "GET /api/courses/my_courses/" 200 1177
-192.168.1.3:58706 - - [16/Jan/2026:20:39:27] "GET /api/users/dashboard_stats/" 200 195
-192.168.1.6:60574 - - [16/Jan/2026:20:42:41] "GET /api/users/me/" 200 308
-192.168.1.6:60574 - - [16/Jan/2026:20:42:41] "GET /api/users/me/" 200 308
-192.168.1.6:60574 - - [16/Jan/2026:20:42:41] "GET /api/courses/" 200 1675
-192.168.1.6:60580 - - [16/Jan/2026:20:42:42] "GET /api/courses/my_courses/" 200 1177
-192.168.1.6:60584 - - [16/Jan/2026:20:42:43] "GET /admin/" 302 -
-192.168.1.6:60584 - - [16/Jan/2026:20:42:43] "GET /admin/login/?next=/admin/" 200 4246
-192.168.1.6:60584 - - [16/Jan/2026:20:42:43] "GET /static/admin/css/base.css" 304 -
-192.168.1.6:60614 - - [16/Jan/2026:20:42:43] "GET /static/admin/css/login.css" 304 -
-192.168.1.6:60600 - - [16/Jan/2026:20:42:43] "GET /static/admin/css/nav_sidebar.css" 304 -
-192.168.1.6:60584 - - [16/Jan/2026:20:42:43] "GET /static/admin/css/dark_mode.css" 304 -
-192.168.1.6:60620 - - [16/Jan/2026:20:42:43] "GET /static/admin/css/responsive.css" 304 -
-192.168.1.6:60626 - - [16/Jan/2026:20:42:43] "GET /static/admin/js/nav_sidebar.js" 304 -
-192.168.1.6:60624 - - [16/Jan/2026:20:42:43] "GET /static/admin/js/theme.js" 304 -
-192.168.1.6:60624 - - [16/Jan/2026:20:42:46] "POST /admin/login/?next=/admin/" 302 -
-192.168.1.6:60624 - - [16/Jan/2026:20:42:46] "GET /admin/" 200 17661
-192.168.1.6:60620 - - [16/Jan/2026:20:42:46] "GET /static/admin/css/nav_sidebar.css" 304 -
-192.168.1.6:60624 - - [16/Jan/2026:20:42:46] "GET /static/admin/css/base.css" 304 -
-192.168.1.6:60626 - - [16/Jan/2026:20:42:46] "GET /static/admin/css/dark_mode.css" 304 -
-INFO Request: POST /api/token/
-INFO Response: 200 for POST /api/token/
-INFO Request: GET /api/courses/my_courses/
-INFO Request: GET /api/chat/notifications/
-INFO Response: 200 for GET /api/chat/notifications/
-INFO Request: GET /api/chat/notifications/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Response: 200 for GET /api/chat/notifications/
-INFO Request: GET /api/courses/my_courses/
-INFO Request: GET /api/users/dashboard_stats/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Dashboard stats requested by admin user 9 (jorge)
-INFO Response: 200 for GET /api/users/dashboard_stats/
-INFO Request: GET /api/users/dashboard_stats/
-INFO Dashboard stats requested by admin user 9 (jorge)
-INFO Response: 200 for GET /api/users/dashboard_stats/
-INFO Request: GET /api/tasks/api/tasks/
-INFO Response: 404 for GET /api/tasks/api/tasks/
-INFO Request: GET /api/tasks/api/tasks/
-INFO Response: 404 for GET /api/tasks/api/tasks/
-INFO Request: GET /api/courses/my_courses/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Request: GET /api/courses/my_courses/
-INFO Request: GET /api/users/dashboard_stats/
-INFO Response: 200 for GET /api/courses/my_courses/
-INFO Dashboard stats requested by admin user 9 (jorge)
-INFO Response: 200 for GET /api/users/dashboard_stats/
-INFO Request: GET /api/users/dashboard_stats/
-INFO Dashboard stats requested by admin user 9 (jorge)
-INFO Response: 200 for GET /api/users/dashboard_stats/
+INFO Request: GET /api/tasks/
+INFO Response: 200 for GET /api/tasks/
+INFO Request: GET /api/tasks/
+INFO Response: 200 for GET /api/tasks/
+INFO Request: GET /api/tasks/categories/
+INFO Response: 200 for GET /api/tasks/categories/
+INFO Request: GET /api/tasks/categories/
+INFO Request: GET /api/courses/taught_courses/
+INFO Response: 200 for GET /api/tasks/categories/
+INFO Response: 200 for GET /api/courses/taught_courses/
+INFO Request: GET /api/courses/taught_courses/
+INFO Request: GET /api/tasks/6/
+INFO Response: 200 for GET /api/tasks/6/
+INFO Response: 200 for GET /api/courses/taught_courses/
+INFO Request: GET /api/tasks/6/
+INFO Request: GET /api/lessons/
+INFO Request: GET /api/courses/4/students/
+INFO Response: 200 for GET /api/lessons/
+INFO Response: 200 for GET /api/courses/4/students/
+INFO Response: 200 for GET /api/tasks/6/
+INFO Request: PUT /api/tasks/6/
+INFO Response: 200 for PUT /api/tasks/6/
+INFO Request: GET /api/tasks/6/
+INFO Request: GET /api/tasks/comments/
+INFO Request: GET /api/tasks/6/assignments/
+INFO Response: 200 for GET /api/tasks/comments/
+INFO Request: GET /api/tasks/comments/
+INFO Response: 200 for GET /api/tasks/6/assignments/
+INFO Request: GET /api/tasks/6/assignments/
+INFO Response: 200 for GET /api/tasks/6/
+INFO Response: 200 for GET /api/tasks/comments/
+INFO Request: GET /api/tasks/6/
+INFO Response: 200 for GET /api/tasks/6/assignments/
+INFO Response: 200 for GET /api/tasks/6/
+INFO Request: GET /api/tasks/
+INFO Response: 200 for GET /api/tasks/
+INFO Request: GET /api/tasks/
+INFO Response: 200 for GET /api/tasks/
+INFO Request: GET /api/tasks/categories/
+INFO Response: 200 for GET /api/tasks/categories/
+INFO Request: GET /api/tasks/categories/
+INFO Request: GET /api/courses/taught_courses/
+INFO Response: 200 for GET /api/tasks/categories/
+INFO Response: 200 for GET /api/courses/taught_courses/
+INFO Request: GET /api/courses/taught_courses/
+INFO Response: 200 for GET /api/courses/taught_courses/
+INFO Request: GET /api/courses/3/students/
+INFO Request: GET /api/lessons/
+INFO Response: 200 for GET /api/lessons/
+INFO Response: 200 for GET /api/courses/3/students/
+INFO Request: POST /api/tasks/
+INFO Response: 201 for POST /api/tasks/
+INFO Request: POST /api/tasks/8/assign_students/
+INFO Response: 200 for POST /api/tasks/8/assign_students/
+INFO Request: GET /api/tasks/comments/
+INFO Request: GET /api/tasks/8/
+INFO Request: GET /api/tasks/8/assignments/
+INFO Response: 200 for GET /api/tasks/comments/
+INFO Request: GET /api/tasks/comments/
+INFO Response: 200 for GET /api/tasks/8/assignments/
+INFO Request: GET /api/tasks/8/assignments/
+INFO Response: 200 for GET /api/tasks/comments/
+INFO Response: 200 for GET /api/tasks/8/
+INFO Request: GET /api/tasks/8/
+INFO Response: 200 for GET /api/tasks/8/assignments/
+INFO Response: 200 for GET /api/tasks/8/
+INFO Request: GET /api/tasks/
+INFO Response: 200 for GET /api/tasks/
+INFO Request: GET /api/tasks/
+INFO Response: 200 for GET /api/tasks/

@@ -210,15 +210,18 @@ const TareaForm = () => {
         instructions: formData.instructions.trim(),
         priority: formData.priority,
         status: formData.status,
-        course: formData.course || null,
-        lesson: formData.lesson || null,
-        category: formData.category || null,
+        course: formData.course ? Number(formData.course) : null,
+        lesson: formData.lesson ? Number(formData.lesson) : null,
+        category: formData.category ? Number(formData.category) : null,
         due_date: dueDate,
-        max_score: formData.max_score ? parseFloat(formData.max_score) : null,
         max_attempts: formData.max_attempts ? parseInt(formData.max_attempts, 10) : 1,
         allow_late_submission: formData.allow_late_submission,
         late_penalty_percent: formData.late_penalty_percent ? parseFloat(formData.late_penalty_percent) : 0
       };
+
+      if (formData.max_score) {
+        taskData.max_score = parseFloat(formData.max_score);
+      }
       
       let savedTask;
       if (isEditing) {
@@ -229,14 +232,27 @@ const TareaForm = () => {
         setSuccess('Tarea creada exitosamente');
         
         // Si hay estudiantes seleccionados, asignar la tarea
-        if (selectedStudents.length > 0) {
-          await assignStudentsToTask(savedTask.id, selectedStudents);
+        const savedTaskId = savedTask?.id;
+        if (selectedStudents.length > 0 && savedTaskId) {
+          try {
+            await assignStudentsToTask(savedTaskId, selectedStudents);
+          } catch (assignError) {
+            console.error('Error assigning students:', assignError);
+            setSuccess('Tarea creada. No se pudieron asignar estudiantes.');
+          }
+        } else if (selectedStudents.length > 0 && !savedTaskId) {
+          console.warn('Task created without id; skipping student assignment.');
+          setSuccess('Tarea creada. No se pudieron asignar estudiantes.');
         }
       }
       
       // Redirigir después de un breve delay
       setTimeout(() => {
-        navigate(`/aula-virtual/tareas/${savedTask.id}`);
+        if (savedTask?.id) {
+          navigate(`/aula-virtual/tareas/${savedTask.id}`);
+        } else {
+          navigate('/aula-virtual/tareas');
+        }
       }, 1500);
       
     } catch (err) {

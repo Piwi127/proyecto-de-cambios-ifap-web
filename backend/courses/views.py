@@ -84,6 +84,9 @@ class CourseViewSet(OptimizedQueryMixin, viewsets.ModelViewSet):
         elif self.action in ['my_courses', 'taught_courses']:
             # Solo usuarios autenticados pueden ver sus cursos
             return [IsAuthenticated()]
+        elif self.action in ['students']:
+            # Solo docentes/admin pueden ver estudiantes del curso
+            return [IsAuthenticated(), IsInstructorOrAdmin()]
         elif self.action in ['activate', 'deactivate', 'transfer', 'admin_delete']:
             # Solo administradores pueden realizar estas acciones
             return [IsAuthenticated(), IsAdminUser()]
@@ -340,6 +343,29 @@ class CourseViewSet(OptimizedQueryMixin, viewsets.ModelViewSet):
 
         course.students.remove(user)
         return Response({'message': 'Te has dado de baja del curso'})
+
+    @action(detail=True, methods=['get'], permission_classes=[IsAuthenticated, IsInstructorOrAdmin])
+    def students(self, request, pk=None):
+        course = self.get_object()
+
+        if not self._validate_course_ownership(course, request.user):
+            return Response(
+                {'detail': 'No tienes permiso para ver estudiantes de este curso'},
+                status=status.HTTP_403_FORBIDDEN
+            )
+
+        students = course.students.all()
+        data = [
+            {
+                'id': student.id,
+                'username': student.username,
+                'first_name': student.first_name,
+                'last_name': student.last_name,
+                'email': student.email
+            }
+            for student in students
+        ]
+        return Response(data)
 
     @action(detail=False, methods=['get'], permission_classes=[IsAuthenticated])
     def my_courses(self, request):

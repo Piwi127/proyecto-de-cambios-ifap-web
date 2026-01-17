@@ -184,7 +184,7 @@ echo "Aplicando migraciones de la base de datos..."
 
 # Iniciar servidor Django en background
 echo "Iniciando servidor Django en puerto 8000..."
-PYTHONPATH=/home/jorge/pagina\ web\ nueva\ ifap\ dos/backend DJANGO_SETTINGS_MODULE=ifap_backend.settings setsid daphne -b 0.0.0.0 -p 8000 ifap_backend.asgi:application > ../logs/backend.log 2>&1 &
+setsid daphne -b 0.0.0.0 -p 8000 ifap_backend.asgi:application > ../logs/backend.log 2>&1 &
 BACKEND_PID=$!
 cd ..
 

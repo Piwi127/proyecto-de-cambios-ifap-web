@@ -35,6 +35,9 @@ class TaskViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         user = self.request.user
         queryset = Task.objects.select_related('course', 'category', 'instructor')
+
+        if user.is_superuser:
+            return queryset.order_by('-created_at')
         
         # Filtrar por curso si se especifica
         course_id = self.request.query_params.get('course', None)
@@ -54,7 +57,7 @@ class TaskViewSet(viewsets.ModelViewSet):
         # Los instructores ven todas las tareas de sus cursos
         if user.is_instructor:
             queryset = queryset.filter(
-                Q(instructor=user) | Q(course__instructors=user)
+                Q(instructor=user) | Q(course__instructor=user)
             ).distinct()
         else:
             # Los estudiantes solo ven tareas asignadas a ellos
@@ -70,6 +73,15 @@ class TaskViewSet(viewsets.ModelViewSet):
             return TaskCreateSerializer
         return TaskSerializer
 
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        task = serializer.instance
+        output = TaskSerializer(task, context=self.get_serializer_context()).data
+        return Response(output, status=status.HTTP_201_CREATED, headers=headers)
+
     def perform_create(self, serializer):
         serializer.save(instructor=self.request.user)
 
@@ -80,7 +92,7 @@ class TaskViewSet(viewsets.ModelViewSet):
         student_ids = request.data.get('student_ids', [])
         due_date_override = request.data.get('due_date_override', None)
         
-        if not request.user.is_instructor:
+        if not (request.user.is_instructor or request.user.is_superuser):
             return Response(
                 {'error': 'Solo los instructores pueden asignar tareas'},
                 status=status.HTTP_403_FORBIDDEN
@@ -146,11 +158,14 @@ class TaskAssignmentViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         user = self.request.user
         queryset = TaskAssignment.objects.select_related('task', 'student', 'task__course')
-        
+
+        if user.is_superuser:
+            return queryset.order_by('-assigned_date')
+
         if user.is_instructor:
             # Los instructores ven asignaciones de sus tareas
             queryset = queryset.filter(
-                Q(task__instructor=user) | Q(task__course__instructors=user)
+                Q(task__instructor=user) | Q(task__course__instructor=user)
             ).distinct()
         else:
             # Los estudiantes solo ven sus propias asignaciones
@@ -206,12 +221,15 @@ class TaskSubmissionViewSet(viewsets.ModelViewSet):
         queryset = TaskSubmission.objects.select_related(
             'assignment', 'assignment__task', 'assignment__student', 'graded_by'
         )
-        
+
+        if user.is_superuser:
+            return queryset.order_by('-submitted_at')
+
         if user.is_instructor:
             # Los instructores ven entregas de sus tareas
             queryset = queryset.filter(
                 Q(assignment__task__instructor=user) | 
-                Q(assignment__task__course__instructors=user)
+                Q(assignment__task__course__instructor=user)
             ).distinct()
         else:
             # Los estudiantes solo ven sus propias entregas
@@ -324,12 +342,15 @@ class TaskFileViewSet(viewsets.ReadOnlyModelViewSet):
     def get_queryset(self):
         user = self.request.user
         queryset = TaskFile.objects.select_related('submission', 'submission__assignment')
-        
+
+        if user.is_superuser:
+            return queryset.order_by('-uploaded_at')
+
         if user.is_instructor:
             # Los instructores ven archivos de entregas de sus tareas
             queryset = queryset.filter(
                 Q(submission__assignment__task__instructor=user) |
-                Q(submission__assignment__task__course__instructors=user)
+                Q(submission__assignment__task__course__instructor=user)
             ).distinct()
         else:
             # Los estudiantes solo ven sus propios archivos
@@ -344,12 +365,15 @@ class TaskCommentViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         user = self.request.user
         queryset = TaskComment.objects.select_related('submission', 'author')
-        
+
+        if user.is_superuser:
+            return queryset.order_by('created_at')
+
         if user.is_instructor:
             # Los instructores ven todos los comentarios de sus tareas
             queryset = queryset.filter(
                 Q(submission__assignment__task__instructor=user) |
-                Q(submission__assignment__task__course__instructors=user)
+                Q(submission__assignment__task__course__instructor=user)
             ).distinct()
         else:
             # Los estudiantes ven comentarios no privados y sus propios comentarios
