@@ -109,6 +109,38 @@ cd frontend
 npm run dev
 ```
 
+## Actualizaciones recientes (tareas y cursos)
+
+### Cambios en backend
+- **Respuesta consistente al crear tareas**: `POST /api/tasks/` ahora retorna el payload completo con `id` usando `TaskSerializer` en `TaskViewSet.create`.
+- **Router de tasks corregido**: el registro del viewset principal se movio al final para no capturar rutas como `/api/tasks/comments/`.
+- **Asignacion de estudiantes**: `assign_students` permite instructores y superusuarios; evita 403 inesperados.
+- **Filtros por curso**: se corrigio el uso del campo `course__instructor` (el modelo usa `Course.instructor`), y se agrego acceso total para superusuarios.
+- **Endpoint de estudiantes del curso**: se agrego `GET /api/courses/<id>/students/` y permisos adecuados en `CourseViewSet.get_permissions`.
+
+### Cambios en frontend
+- **Rutas de tareas**: se ajustaron endpoints para no duplicar `/api` (usa `baseURL` + `/tasks/...`).
+- **Creacion de tareas**: el formulario evita enviar `max_score: null`; ahora se omite el campo si esta vacio.
+- **Asignacion de estudiantes**: se evita llamar `/assign_students/` si no hay `id` y se maneja el error sin bloquear la creacion.
+
+### Scripts y configuracion
+- **start_servers.sh**: se elimino un `PYTHONPATH` hardcodeado que apuntaba a otro proyecto, asegurando que el backend se levante desde este repo.
+
+## Pruebas y verificacion ejecutadas
+
+Se validaron los endpoints clave con `APIClient` (Django), incluyendo:
+- `POST /api/tasks/` -> 201 con `id`
+- `POST /api/tasks/<id>/assign_students/` -> 200
+- `GET /api/tasks/<id>/` -> 200
+- `GET /api/tasks/<id>/assignments/` -> 200
+- `GET /api/tasks/comments/` -> 200
+- `GET /api/courses/<id>/students/` -> 200
+
+## Notas de uso (tareas)
+
+- Para crear y asignar tareas desde la UI, el usuario debe ser **instructor** o **admin**.
+- El endpoint de estudiantes del curso requiere autenticacion y permisos de instructor/admin.
+
 ## Variables de Entorno
 
 **Backend** (`backend/.env`)
