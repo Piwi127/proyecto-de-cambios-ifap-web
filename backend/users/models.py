@@ -50,6 +50,14 @@ class User(AbstractUser):
     def clean(self):
         """Validaciones personalizadas para el modelo User"""
         super().clean()
+
+        # Si es superusuario, limpiar otros roles para evitar combinaciones inconsistentes
+        if self.is_superuser:
+            self.is_student = False
+            self.is_instructor = False
+            if not self.is_staff:
+                self.is_staff = True
+            return
         
         # Validar que un usuario no tenga múltiples roles principales
         active_roles = sum([self.is_student, self.is_instructor, self.is_superuser])
@@ -78,6 +86,18 @@ class User(AbstractUser):
             return 'estudiante'
         else:
             return 'sin_rol'
+
+    @property
+    def role_code(self):
+        """Retorna el código de rol estable para integraciones"""
+        if self.is_superuser:
+            return 'admin'
+        elif self.is_instructor:
+            return 'instructor'
+        elif self.is_student:
+            return 'student'
+        else:
+            return 'none'
 
     @property
     def role_display(self):

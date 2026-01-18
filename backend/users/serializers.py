@@ -5,13 +5,15 @@ class UserSerializer(serializers.ModelSerializer):
     role_name = serializers.ReadOnlyField()
     role_display = serializers.ReadOnlyField()
     role = serializers.ReadOnlyField(source='role_name')
+    role_code = serializers.ReadOnlyField()
+    role_label = serializers.ReadOnlyField(source='role_display')
     
     class Meta:
         model = User
         fields = [
             'id', 'username', 'email', 'first_name', 'last_name',
             'is_student', 'is_instructor', 'is_staff', 'is_superuser', 'is_active',
-            'date_joined', 'role', 'role_name', 'role_display'
+            'date_joined', 'role', 'role_name', 'role_display', 'role_code', 'role_label'
         ]
         read_only_fields = ['id', 'date_joined', 'role_name', 'role_display']
 

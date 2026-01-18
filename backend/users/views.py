@@ -214,30 +214,39 @@ class UserViewSet(OptimizedQueryMixin, viewsets.ModelViewSet):
         """Actualiza el rol de un usuario (solo administradores)"""
         user_to_update = self.get_object()
         new_role = request.data.get('role')
-        
-        # Validar rol
-        valid_roles = ['student', 'instructor', 'admin']
-        if new_role not in valid_roles:
+
+        role_map = {
+            'student': 'student',
+            'estudiante': 'student',
+            'alumno': 'student',
+            'instructor': 'instructor',
+            'docente': 'instructor',
+            'admin': 'admin',
+            'administrador': 'admin',
+        }
+        normalized_role = role_map.get(new_role)
+
+        if normalized_role is None:
             return Response({
-                'error': f'Rol inválido. Roles válidos: {", ".join(valid_roles)}'
+                'error': 'Rol inválido. Roles válidos: student/instructor/admin'
             }, status=status.HTTP_400_BAD_REQUEST)
 
         # Prevenir que un administrador se quite sus propios permisos
         if (user_to_update.id == request.user.id and 
             request.user.is_superuser and 
-            new_role != 'admin'):
+            normalized_role != 'admin'):
             return Response({
                 'error': 'No puedes cambiar tu propio rol de administrador.'
             }, status=status.HTTP_400_BAD_REQUEST)
 
         try:
             # Usar el método set_role del modelo para cambio seguro
-            user_to_update.set_role(new_role)
+            user_to_update.set_role(normalized_role)
             user_to_update.save()
             
             audit_logger.info(
                 f"Role change: User {request.user.id} ({request.user.username}) "
-                f"changed role of user {user_to_update.id} ({user_to_update.username}) to {new_role}"
+                f"changed role of user {user_to_update.id} ({user_to_update.username}) to {normalized_role}"
             )
             
             serializer = self.get_serializer(user_to_update)

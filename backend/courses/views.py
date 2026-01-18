@@ -6,6 +6,7 @@ from django.shortcuts import get_object_or_404
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 from django.db.models import Avg, Count, Q
+from django.contrib.auth import get_user_model
 from django.db import transaction
 from django.utils import timezone
 from lessons.models import LessonCompletion
@@ -23,6 +24,7 @@ from users.permissions import IsAdminUser, IsInstructorOrAdmin, CanManageCourses
 import logging
 
 logger = logging.getLogger('courses')
+User = get_user_model()
 
 class CourseViewSet(OptimizedQueryMixin, viewsets.ModelViewSet):
     """
@@ -465,15 +467,25 @@ class CourseViewSet(OptimizedQueryMixin, viewsets.ModelViewSet):
             return Response({"detail": "No tiene permiso para ver las métricas de este curso."}, status=status.HTTP_403_FORBIDDEN)
 
         total_students = course.students.count()
-        completed_lessons = LessonCompletion.objects.filter(lesson__course=course, completed_by=request.user, is_completed=True).count()
         total_quizzes = Quiz.objects.filter(lesson__course=course).count()
-        completed_quizzes = QuizAttempt.objects.filter(quiz__lesson__course=course, user=request.user, is_completed=True).count()
+        total_lessons = course.lessons.count()
+        completed_lessons = LessonCompletion.objects.filter(lesson__course=course, is_completed=True).count()
+        completed_quizzes = QuizAttempt.objects.filter(quiz__lesson__course=course, is_passed=True).count()
+        average_score = QuizAttempt.objects.filter(
+            quiz__lesson__course=course
+        ).aggregate(avg=Avg('percentage'))['avg'] or 0
+        if total_students > 0 and total_lessons > 0:
+            average_progress = (completed_lessons / (total_students * total_lessons)) * 100
+        else:
+            average_progress = 0
 
         data = {
             "total_students": total_students,
             "completed_lessons": completed_lessons,
             "total_quizzes": total_quizzes,
             "completed_quizzes": completed_quizzes,
+            "average_progress": round(average_progress, 2),
+            "average_score": round(average_score, 2),
             "course_id": course.id,
             "course_title": course.title,
         }

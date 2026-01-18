@@ -4,7 +4,7 @@ import { useAuth } from '../../context/AuthContext.jsx';
 import './ArchivosTab.css';
 
 const ArchivosTab = ({ courseId }) => {
-  const { user } = useAuth();
+  const { user, hasRole } = useAuth();
   const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,7 +13,7 @@ const ArchivosTab = ({ courseId }) => {
   const [filter, setFilter] = useState('all'); // all, course, task, submission
   const [searchTerm, setSearchTerm] = useState('');
 
-  const isInstructor = user?.role === 'instructor' || user?.role === 'admin';
+  const isInstructor = hasRole('instructor') || hasRole('admin');
 
   const fetchFiles = useCallback(async () => {
     try {

@@ -4,7 +4,7 @@ import { useAuth } from '../../context/AuthContext.jsx';
 import './TareasTab.css';
 
 const TareasTab = ({ courseId }) => {
-  const { user } = useAuth();
+  const { hasRole } = useAuth();
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -14,7 +14,7 @@ const TareasTab = ({ courseId }) => {
   const [submissionText, setSubmissionText] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
-  const isInstructor = user?.role === 'instructor' || user?.role === 'admin';
+  const isInstructor = hasRole('instructor') || hasRole('admin');
 
   const fetchTasks = useCallback(async () => {
     try {

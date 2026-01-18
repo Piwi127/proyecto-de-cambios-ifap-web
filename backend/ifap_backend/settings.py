@@ -88,6 +88,7 @@ INSTALLED_APPS = [
     'tasks',
     'library',
     'contact',
+    'reminders',
 ]
 
 MIDDLEWARE = [

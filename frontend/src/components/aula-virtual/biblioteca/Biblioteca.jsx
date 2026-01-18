@@ -41,7 +41,7 @@ import { useAuth } from '../../../context/AuthContext';
 import { bibliotecaAPI } from '../../../services/bibliotecaService';
 
 const Biblioteca = () => {
-  const { user } = useAuth();
+  const { hasRole } = useAuth();
   const [archivos, setArchivos] = useState([]);
   const [categorias, setCategorias] = useState([]);
   const [favoritos, setFavoritos] = useState([]);
@@ -368,7 +368,7 @@ const Biblioteca = () => {
       )}
 
       {/* Botón flotante para subir archivos */}
-      {(user?.role === 'teacher' || user?.role === 'admin') && (
+      {(hasRole('instructor') || hasRole('admin')) && (
         <Fab
           color="primary"
           aria-label="subir archivo"
