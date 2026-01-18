@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
 import { quizService } from '../services/quizService.js';
@@ -30,20 +30,7 @@ const QuizEdit = () => {
     show_results_immediately: false
   });
 
-  useEffect(() => {
-    fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [quizId]); // fetchData es estable
-
-  useEffect(() => {
-    if (formData.course) {
-      fetchLessons();
-    } else {
-      setLessons([]);
-    }
-  }, [formData.course]);
-
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       setLoading(true);
       const [quizData, coursesData] = await Promise.all([
@@ -74,17 +61,29 @@ const QuizEdit = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [navigate, quizId]);
 
-  const fetchLessons = async () => {
+  const fetchLessons = useCallback(async (courseId) => {
     try {
-      const lessonsData = await lessonService.getAllLessons(formData.course);
+      const lessonsData = await lessonService.getAllLessons(courseId);
       const list = Array.isArray(lessonsData?.results) ? lessonsData.results : lessonsData;
       setLessons(Array.isArray(list) ? list : []);
     } catch (error) {
       console.error('Error fetching lessons:', error);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  useEffect(() => {
+    if (formData.course) {
+      fetchLessons(formData.course);
+    } else {
+      setLessons([]);
+    }
+  }, [fetchLessons, formData.course]);
 
   const validateForm = () => {
     const newErrors = {};

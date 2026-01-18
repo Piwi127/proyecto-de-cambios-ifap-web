@@ -59,8 +59,7 @@ const PerfilEstudiante = () => {
       };
 
       // Actualizar perfil usando el contexto de autenticación
-      // eslint-disable-next-line no-unused-vars
-      const _updatedUser = await _updateProfile(updateData);
+      await _updateProfile(updateData);
 
       setSuccessMessage('Perfil actualizado exitosamente');
       setIsEditing(false);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   BookOpen,
@@ -17,12 +17,10 @@ import {
   Download,
   Upload
 } from 'lucide-react';
-import { useAuth } from '../context/AuthContext';
 import Card from '../components/Card';
 
 const AdminCourses = () => {
   const navigate = useNavigate();
-  const { user } = useAuth();
   const [courses, setCourses] = useState([]);
   const [filteredCourses, setFilteredCourses] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -30,7 +28,6 @@ const AdminCourses = () => {
   const [statusFilter, setStatusFilter] = useState('all');
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [selectedCourses, setSelectedCourses] = useState([]);
-  const [showBulkActions, setShowBulkActions] = useState(false);
 
   useEffect(() => {
     loadCourses();
@@ -38,7 +35,7 @@ const AdminCourses = () => {
 
   useEffect(() => {
     filterCourses();
-  }, [courses, searchTerm, statusFilter, categoryFilter]);
+  }, [filterCourses]);
 
   const loadCourses = async () => {
     try {
@@ -110,7 +107,7 @@ const AdminCourses = () => {
     }
   };
 
-  const filterCourses = () => {
+  const filterCourses = useCallback(() => {
     let filtered = courses.filter(course => {
       const matchesSearch = course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            course.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -123,7 +120,7 @@ const AdminCourses = () => {
     });
 
     setFilteredCourses(filtered);
-  };
+  }, [categoryFilter, courses, searchTerm, statusFilter]);
 
   const categories = [
     { value: 'all', label: 'Todas las categorías' },
@@ -217,7 +214,7 @@ const AdminCourses = () => {
     }
 
     // TODO: Implementar eliminación
-    alert('Curso eliminado exitosamente');
+    alert(`Curso ${courseId} eliminado exitosamente`);
     loadCourses();
   };
 

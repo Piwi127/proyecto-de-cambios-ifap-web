@@ -1,5 +1,96 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import PermissionCheck from '../PermissionCheck.jsx';
+
+// Course states configuration
+const courseStates = {
+  draft: {
+    label: 'Borrador',
+    description: 'Curso en preparación, no visible para estudiantes',
+    color: 'gray',
+    icon: '📝',
+    allowedTransitions: ['review', 'published']
+  },
+  review: {
+    label: 'En Revisión',
+    description: 'Curso pendiente de aprobación',
+    color: 'yellow',
+    icon: '👀',
+    allowedTransitions: ['draft', 'published', 'rejected']
+  },
+  published: {
+    label: 'Publicado',
+    description: 'Curso visible pero no disponible para inscripción',
+    color: 'blue',
+    icon: '📋',
+    allowedTransitions: ['active', 'draft', 'archived']
+  },
+  active: {
+    label: 'Activo',
+    description: 'Curso disponible para inscripción y estudio',
+    color: 'green',
+    icon: '✅',
+    allowedTransitions: ['completed', 'inactive', 'published']
+  },
+  inactive: {
+    label: 'Inactivo',
+    description: 'Curso temporalmente no disponible',
+    color: 'orange',
+    icon: '⏸️',
+    allowedTransitions: ['active', 'archived']
+  },
+  completed: {
+    label: 'Completado',
+    description: 'Curso terminado, estudiantes pueden ver contenido',
+    color: 'purple',
+    icon: '🏁',
+    allowedTransitions: ['active', 'archived']
+  },
+  archived: {
+    label: 'Archivado',
+    description: 'Curso archivado, no visible para nuevos estudiantes',
+    color: 'gray',
+    icon: '📦',
+    allowedTransitions: ['published']
+  },
+  rejected: {
+    label: 'Rechazado',
+    description: 'Curso rechazado, requiere modificaciones',
+    color: 'red',
+    icon: '❌',
+    allowedTransitions: ['draft', 'review']
+  }
+};
+
+// Auto-transition rules based on dates
+const autoTransitionRules = {
+  published_to_active: {
+    condition: (course) => {
+      const now = new Date();
+      const startDate = new Date(course.start_date);
+      return course.status === 'published' && startDate <= now;
+    },
+    newState: 'active',
+    description: 'Transición automática cuando llega la fecha de inicio'
+  },
+  active_to_completed: {
+    condition: (course) => {
+      const now = new Date();
+      const endDate = new Date(course.end_date);
+      return course.status === 'active' && endDate <= now;
+    },
+    newState: 'completed',
+    description: 'Transición automática cuando llega la fecha de fin'
+  },
+  active_to_inactive: {
+    condition: (course) => {
+      const now = new Date();
+      const enrollmentEndDate = new Date(course.enrollment_end_date);
+      return course.status === 'active' && enrollmentEndDate <= now && course.enrolled_students < course.max_students * 0.5;
+    },
+    newState: 'inactive',
+    description: 'Transición automática por baja inscripción'
+  }
+};
 
 const AdminCourseStateManager = ({
   course,
@@ -20,113 +111,14 @@ const AdminCourseStateManager = ({
     requireReason: true
   });
 
-  // Course states configuration
-  const courseStates = {
-    draft: {
-      label: 'Borrador',
-      description: 'Curso en preparación, no visible para estudiantes',
-      color: 'gray',
-      icon: '📝',
-      allowedTransitions: ['review', 'published']
-    },
-    review: {
-      label: 'En Revisión',
-      description: 'Curso pendiente de aprobación',
-      color: 'yellow',
-      icon: '👀',
-      allowedTransitions: ['draft', 'published', 'rejected']
-    },
-    published: {
-      label: 'Publicado',
-      description: 'Curso visible pero no disponible para inscripción',
-      color: 'blue',
-      icon: '📋',
-      allowedTransitions: ['active', 'draft', 'archived']
-    },
-    active: {
-      label: 'Activo',
-      description: 'Curso disponible para inscripción y estudio',
-      color: 'green',
-      icon: '✅',
-      allowedTransitions: ['completed', 'inactive', 'published']
-    },
-    inactive: {
-      label: 'Inactivo',
-      description: 'Curso temporalmente no disponible',
-      color: 'orange',
-      icon: '⏸️',
-      allowedTransitions: ['active', 'archived']
-    },
-    completed: {
-      label: 'Completado',
-      description: 'Curso terminado, estudiantes pueden ver contenido',
-      color: 'purple',
-      icon: '🏁',
-      allowedTransitions: ['active', 'archived']
-    },
-    archived: {
-      label: 'Archivado',
-      description: 'Curso archivado, no visible para nuevos estudiantes',
-      color: 'gray',
-      icon: '📦',
-      allowedTransitions: ['published']
-    },
-    rejected: {
-      label: 'Rechazado',
-      description: 'Curso rechazado, requiere modificaciones',
-      color: 'red',
-      icon: '❌',
-      allowedTransitions: ['draft', 'review']
-    }
-  };
-
-  // Auto-transition rules based on dates
-  const autoTransitionRules = {
-    published_to_active: {
-      condition: (course) => {
-        const now = new Date();
-        const startDate = new Date(course.start_date);
-        return course.status === 'published' && startDate <= now;
-      },
-      newState: 'active',
-      description: 'Transición automática cuando llega la fecha de inicio'
-    },
-    active_to_completed: {
-      condition: (course) => {
-        const now = new Date();
-        const endDate = new Date(course.end_date);
-        return course.status === 'active' && endDate <= now;
-      },
-      newState: 'completed',
-      description: 'Transición automática cuando llega la fecha de fin'
-    },
-    active_to_inactive: {
-      condition: (course) => {
-        const now = new Date();
-        const enrollmentEndDate = new Date(course.enrollment_end_date);
-        return course.status === 'active' && enrollmentEndDate <= now && course.enrolled_students < course.max_students * 0.5;
-      },
-      newState: 'inactive',
-      description: 'Transición automática por baja inscripción'
-    }
-  };
-
-  useEffect(() => {
-    if (course) {
-      setCurrentState(course.status || 'draft');
-      calculateAvailableTransitions();
-      checkAutoTransitions();
-    }
-  }, [course]);
-
-  const calculateAvailableTransitions = () => {
+  const calculateAvailableTransitions = useCallback(() => {
     const currentStateConfig = courseStates[currentState];
     if (currentStateConfig) {
       setAvailableTransitions(currentStateConfig.allowedTransitions || []);
     }
-  };
+  }, [currentState]);
 
-  const checkAutoTransitions = () => {
+  const checkAutoTransitions = useCallback(() => {
     if (!course || !statePolicies.autoTransition) return;
 
     const applicableRules = Object.values(autoTransitionRules).filter(rule =>
@@ -137,7 +129,15 @@ const AdminCourseStateManager = ({
       // Show notification about available auto-transitions
       console.log('Auto-transitions disponibles:', applicableRules);
     }
-  };
+  }, [course, statePolicies.autoTransition]);
+
+  useEffect(() => {
+    if (course) {
+      setCurrentState(course.status || 'draft');
+      calculateAvailableTransitions();
+      checkAutoTransitions();
+    }
+  }, [calculateAvailableTransitions, checkAutoTransitions, course]);
 
   const handleStateTransition = (newState) => {
     if (!availableTransitions.includes(newState)) {

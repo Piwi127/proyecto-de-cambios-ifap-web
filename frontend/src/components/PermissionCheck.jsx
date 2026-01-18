@@ -47,9 +47,9 @@ const PermissionCheck = ({
 };
 
 /**
- * PermissionCheck.All - Verifica múltiples permisos (requiere todos)
+ * PermissionCheckAll - Verifica múltiples permisos (requiere todos)
  */
-PermissionCheck.All = ({ permissions, children, fallback = null, showError = true }) => {
+const PermissionCheckAll = ({ permissions, children, fallback = null, showError = true }) => {
   const { hasPermission } = useAuth();
 
   const hasAllPermissions = permissions.every(permission => hasPermission(permission));
@@ -83,9 +83,9 @@ PermissionCheck.All = ({ permissions, children, fallback = null, showError = tru
 };
 
 /**
- * PermissionCheck.Any - Verifica múltiples permisos (requiere al menos uno)
+ * PermissionCheckAny - Verifica múltiples permisos (requiere al menos uno)
  */
-PermissionCheck.Any = ({ permissions, children, fallback = null, showError = true }) => {
+const PermissionCheckAny = ({ permissions, children, fallback = null, showError = true }) => {
   const { hasPermission } = useAuth();
 
   const hasAnyPermission = permissions.some(permission => hasPermission(permission));
@@ -117,5 +117,8 @@ PermissionCheck.Any = ({ permissions, children, fallback = null, showError = tru
 
   return <>{children}</>;
 };
+
+PermissionCheck.All = PermissionCheckAll;
+PermissionCheck.Any = PermissionCheckAny;
 
 export default PermissionCheck;

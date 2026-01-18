@@ -19,7 +19,7 @@ const RoleGuard = ({
   requireAll = false,
   showError = true
 }) => {
-  const { user, hasRole, hasAnyRole, hasAllRoles, hasPermission } = useAuth();
+  const { user, hasAnyRole, hasAllRoles, hasPermission } = useAuth();
 
   // Si no hay usuario autenticado, no mostrar nada
   if (!user) {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   BarChart3,
@@ -18,24 +18,17 @@ import {
   Clock,
   Target
 } from 'lucide-react';
-import { useAuth } from '../context/AuthContext.jsx';
 import Card from '../components/Card';
 import reportsService from '../services/reportsService';
 
 const AdminReports = () => {
   const navigate = useNavigate();
-  const { user } = useAuth();
   const [timeRange, setTimeRange] = useState('30d');
   const [loading, setLoading] = useState(true);
   const [stats, setStats] = useState({});
   const [chartData, setChartData] = useState({});
-  const [selectedReport, setSelectedReport] = useState(null);
 
-  useEffect(() => {
-    loadDashboardData();
-  }, [timeRange]);
-
-  const loadDashboardData = async () => {
+  const loadDashboardData = useCallback(async () => {
     try {
       setLoading(true);
       
@@ -112,7 +105,11 @@ const AdminReports = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [timeRange]);
+
+  useEffect(() => {
+    loadDashboardData();
+  }, [loadDashboardData]);
 
   const handleExportReport = (reportType) => {
     // TODO: Implementar exportación de reportes
@@ -161,7 +158,7 @@ const AdminReports = () => {
             )}
           </div>
           <div className={`p-3 rounded-lg ${colorClasses[color]}`}>
-            <Icon className="w-6 h-6 text-white" />
+            {React.createElement(Icon, { className: 'w-6 h-6 text-white' })}
           </div>
         </div>
       </Card>

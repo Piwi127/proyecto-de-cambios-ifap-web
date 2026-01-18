@@ -11,7 +11,6 @@ const BulkOperations = ({
   const [operation, setOperation] = useState('');
   const [reason, setReason] = useState('');
   const [loading, setLoading] = useState(false);
-  const [previewMode, setPreviewMode] = useState(false);
   const [operationResults, setOperationResults] = useState(null);
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
 
@@ -24,7 +23,6 @@ const BulkOperations = ({
     if (!onClose) {
       setOperation('');
       setReason('');
-      setPreviewMode(false);
       setOperationResults(null);
       setShowConfirmDialog(false);
     }

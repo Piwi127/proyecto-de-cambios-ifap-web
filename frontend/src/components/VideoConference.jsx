@@ -29,9 +29,7 @@ const VideoConference = ({ roomName = 'AulaVirtualIFAP', userName }) => {
         userInfo={{
           displayName: userName || 'Usuario'
         }}
-        onApiReady={(externalApi) => {
-          // Aquí puedes agregar lógica personalizada si es necesario
-        }}
+        onApiReady={() => {}}
         getIFrameRef={(node) => { node.style.height = '100%'; node.style.width = '100%'; }}
       />
     </div>

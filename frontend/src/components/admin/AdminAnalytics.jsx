@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   TrendingUp,
   TrendingDown,
@@ -35,39 +35,7 @@ const AdminAnalytics = () => {
   const [cohortData, setCohortData] = useState(null);
   const [trendData, setTrendData] = useState(null);
 
-  useEffect(() => {
-    loadAnalytics();
-  }, [timeRange, selectedMetric]);
-
-  const loadAnalytics = async () => {
-    try {
-      setLoading(true);
-      const [
-        trendAnalysis,
-        cohortAnalysis,
-        predictions
-      ] = await Promise.all([
-        reportsService.getTrendAnalysis(timeRange, selectedMetric),
-        reportsService.getCohortAnalysis('monthly', '12m'),
-        showPredictions ? reportsService.getPredictions(selectedMetric, timeRange) : Promise.resolve(null)
-      ]);
-
-      setTrendData(trendAnalysis);
-      setCohortData(cohortAnalysis);
-      setAnalytics({
-        trends: trendAnalysis,
-        cohorts: cohortAnalysis,
-        predictions: predictions,
-        insights: generateInsights(trendAnalysis, cohortAnalysis, predictions)
-      });
-    } catch (error) {
-      console.error('Error loading analytics:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const generateInsights = (trends, cohorts, predictions) => {
+  const generateInsights = useCallback((trends, cohorts, predictions) => {
     const insights = [];
 
     // Análisis de tendencias
@@ -122,7 +90,39 @@ const AdminAnalytics = () => {
     }
 
     return insights;
-  };
+  }, [selectedMetric]);
+
+  const loadAnalytics = useCallback(async () => {
+    try {
+      setLoading(true);
+      const [
+        trendAnalysis,
+        cohortAnalysis,
+        predictions
+      ] = await Promise.all([
+        reportsService.getTrendAnalysis(timeRange, selectedMetric),
+        reportsService.getCohortAnalysis('monthly', '12m'),
+        showPredictions ? reportsService.getPredictions(selectedMetric, timeRange) : Promise.resolve(null)
+      ]);
+
+      setTrendData(trendAnalysis);
+      setCohortData(cohortAnalysis);
+      setAnalytics({
+        trends: trendAnalysis,
+        cohorts: cohortAnalysis,
+        predictions: predictions,
+        insights: generateInsights(trendAnalysis, cohortAnalysis, predictions)
+      });
+    } catch (error) {
+      console.error('Error loading analytics:', error);
+    } finally {
+      setLoading(false);
+    }
+  }, [generateInsights, selectedMetric, showPredictions, timeRange]);
+
+  useEffect(() => {
+    loadAnalytics();
+  }, [loadAnalytics]);
 
   const formatNumber = (num) => {
     return new Intl.NumberFormat('es-ES').format(num);

@@ -7,16 +7,12 @@ import NavbarActions from './NavbarActions';
 const Navbar = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [notifications] = useState(3);
-  const [newCourses] = useState(2);
-  const [clickedItem, setClickedItem] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const saved = localStorage.getItem('theme');
     return saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme:dark)').matches);
   });
   const [searchQuery, setSearchQuery] = useState('');
   const navbarRef = useRef(null);
-  const userMenuRef = useRef(null);
   const location = useLocation();
 
   const navItems = [
@@ -82,21 +78,10 @@ const Navbar = () => {
     }
   }, [isDarkMode]);
 
-  // Función para manejar el clic en el botón de búsqueda
-  const handleSearchClick = () => {
-    if (searchQuery.trim() !== '') {
-      handleSearch();
-    }
-  };
-
   // Función para manejar la búsqueda
   const handleSearch = () => {
     console.log('Buscando:', searchQuery);
     // Aquí iría la lógica de búsqueda real
-  };
-
-  const handleItemClick = (path) => {
-    setClickedItem(path);
   };
 
   const toggleTheme = () => {
@@ -128,8 +113,7 @@ const Navbar = () => {
           <NavbarDesktopNav
             navItems={navItems}
             isActive={isActive}
-            handleItemClick={handleItemClick}
-            isDarkMode={isDarkMode}
+            handleItemClick={() => {}}
           />
 
           <NavbarActions
@@ -204,12 +188,11 @@ const Navbar = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 via-transparent to-secondary-500/5"></div>
             <div className="relative p-6 pt-20">
               <div className="space-y-4">
-                {navItems.map((item, index) => (
+                {navItems.map((item) => (
                   <div key={item.path}>
                     <Link
                       to={item.path}
                       onClick={() => {
-                        handleItemClick(item.path);
                         setIsMobileMenuOpen(false);
                       }}
                       className={`flex items-center space-x-4 w-full p-4 rounded-xl font-semibold transition-all duration-300
@@ -225,12 +208,11 @@ const Navbar = () => {
                     {/* Mobile submenu */}
                     {item.submenu && (
                       <div className="ml-8 mt-2 space-y-2 border-l border-gray-200 dark:border-gray-700 pl-4">
-                        {item.submenu.map((subItem, subIndex) => (
+                        {item.submenu.map((subItem) => (
                           <Link
                             key={subItem.path}
                             to={subItem.path}
                             onClick={() => {
-                              handleItemClick(subItem.path);
                               setIsMobileMenuOpen(false);
                             }}
                             className={`flex items-center space-x-3 w-full p-3 rounded-xl transition-all duration-300

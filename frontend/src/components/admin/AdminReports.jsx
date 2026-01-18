@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   BarChart3,
   PieChart,
@@ -37,11 +37,7 @@ const AdminReports = () => {
   const [dateRange, setDateRange] = useState('30d');
   const [refreshing, setRefreshing] = useState(false);
 
-  useEffect(() => {
-    loadReportData();
-  }, [dateRange]);
-
-  const loadReportData = async () => {
+  const loadReportData = useCallback(async () => {
     try {
       setLoading(true);
       const data = await reportsService.getOverviewReports(dateRange);
@@ -51,7 +47,11 @@ const AdminReports = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [dateRange]);
+
+  useEffect(() => {
+    loadReportData();
+  }, [loadReportData]);
 
   const handleRefresh = async () => {
     setRefreshing(true);

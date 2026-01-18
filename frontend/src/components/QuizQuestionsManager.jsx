@@ -1,32 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import { useAuth } from '../context/AuthContext.jsx';
+import React, { useCallback, useEffect, useState } from 'react';
 import { quizService } from '../services/quizService.js';
 import Card from '../components/Card';
 
 const QuizQuestionsManager = ({ quizId, onClose }) => {
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [showAddForm, setShowAddForm] = useState(false);
   const [editingQuestion, setEditingQuestion] = useState(null);
-  const { user } = useAuth();
 
-  useEffect(() => {
-    fetchQuestions();
-  }, [quizId]);
-
-  const fetchQuestions = async () => {
+  const fetchQuestions = useCallback(async () => {
     try {
       setLoading(true);
       const questionsData = await quizService.getQuizQuestions(quizId);
       setQuestions(questionsData);
     } catch (err) {
       console.error('Error fetching questions:', err);
-      setError('Error al cargar las preguntas');
     } finally {
       setLoading(false);
     }
-  };
+  }, [quizId]);
+
+  useEffect(() => {
+    fetchQuestions();
+  }, [fetchQuestions]);
 
   const handleAddQuestion = () => {
     setShowAddForm(true);

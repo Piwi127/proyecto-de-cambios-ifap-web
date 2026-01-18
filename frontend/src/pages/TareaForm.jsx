@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
 import {
@@ -43,30 +43,13 @@ const TareaForm = () => {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
 
-  useEffect(() => {
-    loadInitialData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [taskId]); // loadInitialData es estable
-
-  useEffect(() => {
-    if (formData.course) {
-      setSelectedStudents([]);
-      loadCourseData(formData.course);
-    } else {
-      setLessons([]);
-      setAvailableStudents([]);
-      setSelectedStudents([]);
-      setFormData(prev => ({ ...prev, lesson: '' }));
-    }
-  }, [formData.course]);
-
   const normalizeList = (data) => {
     if (Array.isArray(data)) return data;
     if (Array.isArray(data?.results)) return data.results;
     return [];
   };
 
-  const loadInitialData = async () => {
+  const loadInitialData = useCallback(async () => {
     try {
       setLoading(true);
       
@@ -105,9 +88,9 @@ const TareaForm = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [isEditing, taskId, user]);
 
-  const loadCourseData = async (courseId) => {
+  const loadCourseData = useCallback(async (courseId) => {
     try {
       setLoadingCourseData(true);
       const [lessonsData, studentsData] = await Promise.all([
@@ -123,7 +106,23 @@ const TareaForm = () => {
     } finally {
       setLoadingCourseData(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    loadInitialData();
+  }, [loadInitialData]);
+
+  useEffect(() => {
+    if (formData.course) {
+      setSelectedStudents([]);
+      loadCourseData(formData.course);
+    } else {
+      setLessons([]);
+      setAvailableStudents([]);
+      setSelectedStudents([]);
+      setFormData(prev => ({ ...prev, lesson: '' }));
+    }
+  }, [formData.course, loadCourseData]);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { courseService } from '../../services/courseService.js';
 import { validateCourseForm, sanitizeCourseData, validateAdminPermissions } from '../../utils/validation.js';
 import { useAuth } from '../../context/AuthContext.jsx';
@@ -33,26 +33,7 @@ const AdminCourseEdit = ({ course, isOpen, onClose, onSuccess }) => {
   const [hasChanges, setHasChanges] = useState(false);
 
   // Validar permisos de administrador
-  useEffect(() => {
-    if (isOpen && user) {
-      const { hasPermission, error } = validateAdminPermissions(user, ['update_courses']);
-      if (!hasPermission) {
-        alert(error);
-        onClose();
-        return;
-      }
-      loadInstructors();
-    }
-  }, [isOpen, user, onClose]);
-
-  // Cargar datos del curso cuando se abra el modal
-  useEffect(() => {
-    if (isOpen && course) {
-      loadCourseData();
-    }
-  }, [isOpen, course]);
-
-  const loadInstructors = async () => {
+  const loadInstructors = useCallback(async () => {
     try {
       // Simular carga de instructores - en un caso real vendría de una API
       const mockInstructors = [
@@ -64,9 +45,9 @@ const AdminCourseEdit = ({ course, isOpen, onClose, onSuccess }) => {
     } catch (error) {
       console.error('Error loading instructors:', error);
     }
-  };
+  }, []);
 
-  const loadCourseData = () => {
+  const loadCourseData = useCallback(() => {
     if (!course) return;
 
     const courseData = {
@@ -88,7 +69,25 @@ const AdminCourseEdit = ({ course, isOpen, onClose, onSuccess }) => {
     setFormData(courseData);
     setOriginalData(courseData);
     setHasChanges(false);
-  };
+  }, [course]);
+
+  useEffect(() => {
+    if (isOpen && user) {
+      const { hasPermission, error } = validateAdminPermissions(user, ['update_courses']);
+      if (!hasPermission) {
+        alert(error);
+        onClose();
+        return;
+      }
+      loadInstructors();
+    }
+  }, [isOpen, loadInstructors, onClose, user]);
+
+  useEffect(() => {
+    if (isOpen && course) {
+      loadCourseData();
+    }
+  }, [course, isOpen, loadCourseData]);
 
   const handleInputChange = (field, value) => {
     setFormData(prev => ({
@@ -106,7 +105,7 @@ const AdminCourseEdit = ({ course, isOpen, onClose, onSuccess }) => {
         : String(currentValue || '') !== String(originalValue || '');
 
     if (!hasFieldChanged) {
-      setHasChanges(prev => {
+      setHasChanges(() => {
         const newHasChanges = Object.keys(formData).some(key =>
           key === field ? false :
           (key === 'is_active'

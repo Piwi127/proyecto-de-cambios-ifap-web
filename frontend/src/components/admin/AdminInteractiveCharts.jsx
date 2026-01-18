@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const AdminInteractiveCharts = ({
   data,
@@ -44,11 +44,11 @@ const AdminInteractiveCharts = ({
   const getChartDimensions = () => {
     const padding = 60;
     const width = 600;
-    const height = 300;
+    const svgHeight = height;
     const chartWidth = width - padding * 2;
-    const chartHeight = height - padding * 2;
+    const chartHeight = svgHeight - padding * 2;
 
-    return { width, height, chartWidth, chartHeight, padding };
+    return { width, height: svgHeight, chartWidth, chartHeight, padding };
   };
 
   const getScales = () => {

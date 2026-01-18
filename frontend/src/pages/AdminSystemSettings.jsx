@@ -19,12 +19,10 @@ import {
   Eye,
   EyeOff
 } from 'lucide-react';
-import { useAuth } from '../context/AuthContext';
 import Card from '../components/Card';
 
 const AdminSystemSettings = () => {
   const navigate = useNavigate();
-  const { user } = useAuth();
   const [activeTab, setActiveTab] = useState('general');
   const [settings, setSettings] = useState({});
   const [loading, setLoading] = useState(true);
@@ -139,7 +137,7 @@ const AdminSystemSettings = () => {
           const importedSettings = JSON.parse(e.target.result);
           setSettings(importedSettings);
           alert('Configuraciones importadas exitosamente');
-        } catch (error) {
+        } catch {
           alert('Error al importar el archivo. Verifica que sea un archivo JSON válido.');
         }
       };

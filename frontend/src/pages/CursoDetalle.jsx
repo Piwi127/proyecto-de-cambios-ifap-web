@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { courseService } from '../services/courseService.js';
 import { lessonService } from '../services/lessonService.js';
 import { quizService } from '../services/quizService.js';
-import { useAuth } from '../context/AuthContext.jsx';
 import Card from '../components/Card';
 import './CursoDetalle.css';
 
 const CursoDetalle = () => {
   const { courseId } = useParams();
   const navigate = useNavigate();
-  const { user } = useAuth();
   
   // Estados principales
   const [course, setCourse] = useState(null);
@@ -28,13 +26,7 @@ const CursoDetalle = () => {
     return [];
   };
 
-  useEffect(() => {
-    if (courseId) {
-      fetchCourseData();
-    }
-  }, [courseId]);
-
-  const fetchCourseData = async () => {
+  const fetchCourseData = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -57,7 +49,13 @@ const CursoDetalle = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [courseId]);
+
+  useEffect(() => {
+    if (courseId) {
+      fetchCourseData();
+    }
+  }, [courseId, fetchCourseData]);
 
   const handleLessonComplete = async (lessonId) => {
     try {

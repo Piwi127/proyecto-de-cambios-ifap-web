@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext.jsx';
 import {
   getAssignmentById,
   getAssignmentSubmissions,
@@ -14,7 +13,6 @@ import {
 const AsignacionDetalle = () => {
   const { assignmentId } = useParams();
   const navigate = useNavigate();
-  const { user } = useAuth();
   const [assignment, setAssignment] = useState(null);
   const [submissions, setSubmissions] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -29,11 +27,7 @@ const AsignacionDetalle = () => {
   });
   const [uploadingFiles, setUploadingFiles] = useState(false);
 
-  useEffect(() => {
-    loadAssignmentData();
-  }, [assignmentId]);
-
-  const loadAssignmentData = async () => {
+  const loadAssignmentData = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -51,23 +45,21 @@ const AsignacionDetalle = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [assignmentId]);
+
+  useEffect(() => {
+    loadAssignmentData();
+  }, [loadAssignmentData]);
 
   const handleFileUpload = async (files) => {
     if (!files || files.length === 0) return;
 
     try {
       setUploadingFiles(true);
-      const uploadedFiles = [];
-
-      for (const file of files) {
-        const uploadedFile = await uploadTaskFile(assignment.task.id, file);
-        uploadedFiles.push(uploadedFile);
-      }
 
       setNewSubmission(prev => ({
         ...prev,
-        files: [...prev.files, ...uploadedFiles]
+        files: [...prev.files, ...Array.from(files)]
       }));
     } catch (err) {
       console.error('Error uploading files:', err);
@@ -77,12 +69,11 @@ const AsignacionDetalle = () => {
     }
   };
 
-  const handleRemoveFile = async (fileId) => {
+  const handleRemoveFile = async (fileIndex) => {
     try {
-      await deleteTaskFile(fileId);
       setNewSubmission(prev => ({
         ...prev,
-        files: prev.files.filter(file => file.id !== fileId)
+        files: prev.files.filter((_, index) => index !== fileIndex)
       }));
     } catch (err) {
       console.error('Error removing file:', err);
@@ -104,11 +95,10 @@ const AsignacionDetalle = () => {
 
       const submissionData = {
         assignment: assignmentId,
-        content: newSubmission.content.trim(),
-        files: newSubmission.files.map(file => file.id)
+        content: newSubmission.content.trim()
       };
 
-      const submission = await createSubmission(submissionData);
+      await createSubmission(submissionData, newSubmission.files);
       
       // Recargar datos
       await loadAssignmentData();
@@ -125,20 +115,6 @@ const AsignacionDetalle = () => {
       setError('Error al enviar la entrega');
     } finally {
       setSubmitting(false);
-    }
-  };
-
-  const handleDeleteSubmission = async (submissionId) => {
-    if (!window.confirm('¿Estás seguro de que quieres eliminar esta entrega?')) {
-      return;
-    }
-
-    try {
-      await deleteSubmission(submissionId);
-      await loadAssignmentData();
-    } catch (err) {
-      console.error('Error deleting submission:', err);
-      setError('Error al eliminar la entrega');
     }
   };
 
@@ -425,12 +401,12 @@ const AsignacionDetalle = () => {
                 {newSubmission.files.length > 0 && (
                   <div className="mt-4 space-y-2">
                     <h4 className="font-medium text-gray-700">Archivos seleccionados:</h4>
-                    {newSubmission.files.map(file => (
-                      <div key={file.id} className="flex items-center justify-between bg-gray-50 p-3 rounded">
-                        <span className="text-sm text-gray-700">{file.original_name}</span>
+                    {newSubmission.files.map((file, index) => (
+                      <div key={`${file.name}-${index}`} className="flex items-center justify-between bg-gray-50 p-3 rounded">
+                        <span className="text-sm text-gray-700">{file.name}</span>
                         <button
                           type="button"
-                          onClick={() => handleRemoveFile(file.id)}
+                          onClick={() => handleRemoveFile(index)}
                           className="text-red-500 hover:text-red-600"
                         >
                           Eliminar

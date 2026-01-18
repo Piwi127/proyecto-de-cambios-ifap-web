@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   Activity,
   Users,
@@ -27,7 +27,7 @@ const AdminRealTimeMetrics = () => {
   const [lastUpdate, setLastUpdate] = useState(null);
   const [showDetails, setShowDetails] = useState(false);
   const [autoRefresh, setAutoRefresh] = useState(true);
-  const [alertThresholds, setAlertThresholds] = useState({
+  const [alertThresholds] = useState({
     cpu_usage: 80,
     memory_usage: 85,
     response_time: 1000,
@@ -37,49 +37,7 @@ const AdminRealTimeMetrics = () => {
   const intervalRef = useRef(null);
   const mountedRef = useRef(true);
 
-  useEffect(() => {
-    loadRealTimeMetrics();
-
-    if (autoRefresh) {
-      intervalRef.current = setInterval(() => {
-        if (mountedRef.current) {
-          loadRealTimeMetrics();
-        }
-      }, 30000); // Actualizar cada 30 segundos
-    }
-
-    return () => {
-      mountedRef.current = false;
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    };
-  }, [autoRefresh]);
-
-  const loadRealTimeMetrics = async () => {
-    try {
-      setLoading(true);
-      const [metricsData, alertsData] = await Promise.all([
-        reportsService.getRealTimeMetrics(),
-        reportsService.getAlertHistory('1h')
-      ]);
-
-      if (mountedRef.current) {
-        setMetrics(metricsData);
-        setAlerts(alertsData.alerts || []);
-        setLastUpdate(new Date());
-        checkAlerts(metricsData);
-      }
-    } catch (error) {
-      console.error('Error loading real-time metrics:', error);
-    } finally {
-      if (mountedRef.current) {
-        setLoading(false);
-      }
-    }
-  };
-
-  const checkAlerts = (data) => {
+  const checkAlerts = useCallback((data) => {
     const newAlerts = [];
 
     // Verificar uso de CPU
@@ -133,7 +91,49 @@ const AdminRealTimeMetrics = () => {
     if (newAlerts.length > 0) {
       setAlerts(prev => [...newAlerts, ...prev.slice(0, 9)]); // Mantener solo las 10 más recientes
     }
-  };
+  }, [alertThresholds]);
+
+  const loadRealTimeMetrics = useCallback(async () => {
+    try {
+      setLoading(true);
+      const [metricsData, alertsData] = await Promise.all([
+        reportsService.getRealTimeMetrics(),
+        reportsService.getAlertHistory('1h')
+      ]);
+
+      if (mountedRef.current) {
+        setMetrics(metricsData);
+        setAlerts(alertsData.alerts || []);
+        setLastUpdate(new Date());
+        checkAlerts(metricsData);
+      }
+    } catch (error) {
+      console.error('Error loading real-time metrics:', error);
+    } finally {
+      if (mountedRef.current) {
+        setLoading(false);
+      }
+    }
+  }, [checkAlerts]);
+
+  useEffect(() => {
+    loadRealTimeMetrics();
+
+    if (autoRefresh) {
+      intervalRef.current = setInterval(() => {
+        if (mountedRef.current) {
+          loadRealTimeMetrics();
+        }
+      }, 30000); // Actualizar cada 30 segundos
+    }
+
+    return () => {
+      mountedRef.current = false;
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [autoRefresh, loadRealTimeMetrics]);
 
   const dismissAlert = (alertId) => {
     setAlerts(prev => prev.filter(alert => alert.id !== alertId));
@@ -153,12 +153,6 @@ const AdminRealTimeMetrics = () => {
 
   const formatPercentage = (num) => {
     return `${num.toFixed(1)}%`;
-  };
-
-  const getStatusColor = (value, thresholds) => {
-    if (value >= thresholds.error) return 'text-red-600 bg-red-50';
-    if (value >= thresholds.warning) return 'text-yellow-600 bg-yellow-50';
-    return 'text-green-600 bg-green-50';
   };
 
   const getStatusIcon = (value, thresholds) => {

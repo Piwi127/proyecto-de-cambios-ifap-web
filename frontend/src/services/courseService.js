@@ -136,7 +136,7 @@ export const courseService = {
         return response.data.results;
       }
       return Array.isArray(response.data) ? response.data : [];
-    } catch (error) {
+    } catch {
       try {
         const course = await this.getCourseById(courseId);
         const studentIds = Array.isArray(course?.students) ? course.students : [];

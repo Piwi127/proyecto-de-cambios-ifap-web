@@ -1,13 +1,11 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext.jsx';
 import Card from '../components/Card';
 import { quizService } from '../services/quizService.js';
 import { courseService } from '../services/courseService.js';
 
 const QuizImportExport = () => {
   const navigate = useNavigate();
-  const { user } = useAuth();
   const fileInputRef = useRef(null);
   const [importing, setImporting] = useState(false);
   const [exporting, setExporting] = useState(false);

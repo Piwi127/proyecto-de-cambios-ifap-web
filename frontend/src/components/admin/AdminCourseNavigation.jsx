@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useAdminNotifications } from './AdminNotificationSystem.jsx';
 
 const AdminCourseNavigation = ({
@@ -107,17 +107,17 @@ const AdminCourseNavigation = ({
     }
   ];
 
-  const keyboardShortcuts = [
+  const keyboardShortcuts = useMemo(() => ([
     { key: 'Ctrl + N', action: 'Crear nuevo curso', handler: onCreateCourse },
     { key: 'Ctrl + B', action: 'Operaciones masivas', handler: onBulkActions },
-    { key: 'Ctrl + S', action: 'Gestión de estados' },
-    { key: 'Ctrl + T', action: 'Transferencia de cursos' },
-    { key: 'Ctrl + P', action: 'Políticas del sistema' },
-    { key: 'Ctrl + M', action: 'Herramientas de mantenimiento' },
+    { key: 'Ctrl + S', action: 'Gestión de estados', handler: onStateManagement },
+    { key: 'Ctrl + T', action: 'Transferencia de cursos', handler: onTransferCourse },
+    { key: 'Ctrl + P', action: 'Políticas del sistema', handler: onPoliciesManagement },
+    { key: 'Ctrl + M', action: 'Herramientas de mantenimiento', handler: onMaintenanceTools },
     { key: 'Ctrl + F', action: 'Buscar cursos' },
     { key: 'Esc', action: 'Cerrar modal actual' },
     { key: 'F1', action: 'Mostrar ayuda' }
-  ];
+  ]), [onBulkActions, onCreateCourse, onMaintenanceTools, onPoliciesManagement, onStateManagement, onTransferCourse]);
 
   const handleNavigation = (item) => {
     if (item.action) {
@@ -127,16 +127,16 @@ const AdminCourseNavigation = ({
     }
   };
 
-  const handleKeyboardShortcut = (e, shortcut) => {
+  const handleKeyboardShortcut = useCallback((e, shortcut) => {
     if (shortcut.handler) {
       e.preventDefault();
       shortcut.handler();
       showInfo(`Acceso rápido: ${shortcut.action}`);
     }
-  };
+  }, [showInfo]);
 
   // Keyboard shortcuts listener
-  React.useEffect(() => {
+  useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.ctrlKey || e.metaKey) {
         switch (e.key.toLowerCase()) {
@@ -176,7 +176,7 @@ const AdminCourseNavigation = ({
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [showShortcuts]);
+  }, [handleKeyboardShortcut, keyboardShortcuts, showShortcuts]);
 
   return (
     <div className={`bg-white rounded-lg shadow-sm border border-gray-200 ${className}`}>

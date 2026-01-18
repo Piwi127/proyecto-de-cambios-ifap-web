@@ -35,7 +35,6 @@ const AdminReportConfig = () => {
   const [saving, setSaving] = useState(false);
   const [activeTab, setActiveTab] = useState('metrics');
   const [showAddMetric, setShowAddMetric] = useState(false);
-  const [showAddUser, setShowAddUser] = useState(false);
 
   const [newMetric, setNewMetric] = useState({
     name: '',
@@ -48,12 +47,6 @@ const AdminReportConfig = () => {
     category: 'general'
   });
 
-  const [newUserAccess, setNewUserAccess] = useState({
-    userId: '',
-    role: 'viewer',
-    permissions: [],
-    expiresAt: ''
-  });
 
   useEffect(() => {
     loadConfiguration();
@@ -145,26 +138,6 @@ const AdminReportConfig = () => {
     }));
   };
 
-  const addUserAccess = () => {
-    const userAccess = {
-      id: Date.now().toString(),
-      ...newUserAccess,
-      createdAt: new Date().toISOString()
-    };
-
-    setConfig(prev => ({
-      ...prev,
-      userAccess: [...prev.userAccess, userAccess]
-    }));
-
-    setNewUserAccess({
-      userId: '',
-      role: 'viewer',
-      permissions: [],
-      expiresAt: ''
-    });
-    setShowAddUser(false);
-  };
 
   const removeUserAccess = (userId) => {
     setConfig(prev => ({
@@ -512,13 +485,6 @@ const AdminReportConfig = () => {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h3 className="text-lg font-semibold">Control de Acceso</h3>
-        <button
-          onClick={() => setShowAddUser(true)}
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-        >
-          <Plus className="w-4 h-4" />
-          Agregar Usuario
-        </button>
       </div>
       
       <div className="grid gap-4">

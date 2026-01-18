@@ -9,7 +9,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     fetchMyCourses();
-  }, []);
+  }, [fetchMyCourses]);
 
   // Use real data from CourseContext, fallback to empty array if loading
   const enrolledCourses = myCourses || [];

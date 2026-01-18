@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useAuth } from '../../context/AuthContext.jsx';
 import PermissionCheck from '../PermissionCheck.jsx';
 
 const CourseAdminCard = ({
@@ -11,7 +10,6 @@ const CourseAdminCard = ({
   onDelete,
   onTransfer
 }) => {
-  const { hasPermission } = useAuth();
   const [showActions, setShowActions] = useState(false);
   const [showConfirmDialog, setShowConfirmDialog] = useState(null);
 

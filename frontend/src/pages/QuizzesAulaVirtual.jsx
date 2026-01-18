@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
 import { quizService } from '../services/quizService.js';
@@ -24,31 +24,31 @@ const QuizzesAulaVirtual = () => {
   const [showQuizForm, setShowQuizForm] = useState(null);
   const { user, isAuthenticated, loading: authLoading } = useAuth();
 
-  console.log('QuizzesAulaVirtual: Estado de autenticación:', { user, isAuthenticated, authLoading });
+  if (import.meta.env.DEV) {
+    console.log('QuizzesAulaVirtual: Estado de autenticación:', { user, isAuthenticated, authLoading });
+  }
 
-  useEffect(() => {
-    console.log('QuizzesAulaVirtual: useEffect ejecutado, authLoading:', authLoading);
-    if (!authLoading) {
-      fetchData();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [authLoading]); // fetchData es estable
-
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
-      console.log('QuizzesAulaVirtual: Iniciando fetchData');
-      console.log('QuizzesAulaVirtual: Usuario actual:', user);
+      if (import.meta.env.DEV) {
+        console.log('QuizzesAulaVirtual: Iniciando fetchData');
+        console.log('QuizzesAulaVirtual: Usuario actual:', user);
+      }
       setLoading(true);
       setError(null);
 
-      console.log('QuizzesAulaVirtual: Llamando a APIs...');
+      if (import.meta.env.DEV) {
+        console.log('QuizzesAulaVirtual: Llamando a APIs...');
+      }
       const [quizzesData, coursesData] = await Promise.all([
         quizService.getAllQuizzes(),
         courseService.getMyCourses()
       ]);
 
-      console.log('QuizzesAulaVirtual: Datos recibidos - Quizzes:', quizzesData);
-      console.log('QuizzesAulaVirtual: Datos recibidos - Cursos:', coursesData);
+      if (import.meta.env.DEV) {
+        console.log('QuizzesAulaVirtual: Datos recibidos - Quizzes:', quizzesData);
+        console.log('QuizzesAulaVirtual: Datos recibidos - Cursos:', coursesData);
+      }
       
       setQuizzes(quizzesData.results || quizzesData || []);
       setCourses(coursesData.results || coursesData || []);
@@ -58,7 +58,16 @@ const QuizzesAulaVirtual = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [user]);
+
+  useEffect(() => {
+    if (import.meta.env.DEV) {
+      console.log('QuizzesAulaVirtual: useEffect ejecutado, authLoading:', authLoading);
+    }
+    if (!authLoading) {
+      fetchData();
+    }
+  }, [authLoading, fetchData]);
 
   // Funciones de gestión de quizzes
   const handleCreateQuiz = () => {

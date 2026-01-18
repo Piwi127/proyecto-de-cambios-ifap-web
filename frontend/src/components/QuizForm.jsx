@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useAuth } from '../context/AuthContext.jsx';
+import React, { useCallback, useEffect, useState } from 'react';
 import { quizService } from '../services/quizService.js';
 import { courseService } from '../services/courseService.js';
 import { lessonService } from '../services/lessonService.js';
@@ -25,25 +24,16 @@ const QuizForm = ({ quiz, onSave, onCancel }) => {
   const [lessons, setLessons] = useState([]);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
-  const { user } = useAuth();
-
-  useEffect(() => {
-    fetchCourses();
-    if (formData.course) {
-      fetchLessons(formData.course);
-    }
-  }, []);
-
-  const fetchCourses = async () => {
+  const fetchCourses = useCallback(async () => {
     try {
       const coursesData = await courseService.getMyCourses();
       setCourses(coursesData);
     } catch (error) {
       console.error('Error fetching courses:', error);
     }
-  };
+  }, []);
 
-  const fetchLessons = async (courseId) => {
+  const fetchLessons = useCallback(async (courseId) => {
     try {
       const lessonsData = await lessonService.getAllLessons(courseId);
       const list = Array.isArray(lessonsData?.results) ? lessonsData.results : lessonsData;
@@ -51,7 +41,17 @@ const QuizForm = ({ quiz, onSave, onCancel }) => {
     } catch (error) {
       console.error('Error fetching lessons:', error);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchCourses();
+  }, [fetchCourses]);
+
+  useEffect(() => {
+    if (formData.course) {
+      fetchLessons(formData.course);
+    }
+  }, [fetchLessons, formData.course]);
 
   const handleCourseChange = (courseId) => {
     setFormData({ ...formData, course: courseId, lesson: '' });

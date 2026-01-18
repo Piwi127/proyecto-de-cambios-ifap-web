@@ -46,7 +46,7 @@ const AdminCustomReports = () => {
     format: 'json'
   });
 
-  const [availableFields, setAvailableFields] = useState({
+  const [availableFields] = useState({
     courses: [
       { id: 'id', name: 'ID', type: 'number' },
       { id: 'title', name: 'Título', type: 'string' },
@@ -226,11 +226,6 @@ const AdminCustomReports = () => {
       ...prev,
       columns: prev.columns.filter(col => col !== fieldId)
     }));
-  };
-
-  const getFieldName = (fieldId) => {
-    const field = availableFields[reportConfig.dataSource]?.find(f => f.id === fieldId);
-    return field?.name || fieldId;
   };
 
   const getReportTypeIcon = (type) => {

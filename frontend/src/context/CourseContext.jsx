@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer, useEffect } from 'react';
+import React, { createContext, useContext, useReducer, useEffect, useMemo } from 'react';
 import { useAuth } from './AuthContext';
 import { courseService } from '../services/courseService';
 import { lessonService } from '../services/lessonService';
@@ -119,7 +119,7 @@ const CourseProvider = ({ children }) => {
   const { isAuthenticated } = useAuth();
 
   // Acciones
-  const actions = {
+  const actions = useMemo(() => ({
     setLoading: (loading) => dispatch({ type: actionTypes.SET_LOADING, payload: loading }),
     setError: (error) => dispatch({ type: actionTypes.SET_ERROR, payload: error }),
 
@@ -224,7 +224,7 @@ const CourseProvider = ({ children }) => {
         dispatch({ type: actionTypes.SET_LOADING, payload: false });
       }
     }
-  };
+  }), [isAuthenticated]);
 
   // Efecto para cargar datos iniciales cuando el usuario se autentica
   useEffect(() => {
@@ -232,7 +232,7 @@ const CourseProvider = ({ children }) => {
       actions.fetchAllCourses();
       actions.fetchMyCourses();
     }
-  }, [isAuthenticated]);
+  }, [actions, isAuthenticated]);
 
   const value = {
     ...state,

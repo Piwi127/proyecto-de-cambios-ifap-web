@@ -1,31 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { useAuth } from '../context/AuthContext.jsx';
+import React, { useCallback, useEffect, useState } from 'react';
 import { quizService } from '../services/quizService.js';
 import Card from '../components/Card';
 
 const QuizResultsViewer = ({ quizId, onClose }) => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [filter, setFilter] = useState('all');
-  const { user } = useAuth();
 
-  useEffect(() => {
-    fetchResults();
-  }, [quizId]);
-
-  const fetchResults = async () => {
+  const fetchResults = useCallback(async () => {
     try {
       setLoading(true);
       const resultsData = await quizService.getQuizResults(quizId);
       setResults(resultsData);
     } catch (err) {
       console.error('Error fetching results:', err);
-      setError('Error al cargar los resultados');
     } finally {
       setLoading(false);
     }
-  };
+  }, [quizId]);
+
+  useEffect(() => {
+    fetchResults();
+  }, [fetchResults]);
 
   const filteredResults = results.filter(result => {
     if (filter === 'all') return true;
@@ -148,7 +144,7 @@ const QuizResultsViewer = ({ quizId, onClose }) => {
           {/* Lista de resultados */}
           <div className="space-y-4">
             {filteredResults.length > 0 ? (
-              filteredResults.map((result, index) => (
+              filteredResults.map((result) => (
                 <Card key={result.id}>
                   <div className="flex flex-col md:flex-row md:items-center justify-between">
                     <div className="flex-1">

@@ -5,7 +5,6 @@ import { useAuth } from '../context/AuthContext.jsx';
 const CommentItem = ({ comment, onReply, onLike, onLoadReplies, showReplies = false }) => {
   const [showReplyForm, setShowReplyForm] = useState(false);
   const [replyContent, setReplyContent] = useState('');
-  const { user } = useAuth();
 
   const handleReply = async () => {
     if (!replyContent.trim()) return;

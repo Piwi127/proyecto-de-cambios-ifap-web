@@ -37,12 +37,18 @@ api.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
 
-    // Manejar error con nuestro sistema centralizado
-    errorHandler.handleAPIError(error, {
-      url: originalRequest?.url,
-      method: originalRequest?.method,
-      endpoint: 'api_interceptor'
-    });
+    const suppressStatuses = originalRequest?.suppressErrorStatuses;
+    const shouldHandleError = !originalRequest?.suppressErrorHandler &&
+      !(Array.isArray(suppressStatuses) && suppressStatuses.includes(error.response?.status));
+
+    if (shouldHandleError) {
+      // Manejar error con nuestro sistema centralizado
+      errorHandler.handleAPIError(error, {
+        url: originalRequest?.url,
+        method: originalRequest?.method,
+        endpoint: 'api_interceptor'
+      });
+    }
 
     // If error is 401 and we haven't tried to refresh yet
     if (error.response?.status === 401 && !originalRequest._retry) {

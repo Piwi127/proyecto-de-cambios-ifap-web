@@ -188,16 +188,6 @@ const AdminExportTools = () => {
   };
 
   const handleBulkExport = async () => {
-    const bulkConfig = {
-      exports: [
-        { dataType: 'courses', format: 'xlsx' },
-        { dataType: 'users', format: 'csv' },
-        { dataType: 'enrollments', format: 'pdf' }
-      ],
-      dateRange: exportConfig.dateRange,
-      compression: true
-    };
-
     try {
       setIsExporting(true);
       // Implementar exportación masiva

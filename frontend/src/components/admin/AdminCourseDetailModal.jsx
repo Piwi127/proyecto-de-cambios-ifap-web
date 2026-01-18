@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { courseService } from '../../services/courseService.js';
 import AdminLoadingStates from './AdminLoadingStates.jsx';
 
@@ -9,13 +9,7 @@ const AdminCourseDetailModal = ({ course, isOpen, onClose, onUpdate }) => {
   const [studentProgress, setStudentProgress] = useState([]);
   const [courseHistory, setCourseHistory] = useState([]);
 
-  useEffect(() => {
-    if (isOpen && course) {
-      loadDetailedData();
-    }
-  }, [isOpen, course]);
-
-  const loadDetailedData = async () => {
+  const loadDetailedData = useCallback(async () => {
     setLoading(true);
     try {
       const [stats, progress, history] = await Promise.all([
@@ -32,7 +26,13 @@ const AdminCourseDetailModal = ({ course, isOpen, onClose, onUpdate }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [course?.id]);
+
+  useEffect(() => {
+    if (isOpen && course) {
+      loadDetailedData();
+    }
+  }, [course, isOpen, loadDetailedData]);
 
   if (!isOpen || !course) return null;
 

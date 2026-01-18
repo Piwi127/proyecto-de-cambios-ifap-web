@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { courseService } from '../../services/courseService.js';
 import { validateCourseForm, sanitizeCourseData, validateAdminPermissions } from '../../utils/validation.js';
 import { useAuth } from '../../context/AuthContext.jsx';
@@ -31,26 +31,7 @@ const AdminCourseDuplicate = ({ course, isOpen, onClose, onSuccess }) => {
   const [submitAttempted, setSubmitAttempted] = useState(false);
 
   // Validar permisos de administrador
-  useEffect(() => {
-    if (isOpen && user) {
-      const { hasPermission, error } = validateAdminPermissions(user, ['create_courses']);
-      if (!hasPermission) {
-        alert(error);
-        onClose();
-        return;
-      }
-      loadInstructors();
-    }
-  }, [isOpen, user, onClose]);
-
-  // Cargar datos del curso cuando se abra el modal
-  useEffect(() => {
-    if (isOpen && course) {
-      loadCourseData();
-    }
-  }, [isOpen, course]);
-
-  const loadInstructors = async () => {
+  const loadInstructors = useCallback(async () => {
     try {
       // Simular carga de instructores - en un caso real vendría de una API
       const mockInstructors = [
@@ -62,9 +43,9 @@ const AdminCourseDuplicate = ({ course, isOpen, onClose, onSuccess }) => {
     } catch (error) {
       console.error('Error loading instructors:', error);
     }
-  };
+  }, []);
 
-  const loadCourseData = () => {
+  const loadCourseData = useCallback(() => {
     if (!course) return;
 
     // Crear título duplicado
@@ -89,7 +70,25 @@ const AdminCourseDuplicate = ({ course, isOpen, onClose, onSuccess }) => {
     };
 
     setFormData(courseData);
-  };
+  }, [course]);
+
+  useEffect(() => {
+    if (isOpen && user) {
+      const { hasPermission, error } = validateAdminPermissions(user, ['create_courses']);
+      if (!hasPermission) {
+        alert(error);
+        onClose();
+        return;
+      }
+      loadInstructors();
+    }
+  }, [isOpen, loadInstructors, onClose, user]);
+
+  useEffect(() => {
+    if (isOpen && course) {
+      loadCourseData();
+    }
+  }, [course, isOpen, loadCourseData]);
 
   const handleInputChange = (field, value) => {
     setFormData(prev => ({

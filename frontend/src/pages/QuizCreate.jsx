@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
 import { quizService } from '../services/quizService.js';
@@ -29,9 +29,28 @@ const QuizCreate = () => {
     show_results_immediately: false
   });
 
+  const fetchCourses = useCallback(async () => {
+    try {
+      const coursesData = await courseService.getMyCourses();
+      setCourses(coursesData);
+    } catch (error) {
+      console.error('Error fetching courses:', error);
+    }
+  }, []);
+
+  const fetchLessons = useCallback(async (courseId) => {
+    try {
+      const lessonsData = await lessonService.getAllLessons(courseId);
+      const list = Array.isArray(lessonsData?.results) ? lessonsData.results : lessonsData;
+      setLessons(Array.isArray(list) ? list : []);
+    } catch (error) {
+      console.error('Error fetching lessons:', error);
+    }
+  }, []);
+
   useEffect(() => {
     fetchCourses();
-  }, []);
+  }, [fetchCourses]);
 
   useEffect(() => {
     const template = location.state?.template;
@@ -51,30 +70,11 @@ const QuizCreate = () => {
 
   useEffect(() => {
     if (formData.course) {
-      fetchLessons();
+      fetchLessons(formData.course);
     } else {
       setLessons([]);
     }
-  }, [formData.course]);
-
-  const fetchCourses = async () => {
-    try {
-      const coursesData = await courseService.getMyCourses();
-      setCourses(coursesData);
-    } catch (error) {
-      console.error('Error fetching courses:', error);
-    }
-  };
-
-  const fetchLessons = async () => {
-    try {
-      const lessonsData = await lessonService.getAllLessons(formData.course);
-      const list = Array.isArray(lessonsData?.results) ? lessonsData.results : lessonsData;
-      setLessons(Array.isArray(list) ? list : []);
-    } catch (error) {
-      console.error('Error fetching lessons:', error);
-    }
-  };
+  }, [fetchLessons, formData.course]);
 
   const validateForm = () => {
     const newErrors = {};

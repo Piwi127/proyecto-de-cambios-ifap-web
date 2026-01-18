@@ -10,23 +10,15 @@ import {
   Eye,
   Check,
   X,
-  Settings,
-  UserCheck,
-  Crown,
-  GraduationCap,
-  BookOpen
+  Settings
 } from 'lucide-react';
-import { useAuth } from '../context/AuthContext.jsx';
 import Card from '../components/Card';
 
 const AdminPermissions = () => {
   const navigate = useNavigate();
-  const { user } = useAuth();
   const [roles, setRoles] = useState([]);
   const [permissions, setPermissions] = useState([]);
-  const [selectedRole, setSelectedRole] = useState(null);
-  const [showRoleModal, setShowRoleModal] = useState(false);
-  const [showPermissionModal, setShowPermissionModal] = useState(false);
+  const [, setSelectedRole] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -165,23 +157,6 @@ const AdminPermissions = () => {
     }
   };
 
-  const getRoleIcon = (roleName) => {
-    switch (roleName.toLowerCase()) {
-      case 'super administrador':
-        return <Crown className="w-5 h-5" />;
-      case 'administrador':
-        return <Settings className="w-5 h-5" />;
-      case 'docente':
-        return <GraduationCap className="w-5 h-5" />;
-      case 'estudiante':
-        return <BookOpen className="w-5 h-5" />;
-      case 'bibliotecario':
-        return <BookOpen className="w-5 h-5" />;
-      default:
-        return <Users className="w-5 h-5" />;
-    }
-  };
-
   const getRoleColor = (color) => {
     const colors = {
       red: 'bg-red-100 text-red-800 border-red-200',
@@ -206,12 +181,12 @@ const AdminPermissions = () => {
 
   const handleCreateRole = () => {
     setSelectedRole(null);
-    setShowRoleModal(true);
+    alert('Creacion de roles pendiente de implementacion');
   };
 
   const handleEditRole = (role) => {
     setSelectedRole(role);
-    setShowRoleModal(true);
+    alert('Edicion de roles pendiente de implementacion');
   };
 
   const handleDeleteRole = async (roleId) => {
@@ -220,26 +195,12 @@ const AdminPermissions = () => {
     }
 
     // TODO: Implementar eliminación
-    alert('Rol eliminado exitosamente');
+    alert(`Rol ${roleId} eliminado exitosamente`);
     loadRolesAndPermissions();
   };
 
   const handleCreatePermission = () => {
-    setShowPermissionModal(true);
-  };
-
-  const handleRoleSubmit = async (roleData) => {
-    // TODO: Implementar creación/edición de rol
-    alert(selectedRole ? 'Rol actualizado exitosamente' : 'Rol creado exitosamente');
-    setShowRoleModal(false);
-    loadRolesAndPermissions();
-  };
-
-  const handlePermissionSubmit = async (permissionData) => {
-    // TODO: Implementar creación de permiso
-    alert('Permiso creado exitosamente');
-    setShowPermissionModal(false);
-    loadRolesAndPermissions();
+    alert('Creacion de permisos pendiente de implementacion');
   };
 
   if (loading) {

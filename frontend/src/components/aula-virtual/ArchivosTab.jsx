@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { courseService } from '../../services/courseService.js';
 import { useAuth } from '../../context/AuthContext.jsx';
 import './ArchivosTab.css';
@@ -15,13 +15,7 @@ const ArchivosTab = ({ courseId }) => {
 
   const isInstructor = user?.role === 'instructor' || user?.role === 'admin';
 
-  useEffect(() => {
-    if (courseId) {
-      fetchFiles();
-    }
-  }, [courseId]);
-
-  const fetchFiles = async () => {
+  const fetchFiles = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -34,7 +28,13 @@ const ArchivosTab = ({ courseId }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [courseId]);
+
+  useEffect(() => {
+    if (courseId) {
+      fetchFiles();
+    }
+  }, [courseId, fetchFiles]);
 
   const handleUploadFile = async (fileData) => {
     try {

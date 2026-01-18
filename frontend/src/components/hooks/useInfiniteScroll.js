@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 export const useScrollTrigger = (callback, options = {}) => {
   const { threshold = 100 } = options;

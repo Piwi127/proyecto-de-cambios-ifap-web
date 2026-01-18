@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
@@ -9,11 +9,9 @@ const Navbar = () => {
   const [clickedItem, setClickedItem] = useState(null);
   const [activeSubmenu, setActiveSubmenu] = useState(null);
   const [isSubmenuHovered, setIsSubmenuHovered] = useState(false);
-  const [submenuTimeout, setSubmenuTimeout] = useState(null);
-  const [submenuShowTimeout, setSubmenuShowTimeout] = useState(null);
-  const [isMenuHovered, setIsMenuHovered] = useState(false);
+  const submenuTimeoutRef = useRef(null);
   const [submenuVisible, setSubmenuVisible] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(() => {
+  const [isDarkMode] = useState(() => {
     const saved = localStorage.getItem('theme');
     return saved === 'dark' || (!saved&&window.matchMedia('(prefers-color-scheme:dark)').matches);
   });
@@ -28,28 +26,20 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
     setActiveSubmenu(null);
     setIsSubmenuHovered(false);
-    setIsMenuHovered(false);
-    if (submenuTimeout) {
-      clearTimeout(submenuTimeout);
-      setSubmenuTimeout(null);
-    }
-    if (submenuShowTimeout) {
-      clearTimeout(submenuShowTimeout);
-      setSubmenuShowTimeout(null);
+    if (submenuTimeoutRef.current) {
+      clearTimeout(submenuTimeoutRef.current);
+      submenuTimeoutRef.current = null;
     }
   }, [location]);
 
   // Cleanup timeouts on unmount
   useEffect(() => {
     return () => {
-      if (submenuTimeout) {
-        clearTimeout(submenuTimeout);
-      }
-      if (submenuShowTimeout) {
-        clearTimeout(submenuShowTimeout);
+      if (submenuTimeoutRef.current) {
+        clearTimeout(submenuTimeoutRef.current);
       }
     };
-  }, [submenuTimeout, submenuShowTimeout]);
+  }, []);
 
   // Theme management
   useEffect(() => {
@@ -101,11 +91,6 @@ const Navbar = () => {
     setTimeout(() => setClickedItem(null), 300);
   };
 
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-    handleItemClick('theme');
-  };
-
   const startVoiceSearch = () => {
     if (recognition && !isListening){
       recognition.start();
@@ -145,9 +130,9 @@ const Navbar = () => {
 
   const handleSubmenuHover = (itemPath, isHovering) => {
     if (isHovering) {
-      if (submenuTimeout) {
-        clearTimeout(submenuTimeout);
-        setSubmenuTimeout(null);
+      if (submenuTimeoutRef.current) {
+        clearTimeout(submenuTimeoutRef.current);
+        submenuTimeoutRef.current = null;
       }
       setActiveSubmenu(itemPath);
       setSubmenuVisible(true);
@@ -158,16 +143,16 @@ const Navbar = () => {
           setActiveSubmenu(null);
         }
       }, 350);
-      setSubmenuTimeout(timeout);
+      submenuTimeoutRef.current = timeout;
     }
   };
 
   const handleSubmenuMouseEnter = () => {
     setIsSubmenuHovered(true);
     setSubmenuVisible(true);
-    if (submenuTimeout) {
-      clearTimeout(submenuTimeout);
-      setSubmenuTimeout(null);
+    if (submenuTimeoutRef.current) {
+      clearTimeout(submenuTimeoutRef.current);
+      submenuTimeoutRef.current = null;
     }
   };
 
@@ -175,11 +160,11 @@ const Navbar = () => {
     setIsSubmenuHovered(false);
     setSubmenuVisible(false);
     const timeout = setTimeout(() => {
-      if (!isMenuHovered&&!isSubmenuHovered){
+      if (!isSubmenuHovered){
         setActiveSubmenu(null);
       }
     }, 350);
-    setSubmenuTimeout(timeout);
+    submenuTimeoutRef.current = timeout;
   };
 
   return (
@@ -206,7 +191,7 @@ const Navbar = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-1 relative">
-              {navItems.map((item, index) => (
+              {navItems.map((item) => (
                 <div
                   key={item.path}
                   className="relative"

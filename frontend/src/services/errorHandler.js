@@ -5,6 +5,8 @@
 class ErrorHandler {
   constructor() {
     this.errorSubscribers = [];
+    this.recentErrors = new Map();
+    this.throttleWindowMs = 10000;
     this.setupGlobalErrorHandlers();
   }
 
@@ -133,6 +135,28 @@ class ErrorHandler {
       userId: this.getCurrentUserId(),
       sessionId: this.getSessionId()
     };
+
+    const key = [
+      errorInfo.type || 'unknown',
+      errorInfo.status || '0',
+      errorInfo.code || 'unknown',
+      logData.url || '',
+      errorInfo.message || ''
+    ].join('|');
+    const now = Date.now();
+    const lastLogged = this.recentErrors.get(key);
+    if (lastLogged && now - lastLogged < this.throttleWindowMs) {
+      return;
+    }
+    this.recentErrors.set(key, now);
+    if (this.recentErrors.size > 200) {
+      const cutoff = now - this.throttleWindowMs;
+      for (const [storedKey, timestamp] of this.recentErrors.entries()) {
+        if (timestamp < cutoff) {
+          this.recentErrors.delete(storedKey);
+        }
+      }
+    }
 
     // Console log en desarrollo
     if (import.meta.env.DEV) {

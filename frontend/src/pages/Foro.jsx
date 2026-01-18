@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import forumService from '../services/forumService';
@@ -27,15 +27,7 @@ const Foro = () => {
   const [showCreateTopic, setShowCreateTopic] = useState(false);
   const [forumStats, setForumStats] = useState(null);
 
-  useEffect(() => {
-    loadForumData();
-  }, []);
-
-  useEffect(() => {
-    loadTopics();
-  }, [selectedCategory, searchTerm]);
-
-  const loadForumData = async () => {
+  const loadForumData = useCallback(async () => {
     try {
       setLoading(true);
       const [categoriesData, statsData] = await Promise.all([
@@ -49,9 +41,9 @@ const Foro = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
-  const loadTopics = async () => {
+  const loadTopics = useCallback(async () => {
     try {
       const topicsData = await forumService.getTopics(
         selectedCategory?.id, 
@@ -61,7 +53,15 @@ const Foro = () => {
     } catch (error) {
       console.error('Error loading topics:', error);
     }
-  };
+  }, [searchTerm, selectedCategory]);
+
+  useEffect(() => {
+    loadForumData();
+  }, [loadForumData]);
+
+  useEffect(() => {
+    loadTopics();
+  }, [loadTopics]);
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);

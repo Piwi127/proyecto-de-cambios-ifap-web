@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-const NavbarDesktopNav = ({ navItems, isActive, handleItemClick, isDarkMode }) => {
+const NavbarDesktopNav = ({ navItems, isActive, handleItemClick }) => {
   const location = useLocation();
 
   return (

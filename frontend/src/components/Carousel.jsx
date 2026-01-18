@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Carousel = () => {
@@ -49,37 +49,37 @@ const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     if (isTransitioning) return;
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
       setIsTransitioning(false);
     }, 300);
-  };
+  }, [images.length, isTransitioning]);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     if (isTransitioning) return;
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
       setIsTransitioning(false);
     }, 300);
-  };
+  }, [images.length, isTransitioning]);
 
-  const goToSlide = (index) => {
+  const goToSlide = useCallback((index) => {
     if (isTransitioning || index === currentIndex) return;
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentIndex(index);
       setIsTransitioning(false);
     }, 300);
-  };
+  }, [currentIndex, isTransitioning]);
 
   useEffect(() => {
     const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
-  }, [currentIndex, isTransitioning]);
+  }, [nextSlide]);
 
   return (
     <div className="relative w-full h-screen overflow-hidden bg-gradient-to-br from-primary-50 to-primary-100 dark:from-neutral-900 dark:to-neutral-800">

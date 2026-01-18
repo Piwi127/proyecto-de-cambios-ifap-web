@@ -5,7 +5,6 @@ export const useInfiniteScroll = (fetchFunction, options = {}) => {
   const {
     initialPage = 1,
     pageSize = 20,
-    threshold = 100, // píxeles antes del final para cargar más
     enabled = true
   } = options;
 
@@ -66,7 +65,7 @@ export const useInfiniteScroll = (fetchFunction, options = {}) => {
     if (enabled) {
       loadMore(true);
     }
-  }, [enabled]); // Solo dependemos de enabled para evitar loops
+  }, [enabled, loadMore]);
 
   return {
     data,

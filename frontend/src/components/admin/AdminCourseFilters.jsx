@@ -56,7 +56,7 @@ const AdminCourseFilters = ({
   };
 
   const getActiveFiltersCount = () => {
-    const { search, sortBy, sortOrder, ...filterFields } = localFilters;
+    const { search: _search, sortBy: _sortBy, sortOrder: _sortOrder, ...filterFields } = localFilters;
     return Object.values(filterFields).filter(value =>
       value !== '' && value !== null && value !== undefined
     ).length;

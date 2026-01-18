@@ -126,6 +126,11 @@ export const gradeSubmission = async (id, score, feedback = '') => {
   return response.data;
 };
 
+export const deleteSubmission = async (id) => {
+  const response = await api.delete(`/tasks/submissions/${id}/`);
+  return response.data;
+};
+
 export const addCommentToSubmission = async (submissionId, content, isPrivate = false) => {
   const response = await api.post(`/tasks/submissions/${submissionId}/add_comment/`, {
     content,

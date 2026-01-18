@@ -8,3 +8,101 @@
   ➜  Local:   http://localhost:5174/
   ➜  Network: http://192.168.1.6:5174/
 [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+5:12:46 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:12:49 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:12:53 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:13:34 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:13:39 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:34:00 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css, /src/components/Carousel.jsx
+5:34:08 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:34:13 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:34:48 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:34:57 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:35:20 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:35:43 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:35:54 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:36:06 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:36:24 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css, /src/components/RoleBasedStats.jsx
+5:36:32 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:36:41 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:36:54 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:37:22 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:37:34 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:37:56 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:38:14 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:38:25 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:38:42 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:39:09 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:39:24 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:39:46 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:40:03 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:40:16 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:40:41 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:41:22 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:41:59 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:42:04 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:42:17 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:42:31 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:42:41 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:42:54 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:43:09 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:43:52 p. m. [vite] (client) hmr update /src/context/CourseContext.jsx, /src/index.css, /src/components/UniversityMenu.css
+5:43:52 p. m. [vite] (client) hmr invalidate /src/context/CourseContext.jsx Could not Fast Refresh ("useCourse" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+5:43:52 p. m. [vite] (client) page reload src/context/CourseContext.jsx
+5:44:07 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:44:29 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:45:19 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:45:32 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:45:42 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:45:51 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:46:00 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:46:21 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:46:34 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:46:50 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:46:55 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:47:09 p. m. [vite] (client) hmr update /src/pages/CalendarioAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
+5:47:16 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:47:29 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:47:41 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:48:05 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:48:26 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:48:38 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:48:57 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:49:14 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:49:27 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:49:44 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:50:14 p. m. [vite] (client) hmr update /src/context/CourseContext.jsx, /src/pages/DashboardAulaVirtual.jsx, /src/pages/DashboardProfesor.jsx, /src/components/RoleBasedStats.jsx, /src/pages/CursosAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
+5:50:14 p. m. [vite] (client) hmr invalidate /src/context/CourseContext.jsx Could not Fast Refresh ("useCourse" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+5:50:14 p. m. [vite] (client) page reload src/context/CourseContext.jsx
+5:52:46 p. m. [vite] (client) hmr update /src/context/CourseContext.jsx, /src/pages/DashboardAulaVirtual.jsx, /src/pages/DashboardProfesor.jsx, /src/components/RoleBasedStats.jsx, /src/pages/CursosAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
+5:52:46 p. m. [vite] (client) hmr invalidate /src/context/CourseContext.jsx Could not Fast Refresh ("useCourse" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+5:52:46 p. m. [vite] (client) page reload src/context/CourseContext.jsx
+5:52:49 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:52:52 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:53:14 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:53:17 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:53:21 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:53:54 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:54:00 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:54:03 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:54:08 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:55:28 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:55:33 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css
+5:55:37 p. m. [vite] (client) hmr update /src/context/CourseContext.jsx, /src/pages/DashboardAulaVirtual.jsx, /src/pages/DashboardProfesor.jsx, /src/components/RoleBasedStats.jsx, /src/pages/CursosAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
+5:55:38 p. m. [vite] (client) hmr invalidate /src/context/CourseContext.jsx Could not Fast Refresh ("useCourse" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+5:55:38 p. m. [vite] (client) page reload src/context/CourseContext.jsx
+6:16:14 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css, /src/context/AuthContext.jsx, /src/context/CourseContext.jsx, /src/pages/DashboardAulaVirtual.jsx, /src/pages/DashboardProfesor.jsx, /src/components/RoleBasedStats.jsx, /src/pages/CursosAulaVirtual.jsx, /src/pages/QuizzesAulaVirtual.jsx, /src/components/QuizForm.jsx, /src/pages/CalificacionesAulaVirtual.jsx, /src/pages/GestionCursosAdmin.jsx, /src/components/admin/CourseTransferModal.jsx, /src/components/admin/AdminCourseDetailModal.jsx, /src/components/admin/AdminCourseCreate.jsx, /src/components/admin/AdminCourseEdit.jsx, /src/components/admin/AdminCourseDuplicate.jsx, /src/components/RoleBasedActions.jsx, /src/pages/AdminDashboard.jsx, /src/pages/CalendarioAulaVirtual.jsx, /src/components/ReminderModal.jsx, /src/components/QuizResultsViewer.jsx, /src/components/QuizQuestionsManager.jsx, /src/pages/Foro.jsx, /src/pages/NotificacionesAulaVirtual.jsx
+6:16:15 p. m. [vite] (client) hmr invalidate /src/context/AuthContext.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+6:16:15 p. m. [vite] (client) page reload src/context/AuthContext.jsx
+6:16:15 p. m. [vite] (client) hmr invalidate /src/context/CourseContext.jsx Could not Fast Refresh ("useCourse" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+6:16:15 p. m. [vite] (client) page reload src/context/CourseContext.jsx
+6:16:19 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css, /src/context/AuthContext.jsx, /src/context/CourseContext.jsx, /src/pages/DashboardAulaVirtual.jsx, /src/pages/DashboardProfesor.jsx, /src/components/RoleBasedStats.jsx, /src/pages/CursosAulaVirtual.jsx, /src/pages/QuizzesAulaVirtual.jsx, /src/components/QuizForm.jsx, /src/pages/CalificacionesAulaVirtual.jsx, /src/pages/GestionCursosAdmin.jsx, /src/components/admin/CourseTransferModal.jsx, /src/components/admin/AdminCourseDetailModal.jsx, /src/components/admin/AdminCourseCreate.jsx, /src/components/admin/AdminCourseEdit.jsx, /src/components/admin/AdminCourseDuplicate.jsx, /src/components/RoleBasedActions.jsx, /src/pages/AdminDashboard.jsx, /src/pages/CalendarioAulaVirtual.jsx, /src/components/ReminderModal.jsx, /src/components/QuizResultsViewer.jsx, /src/components/QuizQuestionsManager.jsx, /src/pages/Foro.jsx, /src/pages/NotificacionesAulaVirtual.jsx
+6:16:20 p. m. [vite] (client) hmr invalidate /src/context/AuthContext.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+6:16:20 p. m. [vite] (client) page reload src/context/AuthContext.jsx
+6:16:20 p. m. [vite] (client) hmr invalidate /src/context/CourseContext.jsx Could not Fast Refresh ("useCourse" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+6:16:20 p. m. [vite] (client) page reload src/context/CourseContext.jsx
+6:16:29 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css, /src/pages/CalendarioAulaVirtual.jsx, /src/components/ReminderModal.jsx
+6:16:39 p. m. [vite] (client) hmr update /src/pages/QuizzesAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css
+6:16:51 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css, /src/pages/DashboardProfesor.jsx
+6:17:30 p. m. [vite] (client) hmr update /src/index.css, /src/components/UniversityMenu.css, /src/pages/DashboardProfesor.jsx
+6:17:37 p. m. [vite] (client) hmr update /src/pages/QuizzesAulaVirtual.jsx, /src/index.css, /src/components/UniversityMenu.css

@@ -36,17 +36,25 @@ const unwrapApiList = (data) => {
   return null;
 };
 
+let remindersApiAvailable = true;
+
 const tryApi = async (fn) => {
+  if (!remindersApiAvailable) {
+    return { ok: false, skipped: true };
+  }
   try {
     const response = await fn();
     return { ok: true, data: response.data };
   } catch (error) {
+    if (error?.response?.status === 404) {
+      remindersApiAvailable = false;
+    }
     return { ok: false, error };
   }
 };
 
 const getReminders = async () => {
-  const apiResult = await tryApi(() => api.get('/reminders/'));
+  const apiResult = await tryApi(() => api.get('/reminders/', { suppressErrorStatuses: [404] }));
   if (apiResult.ok) {
     const list = unwrapApiList(apiResult.data);
     if (list) return list.map(normalizeReminder);
@@ -55,7 +63,7 @@ const getReminders = async () => {
 };
 
 const createReminder = async (payload) => {
-  const apiResult = await tryApi(() => api.post('/reminders/', payload));
+  const apiResult = await tryApi(() => api.post('/reminders/', payload, { suppressErrorStatuses: [404] }));
   if (apiResult.ok) return normalizeReminder(apiResult.data);
 
   const reminders = getLocalReminders();
@@ -69,7 +77,7 @@ const createReminder = async (payload) => {
 };
 
 const updateReminder = async (reminderId, payload) => {
-  const apiResult = await tryApi(() => api.put(`/reminders/${reminderId}/`, payload));
+  const apiResult = await tryApi(() => api.put(`/reminders/${reminderId}/`, payload, { suppressErrorStatuses: [404] }));
   if (apiResult.ok) return normalizeReminder(apiResult.data);
 
   const reminders = getLocalReminders();
@@ -81,7 +89,7 @@ const updateReminder = async (reminderId, payload) => {
 };
 
 const deleteReminder = async (reminderId) => {
-  const apiResult = await tryApi(() => api.delete(`/reminders/${reminderId}/`));
+  const apiResult = await tryApi(() => api.delete(`/reminders/${reminderId}/`, { suppressErrorStatuses: [404] }));
   if (apiResult.ok) return true;
 
   const reminders = getLocalReminders().filter((reminder) => reminder.id !== reminderId);

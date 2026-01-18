@@ -40,7 +40,7 @@ const playNotificationSound = (type) => {
 
       oscillator.start(audioContext.currentTime);
       oscillator.stop(audioContext.currentTime + 0.3);
-    } catch (error) {
+    } catch {
       // Silently fail if audio context is not available
       console.debug('Audio notification not available');
     }
@@ -502,12 +502,10 @@ export const withAdminNotifications = (Component) => {
   return (props) => {
     const notificationContext = useAdminNotifications();
 
-    return (
-      <Component
-        {...props}
-        notifications={notificationContext}
-      />
-    );
+    return React.createElement(Component, {
+      ...props,
+      notifications: notificationContext
+    });
   };
 };
 

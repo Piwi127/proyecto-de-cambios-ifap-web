@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 
 const MiniCarousel = ({ images = [], title = "Galería del Curso" }) => {
   // Imágenes por defecto si no se proporcionan
@@ -24,37 +24,37 @@ const MiniCarousel = ({ images = [], title = "Galería del Curso" }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     if (isTransitioning) return;
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
       setIsTransitioning(false);
     }, 300);
-  };
+  }, [carouselImages.length, isTransitioning]);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     if (isTransitioning) return;
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex - 1 + carouselImages.length) % carouselImages.length);
       setIsTransitioning(false);
     }, 300);
-  };
+  }, [carouselImages.length, isTransitioning]);
 
-  const goToSlide = (index) => {
+  const goToSlide = useCallback((index) => {
     if (isTransitioning || index === currentIndex) return;
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentIndex(index);
       setIsTransitioning(false);
     }, 300);
-  };
+  }, [currentIndex, isTransitioning]);
 
   useEffect(() => {
     const interval = setInterval(nextSlide, 4000);
     return () => clearInterval(interval);
-  }, [currentIndex, isTransitioning]);
+  }, [nextSlide]);
 
   return (
     <div className="w-full max-w-4xl mx-auto mb-12">

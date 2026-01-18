@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import forumService from '../services/forumService';
@@ -28,11 +28,7 @@ const ForoTema = () => {
   const [submittingReply, setSubmittingReply] = useState(false);
   const [showReplyForm, setShowReplyForm] = useState(false);
 
-  useEffect(() => {
-    loadTopicData();
-  }, [topicId]);
-
-  const loadTopicData = async () => {
+  const loadTopicData = useCallback(async () => {
     try {
       setLoading(true);
       const [topicData, repliesData] = await Promise.all([
@@ -46,7 +42,11 @@ const ForoTema = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [topicId]);
+
+  useEffect(() => {
+    loadTopicData();
+  }, [loadTopicData]);
 
   const handleLikeTopic = async () => {
     try {

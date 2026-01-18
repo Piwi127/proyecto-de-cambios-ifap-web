@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import {
   Shield,
   Eye,
@@ -46,19 +46,21 @@ const AdminAuditSystem = () => {
   const [selectedLog, setSelectedLog] = useState(null);
   const [showDetails, setShowDetails] = useState(false);
 
-  useEffect(() => {
-    loadAuditLogs();
-  }, [filters, currentPage]);
-
-  useEffect(() => {
-    // Registrar acceso al sistema de auditoría
-    logAuditAction('audit_system_access', {
-      component: 'AdminAuditSystem',
-      timestamp: new Date().toISOString()
-    });
+  const getUserIP = useCallback(async () => {
+    try {
+      const response = await fetch('https://api.ipify.org?format=json');
+      const data = await response.json();
+      return data.ip;
+    } catch {
+      return 'unknown';
+    }
   }, []);
 
-  const loadAuditLogs = async () => {
+  const getSessionId = useCallback(() => {
+    return sessionStorage.getItem('sessionId') || 'unknown';
+  }, []);
+
+  const loadAuditLogs = useCallback(async () => {
     try {
       setLoading(true);
       const response = await reportsService.getAuditLogs(filters.timeRange, {
@@ -77,9 +79,9 @@ const AdminAuditSystem = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [currentPage, filters, searchTerm]);
 
-  const logAuditAction = async (action, details = {}) => {
+  const logAuditAction = useCallback(async (action, details = {}) => {
     try {
       await reportsService.logAuditAction(action, {
         ...details,
@@ -93,21 +95,18 @@ const AdminAuditSystem = () => {
     } catch (error) {
       console.error('Error logging audit action:', error);
     }
-  };
+  }, [getSessionId, getUserIP, user]);
 
-  const getUserIP = async () => {
-    try {
-      const response = await fetch('https://api.ipify.org?format=json');
-      const data = await response.json();
-      return data.ip;
-    } catch (error) {
-      return 'unknown';
-    }
-  };
+  useEffect(() => {
+    loadAuditLogs();
+  }, [loadAuditLogs]);
 
-  const getSessionId = () => {
-    return sessionStorage.getItem('sessionId') || 'unknown';
-  };
+  useEffect(() => {
+    logAuditAction('audit_system_access', {
+      component: 'AdminAuditSystem',
+      timestamp: new Date().toISOString()
+    });
+  }, [logAuditAction]);
 
   const generateSampleAuditLogs = () => {
     const actions = [

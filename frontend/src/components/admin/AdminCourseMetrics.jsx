@@ -8,7 +8,7 @@ const AdminCourseMetrics = ({
   refreshInterval = 30000 // 30 seconds
 }) => {
   const [activeTab, setActiveTab] = useState('overview');
-  const [chartType, setChartType] = useState('bar');
+  const [chartType] = useState('bar');
   const [selectedMetric, setSelectedMetric] = useState('courses');
   const [realTimeData, setRealTimeData] = useState(metrics);
   const [lastUpdate, setLastUpdate] = useState(new Date());
@@ -94,7 +94,7 @@ const AdminCourseMetrics = ({
   };
 
   // Simple chart component (in a real app, you'd use Chart.js or similar)
-  const SimpleChart = ({ data, type = 'bar' }) => {
+  const SimpleChart = ({ data }) => {
     const maxValue = Math.max(...data.datasets[0].data);
     const chartHeight = 200;
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { courseService } from '../../services/courseService.js';
 import { useAuth } from '../../context/AuthContext.jsx';
 import './TareasTab.css';
@@ -16,13 +16,7 @@ const TareasTab = ({ courseId }) => {
 
   const isInstructor = user?.role === 'instructor' || user?.role === 'admin';
 
-  useEffect(() => {
-    if (courseId) {
-      fetchTasks();
-    }
-  }, [courseId]);
-
-  const fetchTasks = async () => {
+  const fetchTasks = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -35,7 +29,13 @@ const TareasTab = ({ courseId }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [courseId]);
+
+  useEffect(() => {
+    if (courseId) {
+      fetchTasks();
+    }
+  }, [courseId, fetchTasks]);
 
   const handleCreateTask = async (taskData) => {
     try {
